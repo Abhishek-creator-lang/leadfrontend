@@ -1,0 +1,27 @@
+{
+  "slug": "optimize-network-requests",
+  "format": "quiz",
+  "title": "How can you optimize network requests for better performance?",
+  "excerpt": "Fewer, smaller, earlier, cached and prioritised requests.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "performance",
+    "network"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://web.dev/articles/fetch-priority",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Compression"
+  ]
+}

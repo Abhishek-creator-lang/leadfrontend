@@ -1,0 +1,24 @@
+{
+  "slug": "collaborative-editor",
+  "format": "system-design",
+  "title": "Collaborative Document Editor (e.g. Google Docs)",
+  "excerpt": "Design a real-time collaborative rich-text editor with presence, comments, offline edits and version history.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 60,
+  "topics": ["system design", "real-time", "crdt", "operational transformation", "websockets", "rich text", "offline"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Google", "Microsoft", "Notion"],
+  "sdType": "application",
+  "source": { "type": "original" },
+  "references": [
+    "https://docs.yjs.dev/",
+    "https://automerge.org/docs/hello/",
+    "https://prosemirror.net/docs/guide/",
+    "https://crdt.tech/",
+    "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API",
+    "https://www.w3.org/TR/input-events-2/"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "data-table-component",
+  "format": "system-design",
+  "title": "Data Table / Data Grid Component",
+  "excerpt": "Design a reusable data table with sorting, filtering, pagination, selection, column resizing and virtualization.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "component design", "virtualization", "accessibility", "pagination", "performance"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Google", "Microsoft", "Atlassian", "Stripe"],
+  "sdType": "component",
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/table/",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table",
+    "https://tanstack.com/table/latest",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/position#sticky_positioning",
+    "https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "why-not-mutate-state-in-react",
+  "format": "quiz",
+  "title": "Why does React recommend against mutating state?",
+  "excerpt": "Reference equality, memoization, snapshots and concurrent rendering all assume immutability.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "react",
+    "state",
+    "immutability"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/updating-objects-in-state",
+    "https://react.dev/learn/updating-arrays-in-state",
+    "https://react.dev/reference/rules/components-and-hooks-must-be-pure"
+  ]
+}

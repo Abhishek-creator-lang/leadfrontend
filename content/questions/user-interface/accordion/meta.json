@@ -1,0 +1,15 @@
+{
+  "slug": "accordion",
+  "format": "user-interface",
+  "title": "Accordion",
+  "excerpt": "Build an accessible accordion with expandable sections and full keyboard support.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["accessibility", "design-system", "state"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://www.w3.org/WAI/ARIA/apg/patterns/accordion/"]
+}

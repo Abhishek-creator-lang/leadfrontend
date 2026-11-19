@@ -1,0 +1,18 @@
+{
+  "slug": "data-merging",
+  "format": "javascript",
+  "title": "Data Merging",
+  "excerpt": "Merge workout session records by user: sum durations and combine equipment lists without duplicates.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["arrays", "objects", "maps", "data transformation"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set"
+  ]
+}

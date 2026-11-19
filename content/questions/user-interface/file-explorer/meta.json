@@ -1,0 +1,19 @@
+{
+  "slug": "file-explorer",
+  "format": "user-interface",
+  "title": "File Explorer",
+  "excerpt": "Render a nested folder/file tree where folders expand and collapse, sorted folders-first.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 30,
+  "topics": ["recursion", "tree", "state", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/",
+    "https://react.dev/learn/rendering-lists",
+    "https://react.dev/learn/preserving-and-resetting-state"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "what-s-the-difference-between-an-attribute-and-a-property",
+  "format": "quiz",
+  "title": "What's the difference between an \"attribute\" and a \"property\"?",
+  "excerpt": "Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: <inp",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html"
+  ]
+}

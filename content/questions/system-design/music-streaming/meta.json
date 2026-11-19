@@ -1,0 +1,23 @@
+{
+  "slug": "music-streaming",
+  "format": "system-design",
+  "title": "Music Streaming Web Player (e.g. Spotify)",
+  "excerpt": "Design a music web app with uninterrupted playback across navigation, a queue, gapless streaming, DRM and multi-device control.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "media", "media source extensions", "caching", "real-time", "spa architecture", "performance"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Spotify", "Apple", "Amazon"],
+  "sdType": "application",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Encrypted_Media_Extensions_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Cache_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement"
+  ]
+}

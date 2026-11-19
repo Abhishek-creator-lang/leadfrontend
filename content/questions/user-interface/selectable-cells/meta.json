@@ -1,0 +1,20 @@
+{
+  "slug": "selectable-cells",
+  "format": "user-interface",
+  "title": "Selectable Cells (Drag Select)",
+  "excerpt": "Build a grid where dragging selects a rectangle of cells, with modifier-key multi-select and a full keyboard equivalent.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 40,
+  "topics": ["events", "state", "accessibility", "performance", "memoization"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+    "https://www.w3.org/TR/wai-aria-1.2/#aria-multiselectable",
+    "https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html",
+    "https://react.dev/reference/react/useRef"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "virtual-dom-diff",
+  "format": "javascript",
+  "title": "Virtual DOM Diff (Keyed Children)",
+  "excerpt": "Patch the real DOM from an old and a new virtual tree, reusing nodes by type and key and moving keyed children instead of recreating them.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 50,
+  "topics": ["dom", "virtual-dom", "reconciliation", "trees", "algorithms"],
+  "frameworks": ["vanilla"],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/learn/preserving-and-resetting-state",
+    "https://react.dev/learn/rendering-lists#why-does-react-need-keys",
+    "https://legacy.reactjs.org/docs/reconciliation.html",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore"
+  ]
+}

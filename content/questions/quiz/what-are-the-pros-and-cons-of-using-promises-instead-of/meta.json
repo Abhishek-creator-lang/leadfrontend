@@ -1,0 +1,25 @@
+{
+  "slug": "what-are-the-pros-and-cons-of-using-promises-instead-of",
+  "format": "quiz",
+  "title": "What are the pros and cons of using Promises instead of callbacks?",
+  "excerpt": "- Avoid callback hell which can be unreadable.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md"
+  ]
+}

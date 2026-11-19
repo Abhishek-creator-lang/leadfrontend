@@ -1,0 +1,21 @@
+{
+  "slug": "npm-supply-chain-security",
+  "format": "quiz",
+  "title": "How do you reduce supply-chain risk from npm dependencies in a front-end codebase?",
+  "excerpt": "Typosquatting, compromised maintainers, install scripts, lockfiles, provenance and dependency governance.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["supply-chain", "security", "npm", "dependencies"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "security",
+  "source": { "type": "original" },
+  "references": [
+    "https://cheatsheetseries.owasp.org/cheatsheets/NPM_Security_Cheat_Sheet.html",
+    "https://docs.npmjs.com/generating-provenance-statements",
+    "https://docs.npmjs.com/cli/commands/npm-ci",
+    "https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/"
+  ]
+}

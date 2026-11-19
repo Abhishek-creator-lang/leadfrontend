@@ -1,0 +1,25 @@
+{
+  "slug": "what-language-constructions-do-you-use-for-iterating-over",
+  "format": "quiz",
+  "title": "What language constructions do you use for iterating over object properties and array items?",
+  "excerpt": "- for-in loops - for (var property in obj) { console.log(property); }. However, this will also iterate through its inherited properties, and you will add an obj",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 4,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://2ality.com/2015/08/getting-started-es6.html#from-for-to-foreach-to-for-of"
+  ]
+}

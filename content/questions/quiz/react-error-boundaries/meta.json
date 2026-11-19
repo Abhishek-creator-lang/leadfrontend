@@ -1,0 +1,28 @@
+{
+  "slug": "react-error-boundaries",
+  "format": "quiz",
+  "title": "What are error boundaries in React for?",
+  "excerpt": "Containing render errors with fallback UI, what they miss, and React 19 changes.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "react",
+    "error-handling"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/Component",
+    "https://react.dev/reference/react-dom/client/createRoot"
+  ]
+}

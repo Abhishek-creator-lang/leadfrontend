@@ -1,0 +1,19 @@
+{
+  "slug": "tic-tac-toe",
+  "format": "user-interface",
+  "title": "Tic-tac-toe",
+  "excerpt": "Build a two-player tic-tac-toe game with win and draw detection, a live status and a keyboard-navigable board.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 30,
+  "topics": ["games", "state", "derived-state", "accessibility", "keyboard"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/learn/choosing-the-state-structure",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+    "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#kbd_roving_tabindex"
+  ]
+}

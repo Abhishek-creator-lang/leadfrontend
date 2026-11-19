@@ -1,0 +1,20 @@
+{
+  "slug": "cors-security-misconceptions",
+  "format": "quiz",
+  "title": "What are the most common misconceptions about CORS as a security mechanism?",
+  "excerpt": "Why CORS relaxes rather than adds protection, origin reflection bugs, null origins and what actually protects APIs.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 9,
+  "topics": ["cors", "security", "same-origin-policy", "http"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "quizCategory": "security",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS",
+    "https://portswigger.net/web-security/cors",
+    "https://fetch.spec.whatwg.org/#http-cors-protocol"
+  ]
+}

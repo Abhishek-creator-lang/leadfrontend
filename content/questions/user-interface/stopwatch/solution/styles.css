@@ -1,0 +1,73 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.stopwatch {
+  max-width: 340px;
+  display: grid;
+  gap: 16px;
+}
+
+.display {
+  margin: 0;
+  font-size: 3.5rem;
+  font-weight: 300;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls button {
+  width: 88px;
+  height: 88px;
+  font: inherit;
+  font-weight: 600;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.primary {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.primary[data-running='true'] {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.controls button:focus-visible {
+  outline: 3px solid #6366f1;
+  outline-offset: 3px;
+}
+
+.laps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #e2e8f0;
+}
+
+.laps li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 4px;
+  border-bottom: 1px solid #e2e8f0;
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "manipulate-css-styles-with-javascript",
+  "format": "quiz",
+  "title": "How do you manipulate CSS styles using JavaScript?",
+  "excerpt": "Classes, custom properties, inline styles, computed styles and constructable stylesheets.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "dom",
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/classList",
+    "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle",
+    "https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/CSSStyleSheet"
+  ]
+}

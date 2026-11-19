@@ -1,0 +1,29 @@
+{
+  "slug": "purpose-of-key-prop-in-react",
+  "format": "quiz",
+  "title": "What is the purpose of the `key` prop in React?",
+  "excerpt": "Keys give list items stable identity for reconciliation and state.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "react",
+    "keys",
+    "reconciliation"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/rendering-lists",
+    "https://react.dev/learn/preserving-and-resetting-state"
+  ]
+}

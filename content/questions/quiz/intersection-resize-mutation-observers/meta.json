@@ -1,0 +1,20 @@
+{
+  "slug": "intersection-resize-mutation-observers",
+  "format": "quiz",
+  "title": "Compare IntersectionObserver, ResizeObserver and MutationObserver. When would you use each?",
+  "excerpt": "What each observer watches, when callbacks run, performance characteristics and common pitfalls.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 8,
+  "topics": ["dom", "observers", "performance", "browser-apis"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver",
+    "https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver"
+  ]
+}

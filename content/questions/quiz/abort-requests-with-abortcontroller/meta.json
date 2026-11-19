@@ -1,0 +1,29 @@
+{
+  "slug": "abort-requests-with-abortcontroller",
+  "format": "quiz",
+  "title": "How do you abort a web request using `AbortController` in JavaScript?",
+  "excerpt": "Cancelling fetch with signals, timeouts, AbortSignal.any and cleaning up in effects.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "network",
+    "async",
+    "cancellation"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/AbortController",
+    "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal",
+    "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/timeout_static",
+    "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/any_static"
+  ]
+}

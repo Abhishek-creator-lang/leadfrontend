@@ -1,0 +1,19 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.grid {
+  display: grid;
+  gap: 4px;
+  max-width: 480px;
+  user-select: none;
+}
+
+.cell {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+}

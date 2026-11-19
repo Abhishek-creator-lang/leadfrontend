@@ -1,0 +1,18 @@
+{
+  "slug": "tabs",
+  "format": "user-interface",
+  "title": "Tabs",
+  "excerpt": "Build a tabs component that shows one panel at a time, with the correct tab roles and selected state.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["state", "accessibility", "design-system"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/",
+    "https://react.dev/reference/react/useId"
+  ]
+}

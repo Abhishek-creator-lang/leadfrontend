@@ -1,0 +1,25 @@
+{
+  "slug": "is-there-any-reason-you-d-want-to-use-translate-instead-of",
+  "format": "quiz",
+  "title": "Is there any reason you'd want to use translate() instead of absolute positioning, or vice-versa? And why?",
+  "excerpt": "translate() is a value of CSS transform. Changing transform or opacity does not trigger browser reflow or repaint but does trigger compositions; whereas changin",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/"
+  ]
+}

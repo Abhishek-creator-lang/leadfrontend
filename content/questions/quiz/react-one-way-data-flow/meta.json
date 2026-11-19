@@ -1,0 +1,29 @@
+{
+  "slug": "react-one-way-data-flow",
+  "format": "quiz",
+  "title": "Explain one-way data flow of React and its benefits",
+  "excerpt": "Props down, events up, one owner per piece of state.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "react",
+    "state",
+    "architecture"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/thinking-in-react",
+    "https://react.dev/learn/sharing-state-between-components"
+  ]
+}

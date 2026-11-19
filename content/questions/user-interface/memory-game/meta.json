@@ -1,0 +1,19 @@
+{
+  "slug": "memory-game",
+  "format": "user-interface",
+  "title": "Memory Game",
+  "excerpt": "Build a card-matching memory game with timed flip-back, move counting and screen-reader friendly announcements.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 40,
+  "topics": ["games", "state", "timers", "effects", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development",
+    "https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/status_role"
+  ]
+}

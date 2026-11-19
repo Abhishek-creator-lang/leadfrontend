@@ -1,0 +1,30 @@
+{
+  "slug": "react-server-side-rendering",
+  "format": "quiz",
+  "title": "Explain server-side rendering of React applications and its benefits",
+  "excerpt": "Per-request HTML, hydration, streaming SSR and the trade-offs against CSR and SSG.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": [
+    "react",
+    "ssr",
+    "performance"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react-dom/server/renderToPipeableStream",
+    "https://react.dev/reference/react-dom/client/hydrateRoot",
+    "https://react.dev/reference/react-dom/server"
+  ]
+}

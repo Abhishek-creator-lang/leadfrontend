@@ -1,0 +1,25 @@
+{
+  "slug": "what-are-the-differences-between-variables-created-using-let",
+  "format": "quiz",
+  "title": "What are the differences between variables created using let, var or const?",
+  "excerpt": "Variables declared using the var keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. let ",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let"
+  ]
+}

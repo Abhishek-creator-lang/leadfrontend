@@ -1,0 +1,25 @@
+{
+  "slug": "describe-the-difference-between-script-script-async-and",
+  "format": "quiz",
+  "title": "Describe the difference between <script>, <script async> and <script defer>.",
+  "excerpt": "- <script - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "html"
+  ],
+  "frameworks": [],
+  "languages": [
+    "html"
+  ],
+  "companies": [],
+  "quizCategory": "html",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/html-questions"
+  },
+  "references": [
+    "https://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html"
+  ]
+}

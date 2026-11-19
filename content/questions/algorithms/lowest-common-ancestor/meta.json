@@ -1,0 +1,15 @@
+{
+  "slug": "lowest-common-ancestor",
+  "format": "algorithms",
+  "title": "Lowest Common Ancestor",
+  "excerpt": "Find the closest shared ancestor of two nodes in a DOM-like tree.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["trees", "depth-first-search", "dom"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://developer.mozilla.org/en-US/docs/Web/API/Range/commonAncestorContainer"]
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "observable",
+  "format": "javascript",
+  "title": "Observable",
+  "excerpt": "Build a minimal Observable with subscribe, unsubscribe, teardown, of/from creators and pipeable map and filter operators.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 40,
+  "topics": ["design-patterns", "reactive-programming", "closures", "classes"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://rxjs.dev/guide/observable",
+    "https://rxjs.dev/guide/operators",
+    "https://github.com/tc39/proposal-observable"
+  ]
+}

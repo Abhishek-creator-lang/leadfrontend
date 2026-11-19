@@ -1,0 +1,28 @@
+{
+  "slug": "commonjs-vs-es-modules",
+  "format": "quiz",
+  "title": "Explain the differences between CommonJS modules and ES modules in JavaScript",
+  "excerpt": "Static imports vs runtime require, live bindings, loading semantics, tree-shaking and interop in Node.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": [
+    "modules",
+    "tooling",
+    "node"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+    "https://nodejs.org/api/esm.html",
+    "https://nodejs.org/api/modules.html"
+  ]
+}

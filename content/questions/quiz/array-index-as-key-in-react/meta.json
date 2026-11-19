@@ -1,0 +1,29 @@
+{
+  "slug": "array-index-as-key-in-react",
+  "format": "quiz",
+  "title": "What is the consequence of using array indices as the value for `key`s in React?",
+  "excerpt": "Why index keys move state and DOM to the wrong rows, and when they are safe.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "react",
+    "keys",
+    "reconciliation"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/rendering-lists",
+    "https://react.dev/learn/preserving-and-resetting-state"
+  ]
+}

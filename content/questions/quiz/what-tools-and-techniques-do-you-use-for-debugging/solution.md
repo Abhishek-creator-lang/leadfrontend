@@ -1,0 +1,9 @@
+- React and Redux
+  - [React Devtools](https://github.com/facebook/react-devtools)
+  - [Redux Devtools](https://github.com/reduxjs/redux-devtools)
+- Vue
+  - [Vue Devtools](https://github.com/vuejs/devtools-v6)
+- JavaScript
+  - Chrome Devtools
+  - `debugger` statement
+  - Good old `console.log` debugging

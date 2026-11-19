@@ -1,0 +1,26 @@
+{
+  "slug": "typescript-type-assertions-vs-annotations",
+  "format": "quiz",
+  "title": "What is the difference between a type assertion and a type annotation in TypeScript?",
+  "excerpt": "Checking vs overriding the compiler, non-null assertions, and safer alternatives.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "type-system"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html",
+    "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html"
+  ]
+}

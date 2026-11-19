@@ -1,0 +1,15 @@
+{
+  "slug": "prioritizing-tech-debt-vs-features",
+  "format": "behavioral",
+  "title": "Prioritising tech debt against features",
+  "excerpt": "Explain how you made the business case for front-end tech debt work, balanced it with roadmap pressure and showed the payoff.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["strategy", "prioritization", "stakeholders"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "promisify-ii",
+  "format": "javascript",
+  "title": "Promisify II",
+  "excerpt": "Extend promisify with a custom-implementation symbol, like Node's util.promisify.custom.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["promises", "async", "symbols", "closures"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://nodejs.org/api/util.html#utilpromisifyoriginal",
+    "https://nodejs.org/api/util.html#custom-promisified-functions",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for"
+  ]
+}

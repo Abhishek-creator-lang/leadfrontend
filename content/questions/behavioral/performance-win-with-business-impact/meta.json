@@ -1,0 +1,15 @@
+{
+  "slug": "performance-win-with-business-impact",
+  "format": "behavioral",
+  "title": "Tell me about a performance win with business impact",
+  "excerpt": "Walk through a web performance improvement you drove, how you tied Core Web Vitals to business metrics and how you kept the gains from regressing.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["performance", "execution", "ownership"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://web.dev/articles/vitals"]
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "react-usetransition-usedeferredvalue",
+  "format": "quiz",
+  "title": "Explain `useTransition` and `useDeferredValue` and when to use each",
+  "excerpt": "Marking updates as non-urgent so concurrent React keeps input responsive.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 9,
+  "topics": [
+    "react",
+    "concurrency",
+    "hooks",
+    "performance"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/useTransition",
+    "https://react.dev/reference/react/useDeferredValue",
+    "https://react.dev/reference/react/startTransition"
+  ]
+}

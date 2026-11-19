@@ -1,0 +1,18 @@
+{
+  "slug": "cancellable-interval",
+  "format": "javascript",
+  "title": "Cancellable Interval",
+  "excerpt": "Wrap setInterval so it returns a cancel function that stops future ticks.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": ["timers", "closures", "async"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/setInterval",
+    "https://developer.mozilla.org/en-US/docs/Web/API/clearInterval"
+  ]
+}

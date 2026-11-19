@@ -1,0 +1,20 @@
+{
+  "slug": "kanban-board",
+  "format": "user-interface",
+  "title": "Kanban Board",
+  "excerpt": "Build a kanban board with normalised state, adding and deleting cards, and moving cards between columns by pointer or keyboard.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 60,
+  "topics": ["drag-and-drop", "use-reducer", "state-normalization", "accessibility", "keyboard", "pointer-events"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/learn/extracting-state-logic-into-a-reducer",
+    "https://redux.js.org/usage/structuring-reducers/normalizing-state-shape",
+    "https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/setPointerCapture"
+  ]
+}

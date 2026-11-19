@@ -1,0 +1,23 @@
+{
+  "slug": "modal-dialog-component",
+  "format": "system-design",
+  "title": "Modal Dialog Component",
+  "excerpt": "Design an accessible modal dialog: native dialog vs custom, focus trapping, scroll locking, stacking and API.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 40,
+  "topics": ["system design", "component design", "accessibility", "focus management", "headless components"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Google", "Meta", "Microsoft", "Atlassian"],
+  "sdType": "component",
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inert",
+    "https://developer.mozilla.org/en-US/docs/Glossary/Top_layer",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior",
+    "https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element"
+  ]
+}

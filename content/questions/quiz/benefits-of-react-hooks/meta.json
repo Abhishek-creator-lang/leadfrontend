@@ -1,0 +1,28 @@
+{
+  "slug": "benefits-of-react-hooks",
+  "format": "quiz",
+  "title": "What are the benefits of using hooks in React?",
+  "excerpt": "Reusable stateful logic, co-location by concern, and no classes.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "react",
+    "hooks"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/hooks",
+    "https://react.dev/learn/reusing-logic-with-custom-hooks"
+  ]
+}

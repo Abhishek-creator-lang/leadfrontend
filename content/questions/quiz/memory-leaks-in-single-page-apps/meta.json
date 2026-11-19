@@ -1,0 +1,20 @@
+{
+  "slug": "memory-leaks-in-single-page-apps",
+  "format": "quiz",
+  "title": "How do memory leaks happen in long-lived SPAs, and how would you find one?",
+  "excerpt": "Detached DOM, forgotten listeners, timers, caches and closures, plus the heap-snapshot workflow.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["memory", "performance", "debugging", "spa"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_management",
+    "https://developer.chrome.com/docs/devtools/memory-problems",
+    "https://developer.mozilla.org/en-US/docs/Web/API/FinalizationRegistry"
+  ]
+}

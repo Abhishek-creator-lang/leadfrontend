@@ -1,0 +1,25 @@
+{
+  "slug": "are-you-familiar-with-styling-svg",
+  "format": "quiz",
+  "title": "Are you familiar with styling SVG?",
+  "excerpt": "Yes, there are several ways to color shapes (including specifying attributes on the object) using inline CSS, an embedded CSS section, or an external CSS file. ",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch/Fills_and_strokes"
+  ]
+}

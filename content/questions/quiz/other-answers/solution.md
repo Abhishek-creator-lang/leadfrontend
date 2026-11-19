@@ -1,0 +1,2 @@
+- https://github.com/sudheerj/javascript-interview-questions
+- http://flowerszhong.github.io/2013/11/20/javascript-questions.html

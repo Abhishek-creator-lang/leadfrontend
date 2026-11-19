@@ -1,0 +1,64 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.explorer {
+  max-width: 320px;
+}
+
+.tree,
+.group {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.tree {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.treeitem {
+  outline: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.row:hover {
+  background: #f1f5f9;
+}
+
+/* Focus ring sits on the row of the focused treeitem only, not on its whole subtree. */
+.treeitem:focus-visible > .row {
+  outline: 2px solid #6366f1;
+  outline-offset: -2px;
+}
+
+.row--selected {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.icon {
+  width: 14px;
+  text-align: center;
+  color: #64748b;
+}
+
+.status {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #475569;
+}

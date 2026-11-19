@@ -1,0 +1,18 @@
+{
+  "slug": "star-rating",
+  "format": "user-interface",
+  "title": "Star Rating",
+  "excerpt": "Build a star rating input with hover preview, keyboard support and a clear button, built on native radios.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["forms", "accessibility", "state", "events"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/radio/",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "xmlhttprequest-vs-fetch",
+  "format": "quiz",
+  "title": "What are the differences between `XMLHttpRequest` and `fetch()` in JavaScript and browsers?",
+  "excerpt": "Promise-based fetch versus event-based XHR: errors, cancellation, streaming, progress and cookies.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "network",
+    "async",
+    "promises"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+    "https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch"
+  ]
+}

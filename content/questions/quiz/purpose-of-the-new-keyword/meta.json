@@ -1,0 +1,27 @@
+{
+  "slug": "purpose-of-the-new-keyword",
+  "format": "quiz",
+  "title": "What is the purpose of the `new` keyword?",
+  "excerpt": "The four steps new performs, return-value rules, new.target and what cannot be constructed.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "oop",
+    "this",
+    "prototypes"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new.target"
+  ]
+}

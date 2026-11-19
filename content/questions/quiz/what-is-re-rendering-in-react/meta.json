@@ -1,0 +1,29 @@
+{
+  "slug": "what-is-re-rendering-in-react",
+  "format": "quiz",
+  "title": "What does re-rendering mean in React?",
+  "excerpt": "Render vs commit, what triggers re-renders, and when they become a problem.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "react",
+    "rendering",
+    "performance"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/render-and-commit",
+    "https://react.dev/reference/react/memo"
+  ]
+}

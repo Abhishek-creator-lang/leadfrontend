@@ -1,0 +1,15 @@
+{
+  "slug": "why-this-company",
+  "format": "behavioral",
+  "title": "Why do you want to work here?",
+  "excerpt": "Give a specific, researched answer that connects the company's product and engineering challenges to your experience and goals.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 10,
+  "topics": ["motivation", "communication"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

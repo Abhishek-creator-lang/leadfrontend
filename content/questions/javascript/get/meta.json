@@ -1,0 +1,18 @@
+{
+  "slug": "get",
+  "format": "javascript",
+  "title": "Get",
+  "excerpt": "Safely read a nested value from an object by a dot/bracket path, falling back to a default.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["objects", "strings", "lodash"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split"
+  ]
+}

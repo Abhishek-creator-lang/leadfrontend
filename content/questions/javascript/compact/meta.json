@@ -1,0 +1,18 @@
+{
+  "slug": "compact",
+  "format": "javascript",
+  "title": "Compact",
+  "excerpt": "Return a new array with every falsy value removed.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 5,
+  "topics": ["arrays", "lodash", "type coercion"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Glossary/Falsy",
+    "https://lodash.com/docs/4.17.15#compact"
+  ]
+}

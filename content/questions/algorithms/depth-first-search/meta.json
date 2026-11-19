@@ -1,0 +1,15 @@
+{
+  "slug": "depth-first-search",
+  "format": "algorithms",
+  "title": "Depth-First Search",
+  "excerpt": "Traverse a graph depth-first from a start node and return the order nodes are visited.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["graphs", "depth-first-search"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Depth-first_search"]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "writing-javascript-unit-tests",
+  "format": "quiz",
+  "title": "How do you write unit tests for JavaScript code?",
+  "excerpt": "Arrange-act-assert, testing behaviour not implementation, isolation and edge cases.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "testing"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://vitest.dev/guide/",
+    "https://jestjs.io/docs/getting-started"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "command-pattern-javascript",
+  "format": "quiz",
+  "title": "What is the Command pattern and how is it used?",
+  "excerpt": "Encapsulating actions as objects for undo/redo, queues, macros and keyboard shortcuts.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "design-patterns"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://refactoring.guru/design-patterns/command",
+    "https://www.patterns.dev/vanilla/command-pattern"
+  ]
+}

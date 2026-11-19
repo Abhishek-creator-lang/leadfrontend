@@ -1,0 +1,22 @@
+{
+  "slug": "news-feed",
+  "format": "system-design",
+  "title": "News Feed (e.g. Facebook)",
+  "excerpt": "Design an infinitely scrolling, personalised social feed with posts, reactions, comments and live updates.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "infinite scroll", "virtualization", "pagination", "optimistic updates", "performance"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Meta"],
+  "sdType": "application",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API",
+    "https://web.dev/articles/inp",
+    "https://web.dev/articles/content-visibility",
+    "https://react.dev/reference/react/useOptimistic",
+    "https://engineering.fb.com/2020/05/08/web/facebook-redesign/"
+  ]
+}

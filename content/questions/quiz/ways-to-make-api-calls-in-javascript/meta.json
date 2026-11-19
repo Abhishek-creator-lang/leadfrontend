@@ -1,0 +1,28 @@
+{
+  "slug": "ways-to-make-api-calls-in-javascript",
+  "format": "quiz",
+  "title": "What are the different ways to make an API call in JavaScript?",
+  "excerpt": "fetch, XHR, sendBeacon, WebSocket, SSE and data-fetching libraries, and when to use each.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "network",
+    "async"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "web",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon",
+    "https://developer.mozilla.org/en-US/docs/Web/API/EventSource"
+  ]
+}

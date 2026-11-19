@@ -1,0 +1,19 @@
+{
+  "slug": "jquery-css",
+  "format": "javascript",
+  "title": "jQuery CSS",
+  "excerpt": "Implement a $(selector).css() getter/setter that handles camelCase names, objects, automatic px units and removal.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["dom", "css", "design-patterns"],
+  "frameworks": ["vanilla"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle",
+    "https://api.jquery.com/css/"
+  ]
+}

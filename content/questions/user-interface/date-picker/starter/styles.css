@@ -1,0 +1,56 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+}
+
+.date-picker {
+  position: relative;
+  display: inline-flex;
+  align-items: end;
+  gap: 6px;
+}
+
+label {
+  display: grid;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input {
+  font: inherit;
+  font-weight: 400;
+  padding: 6px 8px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+}
+
+.calendar {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgb(15 23 42 / 0.15);
+}
+
+.calendar h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+td,
+th {
+  width: 36px;
+  height: 32px;
+  text-align: center;
+}

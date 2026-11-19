@@ -1,0 +1,32 @@
+{
+  "slug": "react-19-error-handling",
+  "format": "quiz",
+  "title": "How has error handling changed in React 19?",
+  "excerpt": "Root error callbacks, de-duplicated logging, Action errors and boundaries.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "react",
+    "error-handling",
+    "react-19",
+    "observability"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react-dom/client/createRoot",
+    "https://react.dev/reference/react-dom/client/hydrateRoot",
+    "https://react.dev/reference/react/Component",
+    "https://react.dev/blog/2024/12/05/react-19"
+  ]
+}

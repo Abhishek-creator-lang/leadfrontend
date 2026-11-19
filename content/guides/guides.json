@@ -1,0 +1,38 @@
+[
+  {
+    "id": "front-end-interview-playbook",
+    "title": "Front End Interview Playbook",
+    "description": "How front end interviews work, every round type, and how to prepare for each one.",
+    "icon": "book"
+  },
+  {
+    "id": "front-end-system-design-playbook",
+    "title": "Front End System Design Playbook",
+    "description": "The RADIO framework, the types of questions to expect, and how to score at senior and lead level.",
+    "icon": "architecture"
+  },
+  {
+    "id": "react-interview-playbook",
+    "title": "React Interview Playbook",
+    "description": "React internals, hooks, rendering performance, patterns and the modern React (18/19) features interviewers probe.",
+    "icon": "code"
+  },
+  {
+    "id": "lead-track",
+    "title": "Senior & Lead Track",
+    "description": "Architecture, technical strategy, design systems, performance, and the leadership signals senior and lead loops look for.",
+    "icon": "lead"
+  },
+  {
+    "id": "behavioral-playbook",
+    "title": "Behavioral Interview Playbook",
+    "description": "Build a story bank, answer with STAR, and show ownership, influence and judgment at senior level.",
+    "icon": "behavioral"
+  },
+  {
+    "id": "resume-and-process",
+    "title": "Resume, Process & Negotiation",
+    "description": "Resume tips for front end engineers, the hiring process, and how to handle offers.",
+    "icon": "resume"
+  }
+]

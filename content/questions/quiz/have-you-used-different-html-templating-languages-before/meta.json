@@ -1,0 +1,23 @@
+{
+  "slug": "have-you-used-different-html-templating-languages-before",
+  "format": "quiz",
+  "title": "Have you used different HTML templating languages before?",
+  "excerpt": "Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, and EJS just to name a few. In my opinion, they are more or less the same and provide similar fu",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "html"
+  ],
+  "frameworks": [],
+  "languages": [
+    "html"
+  ],
+  "companies": [],
+  "quizCategory": "html",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/html-questions"
+  },
+  "references": []
+}

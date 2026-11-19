@@ -1,0 +1,20 @@
+{
+  "slug": "css-logical-properties",
+  "format": "quiz",
+  "title": "What are CSS logical properties, and why do they matter for internationalised products?",
+  "excerpt": "Inline/block axes, writing modes, RTL support without overrides, and migration strategy.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 6,
+  "topics": ["css", "i18n", "rtl", "logical-properties"],
+  "frameworks": [],
+  "languages": ["css"],
+  "companies": [],
+  "quizCategory": "css",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values",
+    "https://www.w3.org/International/questions/qa-html-dir"
+  ]
+}

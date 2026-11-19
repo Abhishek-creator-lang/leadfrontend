@@ -1,0 +1,15 @@
+{
+  "slug": "binary-search-tree",
+  "format": "algorithms",
+  "title": "Binary Search Tree",
+  "excerpt": "Implement a binary search tree class with insert, lookup, delete, min/max and sorted iteration.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 35,
+  "topics": ["data-structures", "trees", "binary-search-tree"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Binary_search_tree"]
+}

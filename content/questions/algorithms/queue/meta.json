@@ -1,0 +1,15 @@
+{
+  "slug": "queue",
+  "format": "algorithms",
+  "title": "Queue",
+  "excerpt": "Build a first-in, first-out queue class with O(1) enqueue and dequeue.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["data-structures", "queue"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Queue_(abstract_data_type)"]
+}

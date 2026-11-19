@@ -1,0 +1,15 @@
+{
+  "slug": "migrating-a-legacy-codebase",
+  "format": "behavioral",
+  "title": "Tell me about a time you migrated a legacy front-end codebase",
+  "excerpt": "Walk through an incremental migration from an old framework or architecture, covering the plan, risk management and how you kept shipping features.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["execution", "architecture", "ownership"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "spreadsheet-evaluator",
+  "format": "javascript",
+  "title": "Spreadsheet Evaluator",
+  "excerpt": "Build a spreadsheet engine: parse cell formulas, evaluate references and ranges, recompute dependents on change and detect cycles.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 60,
+  "topics": ["parsing", "graphs", "recursion", "caching", "design"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://en.wikipedia.org/wiki/Recursive_descent_parser",
+    "https://en.wikipedia.org/wiki/Topological_sorting",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "range",
+  "format": "javascript",
+  "title": "Range",
+  "excerpt": "Generate an array of numbers from start up to, but not including, end with an optional step.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["arrays", "math", "lodash", "function arguments"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from",
+    "https://lodash.com/docs/4.17.15#range"
+  ]
+}

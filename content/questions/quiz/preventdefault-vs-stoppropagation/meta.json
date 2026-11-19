@@ -1,0 +1,27 @@
+{
+  "slug": "preventdefault-vs-stoppropagation",
+  "format": "quiz",
+  "title": "What is the difference between `event.preventDefault()` and `event.stopPropagation()`?",
+  "excerpt": "Cancelling the browser action vs stopping the event travelling, plus stopImmediatePropagation.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "events",
+    "dom"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "file-explorer-ii-keyboard-tree",
+  "format": "user-interface",
+  "title": "File Explorer II: Keyboard Tree",
+  "excerpt": "Turn a file explorer into a WAI-ARIA tree view with roving focus, arrow-key navigation and type-ahead.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 45,
+  "topics": ["accessibility", "keyboard", "tree", "focus-management", "recursion"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/",
+    "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#kbd_roving_tabindex",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tree_role"
+  ]
+}

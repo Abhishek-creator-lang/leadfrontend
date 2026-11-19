@@ -1,0 +1,30 @@
+{
+  "slug": "react-reconciliation",
+  "format": "quiz",
+  "title": "What is reconciliation in React?",
+  "excerpt": "How React decides which instances to keep, update or remount, based on type, position and key.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "react",
+    "reconciliation",
+    "rendering"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/preserving-and-resetting-state",
+    "https://react.dev/learn/render-and-commit",
+    "https://react.dev/reference/react/Activity"
+  ]
+}

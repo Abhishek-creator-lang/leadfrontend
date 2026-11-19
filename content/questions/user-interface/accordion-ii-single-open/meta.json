@@ -1,0 +1,18 @@
+{
+  "slug": "accordion-ii-single-open",
+  "format": "user-interface",
+  "title": "Accordion II: Single Open, Controlled",
+  "excerpt": "Extend an accordion so only one section is open at a time, with optional collapsing and a controlled API.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 25,
+  "topics": ["accessibility", "design-system", "state", "controlled-components"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/",
+    "https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "promise-implementation",
+  "format": "javascript",
+  "title": "Promise Implementation",
+  "excerpt": "Build a Promises/A+-style MyPromise with then, catch, finally, chaining and thenable adoption.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["promises", "async", "event-loop", "classes"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://promisesaplus.com/",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/queueMicrotask",
+    "https://tc39.es/ecma262/#sec-promise-objects"
+  ]
+}

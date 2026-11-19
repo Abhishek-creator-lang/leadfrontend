@@ -1,0 +1,26 @@
+{
+  "slug": "mocks-and-stubs-in-testing",
+  "format": "quiz",
+  "title": "What are mocks and stubs and how are they used in testing?",
+  "excerpt": "Test doubles: stubs, mocks, spies and fakes, plus network mocking with MSW.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "testing"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://martinfowler.com/articles/mocksArentStubs.html",
+    "https://vitest.dev/guide/mocking",
+    "https://mswjs.io/docs/"
+  ]
+}

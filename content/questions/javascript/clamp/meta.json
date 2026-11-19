@@ -1,0 +1,19 @@
+{
+  "slug": "clamp",
+  "format": "javascript",
+  "title": "Clamp",
+  "excerpt": "Restrict a number to an inclusive range between a lower and an upper bound.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 5,
+  "topics": ["math", "lodash"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/clamp",
+    "https://lodash.com/docs/4.17.15#clamp"
+  ]
+}

@@ -1,0 +1,109 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 16px;
+  background: #fff7ed;
+  color: #1c1917;
+}
+
+.board {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: #c2410c;
+  margin: 0 0 16px;
+}
+
+.loading {
+  color: #57534e;
+}
+
+.jobs {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.job {
+  padding: 14px 16px;
+  border: 1px solid #fed7aa;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.job h2 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.job a {
+  color: inherit;
+}
+
+.job a:hover {
+  color: #c2410c;
+}
+
+.job a:focus-visible,
+.load-more:focus-visible,
+.error button:focus-visible {
+  outline: 3px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.meta {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #57534e;
+}
+
+.load-more {
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #c2410c;
+  color: #fff;
+  cursor: pointer;
+}
+
+.load-more[aria-disabled='true'] {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.error {
+  margin-bottom: 16px;
+  color: #b91c1c;
+}
+
+.error p {
+  margin: 0 0 8px;
+}
+
+.error button {
+  font: inherit;
+  padding: 6px 14px;
+  border: 1px solid #b91c1c;
+  border-radius: 6px;
+  background: #fff;
+  color: #b91c1c;
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}

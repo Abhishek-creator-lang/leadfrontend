@@ -1,0 +1,18 @@
+{
+  "slug": "pick",
+  "format": "javascript",
+  "title": "Pick",
+  "excerpt": "Create a new object containing only the listed keys of a source object.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["objects", "lodash"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn",
+    "https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys"
+  ]
+}

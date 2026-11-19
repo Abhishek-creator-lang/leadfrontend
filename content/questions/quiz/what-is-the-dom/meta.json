@@ -1,0 +1,27 @@
+{
+  "slug": "what-is-the-dom",
+  "format": "quiz",
+  "title": "What is the DOM and how is it structured?",
+  "excerpt": "The live tree of nodes the browser builds from HTML, node types, and how it relates to rendering.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "dom",
+    "browser"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "https://dom.spec.whatwg.org/"
+  ]
+}

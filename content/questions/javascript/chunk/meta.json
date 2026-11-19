@@ -1,0 +1,18 @@
+{
+  "slug": "chunk",
+  "format": "javascript",
+  "title": "Chunk",
+  "excerpt": "Split an array into consecutive groups of a fixed size, with a shorter final group if needed.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["arrays", "lodash"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice",
+    "https://lodash.com/docs/4.17.15#chunk"
+  ]
+}

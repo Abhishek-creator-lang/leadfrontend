@@ -1,0 +1,27 @@
+{
+  "slug": "javascript-data-types",
+  "format": "quiz",
+  "title": "What are the various data types in JavaScript?",
+  "excerpt": "The seven primitives plus objects, typeof quirks, and value vs reference semantics.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "types",
+    "primitives"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt"
+  ]
+}

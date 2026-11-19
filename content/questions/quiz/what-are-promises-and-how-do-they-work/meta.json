@@ -1,0 +1,27 @@
+{
+  "slug": "what-are-promises-and-how-do-they-work",
+  "format": "quiz",
+  "title": "What are Promises and how do they work?",
+  "excerpt": "Promise objects, chaining, error propagation, microtask scheduling and Promise.withResolvers.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "promises",
+    "async"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "flight-booker",
+  "format": "user-interface",
+  "title": "Flight Booker",
+  "excerpt": "Build a one-way or return flight form with date constraints, disabled states and a booking confirmation.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["forms", "dates", "validation", "derived-state"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select"
+  ]
+}

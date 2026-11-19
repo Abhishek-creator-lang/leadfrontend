@@ -1,0 +1,25 @@
+{
+  "slug": "why-would-you-use-something-like-the-load-event-does-this",
+  "format": "quiz",
+  "title": "Why would you use something like the load event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?",
+  "excerpt": "The load event fires at the end of the document loading process. At this point, all of the objects in the document are in the DOM, and all the images, scripts, ",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event"
+  ]
+}

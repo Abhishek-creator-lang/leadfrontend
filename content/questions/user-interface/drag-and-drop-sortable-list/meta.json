@@ -1,0 +1,20 @@
+{
+  "slug": "drag-and-drop-sortable-list",
+  "format": "user-interface",
+  "title": "Drag-and-Drop Sortable List",
+  "excerpt": "Build a reorderable list with pointer dragging and a full keyboard alternative: pick up, move, drop or cancel, with announcements.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 55,
+  "topics": ["drag-and-drop", "pointer-events", "accessibility", "keyboard", "focus-management"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/setPointerCapture",
+    "https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions"
+  ]
+}

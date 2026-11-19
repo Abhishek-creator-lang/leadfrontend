@@ -1,0 +1,18 @@
+{
+  "slug": "type-utilities",
+  "format": "javascript",
+  "title": "Type Utilities",
+  "excerpt": "Write reliable checks for JavaScript's primitive types, including the null and boxed-value traps.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["types", "language fundamentals"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#primitive_values"
+  ]
+}

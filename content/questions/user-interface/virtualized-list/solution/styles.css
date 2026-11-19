@@ -1,0 +1,67 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+}
+
+.jump {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.jump input {
+  width: 100px;
+  font: inherit;
+  padding: 4px 8px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+}
+
+.jump button {
+  font: inherit;
+  padding: 4px 12px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.viewport {
+  position: relative;
+  max-width: 420px;
+  overflow-y: auto;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  /* Keep scroll chaining from moving the page when the list hits its ends. */
+  overscroll-behavior: contain;
+}
+
+.viewport:focus-visible {
+  outline: 3px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.spacer {
+  position: relative;
+}
+
+.row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e2e8f0;
+  /* Transforms are composited; animating or changing `top` would trigger layout. */
+  will-change: transform;
+}

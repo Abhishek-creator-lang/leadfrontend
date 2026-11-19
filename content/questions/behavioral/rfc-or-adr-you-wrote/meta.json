@@ -1,0 +1,15 @@
+{
+  "slug": "rfc-or-adr-you-wrote",
+  "format": "behavioral",
+  "title": "Walk me through an RFC or ADR you wrote",
+  "excerpt": "Explain a technical proposal you authored, how you framed the options, gathered feedback and drove it to a decision that held up.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["strategy", "communication", "architecture"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

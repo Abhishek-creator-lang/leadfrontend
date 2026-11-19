@@ -1,0 +1,18 @@
+{
+  "slug": "image-carousel",
+  "format": "user-interface",
+  "title": "Image Carousel",
+  "excerpt": "Build an accessible image carousel with previous/next controls, wrap-around and dot navigation.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 30,
+  "topics": ["accessibility", "state", "keyboard"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-roledescription"
+  ]
+}

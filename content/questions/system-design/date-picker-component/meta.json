@@ -1,0 +1,23 @@
+{
+  "slug": "date-picker-component",
+  "format": "system-design",
+  "title": "Date Picker Component",
+  "excerpt": "Design an accessible, localised date and date-range picker with keyboard grid navigation, time zones and validation.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 40,
+  "topics": ["system design", "component design", "accessibility", "i18n", "dates", "focus management", "positioning"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Airbnb", "Booking.com", "Google"],
+  "sdType": "component",
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getWeekInfo",
+    "https://tc39.es/proposal-temporal/docs/"
+  ]
+}

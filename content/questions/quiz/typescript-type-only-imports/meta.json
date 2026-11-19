@@ -1,0 +1,28 @@
+{
+  "slug": "typescript-type-only-imports",
+  "format": "quiz",
+  "title": "What are type-only imports in TypeScript and what does `verbatimModuleSyntax` do?",
+  "excerpt": "Why per-file transpilers need explicit type imports, and the modern tsconfig setup.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "modules",
+    "tooling"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/modules/reference.html",
+    "https://www.typescriptlang.org/tsconfig/#verbatimModuleSyntax",
+    "https://www.typescriptlang.org/tsconfig/#isolatedModules"
+  ]
+}

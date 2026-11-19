@@ -1,0 +1,78 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.calculator {
+  max-width: 440px;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.field input {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.field input:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.field [aria-invalid='true'] {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 1px #dc2626;
+}
+
+.error {
+  margin: 0;
+  color: #b91c1c;
+  font-size: 0.8125rem;
+}
+
+.results {
+  margin: 24px 0 0;
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.results div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.results dt {
+  color: #475569;
+}
+
+.results dd {
+  margin: 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.results div:first-child dd {
+  font-size: 1.25rem;
+  color: #4338ca;
+}

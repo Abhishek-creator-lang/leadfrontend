@@ -1,0 +1,24 @@
+{
+  "slug": "rich-text-editor",
+  "format": "system-design",
+  "title": "Rich Text Editor Component",
+  "excerpt": "Design a reusable rich text editor: document model vs contenteditable, transactions, plugins, paste, IME and accessibility.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "component design", "rich text", "contenteditable", "accessibility", "security"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Meta", "Notion", "Atlassian", "Google"],
+  "sdType": "component",
+  "source": { "type": "original" },
+  "references": [
+    "https://prosemirror.net/docs/guide/",
+    "https://lexical.dev/docs/intro",
+    "https://docs.slatejs.org/",
+    "https://www.w3.org/TR/input-events-2/",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/beforeinput_event",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/"
+  ]
+}

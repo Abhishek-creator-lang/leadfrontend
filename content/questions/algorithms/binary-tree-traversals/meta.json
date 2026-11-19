@@ -1,0 +1,15 @@
+{
+  "slug": "binary-tree-traversals",
+  "format": "algorithms",
+  "title": "Binary Tree Traversals",
+  "excerpt": "Return the pre-order, in-order and post-order traversals of a binary tree.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["trees", "recursion", "depth-first-search"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Tree_traversal"]
+}

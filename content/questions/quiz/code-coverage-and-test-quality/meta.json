@@ -1,0 +1,27 @@
+{
+  "slug": "code-coverage-and-test-quality",
+  "format": "quiz",
+  "title": "Explain the concept of code coverage and how it can be used to assess test quality",
+  "excerpt": "Line, branch and function coverage, what they miss, and mutation testing.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "testing",
+    "tooling"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://vitest.dev/guide/coverage",
+    "https://martinfowler.com/bliki/TestCoverage.html",
+    "https://stryker-mutator.io/docs/"
+  ]
+}

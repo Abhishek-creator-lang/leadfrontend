@@ -1,0 +1,26 @@
+{
+  "slug": "javascript-error-types",
+  "format": "quiz",
+  "title": "What are the different types of errors in JavaScript?",
+  "excerpt": "Built-in Error subclasses, DOMException, and useful ways to categorise failures.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "errors"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError",
+    "https://developer.mozilla.org/en-US/docs/Web/API/DOMException"
+  ]
+}

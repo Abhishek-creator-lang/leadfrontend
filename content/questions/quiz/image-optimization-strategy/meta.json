@@ -1,0 +1,20 @@
+{
+  "slug": "image-optimization-strategy",
+  "format": "quiz",
+  "title": "How would you set up image optimisation for a large, image-heavy site?",
+  "excerpt": "Formats, responsive images, lazy loading, priority hints, image CDNs and governance at scale.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 9,
+  "topics": ["images", "performance", "lcp", "responsive-images"],
+  "frameworks": [],
+  "languages": ["html"],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images",
+    "https://web.dev/learn/images",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/picture"
+  ]
+}

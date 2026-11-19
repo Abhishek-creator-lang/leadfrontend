@@ -1,0 +1,21 @@
+{
+  "slug": "how-to-improve-inp",
+  "format": "quiz",
+  "title": "How do you find and fix a poor INP (Interaction to Next Paint)?",
+  "excerpt": "Input delay, processing time and presentation delay: finding the slow interaction and fixing each phase.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 10,
+  "topics": ["core-web-vitals", "inp", "performance", "main-thread"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/inp",
+    "https://web.dev/articles/optimize-inp",
+    "https://web.dev/articles/optimize-long-tasks",
+    "https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEventTiming"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "error-propagation-in-javascript",
+  "format": "quiz",
+  "title": "Explain the concept of error propagation in JavaScript",
+  "excerpt": "How errors unwind the call stack, flow through promise chains and reach global handlers.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "errors",
+    "async"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/unhandledrejection_event",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises"
+  ]
+}

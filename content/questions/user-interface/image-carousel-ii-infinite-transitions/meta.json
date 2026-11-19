@@ -1,0 +1,19 @@
+{
+  "slug": "image-carousel-ii-infinite-transitions",
+  "format": "user-interface",
+  "title": "Image Carousel II: Infinite Transitions",
+  "excerpt": "Extend the image carousel with sliding animations that loop seamlessly in both directions.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 45,
+  "topics": ["animation", "accessibility", "state", "css"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/transitionend_event",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion"
+  ]
+}

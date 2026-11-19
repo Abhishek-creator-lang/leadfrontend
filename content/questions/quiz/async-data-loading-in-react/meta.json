@@ -1,0 +1,31 @@
+{
+  "slug": "async-data-loading-in-react",
+  "format": "quiz",
+  "title": "How do you handle asynchronous data loading in React applications?",
+  "excerpt": "Server Components and loaders, query libraries, careful effects, Suspense and use().",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": [
+    "react",
+    "data-fetching",
+    "async"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/useEffect",
+    "https://react.dev/reference/react/use",
+    "https://react.dev/reference/rsc/server-components",
+    "https://tanstack.com/query/latest/docs/framework/react/overview"
+  ]
+}

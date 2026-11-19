@@ -1,0 +1,29 @@
+{
+  "slug": "react-composition-pattern",
+  "format": "quiz",
+  "title": "Explain the composition pattern in React",
+  "excerpt": "children, slots and compound components instead of inheritance and prop explosions.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "react",
+    "patterns",
+    "composition"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/passing-props-to-a-component",
+    "https://react.dev/learn/passing-data-deeply-with-context"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "css-container-queries",
+  "format": "quiz",
+  "title": "What are CSS container queries, and how do they change component design compared with media queries?",
+  "excerpt": "container-type, named containers, container query units, style queries and the containment trade-offs.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": ["css", "container-queries", "responsive-design", "design-systems"],
+  "frameworks": [],
+  "languages": ["css"],
+  "companies": [],
+  "quizCategory": "css",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/container-type",
+    "https://web.dev/blog/cq-stable"
+  ]
+}

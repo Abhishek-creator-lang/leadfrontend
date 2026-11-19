@@ -1,0 +1,31 @@
+{
+  "slug": "useeffect-vs-uselayouteffect",
+  "format": "quiz",
+  "title": "What is the difference between `useEffect` and `useLayoutEffect` in React?",
+  "excerpt": "Effect timing relative to paint, and when blocking paint is worth it.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "react",
+    "hooks",
+    "effects",
+    "rendering"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/useEffect",
+    "https://react.dev/reference/react/useLayoutEffect",
+    "https://react.dev/reference/react/useInsertionEffect"
+  ]
+}

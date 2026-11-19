@@ -1,0 +1,22 @@
+{
+  "slug": "chat-application",
+  "format": "system-design",
+  "title": "Chat Application (e.g. Messenger)",
+  "excerpt": "Design a real-time web messenger with conversations, delivery and read receipts, typing indicators and offline support.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "websockets", "real-time", "offline", "optimistic updates", "indexeddb"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Meta"],
+  "sdType": "application",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Push_API",
+    "https://engineering.fb.com/2020/03/02/data-infrastructure/messenger/"
+  ]
+}

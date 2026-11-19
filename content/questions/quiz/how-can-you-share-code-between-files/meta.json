@@ -1,0 +1,25 @@
+{
+  "slug": "how-can-you-share-code-between-files",
+  "format": "quiz",
+  "title": "How can you share code between files?",
+  "excerpt": "This depends on the JavaScript environment.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://requirejs.org/docs/whyamd.html"
+  ]
+}

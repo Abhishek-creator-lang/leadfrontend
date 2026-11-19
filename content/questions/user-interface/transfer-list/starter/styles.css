@@ -1,0 +1,39 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.transfer {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.panel {
+  width: 200px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.panel h2 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+
+.panel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.empty {
+  color: #94a3b8;
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "optimize-react-context-rerenders",
+  "format": "quiz",
+  "title": "How would you optimize the performance of React contexts to reduce rerenders?",
+  "excerpt": "Stable values, split contexts, state/dispatch separation and selector-based stores.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 8,
+  "topics": [
+    "react",
+    "context",
+    "performance"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/useContext",
+    "https://react.dev/reference/react/useSyncExternalStore",
+    "https://react.dev/learn/scaling-up-with-reducer-and-context"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "web-performance-program",
+  "format": "system-design",
+  "title": "Org-Wide Web Performance Program (Core Web Vitals)",
+  "excerpt": "Design an organisation-wide web performance program: CWV measurement, budgets, CI gates, ownership, tooling and the roadmap to pass Core Web Vitals across many apps.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 50,
+  "topics": ["system design", "performance", "core web vitals", "rum", "performance budgets", "ci/cd", "governance"],
+  "frameworks": [],
+  "languages": ["ts"],
+  "companies": [],
+  "sdType": "lead",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/vitals",
+    "https://web.dev/articles/inp",
+    "https://web.dev/articles/lcp",
+    "https://web.dev/articles/cls",
+    "https://developer.chrome.com/docs/crux",
+    "https://github.com/GoogleChrome/lighthouse-ci",
+    "https://github.com/GoogleChrome/web-vitals"
+  ]
+}

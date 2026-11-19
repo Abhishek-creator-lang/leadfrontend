@@ -1,0 +1,23 @@
+{
+  "slug": "feature-flag-and-experimentation-platform",
+  "format": "system-design",
+  "title": "Feature Flag and Experimentation Platform",
+  "excerpt": "Design a feature-flag and A/B testing platform with targeting rules, client SDKs, real-time updates, exposure logging and governance.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 60,
+  "topics": ["system design", "feature flags", "experimentation", "a/b testing", "sdk design", "progressive delivery", "governance"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": [],
+  "sdType": "lead",
+  "source": { "type": "original" },
+  "references": [
+    "https://openfeature.dev/docs/reference/intro",
+    "https://martinfowler.com/articles/feature-toggles.html",
+    "https://docs.getunleash.io/",
+    "https://docs.growthbook.io/",
+    "https://docs.launchdarkly.com/home",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events"
+  ]
+}

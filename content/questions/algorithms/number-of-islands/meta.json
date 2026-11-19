@@ -1,0 +1,15 @@
+{
+  "slug": "number-of-islands",
+  "format": "algorithms",
+  "title": "Number of Islands",
+  "excerpt": "Count connected regions of filled cells in a grid with flood fill.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["graphs", "matrix", "breadth-first-search", "depth-first-search"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Flood_fill"]
+}

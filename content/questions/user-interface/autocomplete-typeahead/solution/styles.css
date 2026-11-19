@@ -1,0 +1,89 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.app {
+  max-width: 360px;
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input[role='combobox'] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  font: inherit;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+input[role='combobox']:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 1px;
+}
+
+.listbox {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  margin: 4px 0 0;
+  padding: 4px 0;
+  list-style: none;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 0.12);
+  max-height: 260px;
+  overflow: auto;
+}
+
+.option {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.option--active {
+  background: #e0e7ff;
+}
+
+.option mark {
+  background: none;
+  color: inherit;
+  font-weight: 700;
+}
+
+.message {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.selection {
+  margin-top: 16px;
+  color: #334155;
+}
+
+@media (forced-colors: active) {
+  .option--active {
+    outline: 2px solid Highlight;
+  }
+}

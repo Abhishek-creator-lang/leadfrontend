@@ -1,0 +1,19 @@
+{
+  "slug": "modal-dialog-ii-accessible-focus-trap",
+  "format": "user-interface",
+  "title": "Modal Dialog II: Focus Trap and Inert Background",
+  "excerpt": "Make a modal fully accessible: Tab and Shift+Tab stay inside, the background is inert, and focus is managed from open to close.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 40,
+  "topics": ["accessibility", "focus-management", "portals", "design-system"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inert",
+    "https://html.spec.whatwg.org/multipage/interaction.html#focusable-area"
+  ]
+}

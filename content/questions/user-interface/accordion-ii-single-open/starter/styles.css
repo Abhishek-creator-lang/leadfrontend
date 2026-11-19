@@ -1,0 +1,72 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.accordion {
+  max-width: 560px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.accordion-item + .accordion-item {
+  border-top: 1px solid #e2e8f0;
+}
+
+.accordion-heading {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordion-trigger[aria-disabled='true'] {
+  cursor: default;
+}
+
+.accordion-trigger:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: -2px;
+}
+
+.accordion-panel {
+  padding: 0 16px 16px;
+  color: #475569;
+}
+
+.chevron {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 150ms ease;
+}
+
+[aria-expanded='true'] > .chevron {
+  transform: rotate(-135deg);
+}
+
+.status {
+  color: #475569;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
+}

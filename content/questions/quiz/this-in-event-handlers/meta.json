@@ -1,0 +1,28 @@
+{
+  "slug": "this-in-event-handlers",
+  "format": "quiz",
+  "title": "Explain the concept of `this` binding in event handlers",
+  "excerpt": "this as currentTarget in listeners, arrows and bind, removing bound listeners and handleEvent objects.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "this",
+    "events",
+    "dom"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this"
+  ]
+}

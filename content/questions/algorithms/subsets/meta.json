@@ -1,0 +1,15 @@
+{
+  "slug": "subsets",
+  "format": "algorithms",
+  "title": "Subsets",
+  "excerpt": "Generate the power set of a list of distinct items, such as every combination of feature flags.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["backtracking", "recursion", "bit-manipulation"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Power_set"]
+}

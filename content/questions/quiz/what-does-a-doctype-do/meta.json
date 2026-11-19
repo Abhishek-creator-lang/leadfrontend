@@ -1,0 +1,25 @@
+{
+  "slug": "what-does-a-doctype-do",
+  "format": "quiz",
+  "title": "What does a DOCTYPE do?",
+  "excerpt": "DOCTYPE is an abbreviation for Document Type. A DOCTYPE is always associated to a DTD - for Document Type Definition.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "html"
+  ],
+  "frameworks": [],
+  "languages": [
+    "html"
+  ],
+  "companies": [],
+  "quizCategory": "html",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/html-questions"
+  },
+  "references": [
+    "https://html.spec.whatwg.org/multipage/syntax.html#the-doctype"
+  ]
+}

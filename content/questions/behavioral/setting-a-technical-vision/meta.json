@@ -1,0 +1,15 @@
+{
+  "slug": "setting-a-technical-vision",
+  "format": "behavioral",
+  "title": "Tell me about a time you set a technical vision for a front-end org",
+  "excerpt": "Describe how you defined a multi-quarter front-end direction, got buy-in, and turned it into a roadmap teams actually followed.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["strategy", "leadership", "architecture"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "array-prototype-at",
+  "format": "javascript",
+  "title": "Array.prototype.at",
+  "excerpt": "Implement Array.prototype.at, including negative indices and the spec's integer coercion rules.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["arrays", "polyfills", "type-coercion"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at",
+    "https://tc39.es/ecma262/#sec-array.prototype.at"
+  ]
+}

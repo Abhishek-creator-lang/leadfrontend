@@ -1,0 +1,18 @@
+{
+  "slug": "promise-all",
+  "format": "javascript",
+  "title": "Promise.all",
+  "excerpt": "Implement Promise.all: resolve with every result in order, or reject on the first failure.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["promises", "async", "polyfills"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all",
+    "https://tc39.es/ecma262/#sec-promise.all"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "data-table-iii-generic-columns",
+  "format": "user-interface",
+  "title": "Data Table III: Generic Columns",
+  "excerpt": "Turn a users-only table into a reusable DataTable driven by column definitions with renderers, sorting and typed filters.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 50,
+  "topics": ["tables", "design-system", "component-api", "sorting", "memoization"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
+    "https://react.dev/reference/react/useMemo"
+  ]
+}

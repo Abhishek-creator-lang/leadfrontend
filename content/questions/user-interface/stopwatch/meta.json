@@ -1,0 +1,19 @@
+{
+  "slug": "stopwatch",
+  "format": "user-interface",
+  "title": "Stopwatch",
+  "excerpt": "Build an accurate stopwatch with start, stop, lap and reset, based on timestamps rather than counting ticks.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 30,
+  "topics": ["timers", "effects", "state", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Performance/now",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/timer_role",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame"
+  ]
+}

@@ -1,0 +1,193 @@
+1|Explain the concept of "hoisting" in JavaScript|Basic
+2|What are the differences between JavaScript variables created using `let`, `var` or `const`?|Basic
+3|What is the difference between `==` and `===` in JavaScript?|Basic
+4|What is the event loop in JavaScript runtimes?|Basic
+5|Explain event delegation in JavaScript|Basic
+6|Explain how `this` works in JavaScript|Basic
+7|Describe the difference between a cookie, `sessionStorage` and `localStorage` in browsers|Basic
+8|Describe the difference between `<script>`, `<script async>` and `<script defer>`|Basic
+9|What's the difference between a JavaScript variable that is: `null`, `undefined` or undeclared?|Basic
+10|What's the difference between `.call` and `.apply` in JavaScript?|Basic
+11|Explain `Function.prototype.bind` in JavaScript|Basic
+12|What advantage is there for using the JavaScript arrow syntax for a method in a constructor?|Basic
+13|Explain how prototypal inheritance works in JavaScript|Basic
+14|Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()` in JavaScript?|Basic
+15|Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}` in JavaScript|Basic
+16|What's a typical use case for anonymous functions in JavaScript?|Intermediate
+17|What are the various ways to create objects in JavaScript?|Basic
+18|What is a closure in JavaScript, and how/why would you use one?|Intermediate
+19|What is the definition of a higher-order function in JavaScript?|Basic
+20|What are the differences between JavaScript ES2015 classes and ES5 function constructors?|Basic
+21|Describe event bubbling in JavaScript and browsers|Basic
+22|Describe event capturing in JavaScript and browsers|Basic
+23|What is the difference between `mouseenter` and `mouseover` event in JavaScript and browsers?|Basic
+24|What is `'use strict';` (strict mode) in JavaScript for?|Advanced
+25|Explain the difference between synchronous and asynchronous functions in JavaScript|Basic
+26|What are the pros and cons of using Promises instead of callbacks in JavaScript?|Intermediate
+27|Explain AJAX in as much detail as possible|Basic
+28|What are the advantages and disadvantages of using AJAX?|Basic
+29|What are the differences between `XMLHttpRequest` and `fetch()` in JavaScript and browsers?|Basic
+30|How do you abort a web request using `AbortController` in JavaScript?|Intermediate
+31|What are JavaScript polyfills for?|Advanced
+32|Why is extending built-in JavaScript objects not a good idea?|Intermediate
+33|Why is it, in general, a good idea to leave the global JavaScript scope of a website as-is and never touch it?|Intermediate
+34|Explain the differences between CommonJS modules and ES modules in JavaScript|Intermediate
+35|What are the various data types in JavaScript?|Basic
+36|What language constructs do you use for iterating over object properties and array items in JavaScript?|Basic
+37|What are the benefits of using spread syntax in JavaScript and how is it different from rest syntax?|Basic
+38|What are iterators and generators in JavaScript and what are they used for?|Advanced
+39|Explain the difference between mutable and immutable objects in JavaScript|Intermediate
+40|What is the difference between a `Map` object and a plain object in JavaScript?|Basic
+41|What are the differences between `Map`/`Set` and `WeakMap`/`WeakSet` in JavaScript?|Basic
+42|Why might you want to create static class members in JavaScript?|Intermediate
+43|What are `Symbol`s used for in JavaScript?|Intermediate
+44|What are server-sent events?|Advanced
+45|What are JavaScript object property flags and descriptors?|Advanced
+46|What are JavaScript object getters and setters for?|Intermediate
+47|What are proxies in JavaScript used for?|Advanced
+48|What tools and techniques do you use for debugging JavaScript code?|Intermediate
+49|What are workers in JavaScript used for?|Advanced
+50|How does JavaScript garbage collection work?|Advanced
+51|What is `Object.preventExtensions()` for?|Intermediate
+52|What are JavaScript object getters and setters for?|Intermediate
+53|What are JavaScript object property flags and descriptors?|Advanced
+54|How do you reliably determine whether an object is empty?|Basic
+55|What is the event loop in JavaScript runtimes?|Basic
+56|Explain the difference between synchronous and asynchronous functions in JavaScript|Basic
+57|Explain the concept of a callback function in asynchronous operations|Basic
+58|What are Promises and how do they work?|Basic
+59|Explain the different states of a Promise|Intermediate
+60|What are the pros and cons of using Promises instead of callbacks in JavaScript?|Intermediate
+61|What is the use of `Promise.all()`|Basic
+62|How is `Promise.all()` different from `Promise.allSettled()`?|Intermediate
+63|What is async/await and how does it simplify asynchronous code?|Intermediate
+64|How do you handle errors in asynchronous operations?|Basic
+65|Explain the concept of a microtask queue|Intermediate
+66|What is the difference between `setTimeout()`, `setImmediate()`, and `process.nextTick()`?|Intermediate
+67|Explain how prototypal inheritance works in JavaScript|Basic
+68|What is the prototype chain and how does it work?|Intermediate
+69|Explain the difference between classical inheritance and prototypal inheritance|Basic
+70|Explain the concept of inheritance in ES2015 classes|Basic
+71|What is the purpose of the `new` keyword?|Basic
+72|How do you create a constructor function?|Basic
+73|What are the differences between JavaScript ES2015 classes and ES5 function constructors?|Basic
+74|What advantage is there for using the JavaScript arrow syntax for a method in a constructor?|Basic
+75|Why might you want to create static class members in JavaScript?|Intermediate
+76|What is a closure in JavaScript, and how/why would you use one?|Intermediate
+77|Explain the concept of lexical scoping|Basic
+78|Explain the concept of scope in JavaScript|Basic
+79|How can closures be used to create private variables?|Basic
+80|What are the potential pitfalls of using closures?|Intermediate
+81|Explain the difference between global scope, function scope, and block scope|Basic
+82|Explain how `this` works in JavaScript|Basic
+83|Explain `Function.prototype.bind` in JavaScript|Basic
+84|Explain the different ways the `this` keyword can be bound|Intermediate
+85|What are the common pitfalls of using the `this` keyword?|Basic
+86|Explain the concept of `this` binding in event handlers|Basic
+87|What is the DOM and how is it structured?|Basic
+88|What's the difference between an "attribute" and a "property" in the DOM?|Intermediate
+89|Explain the difference between `document.querySelector()` and `document.getElementById()`|Basic
+90|How do you add, remove, and modify HTML elements using JavaScript?|Basic
+91|What are event listeners and how are they used?|Basic
+92|Explain the event phases in a browser|Intermediate
+93|Describe event bubbling in JavaScript and browsers|Basic
+94|Describe event capturing in JavaScript and browsers|Basic
+95|Explain event delegation in JavaScript|Basic
+96|How do you prevent the default behavior of an event?|Basic
+97|What is the difference between `event.preventDefault()` and `event.stopPropagation()`?|Intermediate
+98|What is the difference between `mouseenter` and `mouseover` event in JavaScript and browsers?|Basic
+99|What is the difference between `innerHTML` and `textContent`?|Intermediate
+100|How do you manipulate CSS styles using JavaScript?|Basic
+101|Describe the difference between `<script>`, `<script async>` and `<script defer>`|Basic
+102|What is the difference between the Window object and the Document object?|Intermediate
+103|Describe the difference between a cookie, `sessionStorage` and `localStorage` in browsers|Basic
+104|How do you make an HTTP request using the Fetch API?|Basic
+105|What are the different ways to make an API call in JavaScript?|Basic
+106|Explain AJAX in as much detail as possible|Basic
+107|What are the advantages and disadvantages of using AJAX?|Basic
+108|What are the differences between `XMLHttpRequest` and `fetch()` in JavaScript and browsers?|Basic
+109|How do you abort a web request using `AbortController` in JavaScript?|Intermediate
+110|Explain how JSONP works (and how it's not really Ajax)|Intermediate
+111|What are workers in JavaScript used for?|Advanced
+112|Explain the concept of the Web Socket API|Intermediate
+113|What are JavaScript polyfills for?|Advanced
+114|How do you detect if JavaScript is disabled on a page?|Intermediate
+115|What is the `Intl` namespace object for?|Intermediate
+116|How do you validate form elements using the Constraint Validation API?|Advanced
+117|How do you use `window.history` API?|Basic
+118|How do `<iframe>` on a page communicate?|Intermediate
+119|Difference between document `load` event and document `DOMContentLoaded` event?|Intermediate
+120|How do you redirect to a new page in JavaScript?|Basic
+121|How do you get the query string values of the current page in JavaScript?|Basic
+122|What are server-sent events?|Advanced
+123|What are Progressive Web Applications (PWAs)?|Intermediate
+124|What are modules and why are they useful?|Basic
+125|Explain the differences between CommonJS modules and ES modules in JavaScript|Intermediate
+126|How do you import and export modules in JavaScript?|Basic
+127|What are the benefits of using a module bundler?|Intermediate
+128|Explain the concept of tree shaking in module bundling|Intermediate
+129|What are the metadata fields of a module?|Intermediate
+130|What do you think of CommonJS vs ESM?|Basic
+131|What are the different types of errors in JavaScript?|Intermediate
+132|How do you handle errors using `try...catch` blocks?|Basic
+133|What is the purpose of the `finally` block?|Basic
+134|How can you create custom error objects?|Intermediate
+135|Explain the concept of error propagation in JavaScript|Intermediate
+136|What is currying and how does it work?|Intermediate
+137|Explain the concept of partial application|Intermediate
+138|What are the benefits of using currying and partial application?|Intermediate
+139|Provide some examples of how currying and partial application can be used|Basic
+140|How do currying and partial application differ from each other?|Intermediate
+141|What are `Set`s and `Map`s and how are they used?|Basic
+142|What are the differences between `Map`/`Set` and `WeakMap`/`WeakSet` in JavaScript?|Basic
+143|How do you convert a `Set` to an array in JavaScript?|Basic
+144|What is the difference between a `Map` object and a plain object in JavaScript?|Basic
+145|How do `Set`s and `Map`s handle equality checks for objects?|Basic
+146|What are some common performance bottlenecks in JavaScript applications?|Intermediate
+147|Explain the concept of debouncing and throttling|Basic
+148|How can you optimize DOM manipulation for better performance?|Advanced
+149|What are some techniques for reducing reflows and repaints?|Advanced
+150|Explain the concept of lazy loading and how it can improve performance|Basic
+151|What are Web Workers and how can they be used to improve performance?|Advanced
+152|Explain the concept of caching and how it can be used to improve performance|Basic
+153|What are some tools that can be used to measure and analyze JavaScript performance?|Advanced
+154|How can you optimize network requests for better performance?|Advanced
+155|What are the different types of testing in software development?|Intermediate
+156|Explain the difference between unit testing, integration testing, and end-to-end testing|Intermediate
+157|What are some popular JavaScript testing frameworks?|Basic
+158|How do you write unit tests for JavaScript code?|Intermediate
+159|Explain the concept of test-driven development (TDD)|Intermediate
+160|What are mocks and stubs and how are they used in testing?|Advanced
+161|How can you test asynchronous code in JavaScript?|Intermediate
+162|What are some best practices for writing maintainable and effective tests in JavaScript?|Intermediate
+163|Explain the concept of code coverage and how it can be used to assess test quality|Intermediate
+164|What are some tools that can be used for JavaScript testing?|Basic
+165|What are design patterns and why are they useful?|Basic
+166|Explain the concept of the Singleton pattern|Basic
+167|What is the Factory pattern and how is it used?|Intermediate
+168|Explain the Observer pattern and its use cases|Intermediate
+169|What is the Module pattern and how does it help with encapsulation?|Intermediate
+170|Explain the concept of the Prototype pattern|Basic
+171|What is the Decorator pattern and how is it used?|Intermediate
+172|Explain the concept of the Strategy pattern|Intermediate
+173|What is the Command pattern and how is it used?|Intermediate
+174|Why is extending built-in JavaScript objects not a good idea?|Intermediate
+175|What is Cross-Site Scripting (XSS) and how can you prevent it?|Intermediate
+176|Explain the concept of Cross-Site Request Forgery (CSRF) and its mitigation techniques|Intermediate
+177|How can you prevent SQL injection vulnerabilities in JavaScript applications?|Intermediate
+178|What are some best practices for handling sensitive data in JavaScript?|Intermediate
+179|Explain the concept of Content Security Policy (CSP) and how it enhances security|Intermediate
+180|What are some common security headers and their purpose?|Intermediate
+181|How can you prevent clickjacking attacks?|Advanced
+182|Explain the concept of input validation and its importance in security|Intermediate
+183|What are some tools and techniques for identifying security vulnerabilities in JavaScript code?|Intermediate
+184|How can you implement secure authentication and authorization in JavaScript applications?|Advanced
+185|Explain the same-origin policy with regards to JavaScript|Intermediate
+186|What is `'use strict';` (strict mode) in JavaScript for?|Advanced
+187|What tools and techniques do you use for debugging JavaScript code?|Intermediate
+188|How does JavaScript garbage collection work?|Advanced
+189|Explain what a single page app is and how to make one SEO-friendly|Intermediate
+190|How can you share code between JavaScript files?|Basic
+191|How do you organize your code?|Intermediate
+192|What are some of the advantages and disadvantages of using TypeScript and compile-to-JavaScript languages|Advanced
+193|When would you use `document.write()`?|Advanced

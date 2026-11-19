@@ -1,0 +1,18 @@
+{
+  "slug": "deep-merge",
+  "format": "javascript",
+  "title": "Deep Merge",
+  "excerpt": "Recursively merge configuration objects without mutating the inputs, with clear rules for arrays and undefined.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 25,
+  "topics": ["objects", "recursion", "lodash", "security"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf"
+  ]
+}

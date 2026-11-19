@@ -1,0 +1,27 @@
+{
+  "slug": "how-to-create-a-constructor-function",
+  "format": "quiz",
+  "title": "How do you create a constructor function?",
+  "excerpt": "Writing a constructor, putting methods on the prototype, guarding against missing new, and the class equivalent.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 4,
+  "topics": [
+    "oop",
+    "prototypes"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype"
+  ]
+}

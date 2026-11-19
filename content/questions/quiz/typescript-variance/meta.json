@@ -1,0 +1,28 @@
+{
+  "slug": "typescript-variance",
+  "format": "quiz",
+  "title": "Explain covariance, contravariance and invariance in TypeScript",
+  "excerpt": "How generic and function types relate under subtyping, strictFunctionTypes and in/out annotations.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 9,
+  "topics": [
+    "typescript",
+    "variance",
+    "type-system"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/type-compatibility.html",
+    "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html",
+    "https://www.typescriptlang.org/tsconfig/#strictFunctionTypes"
+  ]
+}

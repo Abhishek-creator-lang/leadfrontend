@@ -1,0 +1,15 @@
+{
+  "slug": "sliding-window-maximum",
+  "format": "algorithms",
+  "title": "Sliding Window Maximum",
+  "excerpt": "Report the peak value in every window of k consecutive samples in O(n) with a monotonic deque.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 35,
+  "topics": ["arrays", "sliding-window", "deque", "monotonic-queue"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

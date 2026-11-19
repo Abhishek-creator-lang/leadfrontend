@@ -1,0 +1,23 @@
+{
+  "slug": "how-would-you-approach-fixing-browser-specific-styling",
+  "format": "quiz",
+  "title": "How would you approach fixing browser-specific styling issues?",
+  "excerpt": "- After identifying the issue and the offending browser, use a separate style sheet that only loads when that specific browser is being used. This technique req",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": []
+}

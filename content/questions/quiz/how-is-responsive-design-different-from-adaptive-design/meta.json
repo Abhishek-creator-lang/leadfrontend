@@ -1,0 +1,25 @@
+{
+  "slug": "how-is-responsive-design-different-from-adaptive-design",
+  "format": "quiz",
+  "title": "How is responsive design different from adaptive design?",
+  "excerpt": "Both responsive and adaptive design attempt to optimize the user experience across different devices, adjusting for different viewport sizes, resolutions, usage",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design"
+  ]
+}

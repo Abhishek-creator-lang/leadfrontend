@@ -1,0 +1,18 @@
+{
+  "slug": "async-queue-with-priority",
+  "format": "javascript",
+  "title": "Async Queue with Priority",
+  "excerpt": "Run async tasks with a concurrency limit, starting higher-priority tasks first and keeping FIFO order within a priority.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 35,
+  "topics": ["async", "promises", "concurrency", "heaps", "queues"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Prioritized_Task_Scheduling_API"
+  ]
+}

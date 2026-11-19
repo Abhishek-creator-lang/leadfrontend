@@ -1,0 +1,15 @@
+{
+  "slug": "quick-sort",
+  "format": "algorithms",
+  "title": "Quick Sort",
+  "excerpt": "Sort an array in place with quicksort, staying fast on sorted input and heavy duplicates.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 30,
+  "topics": ["sorting", "divide-and-conquer", "recursion"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Quicksort"]
+}

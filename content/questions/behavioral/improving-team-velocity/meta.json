@@ -1,0 +1,15 @@
+{
+  "slug": "improving-team-velocity",
+  "format": "behavioral",
+  "title": "Tell me about a time you improved your team's velocity",
+  "excerpt": "Explain how you diagnosed what was slowing a front-end team down, fixed the biggest bottlenecks and proved the improvement with data.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["leadership", "execution", "developer-experience"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "has",
+  "format": "javascript",
+  "title": "Has",
+  "excerpt": "Check whether an object has an own property at a nested path, even when the value is undefined.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["objects", "lodash"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in"
+  ]
+}

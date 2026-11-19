@@ -1,0 +1,17 @@
+{
+  "slug": "squash-object",
+  "format": "javascript",
+  "title": "Squash Object",
+  "excerpt": "Flatten a nested object into a single level whose keys are dot-separated paths.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["recursion", "objects"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": ["Oracle"],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries"
+  ]
+}

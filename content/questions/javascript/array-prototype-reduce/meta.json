@@ -1,0 +1,18 @@
+{
+  "slug": "array-prototype-reduce",
+  "format": "javascript",
+  "title": "Array.prototype.reduce",
+  "excerpt": "Implement Array.prototype.reduce, including the no-initial-value rules and sparse arrays.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["arrays", "polyfills"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce",
+    "https://tc39.es/ecma262/#sec-array.prototype.reduce"
+  ]
+}

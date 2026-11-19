@@ -1,0 +1,22 @@
+{
+  "slug": "http2-vs-http3-for-frontend",
+  "format": "quiz",
+  "title": "What changed from HTTP/1.1 to HTTP/2 to HTTP/3, and what does it mean for front-end delivery?",
+  "excerpt": "Multiplexing, HPACK/QPACK, head-of-line blocking, QUIC over UDP, and which old optimisations are now harmful.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 9,
+  "topics": ["http", "networking", "performance", "quic"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Glossary/HTTP_2",
+    "https://developer.mozilla.org/en-US/docs/Glossary/HTTP_3",
+    "https://www.rfc-editor.org/rfc/rfc9114",
+    "https://www.rfc-editor.org/rfc/rfc9000",
+    "https://www.rfc-editor.org/rfc/rfc9113"
+  ]
+}

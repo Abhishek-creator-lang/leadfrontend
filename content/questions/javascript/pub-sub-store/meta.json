@@ -1,0 +1,19 @@
+{
+  "slug": "pub-sub-store",
+  "format": "javascript",
+  "title": "Pub/Sub Store (Mini Redux)",
+  "excerpt": "Implement createStore with getState, dispatch and subscribe: the core of Redux in about 50 lines.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["design-patterns", "state-management", "closures", "events"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://redux.js.org/api/createstore",
+    "https://redux.js.org/understanding/thinking-in-redux/three-principles",
+    "https://react.dev/reference/react/useSyncExternalStore"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "slug": "binary-search",
+  "format": "algorithms",
+  "title": "Binary Search",
+  "excerpt": "Find a value's index in a sorted array in logarithmic time.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["arrays", "binary-search"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Binary_search_algorithm"]
+}

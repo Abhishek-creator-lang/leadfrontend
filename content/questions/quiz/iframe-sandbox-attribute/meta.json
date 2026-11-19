@@ -1,0 +1,20 @@
+{
+  "slug": "iframe-sandbox-attribute",
+  "format": "quiz",
+  "title": "How do you safely embed untrusted content with iframe sandboxing?",
+  "excerpt": "sandbox tokens, the allow-scripts + allow-same-origin trap, separate origins, allow (Permissions Policy) and srcdoc.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 8,
+  "topics": ["iframes", "security", "sandbox", "isolation"],
+  "frameworks": [],
+  "languages": ["html"],
+  "companies": [],
+  "quizCategory": "security",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#sandbox",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Permissions_Policy",
+    "https://web.dev/articles/sandboxed-iframes"
+  ]
+}

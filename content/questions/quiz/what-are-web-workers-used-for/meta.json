@@ -1,0 +1,29 @@
+{
+  "slug": "what-are-web-workers-used-for",
+  "format": "quiz",
+  "title": "What are workers in JavaScript used for?",
+  "excerpt": "Dedicated, shared and service workers: off-main-thread work, messaging, transferables and limits.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "workers",
+    "performance",
+    "concurrency"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Transferable_objects"
+  ]
+}

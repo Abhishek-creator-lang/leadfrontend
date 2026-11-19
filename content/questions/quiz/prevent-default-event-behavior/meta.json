@@ -1,0 +1,28 @@
+{
+  "slug": "prevent-default-event-behavior",
+  "format": "quiz",
+  "title": "How do you prevent the default behavior of an event?",
+  "excerpt": "preventDefault, cancelable events, passive listeners and when not to block defaults.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 4,
+  "topics": [
+    "events",
+    "dom",
+    "forms"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelable",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Event/defaultPrevented"
+  ]
+}

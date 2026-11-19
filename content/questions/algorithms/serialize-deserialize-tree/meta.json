@@ -1,0 +1,15 @@
+{
+  "slug": "serialize-deserialize-tree",
+  "format": "algorithms",
+  "title": "Serialize and Deserialize a Binary Tree",
+  "excerpt": "Encode a binary tree as a string and rebuild an identical tree from it.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 35,
+  "topics": ["trees", "breadth-first-search", "design"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

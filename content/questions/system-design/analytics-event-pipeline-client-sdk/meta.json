@@ -1,0 +1,23 @@
+{
+  "slug": "analytics-event-pipeline-client-sdk",
+  "format": "system-design",
+  "title": "Analytics Event Pipeline and Client SDK",
+  "excerpt": "Design a product-analytics client SDK and event pipeline with a governed tracking plan, reliable delivery, consent and privacy, used by every team.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 50,
+  "topics": ["system design", "analytics", "sdk design", "event schema", "privacy", "consent", "data quality"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": [],
+  "sdType": "lead",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilitychange_event",
+    "https://developer.mozilla.org/en-US/docs/Web/API/RequestInit#keepalive",
+    "https://json-schema.org/",
+    "https://developer.chrome.com/docs/web-platform/page-lifecycle-api",
+    "https://www.snowplow.io/"
+  ]
+}

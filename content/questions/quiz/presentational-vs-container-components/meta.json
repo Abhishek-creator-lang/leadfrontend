@@ -1,0 +1,29 @@
+{
+  "slug": "presentational-vs-container-components",
+  "format": "quiz",
+  "title": "Explain the presentational vs container component pattern in React",
+  "excerpt": "Separating logic from view, and how hooks and headless libraries changed it.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 5,
+  "topics": [
+    "react",
+    "patterns",
+    "architecture"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/reusing-logic-with-custom-hooks",
+    "https://react.dev/learn/thinking-in-react"
+  ]
+}

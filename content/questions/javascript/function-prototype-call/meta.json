@@ -1,0 +1,19 @@
+{
+  "slug": "function-prototype-call",
+  "format": "javascript",
+  "title": "Function.prototype.call",
+  "excerpt": "Implement Function.prototype.call without using call, apply or bind.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["this", "functions", "polyfills", "symbols"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode"
+  ]
+}

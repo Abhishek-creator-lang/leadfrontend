@@ -1,0 +1,19 @@
+{
+  "slug": "transfer-list",
+  "format": "user-interface",
+  "title": "Transfer List",
+  "excerpt": "Move checked items between two lists with per-list select-all and bulk transfer controls.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 30,
+  "topics": ["state", "forms", "accessibility", "lists"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/learn/choosing-the-state-structure",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "explain-the-same-origin-policy-with-regards-to-javascript",
+  "format": "quiz",
+  "title": "Explain the same-origin policy with regards to JavaScript.",
+  "excerpt": "The same-origin policy restricts how a document or script from one origin can interact with resources from another origin. Two URLs have the same origin when th",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy"
+  ]
+}

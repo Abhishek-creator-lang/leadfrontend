@@ -1,0 +1,19 @@
+{
+  "slug": "nested-checkboxes",
+  "format": "user-interface",
+  "title": "Nested Checkboxes",
+  "excerpt": "Build a checkbox tree where parents reflect their children as checked, unchecked or indeterminate.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 30,
+  "topics": ["tree", "derived-state", "forms", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/",
+    "https://react.dev/learn/choosing-the-state-structure"
+  ]
+}

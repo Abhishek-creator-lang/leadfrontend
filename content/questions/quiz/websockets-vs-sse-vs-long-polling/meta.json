@@ -1,0 +1,21 @@
+{
+  "slug": "websockets-vs-sse-vs-long-polling",
+  "format": "quiz",
+  "title": "WebSockets vs Server-Sent Events vs long polling: how do you choose a real-time transport?",
+  "excerpt": "Directionality, infrastructure, reconnection, scaling and HTTP/2 implications for each real-time option.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 9,
+  "topics": ["real-time", "websockets", "sse", "networking"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events",
+    "https://html.spec.whatwg.org/multipage/server-sent-events.html",
+    "https://developer.mozilla.org/en-US/docs/Web/API/WebTransport_API"
+  ]
+}

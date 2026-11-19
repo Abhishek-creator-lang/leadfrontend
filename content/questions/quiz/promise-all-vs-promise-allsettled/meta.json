@@ -1,0 +1,28 @@
+{
+  "slug": "promise-all-vs-promise-allsettled",
+  "format": "quiz",
+  "title": "How is `Promise.all()` different from `Promise.allSettled()`?",
+  "excerpt": "Fail-fast vs wait-for-everything, result shapes, and where any and race fit in.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "promises",
+    "async",
+    "concurrency"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any"
+  ]
+}

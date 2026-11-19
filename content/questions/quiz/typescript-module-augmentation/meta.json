@@ -1,0 +1,27 @@
+{
+  "slug": "typescript-module-augmentation",
+  "format": "quiz",
+  "title": "What is module augmentation in TypeScript and when would you use it?",
+  "excerpt": "Extending library and global types with declare module and declare global.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "declaration-merging",
+    "declaration-files"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/declaration-merging.html",
+    "https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-modifying-module-d-ts.html"
+  ]
+}

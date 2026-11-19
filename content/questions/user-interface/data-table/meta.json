@@ -1,0 +1,19 @@
+{
+  "slug": "data-table",
+  "format": "user-interface",
+  "title": "Data Table",
+  "excerpt": "Build a paginated users table with a rows-per-page selector and previous/next navigation.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["pagination", "state", "accessibility", "tables"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table",
+    "https://www.w3.org/WAI/tutorials/tables/",
+    "https://react.dev/learn/choosing-the-state-structure"
+  ]
+}

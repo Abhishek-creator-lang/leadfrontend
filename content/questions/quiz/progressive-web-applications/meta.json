@@ -1,0 +1,29 @@
+{
+  "slug": "progressive-web-applications",
+  "format": "quiz",
+  "title": "What are Progressive Web Applications (PWAs)?",
+  "excerpt": "Installable, offline-capable web apps built on a manifest, service worker and HTTPS.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "pwa",
+    "service-worker",
+    "offline"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "web",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps",
+    "https://developer.mozilla.org/en-US/docs/Web/Manifest",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API",
+    "https://web.dev/explore/progressive-web-apps"
+  ]
+}

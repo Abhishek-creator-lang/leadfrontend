@@ -1,0 +1,24 @@
+{
+  "slug": "frontend-observability-platform",
+  "format": "system-design",
+  "title": "Front-End Observability Platform (RUM, Errors, Tracing)",
+  "excerpt": "Design an org-wide front-end observability platform covering real user monitoring, error tracking with source maps, and distributed tracing.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 60,
+  "topics": ["system design", "observability", "rum", "error tracking", "opentelemetry", "web vitals", "source maps"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": [],
+  "sdType": "lead",
+  "source": { "type": "original" },
+  "references": [
+    "https://opentelemetry.io/docs/languages/js/getting-started/browser/",
+    "https://www.w3.org/TR/trace-context/",
+    "https://web.dev/articles/vitals",
+    "https://github.com/GoogleChrome/web-vitals",
+    "https://docs.sentry.io/platforms/javascript/",
+    "https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "object-getters-and-setters",
+  "format": "quiz",
+  "title": "What are JavaScript object getters and setters for?",
+  "excerpt": "Computed properties, validation and encapsulation with get/set, plus their performance and debugging trade-offs.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "objects",
+    "classes"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_properties"
+  ]
+}

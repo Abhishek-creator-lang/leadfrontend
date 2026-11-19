@@ -1,0 +1,19 @@
+{
+  "slug": "intersection",
+  "format": "javascript",
+  "title": "Intersection",
+  "excerpt": "Return the unique values that appear in every one of the given arrays.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["arrays", "sets", "lodash"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/intersection",
+    "https://lodash.com/docs/4.17.15#intersection"
+  ]
+}

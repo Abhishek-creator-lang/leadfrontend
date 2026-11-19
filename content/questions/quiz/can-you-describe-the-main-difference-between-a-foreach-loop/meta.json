@@ -1,0 +1,25 @@
+{
+  "slug": "can-you-describe-the-main-difference-between-a-foreach-loop",
+  "format": "quiz",
+  "title": "Can you describe the main difference between a .forEach loop and a .map() loop and why you would pick one versus the other?",
+  "excerpt": "To understand the differences between the two, let's look at what each function does.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://codeburst.io/javascript-map-vs-foreach-f38111822c0f?gi=c9bc30cbec28"
+  ]
+}

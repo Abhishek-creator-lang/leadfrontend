@@ -1,0 +1,30 @@
+{
+  "slug": "react-suspense-data-fetching",
+  "format": "quiz",
+  "title": "How does Suspense work for data fetching, and why doesn't it work with `useEffect`?",
+  "excerpt": "Suspense-enabled sources, render-as-you-fetch, and cached promises.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 9,
+  "topics": [
+    "react",
+    "suspense",
+    "data-fetching"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/Suspense",
+    "https://react.dev/reference/react/use",
+    "https://tanstack.com/query/latest/docs/framework/react/guides/suspense"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "what-are-the-advantages-and-disadvantages-of-using-ajax",
+  "format": "quiz",
+  "title": "What are the advantages and disadvantages of using Ajax?",
+  "excerpt": "- Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": []
+}

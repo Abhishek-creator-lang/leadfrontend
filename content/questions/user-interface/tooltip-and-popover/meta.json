@@ -1,0 +1,19 @@
+{
+  "slug": "tooltip-and-popover",
+  "format": "user-interface",
+  "title": "Tooltip and Popover",
+  "excerpt": "Build an accessible hover/focus tooltip and a click-triggered popover, and explain when to use each.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 35,
+  "topics": ["accessibility", "focus-management", "events", "design-system"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/",
+    "https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Popover_API"
+  ]
+}

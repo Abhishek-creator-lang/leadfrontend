@@ -1,0 +1,27 @@
+{
+  "slug": "javascript-performance-bottlenecks",
+  "format": "quiz",
+  "title": "What are some common performance bottlenecks in JavaScript applications?",
+  "excerpt": "Large bundles, long tasks, layout thrashing, memory leaks, network waterfalls and over-rendering.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "performance",
+    "rendering"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://web.dev/articles/optimize-long-tasks",
+    "https://web.dev/articles/inp",
+    "https://developer.mozilla.org/en-US/docs/Web/Performance"
+  ]
+}

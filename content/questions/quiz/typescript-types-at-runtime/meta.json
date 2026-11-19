@@ -1,0 +1,28 @@
+{
+  "slug": "typescript-types-at-runtime",
+  "format": "quiz",
+  "title": "Do TypeScript types exist at runtime? How do you validate external data?",
+  "excerpt": "Type erasure, trust boundaries, schema validation and type stripping.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "typescript",
+    "validation",
+    "security"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/2/basic-types.html",
+    "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-8.html",
+    "https://zod.dev/"
+  ]
+}

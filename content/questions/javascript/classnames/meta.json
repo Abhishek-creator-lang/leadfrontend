@@ -1,0 +1,18 @@
+{
+  "slug": "classnames",
+  "format": "javascript",
+  "title": "classnames",
+  "excerpt": "Build a CSS class string from strings, numbers, nested arrays and conditional objects.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["recursion", "strings", "objects"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": ["Meta"],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/className",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys"
+  ]
+}

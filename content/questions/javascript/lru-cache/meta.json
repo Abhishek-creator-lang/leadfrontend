@@ -1,0 +1,19 @@
+{
+  "slug": "lru-cache",
+  "format": "javascript",
+  "title": "LRU Cache",
+  "excerpt": "Implement a fixed-capacity cache that evicts the least recently used entry, with O(1) get and set.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["caching", "data-structures", "maps", "linked-lists"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys",
+    "https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "find-last-index",
+  "format": "javascript",
+  "title": "Find Last Index",
+  "excerpt": "Return the index of the last element that satisfies a predicate, searching backwards from an optional index.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 10,
+  "topics": ["arrays", "lodash", "indices"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLastIndex",
+    "https://lodash.com/docs/4.17.15#findLastIndex"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "compose",
+  "format": "javascript",
+  "title": "Compose",
+  "excerpt": "Combine functions right to left into a single function, where each output feeds the next input.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["functional programming", "closures"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "es6-template-literals-offer-a-lot-of-flexibility-in",
+  "format": "quiz",
+  "title": "ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?",
+  "excerpt": "Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals"
+  ]
+}

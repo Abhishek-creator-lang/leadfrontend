@@ -1,0 +1,24 @@
+{
+  "slug": "image-uploader-component",
+  "format": "system-design",
+  "title": "Image Uploader Component",
+  "excerpt": "Design a multi-file image uploader with previews, client-side resizing, resumable direct-to-storage uploads and progress.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 40,
+  "topics": ["system design", "component design", "file upload", "images", "web workers", "accessibility", "security"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Meta", "Google", "Dropbox"],
+  "sdType": "component",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/File_API/Using_files_from_web_applications",
+    "https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop",
+    "https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest",
+    "https://developer.mozilla.org/en-US/docs/Web/API/createImageBitmap",
+    "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas",
+    "https://tus.io/protocols/resumable-upload",
+    "https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html"
+  ]
+}

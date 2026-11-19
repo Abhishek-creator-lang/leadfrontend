@@ -1,0 +1,25 @@
+{
+  "slug": "explain-the-differences-on-the-usage-of-foo-between-function",
+  "format": "quiz",
+  "title": "Explain the differences on the usage of foo between function foo() {} and var foo = function() {}",
+  "excerpt": "The former is a function declaration while the latter is a function expression. The key difference is that function declarations have its body hoisted but the b",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function"
+  ]
+}

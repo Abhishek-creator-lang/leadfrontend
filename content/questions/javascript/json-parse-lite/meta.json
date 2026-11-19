@@ -1,0 +1,19 @@
+{
+  "slug": "json-parse-lite",
+  "format": "javascript",
+  "title": "JSON.parse (Lite)",
+  "excerpt": "Write a recursive-descent parser for JSON text that matches JSON.parse and throws SyntaxError on invalid input.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 45,
+  "topics": ["parsing", "recursion", "strings", "json"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse",
+    "https://www.json.org/json-en.html",
+    "https://www.rfc-editor.org/rfc/rfc8259"
+  ]
+}

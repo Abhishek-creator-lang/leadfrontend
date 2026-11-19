@@ -1,0 +1,19 @@
+{
+  "slug": "promise-any",
+  "format": "javascript",
+  "title": "Promise.any",
+  "excerpt": "Implement Promise.any: fulfill with the first success, or reject with an AggregateError.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["promises", "async", "polyfills", "errors"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError",
+    "https://tc39.es/ecma262/#sec-promise.any"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "promise-all-settled",
+  "format": "javascript",
+  "title": "Promise.allSettled",
+  "excerpt": "Implement Promise.allSettled: wait for every input and report each outcome in order.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["promises", "async", "polyfills"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled",
+    "https://tc39.es/ecma262/#sec-promise.allsettled"
+  ]
+}

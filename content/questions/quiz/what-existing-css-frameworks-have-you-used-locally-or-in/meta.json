@@ -1,0 +1,23 @@
+{
+  "slug": "what-existing-css-frameworks-have-you-used-locally-or-in",
+  "format": "quiz",
+  "title": "What existing CSS frameworks have you used locally, or in production? How would you change/improve them?",
+  "excerpt": "- Bootstrap - Slow release cycle. Bootstrap 4 has been in alpha for almost 2 years. Add a spinner button component, as it is widely used.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": []
+}

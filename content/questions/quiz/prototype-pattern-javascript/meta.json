@@ -1,0 +1,27 @@
+{
+  "slug": "prototype-pattern-javascript",
+  "format": "quiz",
+  "title": "Explain the concept of the Prototype pattern",
+  "excerpt": "Creating objects from existing ones: Object.create, prototype sharing and cloning.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "design-patterns",
+    "prototypes"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://refactoring.guru/design-patterns/prototype",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone"
+  ]
+}

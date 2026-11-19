@@ -1,0 +1,28 @@
+{
+  "slug": "what-is-react-and-its-benefits",
+  "format": "quiz",
+  "title": "What is React? Describe the benefits of React",
+  "excerpt": "What React is, why teams choose it, and its honest trade-offs.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "react",
+    "fundamentals"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn",
+    "https://react.dev/learn/thinking-in-react"
+  ]
+}

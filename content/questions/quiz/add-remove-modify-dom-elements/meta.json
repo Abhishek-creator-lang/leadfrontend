@@ -1,0 +1,29 @@
+{
+  "slug": "add-remove-modify-dom-elements",
+  "format": "quiz",
+  "title": "How do you add, remove, and modify HTML elements using JavaScript?",
+  "excerpt": "createElement, append, replaceWith, remove, classList, fragments, templates and avoiding innerHTML XSS.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "dom",
+    "security",
+    "performance"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/append",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/remove",
+    "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment"
+  ]
+}

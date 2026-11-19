@@ -1,0 +1,23 @@
+{
+  "slug": "what-are-the-various-clearing-techniques-and-which-is",
+  "format": "quiz",
+  "title": "What are the various clearing techniques and which is appropriate for what context?",
+  "excerpt": "- Empty div method - <div style=\"clear:both;\"</div.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": []
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "progress-bars-iii-pause-resume",
+  "format": "user-interface",
+  "title": "Progress Bars III: Pause and Resume",
+  "excerpt": "Queue-limited progress bars that can be paused and resumed without losing progress, driven by one shared clock.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 40,
+  "topics": ["animation", "state", "reducers", "effects"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/reference/react/useReducer",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API"
+  ]
+}

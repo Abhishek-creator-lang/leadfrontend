@@ -1,0 +1,25 @@
+{
+  "slug": "what-is-css-selector-specificity-and-how-does-it-work",
+  "format": "quiz",
+  "title": "What is CSS selector specificity and how does it work?",
+  "excerpt": "The browser determines what styles to show on an element depending on the specificity of CSS rules. We assume that the browser has already determined the rules ",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/"
+  ]
+}

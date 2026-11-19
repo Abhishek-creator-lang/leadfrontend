@@ -1,0 +1,28 @@
+{
+  "slug": "constraint-validation-api",
+  "format": "quiz",
+  "title": "How do you validate form elements using the Constraint Validation API?",
+  "excerpt": "Native form validation with ValidityState, setCustomValidity and accessible custom error UI.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 8,
+  "topics": [
+    "forms",
+    "accessibility"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "web",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation",
+    "https://developer.mozilla.org/en-US/docs/Web/API/ValidityState",
+    "https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setCustomValidity",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid"
+  ]
+}

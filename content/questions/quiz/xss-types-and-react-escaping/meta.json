@@ -1,0 +1,21 @@
+{
+  "slug": "xss-types-and-react-escaping",
+  "format": "quiz",
+  "title": "Explain stored, reflected and DOM-based XSS. Does using React make you safe?",
+  "excerpt": "The three XSS classes, what JSX escaping does and doesn't cover, and defence in depth.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 9,
+  "topics": ["xss", "security", "react", "sanitization"],
+  "frameworks": ["react"],
+  "languages": ["js", "html"],
+  "companies": [],
+  "quizCategory": "security",
+  "source": { "type": "original" },
+  "references": [
+    "https://owasp.org/www-community/attacks/xss/",
+    "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html",
+    "https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html",
+    "https://react.dev/reference/react-dom/components/common#dangerously-setting-the-inner-html"
+  ]
+}

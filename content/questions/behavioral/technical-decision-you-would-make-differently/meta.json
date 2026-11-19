@@ -1,0 +1,15 @@
+{
+  "slug": "technical-decision-you-would-make-differently",
+  "format": "behavioral",
+  "title": "A technical decision you would make differently",
+  "excerpt": "Describe a significant front-end architecture decision that aged badly, how you recognised it and what you changed in how you decide.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["ownership", "strategy", "self-awareness"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

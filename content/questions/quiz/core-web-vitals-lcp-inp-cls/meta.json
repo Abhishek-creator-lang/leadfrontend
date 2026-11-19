@@ -1,0 +1,21 @@
+{
+  "slug": "core-web-vitals-lcp-inp-cls",
+  "format": "quiz",
+  "title": "What are the Core Web Vitals today, how are they measured, and what are the thresholds?",
+  "excerpt": "LCP, INP and CLS: what each one captures, the p75 thresholds, and lab vs field data.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": ["core-web-vitals", "performance", "metrics"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/vitals",
+    "https://web.dev/articles/inp",
+    "https://web.dev/blog/inp-cwv-march-12",
+    "https://web.dev/articles/defining-core-web-vitals-thresholds"
+  ]
+}

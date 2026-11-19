@@ -1,0 +1,28 @@
+{
+  "slug": "optimize-dom-manipulation",
+  "format": "quiz",
+  "title": "How can you optimize DOM manipulation for better performance?",
+  "excerpt": "Batching reads and writes, fragments, delegation, virtualization and content-visibility.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "performance",
+    "dom",
+    "rendering"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility",
+    "https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing"
+  ]
+}

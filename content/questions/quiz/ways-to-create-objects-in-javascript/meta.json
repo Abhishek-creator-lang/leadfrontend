@@ -1,0 +1,27 @@
+{
+  "slug": "ways-to-create-objects-in-javascript",
+  "format": "quiz",
+  "title": "What are the various ways to create objects in JavaScript?",
+  "excerpt": "Object literals, constructors, classes, Object.create, factories and structuredClone compared.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "objects",
+    "prototypes"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes"
+  ]
+}

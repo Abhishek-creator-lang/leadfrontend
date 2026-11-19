@@ -1,0 +1,15 @@
+{
+  "slug": "longest-substring-without-repeating",
+  "format": "algorithms",
+  "title": "Longest Substring Without Repeating Characters",
+  "excerpt": "Find the length of the longest run of characters with no repeats using a sliding window.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["strings", "sliding-window", "hash-map"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

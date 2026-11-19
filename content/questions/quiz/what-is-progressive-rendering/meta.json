@@ -1,0 +1,25 @@
+{
+  "slug": "what-is-progressive-rendering",
+  "format": "quiz",
+  "title": "What is progressive rendering?",
+  "excerpt": "Progressive rendering is the name given to techniques used to improve the performance of a webpage (in particular, improve perceived load time) to render conten",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "html"
+  ],
+  "frameworks": [],
+  "languages": [
+    "html"
+  ],
+  "companies": [],
+  "quizCategory": "html",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/html-questions"
+  },
+  "references": [
+    "https://stackoverflow.com/questions/33651166/what-is-progressive-rendering"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "deep-clone-ii",
+  "format": "javascript",
+  "title": "Deep Clone II",
+  "excerpt": "Deep clone values with circular references, shared references, Date, RegExp, Map, Set, symbols and prototypes.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 35,
+  "topics": ["objects", "recursion", "weakmap", "lodash"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex"
+  ]
+}

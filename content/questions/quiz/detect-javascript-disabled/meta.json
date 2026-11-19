@@ -1,0 +1,26 @@
+{
+  "slug": "detect-javascript-disabled",
+  "format": "quiz",
+  "title": "How do you detect if JavaScript is disabled on a page?",
+  "excerpt": "noscript, the no-js class swap, the scripting media feature, and progressive enhancement.",
+  "difficulty": "medium",
+  "importance": "low",
+  "duration": 4,
+  "topics": [
+    "progressive-enhancement",
+    "html"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "web",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/scripting"
+  ]
+}

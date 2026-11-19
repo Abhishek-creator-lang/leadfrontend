@@ -1,0 +1,19 @@
+{
+  "slug": "new-operator",
+  "format": "javascript",
+  "title": "new Operator",
+  "excerpt": "Re-implement the new operator: create the object, link the prototype, run the constructor.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["prototypes", "objects", "this", "functions"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/construct",
+    "https://tc39.es/ecma262/#sec-ordinarycreatefromconstructor"
+  ]
+}

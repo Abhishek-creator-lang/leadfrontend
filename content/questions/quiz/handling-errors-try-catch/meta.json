@@ -1,0 +1,26 @@
+{
+  "slug": "handling-errors-try-catch",
+  "format": "quiz",
+  "title": "How do you handle errors using try...catch blocks?",
+  "excerpt": "How try/catch works with sync and async code, and how to catch errors usefully.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "errors",
+    "async"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause"
+  ]
+}

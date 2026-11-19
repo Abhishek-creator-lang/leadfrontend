@@ -1,0 +1,29 @@
+{
+  "slug": "react-hydration",
+  "format": "quiz",
+  "title": "Explain what React hydration is",
+  "excerpt": "How React adopts server-rendered HTML and makes it interactive, and what changed in 18 and 19.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "react",
+    "ssr",
+    "hydration"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react-dom/client/hydrateRoot",
+    "https://react.dev/reference/react/Suspense"
+  ]
+}

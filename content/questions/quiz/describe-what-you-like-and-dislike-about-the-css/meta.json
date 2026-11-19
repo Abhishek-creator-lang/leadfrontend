@@ -1,0 +1,23 @@
+{
+  "slug": "describe-what-you-like-and-dislike-about-the-css",
+  "format": "quiz",
+  "title": "Describe what you like and dislike about the CSS preprocessors you have used.",
+  "excerpt": "- Mostly the advantages mentioned above.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": []
+}

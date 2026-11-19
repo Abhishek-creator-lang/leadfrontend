@@ -1,0 +1,25 @@
+{
+  "slug": "what-s-the-difference-between-feature-detection-feature",
+  "format": "quiz",
+  "title": "What's the difference between feature detection, feature inference, and using the UA string?",
+  "excerpt": "Feature detection involves working out whether a browser supports a certain block of code, and running different code depending on whether it does (or doesn't),",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Testing/Feature_detection"
+  ]
+}

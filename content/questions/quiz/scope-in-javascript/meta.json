@@ -1,0 +1,27 @@
+{
+  "slug": "scope-in-javascript",
+  "format": "quiz",
+  "title": "Explain the concept of scope in JavaScript",
+  "excerpt": "Global, module, function and block scope, the scope chain, shadowing and the temporal dead zone.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "scope",
+    "variables"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Glossary/Scope",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "clickjacking-and-frame-ancestors",
+  "format": "quiz",
+  "title": "What is clickjacking, and how do you defend against it?",
+  "excerpt": "UI redressing via invisible iframes, frame-ancestors vs X-Frame-Options, and legitimate embedding.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": ["clickjacking", "security", "iframes", "headers"],
+  "frameworks": [],
+  "languages": ["html"],
+  "companies": [],
+  "quizCategory": "security",
+  "source": { "type": "original" },
+  "references": [
+    "https://owasp.org/www-community/attacks/Clickjacking",
+    "https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options"
+  ]
+}

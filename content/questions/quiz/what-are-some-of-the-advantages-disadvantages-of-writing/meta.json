@@ -1,0 +1,25 @@
+{
+  "slug": "what-are-some-of-the-advantages-disadvantages-of-writing",
+  "format": "quiz",
+  "title": "What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?",
+  "excerpt": "Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript, and TypeScript.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "cache-async",
+  "format": "javascript",
+  "title": "Cache Async (Deduplicate Requests)",
+  "excerpt": "Memoize an async function so concurrent calls share one in-flight promise, results expire after a TTL and failures are not cached.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["async", "promises", "closures", "caching"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "https://tanstack.com/query/latest/docs/framework/react/guides/caching"
+  ]
+}

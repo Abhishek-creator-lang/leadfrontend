@@ -1,0 +1,19 @@
+{
+  "slug": "birth-year-histogram",
+  "format": "user-interface",
+  "title": "Birth Year Histogram",
+  "excerpt": "Bucket a list of birth years into a bar-chart histogram with adjustable bucket size and an accessible data-table view.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 30,
+  "topics": ["data-visualization", "accessibility", "forms", "memoization"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/reference/react/useMemo",
+    "https://www.w3.org/WAI/tutorials/images/complex/",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "ways-to-bind-this",
+  "format": "quiz",
+  "title": "Explain the different ways the `this` keyword can be bound",
+  "excerpt": "Default, implicit, explicit and new binding, arrow functions, and the precedence between them.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "this",
+    "functions"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions"
+  ]
+}

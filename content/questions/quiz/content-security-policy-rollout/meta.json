@@ -1,0 +1,21 @@
+{
+  "slug": "content-security-policy-rollout",
+  "format": "quiz",
+  "title": "How would you design and roll out a Content Security Policy for an existing production app?",
+  "excerpt": "Strict nonce-based CSP, strict-dynamic, report-only rollout, reporting, and the directives that matter.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 11,
+  "topics": ["csp", "security", "xss", "headers"],
+  "frameworks": [],
+  "languages": ["html"],
+  "companies": [],
+  "quizCategory": "security",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP",
+    "https://web.dev/articles/strict-csp",
+    "https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html",
+    "https://www.w3.org/TR/CSP3/"
+  ]
+}

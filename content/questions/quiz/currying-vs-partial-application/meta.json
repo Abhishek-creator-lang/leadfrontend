@@ -1,0 +1,26 @@
+{
+  "slug": "currying-vs-partial-application",
+  "format": "quiz",
+  "title": "How do currying and partial application differ from each other?",
+  "excerpt": "Unary chains versus fixing some arguments once, with implementations of both.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "functional-programming",
+    "closures"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length"
+  ]
+}

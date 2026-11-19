@@ -1,0 +1,17 @@
+{
+  "slug": "partial",
+  "format": "javascript",
+  "title": "Partial",
+  "excerpt": "Pre-fill some of a function's arguments, with placeholders for positions supplied later.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["closures", "functional programming"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind#partially_applied_functions"
+  ]
+}

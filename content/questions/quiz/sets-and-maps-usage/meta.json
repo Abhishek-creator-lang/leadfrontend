@@ -1,0 +1,27 @@
+{
+  "slug": "sets-and-maps-usage",
+  "format": "quiz",
+  "title": "What are Sets and Maps and how are they used?",
+  "excerpt": "Unique-value collections and keyed collections with any key type, plus new Set methods.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "data-structures",
+    "collections"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections"
+  ]
+}

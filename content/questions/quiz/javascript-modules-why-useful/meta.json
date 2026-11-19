@@ -1,0 +1,25 @@
+{
+  "slug": "javascript-modules-why-useful",
+  "format": "quiz",
+  "title": "What are modules and why are they useful?",
+  "excerpt": "Scope isolation, explicit dependencies, tree shaking and code splitting with ES modules.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "modules"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap"
+  ]
+}

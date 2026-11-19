@@ -1,0 +1,76 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.traffic {
+  display: inline-grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.housing {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  background: #1f2937;
+  border-radius: 16px;
+}
+
+.lamp {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #374151;
+  opacity: 0.35;
+  transition: opacity 150ms ease, box-shadow 150ms ease;
+}
+
+.lamp--red {
+  background: #ef4444;
+}
+
+.lamp--yellow {
+  background: #facc15;
+}
+
+.lamp--green {
+  background: #22c55e;
+}
+
+.lamp--on {
+  opacity: 1;
+  box-shadow: 0 0 18px 2px currentColor;
+}
+
+.lamp--red.lamp--on {
+  color: #ef4444;
+}
+
+.lamp--yellow.lamp--on {
+  color: #facc15;
+}
+
+.lamp--green.lamp--on {
+  color: #22c55e;
+}
+
+.traffic button {
+  font: inherit;
+  padding: 6px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.traffic button:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lamp {
+    transition: none;
+  }
+}

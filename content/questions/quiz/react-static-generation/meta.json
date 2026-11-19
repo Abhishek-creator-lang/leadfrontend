@@ -1,0 +1,29 @@
+{
+  "slug": "react-static-generation",
+  "format": "quiz",
+  "title": "Explain static generation of React applications and its benefits",
+  "excerpt": "Build-time HTML on a CDN, its freshness limits, and ISR-style hybrids.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "react",
+    "ssg",
+    "performance"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react-dom/static",
+    "https://nextjs.org/docs/app/api-reference/functions/generate-static-params"
+  ]
+}

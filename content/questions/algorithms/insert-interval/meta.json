@@ -1,0 +1,15 @@
+{
+  "slug": "insert-interval",
+  "format": "algorithms",
+  "title": "Insert Interval",
+  "excerpt": "Add a new booking to a sorted list of busy blocks, merging where needed, in linear time.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["arrays", "intervals"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

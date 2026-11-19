@@ -1,0 +1,19 @@
+{
+  "slug": "list-format",
+  "format": "javascript",
+  "title": "List Format",
+  "excerpt": "Format a list of names into a readable sentence with options for sorting, de-duplication and an \"and N others\" cutoff.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["strings", "arrays", "i18n"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare"
+  ]
+}

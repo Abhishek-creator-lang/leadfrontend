@@ -1,0 +1,20 @@
+{
+  "slug": "aria-live-regions",
+  "format": "quiz",
+  "title": "How do ARIA live regions work, and how do you announce dynamic updates reliably?",
+  "excerpt": "polite vs assertive, status and alert roles, aria-atomic, timing pitfalls and an announcer pattern.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": ["accessibility", "aria", "live-regions", "html"],
+  "frameworks": [],
+  "languages": ["html", "js"],
+  "companies": [],
+  "quizCategory": "html",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions",
+    "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/status_role"
+  ]
+}

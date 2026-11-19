@@ -1,0 +1,15 @@
+{
+  "slug": "project-you-led-end-to-end",
+  "format": "behavioral",
+  "title": "Tell me about a project you led end to end",
+  "excerpt": "Walk through a front-end initiative you owned from problem framing to measured outcome, showing scope, trade-offs and how you led people.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["leadership", "execution", "ownership"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

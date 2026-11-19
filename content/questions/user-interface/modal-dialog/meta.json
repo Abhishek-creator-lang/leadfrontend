@@ -1,0 +1,19 @@
+{
+  "slug": "modal-dialog",
+  "format": "user-interface",
+  "title": "Modal Dialog",
+  "excerpt": "Build a reusable modal dialog with a portal, labelled dialog semantics, Escape and backdrop dismissal, and focus restoration.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 30,
+  "topics": ["accessibility", "focus-management", "portals", "design-system"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+    "https://react.dev/reference/react-dom/createPortal",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog"
+  ]
+}

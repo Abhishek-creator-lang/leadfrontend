@@ -1,0 +1,23 @@
+{
+  "slug": "dropdown-menu-component",
+  "format": "system-design",
+  "title": "Dropdown Menu Component",
+  "excerpt": "Design an accessible dropdown/action menu with submenus, typeahead, robust positioning and focus management.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "component design", "accessibility", "focus management", "positioning", "headless components"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Google", "Microsoft", "Atlassian"],
+  "sdType": "component",
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Popover_API",
+    "https://developer.mozilla.org/en-US/docs/Glossary/Top_layer",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning",
+    "https://floating-ui.com/docs/getting-started"
+  ]
+}

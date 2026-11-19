@@ -1,0 +1,28 @@
+{
+  "slug": "javascript-performance-tools",
+  "format": "quiz",
+  "title": "What are some tools that can be used to measure and analyze JavaScript performance?",
+  "excerpt": "DevTools Performance panel, Lighthouse, RUM with web-vitals, bundle analysers and profilers.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "performance",
+    "tooling"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.chrome.com/docs/devtools/performance",
+    "https://developer.chrome.com/docs/lighthouse/overview",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Performance_API",
+    "https://web.dev/articles/vitals"
+  ]
+}

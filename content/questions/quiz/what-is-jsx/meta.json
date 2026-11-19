@@ -1,0 +1,28 @@
+{
+  "slug": "what-is-jsx",
+  "format": "quiz",
+  "title": "What is JSX and how does it work?",
+  "excerpt": "How JSX compiles to element-creating calls and the rules that follow.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "react",
+    "jsx"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/writing-markup-with-jsx",
+    "https://react.dev/learn/javascript-in-jsx-with-curly-braces"
+  ]
+}

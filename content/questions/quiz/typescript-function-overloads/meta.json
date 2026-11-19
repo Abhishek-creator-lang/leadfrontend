@@ -1,0 +1,25 @@
+{
+  "slug": "typescript-function-overloads",
+  "format": "quiz",
+  "title": "What are function overloads in TypeScript and when should you use them?",
+  "excerpt": "Multiple call signatures with one hidden implementation, and the alternatives.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "functions"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/2/functions.html"
+  ]
+}

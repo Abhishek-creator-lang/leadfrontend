@@ -1,0 +1,24 @@
+{
+  "slug": "strategy-pattern-javascript",
+  "format": "quiz",
+  "title": "Explain the concept of the Strategy pattern",
+  "excerpt": "Swapping interchangeable algorithms behind one interface, often as a map of functions.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "design-patterns"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://refactoring.guru/design-patterns/strategy"
+  ]
+}

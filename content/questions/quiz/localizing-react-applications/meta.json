@@ -1,0 +1,29 @@
+{
+  "slug": "localizing-react-applications",
+  "format": "quiz",
+  "title": "How do you localize React applications?",
+  "excerpt": "Message catalogs, ICU MessageFormat, Intl, locale routing, RTL and translation workflow.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "react",
+    "i18n"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://formatjs.github.io/docs/react-intl/",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl",
+    "https://react.i18next.com/"
+  ]
+}

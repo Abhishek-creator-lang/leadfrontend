@@ -1,0 +1,18 @@
+{
+  "slug": "progress-bars-ii-concurrent-limit",
+  "format": "user-interface",
+  "title": "Progress Bars II: Concurrency Limit",
+  "excerpt": "Extend the progress bars so at most three fill at once while the rest wait in a queue.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 25,
+  "topics": ["animation", "effects", "async", "state"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame",
+    "https://react.dev/learn/choosing-the-state-structure#avoid-redundant-state"
+  ]
+}

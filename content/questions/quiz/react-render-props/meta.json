@@ -1,0 +1,28 @@
+{
+  "slug": "react-render-props",
+  "format": "quiz",
+  "title": "What are render props in React and what are they for?",
+  "excerpt": "Function props that delegate rendering, and where they still beat hooks.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "react",
+    "patterns"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/cloneElement",
+    "https://react.dev/learn/reusing-logic-with-custom-hooks"
+  ]
+}

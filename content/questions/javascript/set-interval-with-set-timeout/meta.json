@@ -1,0 +1,19 @@
+{
+  "slug": "set-interval-with-set-timeout",
+  "format": "javascript",
+  "title": "setInterval with setTimeout",
+  "excerpt": "Re-implement setInterval and clearInterval using only chained setTimeout calls.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["timers", "closures", "async", "event-loop"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/setInterval",
+    "https://developer.mozilla.org/en-US/docs/Web/API/setTimeout",
+    "https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers"
+  ]
+}

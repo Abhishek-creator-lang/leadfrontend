@@ -1,0 +1,29 @@
+{
+  "slug": "typescript-generic-react-components",
+  "format": "quiz",
+  "title": "How do you write generic React components in TypeScript?",
+  "excerpt": "Type parameters that connect props, tsx syntax quirks, and wrappers that lose generics.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 8,
+  "topics": [
+    "typescript",
+    "react",
+    "generics"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/typescript",
+    "https://www.typescriptlang.org/docs/handbook/2/generics.html"
+  ]
+}

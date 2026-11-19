@@ -1,0 +1,27 @@
+{
+  "slug": "typescript-branded-types",
+  "format": "quiz",
+  "title": "What are branded (nominal) types in TypeScript and why use them?",
+  "excerpt": "Phantom brands that stop same-shape values being mixed up and mark validated data.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "type-system",
+    "nominal-typing"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/type-compatibility.html",
+    "https://zod.dev/api#branded-types"
+  ]
+}

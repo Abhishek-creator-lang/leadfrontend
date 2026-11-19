@@ -1,0 +1,27 @@
+{
+  "slug": "typescript-type-guards-and-narrowing",
+  "format": "quiz",
+  "title": "How does type narrowing work in TypeScript, and how do you write type guards?",
+  "excerpt": "Control-flow narrowing, user-defined and inferred type predicates, and assertion functions.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "typescript",
+    "narrowing",
+    "type-guards"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/2/narrowing.html",
+    "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-5.html"
+  ]
+}

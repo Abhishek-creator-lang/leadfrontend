@@ -1,0 +1,27 @@
+{
+  "slug": "http-request-with-fetch-api",
+  "format": "quiz",
+  "title": "How do you make an HTTP request using the Fetch API?",
+  "excerpt": "GET and POST with fetch, checking response.ok, timeouts and cancellation.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "network",
+    "async"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch",
+    "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/timeout_static"
+  ]
+}

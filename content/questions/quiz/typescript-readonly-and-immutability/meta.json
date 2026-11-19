@@ -1,0 +1,26 @@
+{
+  "slug": "typescript-readonly-and-immutability",
+  "format": "quiz",
+  "title": "How do you model immutability in TypeScript with `readonly`?",
+  "excerpt": "readonly modifiers, Readonly, readonly arrays and as const, and their limits.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "immutability"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/2/objects.html",
+    "https://www.typescriptlang.org/docs/handbook/utility-types.html"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "typescript-using-declarations",
+  "format": "quiz",
+  "title": "What are `using` declarations (explicit resource management) in TypeScript?",
+  "excerpt": "Scope-bound cleanup with Symbol.dispose, await using and DisposableStack.",
+  "difficulty": "medium",
+  "importance": "low",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "resource-management",
+    "esnext"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html"
+  ]
+}

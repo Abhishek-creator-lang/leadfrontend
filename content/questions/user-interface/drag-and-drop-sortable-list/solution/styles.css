@@ -1,0 +1,92 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+}
+
+.sortable {
+  max-width: 400px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px 6px 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  transition: box-shadow 120ms ease, transform 120ms ease;
+}
+
+.row--lifted {
+  position: relative;
+  z-index: 1;
+  border-color: #6366f1;
+  box-shadow: 0 8px 20px rgb(15 23 42 / 0.18);
+  transform: scale(1.02);
+}
+
+.handle {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: #64748b;
+  font-size: 1.1rem;
+  cursor: grab;
+  /* Without this, touch-dragging the handle scrolls the page instead. */
+  touch-action: none;
+}
+
+.handle:active {
+  cursor: grabbing;
+}
+
+.handle[aria-pressed='true'] {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.handle:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.label {
+  user-select: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row {
+    transition: none;
+  }
+
+  .row--lifted {
+    transform: none;
+  }
+}

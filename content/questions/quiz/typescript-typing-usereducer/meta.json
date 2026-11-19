@@ -1,0 +1,31 @@
+{
+  "slug": "typescript-typing-usereducer",
+  "format": "quiz",
+  "title": "How do you type `useReducer` state and actions in TypeScript?",
+  "excerpt": "Discriminated-union actions, exhaustive reducers and typed dispatch.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "typescript",
+    "react",
+    "state",
+    "unions"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/typescript",
+    "https://react.dev/reference/react/useReducer",
+    "https://www.typescriptlang.org/docs/handbook/2/narrowing.html"
+  ]
+}

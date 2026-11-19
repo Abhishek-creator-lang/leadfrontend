@@ -1,0 +1,28 @@
+{
+  "slug": "secure-authentication-and-authorization",
+  "format": "quiz",
+  "title": "How can you implement secure authentication and authorization in JavaScript applications?",
+  "excerpt": "Session cookies vs tokens, OAuth/OIDC with PKCE, passkeys, and server-enforced authorization.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 9,
+  "topics": [
+    "security",
+    "auth"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "security",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+    "https://oauth.net/2/pkce/",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API",
+    "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+  ]
+}

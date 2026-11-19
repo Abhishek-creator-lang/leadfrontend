@@ -1,0 +1,18 @@
+{
+  "slug": "generate-table",
+  "format": "user-interface",
+  "title": "Generate Table",
+  "excerpt": "Generate a numbered table from row and column inputs, filled row by row, column by column or in a snake pattern.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["forms", "tables", "algorithms", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table",
+    "https://developer.mozilla.org/en-US/docs/Web/API/FormData"
+  ]
+}

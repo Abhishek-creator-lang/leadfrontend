@@ -1,0 +1,29 @@
+{
+  "slug": "what-is-virtual-dom",
+  "format": "quiz",
+  "title": "What is virtual DOM in React?",
+  "excerpt": "An in-memory description of the UI that React diffs to update the real DOM.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "react",
+    "rendering",
+    "virtual-dom"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/render-and-commit",
+    "https://react.dev/learn/preserving-and-resetting-state"
+  ]
+}

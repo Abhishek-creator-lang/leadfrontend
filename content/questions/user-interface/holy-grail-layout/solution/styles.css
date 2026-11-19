@@ -1,0 +1,115 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+}
+
+.page {
+  display: grid;
+  /* 100vh fallback, then the dynamic viewport unit for mobile browser chrome. */
+  min-height: 100vh;
+  min-height: 100dvh;
+  grid-template-columns: 200px minmax(0, 1fr) 200px;
+  /* The middle row absorbs spare height, which pins the footer to the bottom. */
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'header header header'
+    'nav    main   aside'
+    'footer footer footer';
+}
+
+.page-header {
+  grid-area: header;
+  padding: 16px;
+  background: #1e293b;
+  color: #fff;
+}
+
+.page-nav {
+  grid-area: nav;
+  padding: 16px;
+  background: #f1f5f9;
+}
+
+.page-main {
+  grid-area: main;
+  padding: 16px 24px;
+  overflow-wrap: anywhere;
+}
+
+.page-main:focus {
+  outline: none;
+}
+
+.page-aside {
+  grid-area: aside;
+  padding: 16px;
+  background: #f8fafc;
+}
+
+.page-footer {
+  grid-area: footer;
+  padding: 16px;
+  background: #e2e8f0;
+}
+
+.page-nav ul,
+.page-aside ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.page-nav a {
+  color: #1e293b;
+}
+
+.page-nav a[aria-current='page'] {
+  font-weight: 700;
+}
+
+.page-aside h2 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -100px;
+  padding: 8px 12px;
+  background: #fff;
+  color: #1e293b;
+  border: 2px solid #6366f1;
+  border-radius: 6px;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
+a:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-areas:
+      'header'
+      'nav'
+      'main'
+      'aside'
+      'footer';
+  }
+}

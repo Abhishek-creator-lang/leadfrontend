@@ -1,0 +1,20 @@
+{
+  "slug": "job-board",
+  "format": "user-interface",
+  "title": "Job Board",
+  "excerpt": "Build a paginated job board on a Hacker News-style API: fetch ids, then load job details in parallel pages.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 40,
+  "topics": ["data-fetching", "async", "pagination", "race-conditions", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://github.com/HackerNews/API",
+    "https://react.dev/learn/synchronizing-with-effects#fetching-data",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "lazy-loading-for-performance",
+  "format": "quiz",
+  "title": "Explain the concept of lazy loading and how it can improve performance",
+  "excerpt": "Deferring images, iframes, code and data until needed, and when not to.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "performance",
+    "loading"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading",
+    "https://web.dev/articles/browser-level-image-lazy-loading",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
+  ]
+}

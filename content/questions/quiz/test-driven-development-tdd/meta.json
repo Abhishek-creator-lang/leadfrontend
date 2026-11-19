@@ -1,0 +1,25 @@
+{
+  "slug": "test-driven-development-tdd",
+  "format": "quiz",
+  "title": "Explain the concept of test-driven development (TDD)",
+  "excerpt": "Red-green-refactor, its benefits, costs and where it fits in front-end work.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "testing",
+    "process"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://martinfowler.com/bliki/TestDrivenDevelopment.html"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "react-strict-mode",
+  "format": "quiz",
+  "title": "What is React Strict Mode and what are its benefits?",
+  "excerpt": "Development-only checks: double rendering, effect re-runs, ref checks and deprecation warnings.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "react",
+    "strict-mode",
+    "effects"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/StrictMode",
+    "https://react.dev/learn/synchronizing-with-effects"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "can-you-give-an-example-of-a-curry-function-and-why-this",
+  "format": "quiz",
+  "title": "Can you give an example of a curry function and why this syntax offers an advantage?",
+  "excerpt": "Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the re",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://hackernoon.com/currying-in-js-d9ddc64f162e"
+  ]
+}

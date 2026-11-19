@@ -1,0 +1,172 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.wordle {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.message-slot {
+  min-height: 2.25em;
+}
+
+.message-slot p {
+  margin: 0;
+}
+
+.message {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #0f172a;
+  color: #fff;
+  font-weight: 600;
+}
+
+.board {
+  display: grid;
+  gap: 6px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, 52px);
+  gap: 6px;
+}
+
+.tile {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #cbd5e1;
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0f172a;
+}
+
+.tile[data-state='filled'] {
+  border-color: #64748b;
+}
+
+.tile[data-state='correct'],
+.tile[data-state='present'],
+.tile[data-state='absent'] {
+  color: #fff;
+  animation: flip 400ms ease both;
+  animation-delay: calc(var(--i) * 120ms);
+}
+
+.tile[data-state='correct'] {
+  background: #15803d;
+  border-color: #15803d;
+}
+
+.tile[data-state='present'] {
+  background: #a16207;
+  border-color: #a16207;
+}
+
+.tile[data-state='absent'] {
+  background: #64748b;
+  border-color: #64748b;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
+
+.play-again {
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 0;
+  background: #4f46e5;
+  color: #fff;
+  cursor: pointer;
+}
+
+.keyboard {
+  display: grid;
+  gap: 6px;
+}
+
+.key-row {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.key {
+  min-width: 32px;
+  height: 48px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 4px;
+  background: #e2e8f0;
+  color: #0f172a;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.key--wide {
+  min-width: 60px;
+}
+
+.key[data-state='correct'] {
+  background: #15803d;
+  color: #fff;
+}
+
+.key[data-state='present'] {
+  background: #a16207;
+  color: #fff;
+}
+
+.key[data-state='absent'] {
+  background: #64748b;
+  color: #fff;
+}
+
+.key:focus-visible,
+.play-again:focus-visible {
+  outline: 3px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile {
+    animation: none !important;
+  }
+}

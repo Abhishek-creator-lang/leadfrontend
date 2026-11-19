@@ -1,0 +1,19 @@
+{
+  "slug": "type-utilities-ii",
+  "format": "javascript",
+  "title": "Type Utilities II",
+  "excerpt": "Write type checks for non-primitive values: arrays, functions, objects and plain objects.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["types", "objects", "prototypes", "language fundamentals"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof"
+  ]
+}

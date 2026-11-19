@@ -1,0 +1,19 @@
+{
+  "slug": "backbone-model",
+  "format": "javascript",
+  "title": "Backbone Model",
+  "excerpt": "Build an observable Model class with defaults, get/set/unset, per-attribute change events, previous values and silent updates.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 40,
+  "topics": ["classes", "design-patterns", "events", "state-management"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://backbonejs.org/#Model",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes"
+  ]
+}

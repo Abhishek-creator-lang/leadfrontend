@@ -1,0 +1,25 @@
+{
+  "slug": "explain-ajax-in-as-much-detail-as-possible",
+  "format": "quiz",
+  "title": "Explain Ajax in as much detail as possible.",
+  "excerpt": "Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applicat",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://en.wikipedia.org/wiki/Ajax_(programming"
+  ]
+}

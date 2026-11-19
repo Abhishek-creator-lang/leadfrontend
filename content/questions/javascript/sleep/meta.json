@@ -1,0 +1,18 @@
+{
+  "slug": "sleep",
+  "format": "javascript",
+  "title": "Sleep",
+  "excerpt": "Write a promise-based sleep(ms) and explain why it pauses an async function but not the thread.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": ["promises", "async", "timers", "event-loop"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/setTimeout",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await"
+  ]
+}

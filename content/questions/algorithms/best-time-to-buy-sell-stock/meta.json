@@ -1,0 +1,15 @@
+{
+  "slug": "best-time-to-buy-sell-stock",
+  "format": "algorithms",
+  "title": "Best Time to Buy and Sell Stock",
+  "excerpt": "Find the largest gain from one buy followed by one later sell in a price history.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["arrays", "greedy"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

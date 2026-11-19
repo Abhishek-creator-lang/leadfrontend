@@ -1,0 +1,20 @@
+{
+  "slug": "infinite-scroll-feed",
+  "format": "user-interface",
+  "title": "Infinite Scroll Feed",
+  "excerpt": "Build a cursor-paginated feed that loads more posts as you scroll, with abort handling, retries and the ARIA feed pattern.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 40,
+  "topics": ["data-fetching", "pagination", "intersection-observer", "async", "accessibility", "performance"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/feed/",
+    "https://developer.mozilla.org/en-US/docs/Web/API/AbortController",
+    "https://react.dev/learn/you-might-not-need-an-effect#fetching-data"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "service-worker-lifecycle-and-updates",
+  "format": "quiz",
+  "title": "Explain the service worker lifecycle and caching strategies. How do you ship updates without breaking users?",
+  "excerpt": "install/waiting/activate, skipWaiting and clients.claim, cache-first vs network-first vs SWR, and update pitfalls.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 11,
+  "topics": ["service-workers", "caching", "offline", "pwa"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers",
+    "https://web.dev/articles/service-worker-lifecycle",
+    "https://developer.chrome.com/docs/workbox/caching-strategies-overview",
+    "https://w3c.github.io/ServiceWorker/"
+  ]
+}

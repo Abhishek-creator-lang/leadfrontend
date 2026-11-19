@@ -1,0 +1,28 @@
+{
+  "slug": "common-security-headers",
+  "format": "quiz",
+  "title": "What are some common security headers and their purpose?",
+  "excerpt": "CSP, HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP and friends.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "security",
+    "http-headers"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "security",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy",
+    "https://owasp.org/www-project-secure-headers/"
+  ]
+}

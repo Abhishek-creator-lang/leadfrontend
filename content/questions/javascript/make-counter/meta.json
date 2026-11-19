@@ -1,0 +1,15 @@
+{
+  "slug": "make-counter",
+  "format": "javascript",
+  "title": "Make Counter",
+  "excerpt": "Use a closure to build independent counters that remember their own state between calls.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["closures"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures"]
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "fetchpriority-and-resource-loading-order",
+  "format": "quiz",
+  "title": "How do browsers prioritise resource loading, and when should you use the fetchpriority attribute?",
+  "excerpt": "Default priorities by resource type, fetchpriority high/low/auto, interaction with lazy loading and preload.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": ["html", "performance", "fetchpriority", "lcp"],
+  "frameworks": [],
+  "languages": ["html", "js"],
+  "companies": [],
+  "quizCategory": "html",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#fetchpriority",
+    "https://web.dev/articles/fetch-priority",
+    "https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/fetchPriority"
+  ]
+}

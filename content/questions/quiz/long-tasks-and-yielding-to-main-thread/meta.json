@@ -1,0 +1,21 @@
+{
+  "slug": "long-tasks-and-yielding-to-main-thread",
+  "format": "quiz",
+  "title": "What is a long task, and what are the ways to break one up and yield to the main thread?",
+  "excerpt": "The 50 ms rule, setTimeout vs scheduler.yield vs postTask, isInputPending, Workers and the LoAF API.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 10,
+  "topics": ["main-thread", "performance", "inp", "scheduling"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/optimize-long-tasks",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Scheduler/yield",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Prioritized_Task_Scheduling_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Performance_API/Long_animation_frame_timing"
+  ]
+}

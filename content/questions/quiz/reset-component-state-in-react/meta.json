@@ -1,0 +1,29 @@
+{
+  "slug": "reset-component-state-in-react",
+  "format": "quiz",
+  "title": "How do you reset a component's state in React?",
+  "excerpt": "State follows type plus position; change the key or reset explicitly.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "react",
+    "state",
+    "keys"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/preserving-and-resetting-state",
+    "https://react.dev/learn/you-might-not-need-an-effect"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "debounce-ii",
+  "format": "javascript",
+  "title": "Debounce II",
+  "excerpt": "Debounce with leading, trailing and maxWait options, plus cancel and flush.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 35,
+  "topics": ["closures", "async", "timers", "performance"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/setTimeout",
+    "https://developer.mozilla.org/en-US/docs/Glossary/Debounce",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply"
+  ]
+}

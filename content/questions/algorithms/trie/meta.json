@@ -1,0 +1,15 @@
+{
+  "slug": "trie",
+  "format": "algorithms",
+  "title": "Trie",
+  "excerpt": "Build a prefix tree that powers autocomplete: insert words, look them up and list completions.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 30,
+  "topics": ["data-structures", "trees", "trie", "strings"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Trie"]
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "like-button",
+  "format": "user-interface",
+  "title": "Like Button",
+  "excerpt": "Build a toggle Like button that talks to a flaky API, with pending, error and accessible pressed states.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["async", "state", "accessibility", "error-handling"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/button/",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-pressed",
+    "https://react.dev/reference/react/useOptimistic"
+  ]
+}

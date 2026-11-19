@@ -1,0 +1,15 @@
+{
+  "slug": "selection-sort",
+  "format": "algorithms",
+  "title": "Selection Sort",
+  "excerpt": "Sort an array in place by repeatedly selecting the smallest remaining element.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 15,
+  "topics": ["sorting", "arrays"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Selection_sort"]
+}

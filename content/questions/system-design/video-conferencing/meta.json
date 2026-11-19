@@ -1,0 +1,24 @@
+{
+  "slug": "video-conferencing",
+  "format": "system-design",
+  "title": "Video Conferencing App (e.g. Zoom, Google Meet)",
+  "excerpt": "Design a browser video meeting app with WebRTC, an SFU, simulcast, adaptive layouts, screen sharing and chat.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 60,
+  "topics": ["system design", "webrtc", "real-time", "media", "websockets", "performance", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Zoom", "Google", "Microsoft"],
+  "sdType": "application",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection",
+    "https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia",
+    "https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getDisplayMedia",
+    "https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/getStats",
+    "https://webrtc.org/getting-started/overview",
+    "https://www.w3.org/TR/webrtc-svc/"
+  ]
+}

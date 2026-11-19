@@ -1,0 +1,19 @@
+{
+  "slug": "holy-grail-layout",
+  "format": "user-interface",
+  "title": "Holy Grail Layout",
+  "excerpt": "Build the classic header, three columns and footer layout with CSS Grid, landmarks, a sticky footer and responsive stacking.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["css", "layout", "accessibility", "responsive-design"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_template_areas",
+    "https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/length#dynamic_viewport_units"
+  ]
+}

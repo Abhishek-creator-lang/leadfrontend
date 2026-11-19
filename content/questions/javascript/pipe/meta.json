@@ -1,0 +1,17 @@
+{
+  "slug": "pipe",
+  "format": "javascript",
+  "title": "Pipe",
+  "excerpt": "Chain functions left to right so data flows through them in reading order.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["functional programming", "closures"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce"
+  ]
+}

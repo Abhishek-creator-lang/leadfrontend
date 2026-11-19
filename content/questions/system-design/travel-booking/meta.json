@@ -1,0 +1,22 @@
+{
+  "slug": "travel-booking",
+  "format": "system-design",
+  "title": "Travel Booking Site (e.g. Airbnb)",
+  "excerpt": "Design a stays marketplace: search with map and date range, listing details, availability calendar and a reliable booking flow.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "maps", "search", "ssr", "seo", "forms", "date picker"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Airbnb", "Booking.com", "Expedia"],
+  "sdType": "application",
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat",
+    "https://developer.mozilla.org/en-US/docs/Web/API/History_API",
+    "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+    "https://medium.com/airbnb-engineering"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "size",
+  "format": "javascript",
+  "title": "Size",
+  "excerpt": "Return the size of a collection: length for arrays and strings, size for Map and Set, key count for objects.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 10,
+  "topics": ["types", "objects", "lodash"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size",
+    "https://lodash.com/docs/4.17.15#size"
+  ]
+}

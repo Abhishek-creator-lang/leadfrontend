@@ -1,0 +1,27 @@
+{
+  "slug": "websocket-api-explained",
+  "format": "quiz",
+  "title": "Explain the concept of the WebSocket API",
+  "excerpt": "Persistent full-duplex connections: handshake, client API, reconnection and auth concerns.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "network",
+    "real-time"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "web",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket",
+    "https://datatracker.ietf.org/doc/html/rfc6455"
+  ]
+}

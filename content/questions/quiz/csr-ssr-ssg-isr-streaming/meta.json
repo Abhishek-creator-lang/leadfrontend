@@ -1,0 +1,20 @@
+{
+  "slug": "csr-ssr-ssg-isr-streaming",
+  "format": "quiz",
+  "title": "Compare CSR, SSR, SSG, ISR and streaming SSR. How do you choose a rendering strategy per page?",
+  "excerpt": "Trade-offs in TTFB, LCP, INP, freshness, cost and complexity, with a per-route decision framework.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 11,
+  "topics": ["rendering", "ssr", "ssg", "architecture", "performance"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/rendering-on-the-web",
+    "https://react.dev/reference/react-dom/server/renderToReadableStream",
+    "https://nextjs.org/docs/app/building-your-application/data-fetching/incremental-static-regeneration"
+  ]
+}

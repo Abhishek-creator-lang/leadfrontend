@@ -1,0 +1,15 @@
+{
+  "slug": "validate-bst",
+  "format": "algorithms",
+  "title": "Validate Binary Search Tree",
+  "excerpt": "Check whether a binary tree satisfies the BST ordering rule across whole subtrees, not just parent and child.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["trees", "binary-search-tree", "depth-first-search"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

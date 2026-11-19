@@ -1,0 +1,28 @@
+{
+  "slug": "module-bundler-benefits",
+  "format": "quiz",
+  "title": "What are the benefits of using a module bundler?",
+  "excerpt": "Graph resolution, transforms, minification, code splitting and cache-friendly output.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "modules",
+    "tooling",
+    "bundling"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+    "https://vite.dev/guide/why",
+    "https://web.dev/articles/reduce-javascript-payloads-with-code-splitting"
+  ]
+}

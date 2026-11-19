@@ -1,0 +1,30 @@
+{
+  "slug": "react-state-vs-context-vs-external-store",
+  "format": "quiz",
+  "title": "How do you decide between using React state, context, and external state managers?",
+  "excerpt": "Classify state as server, URL, local or shared, then pick the simplest fitting tool.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 8,
+  "topics": [
+    "react",
+    "state-management",
+    "architecture"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/managing-state",
+    "https://react.dev/learn/passing-data-deeply-with-context",
+    "https://react.dev/reference/react/useSyncExternalStore"
+  ]
+}

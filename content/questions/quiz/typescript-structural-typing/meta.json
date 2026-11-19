@@ -1,0 +1,26 @@
+{
+  "slug": "typescript-structural-typing",
+  "format": "quiz",
+  "title": "What is structural typing in TypeScript and what are its implications?",
+  "excerpt": "Compatibility by shape, excess property checks, and when you need nominal types.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "type-system"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/type-compatibility.html",
+    "https://www.typescriptlang.org/docs/handbook/2/objects.html"
+  ]
+}

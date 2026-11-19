@@ -1,0 +1,19 @@
+{
+  "slug": "template-engine",
+  "format": "javascript",
+  "title": "Template Engine",
+  "excerpt": "Build a {{ }} interpolation engine with dotted paths, HTML escaping, raw {{{ }}} output, filters and a compile step.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 30,
+  "topics": ["strings", "regex", "parsing", "security"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions",
+    "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+  ]
+}

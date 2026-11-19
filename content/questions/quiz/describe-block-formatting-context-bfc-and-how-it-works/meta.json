@@ -1,0 +1,25 @@
+{
+  "slug": "describe-block-formatting-context-bfc-and-how-it-works",
+  "format": "quiz",
+  "title": "Describe Block Formatting Context (BFC) and how it works.",
+  "excerpt": "A Block Formatting Context (BFC) is part of the visual CSS rendering of a web page in which block boxes are laid out. Floats, absolutely positioned elements, in",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context"
+  ]
+}

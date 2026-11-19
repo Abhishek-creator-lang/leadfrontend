@@ -1,0 +1,18 @@
+{
+  "slug": "promisify",
+  "format": "javascript",
+  "title": "Promisify",
+  "excerpt": "Convert a Node-style callback function into one that returns a promise.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["promises", "async", "closures", "this"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://nodejs.org/api/util.html#utilpromisifyoriginal",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise"
+  ]
+}

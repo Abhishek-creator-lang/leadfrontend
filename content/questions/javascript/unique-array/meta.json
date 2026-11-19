@@ -1,0 +1,19 @@
+{
+  "slug": "unique-array",
+  "format": "javascript",
+  "title": "Unique Array",
+  "excerpt": "Remove duplicate values from an array while keeping the first occurrence of each, in order.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 10,
+  "topics": ["arrays", "sets", "lodash"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": ["Reddit"],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value-zero_equality",
+    "https://lodash.com/docs/4.17.15#uniq"
+  ]
+}

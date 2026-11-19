@@ -1,0 +1,20 @@
+{
+  "slug": "css-has-relational-selector",
+  "format": "quiz",
+  "title": "What does the CSS :has() selector enable, and what are its performance and specificity gotchas?",
+  "excerpt": "The \"parent selector\", state-driven styling without JS, quantity queries, specificity and invalidation cost.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": ["css", "selectors", "has"],
+  "frameworks": [],
+  "languages": ["css"],
+  "companies": [],
+  "quizCategory": "css",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/:has",
+    "https://www.w3.org/TR/selectors-4/#relational",
+    "https://web.dev/blog/has-baseline"
+  ]
+}

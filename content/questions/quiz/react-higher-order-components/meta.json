@@ -1,0 +1,28 @@
+{
+  "slug": "react-higher-order-components",
+  "format": "quiz",
+  "title": "What are higher-order components in React?",
+  "excerpt": "Component-in, component-out wrappers, their conventions, and why hooks replaced most of them.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "react",
+    "patterns"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/reusing-logic-with-custom-hooks",
+    "https://react.dev/reference/react/memo"
+  ]
+}

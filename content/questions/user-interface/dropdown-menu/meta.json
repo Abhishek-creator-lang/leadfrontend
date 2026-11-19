@@ -1,0 +1,19 @@
+{
+  "slug": "dropdown-menu",
+  "format": "user-interface",
+  "title": "Dropdown Menu",
+  "excerpt": "Build an accessible menu button: open and close, arrow-key and typeahead navigation, outside click and focus return.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 35,
+  "topics": ["accessibility", "keyboard", "focus-management", "design-system", "events"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Popover_API"
+  ]
+}

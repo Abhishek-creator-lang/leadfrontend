@@ -1,0 +1,26 @@
+{
+  "slug": "module-metadata-import-meta",
+  "format": "quiz",
+  "title": "What are the metadata fields of a module?",
+  "excerpt": "import.meta.url, import.meta.resolve, host-specific fields and package.json module metadata.",
+  "difficulty": "medium",
+  "importance": "low",
+  "duration": 5,
+  "topics": [
+    "modules"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import.meta",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import.meta/resolve",
+    "https://nodejs.org/api/esm.html#importmeta"
+  ]
+}

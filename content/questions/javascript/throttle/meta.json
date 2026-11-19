@@ -1,0 +1,19 @@
+{
+  "slug": "throttle",
+  "format": "javascript",
+  "title": "Throttle",
+  "excerpt": "Limit a function to at most one call per wait window, with leading and trailing calls.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["closures", "async", "timers", "performance"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/setTimeout",
+    "https://developer.mozilla.org/en-US/docs/Glossary/Throttle",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame"
+  ]
+}

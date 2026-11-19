@@ -1,0 +1,19 @@
+{
+  "slug": "autocomplete-typeahead",
+  "format": "user-interface",
+  "title": "Autocomplete / Typeahead",
+  "excerpt": "Build an accessible combobox that searches an async API with debouncing, caching and race-condition handling.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 45,
+  "topics": ["async", "debounce", "accessibility", "combobox", "race-conditions"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/",
+    "https://react.dev/learn/synchronizing-with-effects#fetching-data",
+    "https://developer.mozilla.org/en-US/docs/Web/API/AbortController"
+  ]
+}

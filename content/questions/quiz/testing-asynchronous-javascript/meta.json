@@ -1,0 +1,27 @@
+{
+  "slug": "testing-asynchronous-javascript",
+  "format": "quiz",
+  "title": "How can you test asynchronous code in JavaScript?",
+  "excerpt": "Awaiting promises, asserting rejections, fake timers and waiting for UI updates.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "testing",
+    "async"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://jestjs.io/docs/asynchronous",
+    "https://vitest.dev/api/vi.html#fake-timers",
+    "https://testing-library.com/docs/dom-testing-library/api-async"
+  ]
+}

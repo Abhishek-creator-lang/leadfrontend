@@ -1,0 +1,22 @@
+{
+  "slug": "preload-prefetch-preconnect",
+  "format": "quiz",
+  "title": "Explain preload, prefetch, preconnect, dns-prefetch and modulepreload. When does each help or hurt?",
+  "excerpt": "Resource hints, speculation rules and 103 Early Hints, with the costs of over-hinting.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 9,
+  "topics": ["resource-hints", "performance", "network"],
+  "frameworks": [],
+  "languages": ["html"],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preconnect",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/modulepreload",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API",
+    "https://web.dev/articles/preload-critical-assets"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "what-are-proxies-used-for",
+  "format": "quiz",
+  "title": "What are proxies in JavaScript used for?",
+  "excerpt": "Intercepting object operations with traps and Reflect: validation, reactivity, logging and their limits.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 8,
+  "topics": [
+    "metaprogramming",
+    "objects"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Meta_programming"
+  ]
+}

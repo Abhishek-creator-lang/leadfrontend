@@ -1,0 +1,23 @@
+{
+  "slug": "real-time-collaborative-whiteboard",
+  "format": "system-design",
+  "title": "Real-Time Collaborative Whiteboard",
+  "excerpt": "Design a Miro/FigJam-style multiplayer whiteboard: canvas rendering at scale, CRDT-based sync, presence, offline, permissions and the multiplayer service.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 60,
+  "topics": ["system design", "real-time", "crdt", "websockets", "canvas", "collaboration", "performance", "offline"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": [],
+  "sdType": "lead",
+  "source": { "type": "original" },
+  "references": [
+    "https://docs.yjs.dev/",
+    "https://automerge.org/docs/hello/",
+    "https://crdt.tech/",
+    "https://www.figma.com/blog/how-figmas-multiplayer-technology-works/",
+    "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas",
+    "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API"
+  ]
+}

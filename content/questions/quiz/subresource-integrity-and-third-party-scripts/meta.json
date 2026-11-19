@@ -1,0 +1,20 @@
+{
+  "slug": "subresource-integrity-and-third-party-scripts",
+  "format": "quiz",
+  "title": "What is Subresource Integrity (SRI), and how do you manage the risk of third-party scripts?",
+  "excerpt": "Integrity hashes, crossorigin, why SRI doesn't fit evergreen tags, and isolation strategies for third parties.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 8,
+  "topics": ["sri", "security", "third-party-scripts", "supply-chain"],
+  "frameworks": [],
+  "languages": ["html"],
+  "companies": [],
+  "quizCategory": "security",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity",
+    "https://www.w3.org/TR/SRI/",
+    "https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html"
+  ]
+}

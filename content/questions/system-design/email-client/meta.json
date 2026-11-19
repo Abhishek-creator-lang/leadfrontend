@@ -1,0 +1,22 @@
+{
+  "slug": "email-client",
+  "format": "system-design",
+  "title": "Email Client (e.g. Outlook / Gmail)",
+  "excerpt": "Design a web email client: folders and threaded inbox, safe rendering of HTML emails, composer with drafts, offline and keyboard-driven workflows.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "security", "offline", "virtualization", "rich text", "keyboard navigation"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Microsoft", "Google"],
+  "sdType": "application",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#sandbox",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API",
+    "https://github.com/cure53/DOMPurify"
+  ]
+}

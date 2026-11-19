@@ -1,0 +1,28 @@
+{
+  "slug": "typescript-decorators",
+  "format": "quiz",
+  "title": "How do decorators work in TypeScript, and how do standard decorators differ from experimental ones?",
+  "excerpt": "TS 5.0 standard decorators vs legacy experimentalDecorators, and their use cases.",
+  "difficulty": "hard",
+  "importance": "low",
+  "duration": 8,
+  "topics": [
+    "typescript",
+    "decorators",
+    "classes"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/decorators.html",
+    "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html",
+    "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html"
+  ]
+}

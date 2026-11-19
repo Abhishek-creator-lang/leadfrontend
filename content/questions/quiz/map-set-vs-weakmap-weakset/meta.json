@@ -1,0 +1,27 @@
+{
+  "slug": "map-set-vs-weakmap-weakset",
+  "format": "quiz",
+  "title": "What are the differences between `Map`/`Set` and `WeakMap`/`WeakSet` in JavaScript?",
+  "excerpt": "Weakly held keys, garbage collection, non-iterability, and real use cases like caches and private data.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "data-structures",
+    "memory"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef"
+  ]
+}

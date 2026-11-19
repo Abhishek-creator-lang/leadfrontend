@@ -1,0 +1,29 @@
+{
+  "slug": "iterators-and-generators",
+  "format": "quiz",
+  "title": "What are iterators and generators in JavaScript and what are they used for?",
+  "excerpt": "The iteration protocols, function*, lazy sequences, async iteration and iterator helpers.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 8,
+  "topics": [
+    "iterators",
+    "generators",
+    "async"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator"
+  ]
+}

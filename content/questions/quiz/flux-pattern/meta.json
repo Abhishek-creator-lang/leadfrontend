@@ -1,0 +1,29 @@
+{
+  "slug": "flux-pattern",
+  "format": "quiz",
+  "title": "What is the Flux pattern and what are its benefits?",
+  "excerpt": "Unidirectional actions, dispatcher and stores, and how Redux evolved from it.",
+  "difficulty": "medium",
+  "importance": "low",
+  "duration": 6,
+  "topics": [
+    "react",
+    "state-management",
+    "architecture"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://redux.js.org/understanding/thinking-in-redux/motivation",
+    "https://react.dev/learn/extracting-state-logic-into-a-reducer"
+  ]
+}

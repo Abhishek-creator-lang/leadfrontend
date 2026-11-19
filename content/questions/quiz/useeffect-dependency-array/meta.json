@@ -1,0 +1,30 @@
+{
+  "slug": "useeffect-dependency-array",
+  "format": "quiz",
+  "title": "What does the dependency array of `useEffect` affect?",
+  "excerpt": "When effects re-synchronize, Object.is comparison, and stale closures.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "react",
+    "hooks",
+    "effects"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/useEffect",
+    "https://react.dev/learn/lifecycle-of-reactive-effects",
+    "https://react.dev/learn/removing-effect-dependencies"
+  ]
+}

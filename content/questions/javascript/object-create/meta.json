@@ -1,0 +1,19 @@
+{
+  "slug": "object-create",
+  "format": "javascript",
+  "title": "Object.create",
+  "excerpt": "Implement Object.create, including null prototypes and property descriptors.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["prototypes", "objects", "polyfills"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties",
+    "https://tc39.es/ecma262/#sec-object.create"
+  ]
+}

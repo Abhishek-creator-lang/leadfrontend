@@ -1,0 +1,26 @@
+{
+  "slug": "typescript-classes-and-access-modifiers",
+  "format": "quiz",
+  "title": "How do access modifiers work in TypeScript classes, and how is `private` different from `#private`?",
+  "excerpt": "Compile-time vs runtime privacy, parameter properties, abstract and override.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "classes"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/2/classes.html",
+    "https://www.typescriptlang.org/tsconfig/#noImplicitOverride"
+  ]
+}

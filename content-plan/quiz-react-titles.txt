@@ -1,0 +1,50 @@
+1|What is React? Describe the benefits of React|
+2|What is the difference between React Node, React Element, and a React Component?|
+3|What is JSX and how does it work?|
+4|What is the difference between state and props in React?|
+5|What is the purpose of the `key` prop in React?|
+6|What is the consequence of using array indices as the value for `key`s in React?|
+7|What is the difference between controlled and uncontrolled React components?|
+8|What are some pitfalls about using context in React?|
+9|What are the benefits of using hooks in React?|
+10|What are the rules of React hooks?|
+11|What is the difference between `useEffect` and `useLayoutEffect` in React?|
+12|What is the purpose of callback function argument format of `setState()` in React and when should it be used?|
+13|What does the dependency array of `useEffect` affect?|
+14|What is the `useRef` hook in React and when should it be used?|
+15|What is the `useCallback` hook in React and when should it be used?|
+16|What is the `useMemo` hook in React and when should it be used?|
+17|What is the `useReducer` hook in React and when should it be used?|
+18|What is the `useId` hook in React and when should it be used?|
+19|What does re-rendering mean in React?|
+20|What are React Fragments used for?|
+21|What is `forwardRef()` in React used for?|
+22|How do you reset a component's state in React?|
+23|Why does React recommend against mutating state?|
+24|What are error boundaries in React for?|
+25|How do you test React applications?|
+26|Explain what React hydration is|
+27|What are React Portals used for?|
+28|How do you debug React applications?|
+29|What is React Strict Mode and what are its benefits?|
+30|How do you localize React applications?|
+31|What is code splitting in a React application?|
+32|How would you optimize the performance of React contexts to reduce rerenders?|
+33|What are higher-order components in React?|
+34|What is the Flux pattern and what are its benefits?|
+35|Explain one-way data flow of React and its benefits|
+36|How do you handle asynchronous data loading in React applications?|
+37|Explain server-side rendering of React applications and its benefits|
+38|Explain static generation of React applications and its benefits|
+39|Explain the presentational vs container component pattern in React|
+40|What are some common pitfalls when doing data fetching in React?|
+41|What are render props in React and what are they for?|
+42|What are some React anti-patterns?|
+43|How do you decide between using React state, context, and external state managers?|
+44|Explain the composition pattern in React|
+45|What is virtual DOM in React?|
+46|How does virtual DOM in React work? What are its benefits and downsides?|
+47|What is React Fiber and how is it an improvement over the previous approach?|
+48|What is reconciliation in React?|
+49|What is React Suspense and what does it enable?|
+50|Explain what happens when the `useState` setter function is called in React|

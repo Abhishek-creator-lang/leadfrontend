@@ -1,0 +1,28 @@
+{
+  "slug": "window-history-api",
+  "format": "quiz",
+  "title": "How do you use the window.history API?",
+  "excerpt": "pushState, replaceState, popstate and the building blocks of client-side routing.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "routing",
+    "browser"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "web",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/History_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/History/pushState",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/popstate_event",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Navigation_API"
+  ]
+}

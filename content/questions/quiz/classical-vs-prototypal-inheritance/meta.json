@@ -1,0 +1,26 @@
+{
+  "slug": "classical-vs-prototypal-inheritance",
+  "format": "quiz",
+  "title": "Explain the difference between classical inheritance and prototypal inheritance",
+  "excerpt": "Blueprint-copying classes vs live delegation to objects, and where JS classes fit.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "prototypes",
+    "oop"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create"
+  ]
+}

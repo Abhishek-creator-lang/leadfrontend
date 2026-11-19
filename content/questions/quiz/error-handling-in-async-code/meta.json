@@ -1,0 +1,28 @@
+{
+  "slug": "error-handling-in-async-code",
+  "format": "quiz",
+  "title": "How do you handle errors in asynchronous operations?",
+  "excerpt": "try/catch with await, .catch, unhandled rejections, fetch HTTP errors, aggregation and retries.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "async",
+    "promises",
+    "error-handling"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/unhandledrejection_event",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause"
+  ]
+}

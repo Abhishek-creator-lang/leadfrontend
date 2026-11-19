@@ -1,0 +1,26 @@
+{
+  "slug": "import-export-modules",
+  "format": "quiz",
+  "title": "How do you import and export modules in JavaScript?",
+  "excerpt": "Named, default, namespace, re-export and dynamic imports, and live bindings.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "modules"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import"
+  ]
+}

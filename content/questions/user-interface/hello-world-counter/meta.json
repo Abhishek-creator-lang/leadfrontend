@@ -1,0 +1,19 @@
+{
+  "slug": "hello-world-counter",
+  "format": "user-interface",
+  "title": "Hello World Counter",
+  "excerpt": "Build a counter with increment, decrement and reset that never drops below zero and announces its value.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["state", "events", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/learn/state-a-components-memory",
+    "https://react.dev/learn/queueing-a-series-of-state-updates",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/status_role"
+  ]
+}

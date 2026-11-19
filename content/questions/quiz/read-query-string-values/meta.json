@@ -1,0 +1,27 @@
+{
+  "slug": "read-query-string-values",
+  "format": "quiz",
+  "title": "How do you get the query string values of the current page in JavaScript?",
+  "excerpt": "Reading and updating query parameters safely with URLSearchParams and URL.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 4,
+  "topics": [
+    "url",
+    "browser"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams",
+    "https://developer.mozilla.org/en-US/docs/Web/API/URL/searchParams",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Location/search"
+  ]
+}

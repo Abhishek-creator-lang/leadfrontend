@@ -1,0 +1,11 @@
+node_modules
+.next
+dist
+.verify-tmp
+package-lock.json
+src/content/index.generated.json
+scripts/.handbook-manifest.json
+# Authored content is formatted by hand (Markdown tables, code samples, test fixtures).
+content
+content-plan
+*.md

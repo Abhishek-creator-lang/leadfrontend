@@ -1,0 +1,27 @@
+{
+  "slug": "what-are-server-sent-events",
+  "format": "quiz",
+  "title": "What are server-sent events?",
+  "excerpt": "One-way streaming over HTTP with EventSource: format, reconnection, limits and alternatives.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "network",
+    "real-time"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events",
+    "https://developer.mozilla.org/en-US/docs/Web/API/EventSource",
+    "https://html.spec.whatwg.org/multipage/server-sent-events.html"
+  ]
+}

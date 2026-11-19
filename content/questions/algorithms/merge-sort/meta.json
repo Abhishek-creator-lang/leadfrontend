@@ -1,0 +1,15 @@
+{
+  "slug": "merge-sort",
+  "format": "algorithms",
+  "title": "Merge Sort",
+  "excerpt": "Sort an array of numbers with the divide-and-conquer merge sort algorithm in O(n log n).",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["sorting", "divide-and-conquer", "recursion"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Merge_sort"]
+}

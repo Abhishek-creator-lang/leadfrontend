@@ -1,0 +1,15 @@
+{
+  "slug": "top-k-frequent",
+  "format": "algorithms",
+  "title": "Top K Frequent Elements",
+  "excerpt": "Return the k most frequent values in a list, faster than sorting everything.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["arrays", "hash-map", "heap", "bucket-sort"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

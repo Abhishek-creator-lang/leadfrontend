@@ -1,0 +1,26 @@
+{
+  "slug": "typescript-distributive-conditional-types",
+  "format": "quiz",
+  "title": "What are distributive conditional types in TypeScript?",
+  "excerpt": "How conditional types map over unions, how to disable it, and the never trap.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "typescript",
+    "conditional-types",
+    "advanced-types"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/2/conditional-types.html"
+  ]
+}

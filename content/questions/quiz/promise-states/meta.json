@@ -1,0 +1,26 @@
+{
+  "slug": "promise-states",
+  "format": "quiz",
+  "title": "Explain the different states of a Promise",
+  "excerpt": "Pending, fulfilled and rejected, what settled and resolved really mean, and why state is immutable.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "promises",
+    "async"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "https://tc39.es/ecma262/#sec-promise-objects"
+  ]
+}

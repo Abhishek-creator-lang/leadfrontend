@@ -1,0 +1,31 @@
+{
+  "slug": "typescript-typing-react-refs",
+  "format": "quiz",
+  "title": "How do you type refs in React with TypeScript, and what changed in React 19?",
+  "excerpt": "DOM refs, mutable refs, ref as a prop, imperative handles and callback ref cleanups.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "typescript",
+    "react",
+    "refs",
+    "react-19"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/typescript",
+    "https://react.dev/reference/react/useRef",
+    "https://react.dev/blog/2024/04/25/react-19-upgrade-guide"
+  ]
+}

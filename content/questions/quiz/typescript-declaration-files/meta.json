@@ -1,0 +1,28 @@
+{
+  "slug": "typescript-declaration-files",
+  "format": "quiz",
+  "title": "What are `.d.ts` declaration files and when do you write them?",
+  "excerpt": "Types-only files for JS code, assets and globals, and how packages ship types.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "typescript",
+    "declaration-files",
+    "tooling"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html",
+    "https://www.typescriptlang.org/docs/handbook/modules/reference.html",
+    "https://www.typescriptlang.org/tsconfig/#declaration"
+  ]
+}

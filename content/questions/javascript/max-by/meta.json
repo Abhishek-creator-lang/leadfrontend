@@ -1,0 +1,18 @@
+{
+  "slug": "max-by",
+  "format": "javascript",
+  "title": "Max By",
+  "excerpt": "Return the element whose iteratee value is largest, skipping elements that produce no comparable value.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["arrays", "lodash", "higher-order functions"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max",
+    "https://lodash.com/docs/4.17.15#maxBy"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "what-is-the-extent-of-your-experience-with-promises-and-or",
+  "format": "quiz",
+  "title": "What is the extent of your experience with Promises and/or their polyfills?",
+  "excerpt": "Possess working knowledge of it. A promise is an object that may produce a single value sometime in the future: either a resolved value or a reason that it's no",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261"
+  ]
+}

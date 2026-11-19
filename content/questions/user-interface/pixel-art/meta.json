@@ -1,0 +1,20 @@
+{
+  "slug": "pixel-art",
+  "format": "user-interface",
+  "title": "Pixel Art Editor",
+  "excerpt": "Build a 16×16 pixel-art editor with a colour palette, draw/erase tools, click-and-drag painting and keyboard drawing.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 35,
+  "topics": ["state", "events", "accessibility", "performance", "memoization"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+    "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#kbd_roving_tabindex",
+    "https://react.dev/reference/react/memo",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events"
+  ]
+}

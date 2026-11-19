@@ -1,0 +1,19 @@
+{
+  "slug": "text-search",
+  "format": "javascript",
+  "title": "Text Search Highlight",
+  "excerpt": "Wrap every case-insensitive match of the query words in <b> tags, merging overlapping and adjacent matches.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 25,
+  "topics": ["strings", "intervals", "search"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/escape"
+  ]
+}

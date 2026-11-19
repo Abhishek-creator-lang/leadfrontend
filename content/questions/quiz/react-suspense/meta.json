@@ -1,0 +1,31 @@
+{
+  "slug": "react-suspense",
+  "format": "quiz",
+  "title": "What is React Suspense and what does it enable?",
+  "excerpt": "Declarative loading boundaries for lazy code, data, streaming SSR and selective hydration.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": [
+    "react",
+    "suspense",
+    "ssr",
+    "concurrency"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/Suspense",
+    "https://react.dev/reference/react/use",
+    "https://react.dev/reference/react/useTransition"
+  ]
+}

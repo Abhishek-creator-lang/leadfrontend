@@ -1,0 +1,25 @@
+{
+  "slug": "what-s-the-difference-between-a-relative-fixed-absolute-and",
+  "format": "quiz",
+  "title": "What's the difference between a relative, fixed, absolute and statically positioned element?",
+  "excerpt": "A positioned element is an element whose computed position property is either relative, absolute, fixed or sticky.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/position"
+  ]
+}

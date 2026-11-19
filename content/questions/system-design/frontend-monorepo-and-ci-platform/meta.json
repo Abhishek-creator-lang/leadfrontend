@@ -1,0 +1,24 @@
+{
+  "slug": "frontend-monorepo-and-ci-platform",
+  "format": "system-design",
+  "title": "Front-End Monorepo and CI Platform",
+  "excerpt": "Design the repository, build, test and CI/CD platform for 30 front-end teams sharing one monorepo, with affected builds, remote caching and governance.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 60,
+  "topics": ["system design", "monorepo", "ci/cd", "build systems", "nx", "turborepo", "developer experience", "governance"],
+  "frameworks": [],
+  "languages": ["ts"],
+  "companies": [],
+  "sdType": "lead",
+  "source": { "type": "original" },
+  "references": [
+    "https://nx.dev/getting-started/intro",
+    "https://turborepo.com/docs",
+    "https://pnpm.io/workspaces",
+    "https://bazel.build/about/intro",
+    "https://github.com/changesets/changesets",
+    "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
+    "https://dora.dev/"
+  ]
+}

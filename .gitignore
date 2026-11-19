@@ -1,0 +1,9 @@
+node_modules
+.next
+next-env.d.ts
+dist
+.verify-tmp
+src/content/index.generated.json
+*.local
+scripts/.handbook-manifest.json
+.verify-full.log

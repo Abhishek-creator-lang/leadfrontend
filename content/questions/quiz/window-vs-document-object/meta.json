@@ -1,0 +1,27 @@
+{
+  "slug": "window-vs-document-object",
+  "format": "quiz",
+  "title": "What is the difference between the Window object and the Document object?",
+  "excerpt": "The global browsing-context object versus the DOM tree of the loaded page.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "dom",
+    "browser"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "web",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Document",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis"
+  ]
+}

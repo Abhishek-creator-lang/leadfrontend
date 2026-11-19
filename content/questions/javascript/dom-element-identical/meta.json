@@ -1,0 +1,19 @@
+{
+  "slug": "dom-element-identical",
+  "format": "javascript",
+  "title": "Identical DOM Trees",
+  "excerpt": "Decide whether two DOM nodes are structurally identical: same tags, attributes, text and children, without using isEqualNode.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["dom", "trees", "recursion"],
+  "frameworks": ["vanilla"],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Node/isEqualNode",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/attributes"
+  ]
+}

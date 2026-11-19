@@ -1,0 +1,27 @@
+{
+  "slug": "typescript-conditional-types-and-infer",
+  "format": "quiz",
+  "title": "What are conditional types and the `infer` keyword in TypeScript?",
+  "excerpt": "Type-level branching, pattern matching with infer, and distribution over unions.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 9,
+  "topics": [
+    "typescript",
+    "conditional-types",
+    "advanced-types"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/2/conditional-types.html",
+    "https://www.typescriptlang.org/docs/handbook/utility-types.html"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "difference-between-document-load-event-and-document",
+  "format": "quiz",
+  "title": "Difference between document load event and document DOMContentLoaded event?",
+  "excerpt": "The DOMContentLoaded event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "react-useid-hook",
+  "format": "quiz",
+  "title": "What is the `useId` hook in React and when should it be used?",
+  "excerpt": "SSR-safe unique ids for accessibility attributes, and why not for keys.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 4,
+  "topics": [
+    "react",
+    "hooks",
+    "accessibility",
+    "ssr"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/useId"
+  ]
+}

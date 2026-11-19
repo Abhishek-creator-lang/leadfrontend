@@ -1,0 +1,15 @@
+{
+  "slug": "valid-parentheses",
+  "format": "algorithms",
+  "title": "Valid Parentheses",
+  "excerpt": "Check that every bracket in a code snippet is closed by the right kind, in the right order.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["stack", "strings"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

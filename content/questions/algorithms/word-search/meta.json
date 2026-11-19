@@ -1,0 +1,15 @@
+{
+  "slug": "word-search",
+  "format": "algorithms",
+  "title": "Word Search",
+  "excerpt": "Check whether a word can be traced through adjacent letter tiles using backtracking.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 25,
+  "topics": ["backtracking", "matrix", "depth-first-search"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "function-prototype-apply",
+  "format": "javascript",
+  "title": "Function.prototype.apply",
+  "excerpt": "Implement Function.prototype.apply, including array-like argument lists and argument validation.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["this", "functions", "polyfills", "symbols"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply",
+    "https://tc39.es/ecma262/#sec-function.prototype.apply",
+    "https://tc39.es/ecma262/#sec-createlistfromarraylike"
+  ]
+}

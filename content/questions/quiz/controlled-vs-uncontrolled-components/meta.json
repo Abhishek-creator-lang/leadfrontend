@@ -1,0 +1,30 @@
+{
+  "slug": "controlled-vs-uncontrolled-components",
+  "format": "quiz",
+  "title": "What is the difference between controlled and uncontrolled React components?",
+  "excerpt": "Who owns the value, React state or the DOM, and the trade-offs of each.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "react",
+    "forms",
+    "state"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react-dom/components/input",
+    "https://react.dev/learn/sharing-state-between-components",
+    "https://react.dev/reference/react-dom/components/form"
+  ]
+}

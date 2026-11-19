@@ -1,0 +1,21 @@
+{
+  "slug": "what-happens-when-you-type-a-url",
+  "format": "quiz",
+  "title": "What happens, end to end, when you type a URL into the browser and press Enter?",
+  "excerpt": "From URL parsing, HSTS and DNS through TLS, HTTP/2 or HTTP/3, caching, parsing and rendering.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 12,
+  "topics": ["browser", "networking", "dns", "tls", "rendering"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security",
+    "https://developer.chrome.com/blog/inside-browser-part2",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "queryselector-vs-getelementbyid",
+  "format": "quiz",
+  "title": "Explain the difference between `document.querySelector()` and `document.getElementById()`",
+  "excerpt": "Selector power vs a direct id lookup, scoping, live vs static collections and escaping.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 4,
+  "topics": [
+    "dom"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById",
+    "https://developer.mozilla.org/en-US/docs/Web/API/CSS/escape_static"
+  ]
+}

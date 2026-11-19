@@ -1,0 +1,27 @@
+{
+  "slug": "react-fragments",
+  "format": "quiz",
+  "title": "What are React Fragments used for?",
+  "excerpt": "Grouping children without extra DOM nodes, keyed fragments, and state preservation.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 4,
+  "topics": [
+    "react",
+    "jsx"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/Fragment"
+  ]
+}

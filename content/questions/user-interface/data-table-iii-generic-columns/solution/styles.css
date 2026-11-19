@@ -1,0 +1,148 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.page {
+  display: grid;
+  gap: 40px;
+  max-width: 760px;
+}
+
+.data-table-section h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 0 0 12px;
+  padding: 8px 12px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.filters legend {
+  padding: 0 4px;
+  font-weight: 600;
+}
+
+.filter,
+.filter--range label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filter--range {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.filters input {
+  width: 140px;
+  padding: 5px 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.filter--range input {
+  width: 100px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.data-table th {
+  background: #f8fafc;
+  font-weight: 600;
+}
+
+.data-table td.align-end {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table .empty {
+  text-align: center;
+  color: #64748b;
+}
+
+.sort-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sort-icon {
+  width: 1em;
+  color: #94a3b8;
+}
+
+th[aria-sort] .sort-icon {
+  color: #0f172a;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.page-size {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.page-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.page-controls button {
+  min-width: 32px;
+  height: 32px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.page-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}

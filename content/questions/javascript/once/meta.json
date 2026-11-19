@@ -1,0 +1,18 @@
+{
+  "slug": "once",
+  "format": "javascript",
+  "title": "Once",
+  "excerpt": "Wrap a function so that it runs at most once and later calls return the first result.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["closures", "functional programming"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures",
+    "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#once"
+  ]
+}

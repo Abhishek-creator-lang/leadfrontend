@@ -1,0 +1,78 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.demo {
+  max-width: 420px;
+  display: grid;
+  gap: 16px;
+}
+
+.progress-field {
+  display: grid;
+  gap: 6px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #334155;
+}
+
+.progress {
+  position: relative;
+  height: 12px;
+  overflow: hidden;
+  background: #e2e8f0;
+  border-radius: 999px;
+  /* High-contrast mode draws a border so the track stays visible. */
+  outline: 1px solid transparent;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 100%;
+  background: #4f46e5;
+  border-radius: inherit;
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+
+.progress--indeterminate .progress-fill {
+  width: 40%;
+  animation: slide 1.2s ease-in-out infinite;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-fill {
+    transition: none;
+  }
+  .progress--indeterminate .progress-fill {
+    animation-duration: 3s;
+  }
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+.controls button {
+  font: inherit;
+  padding: 6px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}

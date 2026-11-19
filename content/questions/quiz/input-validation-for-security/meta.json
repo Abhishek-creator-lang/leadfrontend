@@ -1,0 +1,27 @@
+{
+  "slug": "input-validation-for-security",
+  "format": "quiz",
+  "title": "Explain the concept of input validation and its importance in security",
+  "excerpt": "Server-side allowlist validation with schemas, versus output encoding, and why client checks are UX only.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "security",
+    "validation",
+    "forms"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "security",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation"
+  ]
+}

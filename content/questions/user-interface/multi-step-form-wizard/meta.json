@@ -1,0 +1,20 @@
+{
+  "slug": "multi-step-form-wizard",
+  "format": "user-interface",
+  "title": "Multi-step Form Wizard",
+  "excerpt": "Build a three-step sign-up wizard with per-step validation, a progress indicator, focus management and a review step.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 45,
+  "topics": ["forms", "validation", "state", "accessibility", "focus-management"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/tutorials/forms/multi-page/",
+    "https://www.w3.org/WAI/tutorials/forms/notifications/",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current",
+    "https://react.dev/reference/react/useReducer"
+  ]
+}

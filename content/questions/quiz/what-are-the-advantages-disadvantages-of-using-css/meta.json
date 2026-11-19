@@ -1,0 +1,23 @@
+{
+  "slug": "what-are-the-advantages-disadvantages-of-using-css",
+  "format": "quiz",
+  "title": "What are the advantages/disadvantages of using CSS preprocessors?",
+  "excerpt": "- CSS is made more maintainable.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": []
+}

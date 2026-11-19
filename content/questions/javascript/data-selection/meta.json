@@ -1,0 +1,19 @@
+{
+  "slug": "data-selection",
+  "format": "javascript",
+  "title": "Data Selection",
+  "excerpt": "Implement a small query function over an array of records: filtering, multi-key stable sorting, pagination and field projection.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 30,
+  "topics": ["arrays", "sorting", "data-processing"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn"
+  ]
+}

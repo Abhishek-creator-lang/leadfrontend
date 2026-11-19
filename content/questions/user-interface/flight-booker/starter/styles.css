@@ -1,0 +1,80 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.booker {
+  max-width: 360px;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.field input,
+.field select {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.field input:disabled {
+  background: #f1f5f9;
+  color: #94a3b8;
+}
+
+.field [aria-invalid='true'] {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 1px #dc2626;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.error {
+  margin: 0;
+  color: #b91c1c;
+  font-size: 0.8125rem;
+}
+
+button {
+  justify-self: start;
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 20px;
+  color: #fff;
+  background: #4f46e5;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.confirmation {
+  margin-top: 16px;
+  padding: 12px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+}

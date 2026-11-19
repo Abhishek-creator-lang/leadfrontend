@@ -1,0 +1,30 @@
+{
+  "slug": "react-useref-hook",
+  "format": "quiz",
+  "title": "What is the `useRef` hook in React and when should it be used?",
+  "excerpt": "A persistent mutable box for DOM nodes and values that don't affect rendering.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "react",
+    "hooks",
+    "refs"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/useRef",
+    "https://react.dev/learn/referencing-values-with-refs",
+    "https://react.dev/learn/manipulating-the-dom-with-refs"
+  ]
+}

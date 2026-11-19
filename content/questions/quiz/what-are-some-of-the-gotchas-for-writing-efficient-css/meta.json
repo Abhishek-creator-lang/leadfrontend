@@ -1,0 +1,25 @@
+{
+  "slug": "what-are-some-of-the-gotchas-for-writing-efficient-css",
+  "format": "quiz",
+  "title": "What are some of the \"gotchas\" for writing efficient CSS?",
+  "excerpt": "Firstly, understand that browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector a",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://developers.google.com/web/fundamentals/performance/rendering/"
+  ]
+}

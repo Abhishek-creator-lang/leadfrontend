@@ -1,0 +1,158 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+}
+
+.date-picker {
+  position: relative;
+  display: inline-block;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.input-row {
+  display: flex;
+  gap: 6px;
+}
+
+input {
+  font: inherit;
+  width: 12ch;
+  padding: 6px 8px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+}
+
+input[aria-invalid='true'] {
+  border-color: #dc2626;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.error {
+  font-size: 0.85rem;
+  color: #b91c1c;
+}
+
+.open-button {
+  font: inherit;
+  padding: 4px 10px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.dialog {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 20;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgb(15 23 42 / 0.15);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+  min-width: 10ch;
+}
+
+.header button,
+.footer button {
+  font: inherit;
+  min-width: 32px;
+  height: 32px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.grid {
+  border-collapse: collapse;
+}
+
+.grid th {
+  width: 36px;
+  height: 28px;
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.day {
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.day:hover {
+  background: #f1f5f9;
+}
+
+.day[aria-current='date'] {
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px #4f46e5;
+}
+
+.day[aria-selected='true'] {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.day:focus {
+  outline: 2px solid #0f172a;
+  outline-offset: -2px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.footer button {
+  padding: 0 12px;
+}
+
+button:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.chosen {
+  margin-top: 320px;
+  color: #475569;
+}

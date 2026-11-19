@@ -1,0 +1,29 @@
+{
+  "slug": "react-node-vs-element-vs-component",
+  "format": "quiz",
+  "title": "What is the difference between React Node, React Element, and a React Component?",
+  "excerpt": "Components produce elements; elements are one kind of renderable node.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "react",
+    "jsx",
+    "fundamentals"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/createElement",
+    "https://react.dev/learn/your-first-component"
+  ]
+}

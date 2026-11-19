@@ -1,0 +1,25 @@
+{
+  "slug": "describe-pseudo-elements-and-discuss-what-they-are-used-for",
+  "format": "quiz",
+  "title": "Describe pseudo-elements and discuss what they are used for.",
+  "excerpt": "A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element(s). They can be used for decoration (:first-li",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://css-tricks.com/almanac/pseudo-selectors/b/after-and-before/"
+  ]
+}

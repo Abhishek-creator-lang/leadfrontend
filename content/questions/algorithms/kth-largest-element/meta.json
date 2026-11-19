@@ -1,0 +1,15 @@
+{
+  "slug": "kth-largest-element",
+  "format": "algorithms",
+  "title": "Kth Largest Element",
+  "excerpt": "Find the k-th largest value without fully sorting, using a size-k heap or quickselect.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["arrays", "heap", "quickselect", "sorting"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Quickselect"]
+}

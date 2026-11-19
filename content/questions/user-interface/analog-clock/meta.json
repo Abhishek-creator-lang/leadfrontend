@@ -1,0 +1,18 @@
+{
+  "slug": "analog-clock",
+  "format": "user-interface",
+  "title": "Analog Clock",
+  "excerpt": "Draw a ticking analog clock in SVG with correctly rotated hour, minute and second hands and an accessible name.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 30,
+  "topics": ["svg", "timers", "effects", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role"
+  ]
+}

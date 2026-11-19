@@ -1,0 +1,32 @@
+{
+  "slug": "what-happens-when-usestate-setter-is-called",
+  "format": "quiz",
+  "title": "Explain what happens when the `useState` setter function is called in React",
+  "excerpt": "Enqueue, schedule, batch, render, reconcile, commit, and the state snapshot.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "react",
+    "state",
+    "rendering",
+    "batching"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/useState",
+    "https://react.dev/learn/state-as-a-snapshot",
+    "https://react.dev/learn/queueing-a-series-of-state-updates",
+    "https://react.dev/reference/react-dom/flushSync"
+  ]
+}

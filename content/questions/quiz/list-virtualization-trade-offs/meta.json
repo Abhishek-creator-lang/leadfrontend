@@ -1,0 +1,20 @@
+{
+  "slug": "list-virtualization-trade-offs",
+  "format": "quiz",
+  "title": "When should you virtualise a long list, how does it work, and what does it cost you?",
+  "excerpt": "Windowing mechanics, variable heights, accessibility and find-in-page trade-offs, and alternatives like content-visibility.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 8,
+  "topics": ["virtualization", "performance", "dom", "accessibility"],
+  "frameworks": [],
+  "languages": ["js", "css"],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/virtualize-long-lists-react-window",
+    "https://web.dev/articles/dom-size-and-interactivity",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility"
+  ]
+}

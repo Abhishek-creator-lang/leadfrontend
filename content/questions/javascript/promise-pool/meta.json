@@ -1,0 +1,18 @@
+{
+  "slug": "promise-pool",
+  "format": "javascript",
+  "title": "Promise Pool",
+  "excerpt": "Build a concurrency-limited task queue: tasks can be added at any time and at most N run at once.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 30,
+  "topics": ["async", "promises", "concurrency", "queues"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally"
+  ]
+}

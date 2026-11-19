@@ -1,0 +1,25 @@
+{
+  "slug": "explain-how-jsonp-works-and-how-it-s-not-really-ajax",
+  "format": "quiz",
+  "title": "Explain how JSONP works (and how it's not really Ajax).",
+  "excerpt": "JSONP (JSON with Padding) is a method commonly used to bypass the cross-domain policies in web browsers because Ajax requests from the current page to a cross-o",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://stackoverflow.com/a/2067584/1751946"
+  ]
+}

@@ -1,0 +1,104 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 72px 16px 16px;
+}
+
+.toolbar {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.tool {
+  min-width: 36px;
+  height: 36px;
+  font: inherit;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tool:hover,
+.tool[aria-expanded='true'] {
+  background: #f1f5f9;
+}
+
+.tool:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 1px;
+}
+
+.tooltip-wrapper,
+.popover-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 8px;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  color: #fff;
+  background: #0f172a;
+  border-radius: 6px;
+  z-index: 20;
+}
+
+/* Arrow. */
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px solid transparent;
+  border-top-color: #0f172a;
+}
+
+/* Invisible bridge over the gap, so the pointer can travel from trigger to tooltip. */
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 8px;
+}
+
+.popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 200px;
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.12);
+  z-index: 30;
+}
+
+.popover:focus {
+  outline: none;
+}
+
+.popover h2 {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.popover label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

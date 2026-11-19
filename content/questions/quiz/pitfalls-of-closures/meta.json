@@ -1,0 +1,27 @@
+{
+  "slug": "pitfalls-of-closures",
+  "format": "quiz",
+  "title": "What are the potential pitfalls of using closures?",
+  "excerpt": "Loop capture bugs, stale closures in React, retained memory and per-instance function costs.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "closures",
+    "memory"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_management",
+    "https://react.dev/reference/react/useEffect"
+  ]
+}

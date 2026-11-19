@@ -1,0 +1,89 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.field input,
+.field select {
+  font: inherit;
+  width: 9em;
+  padding: 6px 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.field [aria-invalid='true'] {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 1px #dc2626;
+}
+
+.error {
+  margin: 0;
+  max-width: 12em;
+  color: #b91c1c;
+  font-size: 0.8125rem;
+}
+
+.form button {
+  align-self: flex-end;
+  font: inherit;
+  font-weight: 600;
+  padding: 7px 16px;
+  color: #fff;
+  background: #4f46e5;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+caption {
+  text-align: left;
+  padding-bottom: 8px;
+  color: #475569;
+}
+
+td {
+  min-width: 2.5em;
+  padding: 6px 10px;
+  text-align: right;
+  border: 1px solid #e2e8f0;
+}
+
+tr:nth-child(even) td {
+  background: #f8fafc;
+}

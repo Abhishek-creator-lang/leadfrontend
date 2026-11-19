@@ -1,0 +1,25 @@
+{
+  "slug": "why-is-it-generally-a-good-idea-to-position-css-link-s",
+  "format": "quiz",
+  "title": "Why is it generally a good idea to position CSS <link>s between <head></head> and JS <script>s just before </body>? Do you know any exceptions?",
+  "excerpt": "Putting <links in the <head is part of proper specification in building an optimized website. When a page first loads, HTML and CSS are being parsed simultaneou",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 4,
+  "topics": [
+    "html"
+  ],
+  "frameworks": [],
+  "languages": [
+    "html"
+  ],
+  "companies": [],
+  "quizCategory": "html",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/html-questions"
+  },
+  "references": [
+    "https://developer.yahoo.com/performance/rules.html#css_top"
+  ]
+}

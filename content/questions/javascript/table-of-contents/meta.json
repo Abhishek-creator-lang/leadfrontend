@@ -1,0 +1,19 @@
+{
+  "slug": "table-of-contents",
+  "format": "javascript",
+  "title": "Table of Contents",
+  "excerpt": "Build a nested table of contents from the h1–h6 headings in a document, generating unique anchor ids and rendering it as nested lists.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 35,
+  "topics": ["dom", "trees", "stacks", "strings"],
+  "frameworks": ["vanilla"],
+  "languages": ["js", "html"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav"
+  ]
+}

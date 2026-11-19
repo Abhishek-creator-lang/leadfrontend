@@ -1,0 +1,77 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.contact {
+  max-width: 440px;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.field input,
+.field textarea {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.field [aria-invalid='true'] {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 1px #dc2626;
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible,
+button:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.error {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #b91c1c;
+}
+
+.error::before {
+  content: '⚠ ';
+}
+
+button {
+  justify-self: start;
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 16px;
+  color: #fff;
+  background: #4f46e5;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.success {
+  padding: 16px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+}

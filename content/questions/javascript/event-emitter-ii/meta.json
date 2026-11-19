@@ -1,0 +1,19 @@
+{
+  "slug": "event-emitter-ii",
+  "format": "javascript",
+  "title": "Event Emitter II",
+  "excerpt": "Extend an event emitter with once, unsubscribe handles, bulk off and listener counts, with well-defined behaviour during emit.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["classes", "design-patterns", "events", "closures"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://nodejs.org/api/events.html#emitteronceeventname-listener",
+    "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener",
+    "https://react.dev/reference/react/useSyncExternalStore"
+  ]
+}

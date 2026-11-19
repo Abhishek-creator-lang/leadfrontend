@@ -1,0 +1,15 @@
+{
+  "slug": "merge-intervals",
+  "format": "algorithms",
+  "title": "Merge Intervals",
+  "excerpt": "Collapse overlapping calendar events into the minimal set of busy blocks.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["arrays", "intervals", "sorting"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

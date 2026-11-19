@@ -1,0 +1,21 @@
+{
+  "slug": "real-user-monitoring-performanceobserver",
+  "format": "quiz",
+  "title": "How would you build real-user performance monitoring (RUM) with PerformanceObserver?",
+  "excerpt": "Entry types, buffered observers, beaconing on visibilitychange, sampling, percentiles and segmentation.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["rum", "performance", "observability", "metrics"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark",
+    "https://web.dev/articles/custom-metrics"
+  ]
+}

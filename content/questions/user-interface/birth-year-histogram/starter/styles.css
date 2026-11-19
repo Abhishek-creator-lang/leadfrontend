@@ -1,0 +1,15 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.app {
+  max-width: 720px;
+}
+
+.chart {
+  height: 240px;
+  margin: 16px 0;
+  border-bottom: 1px solid #94a3b8;
+}

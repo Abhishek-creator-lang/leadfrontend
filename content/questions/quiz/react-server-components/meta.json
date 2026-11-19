@@ -1,0 +1,31 @@
+{
+  "slug": "react-server-components",
+  "format": "quiz",
+  "title": "What are React Server Components and how do they differ from SSR?",
+  "excerpt": "Server-only components that ship no JS, the use client boundary, and how RSC complements SSR.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 10,
+  "topics": [
+    "react",
+    "server-components",
+    "ssr",
+    "react-19"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/rsc/server-components",
+    "https://react.dev/reference/rsc/use-client",
+    "https://react.dev/reference/rsc/server-functions"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "popover-api-vs-dialog",
+  "format": "quiz",
+  "title": "What is the Popover API, and when do you use popover instead of a <dialog> or a custom dropdown?",
+  "excerpt": "popover=auto/manual, popovertarget, light dismiss, top layer, anchor positioning and accessibility gaps.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": ["html", "popover", "accessibility", "top-layer"],
+  "frameworks": [],
+  "languages": ["html", "css"],
+  "companies": [],
+  "quizCategory": "html",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Popover_API",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/popover",
+    "https://html.spec.whatwg.org/multipage/popover.html"
+  ]
+}

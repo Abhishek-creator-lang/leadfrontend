@@ -1,0 +1,19 @@
+{
+  "slug": "jquery-class-manipulation",
+  "format": "javascript",
+  "title": "jQuery Class Manipulation",
+  "excerpt": "Build a tiny $ wrapper with chainable addClass, removeClass, toggleClass and hasClass that work on every matched element.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["dom", "design-patterns", "chaining"],
+  "frameworks": ["vanilla"],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/classList",
+    "https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/toggle",
+    "https://api.jquery.com/category/manipulation/class-attribute/"
+  ]
+}

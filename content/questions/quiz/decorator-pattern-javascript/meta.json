@@ -1,0 +1,26 @@
+{
+  "slug": "decorator-pattern-javascript",
+  "format": "quiz",
+  "title": "What is the Decorator pattern and how is it used?",
+  "excerpt": "Wrapping objects or functions to add behaviour, including higher-order functions and TC39 decorators.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "design-patterns",
+    "functional-programming"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://refactoring.guru/design-patterns/decorator",
+    "https://github.com/tc39/proposal-decorators"
+  ]
+}

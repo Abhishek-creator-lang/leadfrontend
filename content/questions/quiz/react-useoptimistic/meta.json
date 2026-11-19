@@ -1,0 +1,30 @@
+{
+  "slug": "react-useoptimistic",
+  "format": "quiz",
+  "title": "How does `useOptimistic` work in React 19?",
+  "excerpt": "Optimistic overlays on real state during Actions, with automatic revert.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "react",
+    "hooks",
+    "actions",
+    "react-19"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/useOptimistic",
+    "https://react.dev/reference/react/useTransition"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "array-prototype-concat",
+  "format": "javascript",
+  "title": "Array.prototype.concat",
+  "excerpt": "Implement Array.prototype.concat, including sparse arrays and Symbol.isConcatSpreadable.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["arrays", "polyfills", "symbols"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/isConcatSpreadable",
+    "https://tc39.es/ecma262/#sec-array.prototype.concat"
+  ]
+}

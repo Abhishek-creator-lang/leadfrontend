@@ -1,0 +1,18 @@
+{
+  "slug": "tabs-ii-accessible",
+  "format": "user-interface",
+  "title": "Tabs II: Keyboard Accessible",
+  "excerpt": "Add roving tabindex, arrow-key navigation and automatic or manual activation to a tabs component.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 30,
+  "topics": ["accessibility", "keyboard", "focus-management", "design-system"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/",
+    "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#kbd_roving_tabindex"
+  ]
+}

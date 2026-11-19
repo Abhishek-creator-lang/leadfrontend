@@ -1,0 +1,20 @@
+{
+  "slug": "html-dialog-element-modals",
+  "format": "quiz",
+  "title": "How does the native <dialog> element work, and what does showModal() give you over a custom modal?",
+  "excerpt": "Top layer, inertness, focus handling, Escape, ::backdrop, form method=dialog and remaining gaps.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": ["html", "accessibility", "dialog", "focus-management"],
+  "frameworks": [],
+  "languages": ["html", "js"],
+  "companies": [],
+  "quizCategory": "html",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog",
+    "https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
+  ]
+}

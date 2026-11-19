@@ -1,0 +1,25 @@
+{
+  "slug": "explain-how-a-browser-determines-what-elements-match-a-css",
+  "format": "quiz",
+  "title": "Explain how a browser determines what elements match a CSS selector.",
+  "excerpt": "This part is related to the above about writing efficient CSS(what-are-some-of-the-gotchas-for-writing-efficient-css). Browsers match selectors from rightmost (",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left"
+  ]
+}

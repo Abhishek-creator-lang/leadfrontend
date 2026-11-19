@@ -1,0 +1,23 @@
+{
+  "slug": "have-you-ever-used-a-grid-system-and-if-so-what-do-you",
+  "format": "quiz",
+  "title": "Have you ever used a grid system, and if so, what do you prefer?",
+  "excerpt": "Before Flex became popular (around 2014), the float-based grid system was the most reliable because it still has the most browser support among the alternative ",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": []
+}

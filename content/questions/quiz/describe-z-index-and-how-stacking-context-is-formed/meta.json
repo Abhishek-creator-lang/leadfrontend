@@ -1,0 +1,25 @@
+{
+  "slug": "describe-z-index-and-how-stacking-context-is-formed",
+  "format": "quiz",
+  "title": "Describe z-index and how stacking context is formed.",
+  "excerpt": "The z-index property in CSS controls the vertical stacking order of elements that overlap. z-index only affects elements that have a position value which is not",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://css-tricks.com/almanac/properties/z/z-index/"
+  ]
+}

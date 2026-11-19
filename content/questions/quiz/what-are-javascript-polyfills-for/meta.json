@@ -1,0 +1,28 @@
+{
+  "slug": "what-are-javascript-polyfills-for",
+  "format": "quiz",
+  "title": "What are JavaScript polyfills for?",
+  "excerpt": "Filling missing APIs in older environments, how polyfills differ from transpilation, and their costs.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "polyfills",
+    "browser-compat",
+    "tooling"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Glossary/Polyfill",
+    "https://developer.mozilla.org/en-US/docs/Glossary/Transpile",
+    "https://github.com/zloirock/core-js"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "pinterest-masonry",
+  "format": "system-design",
+  "title": "Pinterest (Masonry Image Feed)",
+  "excerpt": "Design a Pinterest-style home feed: a responsive masonry grid of variable-height pins with infinite scroll and virtualization.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "masonry layout", "virtualization", "images", "infinite scroll", "performance"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Pinterest"],
+  "sdType": "application",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Masonry_layout",
+    "https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver",
+    "https://web.dev/articles/content-visibility",
+    "https://medium.com/pinterest-engineering"
+  ]
+}

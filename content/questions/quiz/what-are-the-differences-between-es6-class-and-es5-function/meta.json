@@ -1,0 +1,25 @@
+{
+  "slug": "what-are-the-differences-between-es6-class-and-es5-function",
+  "format": "quiz",
+  "title": "What are the differences between ES6 class and ES5 function constructors?",
+  "excerpt": "Let's first look at an example of each:",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Classes_in_JavaScript"
+  ]
+}

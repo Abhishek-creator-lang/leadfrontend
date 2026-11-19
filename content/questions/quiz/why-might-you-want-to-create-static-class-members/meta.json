@@ -1,0 +1,25 @@
+{
+  "slug": "why-might-you-want-to-create-static-class-members",
+  "format": "quiz",
+  "title": "Why might you want to create static class members?",
+  "excerpt": "Static class members (properties/methods) are not tied to a specific instance of a class and have the same value regardless of which instance is referring to it",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://stackoverflow.com/questions/21155438/when-to-use-static-variables-methods-and-when-to-use-instance-variables-methods"
+  ]
+}

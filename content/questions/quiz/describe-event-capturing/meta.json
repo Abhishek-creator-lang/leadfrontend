@@ -1,0 +1,27 @@
+{
+  "slug": "describe-event-capturing",
+  "format": "quiz",
+  "title": "Describe event capturing in JavaScript and browsers",
+  "excerpt": "The top-down phase of DOM event propagation and when listening in it is useful.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "events",
+    "dom"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Event/eventPhase",
+    "https://dom.spec.whatwg.org/#dispatching-events"
+  ]
+}

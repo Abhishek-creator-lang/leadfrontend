@@ -1,0 +1,19 @@
+{
+  "slug": "middlewares",
+  "format": "javascript",
+  "title": "Middlewares",
+  "excerpt": "Compose async middleware functions into one onion-style pipeline where each step can run code before and after next().",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["async", "promises", "design-patterns", "closures"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://expressjs.com/en/guide/using-middleware.html",
+    "https://koajs.com/#cascading",
+    "https://redux.js.org/understanding/history-and-design/middleware"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "slug": "stack",
+  "format": "algorithms",
+  "title": "Stack",
+  "excerpt": "Build a last-in, first-out stack class, the structure behind undo history and the call stack.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 10,
+  "topics": ["data-structures", "stack"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Stack_(abstract_data_type)"]
+}

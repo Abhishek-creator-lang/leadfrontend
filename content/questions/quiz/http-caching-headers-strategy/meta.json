@@ -1,0 +1,21 @@
+{
+  "slug": "http-caching-headers-strategy",
+  "format": "quiz",
+  "title": "Design an HTTP caching strategy for a web app: Cache-Control, ETag and stale-while-revalidate.",
+  "excerpt": "Immutable hashed assets, revalidated HTML, CDN vs browser caches, validators and common caching incidents.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 10,
+  "topics": ["caching", "http", "cdn", "performance"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control",
+    "https://web.dev/articles/http-cache",
+    "https://www.rfc-editor.org/rfc/rfc9111"
+  ]
+}

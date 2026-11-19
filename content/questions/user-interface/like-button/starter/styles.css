@@ -1,0 +1,87 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.post {
+  max-width: 420px;
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+.like-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 6px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: #334155;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.like-button:hover:not(:disabled) {
+  border-color: #e11d48;
+  color: #e11d48;
+}
+
+.like-button[aria-pressed='true'] {
+  color: #fff;
+  background: #e11d48;
+  border-color: #e11d48;
+}
+
+.like-button:disabled {
+  cursor: progress;
+  opacity: 0.8;
+}
+
+.like-button:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.like-icon {
+  width: 1em;
+  text-align: center;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 2s;
+  }
+}
+
+.error {
+  margin: 0;
+  color: #b91c1c;
+  font-size: 0.875rem;
+}
+
+.fail-toggle {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #475569;
+}

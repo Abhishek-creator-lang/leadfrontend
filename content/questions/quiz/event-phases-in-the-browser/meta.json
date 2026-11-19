@@ -1,0 +1,27 @@
+{
+  "slug": "event-phases-in-the-browser",
+  "format": "quiz",
+  "title": "Explain the event phases in a browser",
+  "excerpt": "Capture, target and bubble phases, eventPhase values, and how shadow DOM retargeting fits in.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "events",
+    "dom"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Event/eventPhase",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Event/composedPath",
+    "https://dom.spec.whatwg.org/#dispatching-events"
+  ]
+}

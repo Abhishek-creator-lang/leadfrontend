@@ -1,0 +1,18 @@
+{
+  "slug": "drop-while",
+  "format": "javascript",
+  "title": "Drop While",
+  "excerpt": "Drop leading elements of an array for as long as a predicate holds, then keep the rest.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 10,
+  "topics": ["arrays", "lodash", "higher-order functions"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex",
+    "https://lodash.com/docs/4.17.15#dropWhile"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "benefits-of-currying-and-partial-application",
+  "format": "quiz",
+  "title": "What are the benefits of using currying and partial application?",
+  "excerpt": "Reuse, configuration, composition and point-free pipelines, plus the costs.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "functional-programming",
+    "closures"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind"
+  ]
+}

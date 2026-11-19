@@ -1,0 +1,27 @@
+{
+  "slug": "event-listeners-explained",
+  "format": "quiz",
+  "title": "What are event listeners and how are they used?",
+  "excerpt": "addEventListener options (capture, once, passive, signal), removal and memory hygiene.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "events",
+    "dom"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener",
+    "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener",
+    "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal"
+  ]
+}

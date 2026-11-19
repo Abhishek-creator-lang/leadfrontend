@@ -1,0 +1,19 @@
+{
+  "slug": "tweet-card",
+  "format": "user-interface",
+  "title": "Tweet Card",
+  "excerpt": "Build a social post card with semantic markup, relative timestamps, compact counts and accessible action buttons.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 25,
+  "topics": ["css", "layout", "accessibility", "i18n"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat#compact"
+  ]
+}

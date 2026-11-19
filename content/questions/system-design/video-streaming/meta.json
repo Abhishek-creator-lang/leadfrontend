@@ -1,0 +1,22 @@
+{
+  "slug": "video-streaming",
+  "format": "system-design",
+  "title": "Video Streaming Service (e.g. Netflix)",
+  "excerpt": "Design a Netflix-style web client: browse rows of titles, a video player with adaptive bitrate streaming, DRM, and resume playback.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "video", "adaptive streaming", "media source extensions", "performance", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Netflix", "YouTube", "Disney"],
+  "sdType": "application",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Encrypted_Media_Extensions_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API",
+    "https://netflixtechblog.com/"
+  ]
+}

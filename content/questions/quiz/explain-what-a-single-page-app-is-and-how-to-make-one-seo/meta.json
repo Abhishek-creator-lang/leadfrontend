@@ -1,0 +1,25 @@
+{
+  "slug": "explain-what-a-single-page-app-is-and-how-to-make-one-seo",
+  "format": "quiz",
+  "title": "Explain what a single page app is and how to make one SEO-friendly.",
+  "excerpt": "The below is taken from the awesome Grab Front End Guide, which coincidentally, is written by me!",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 4,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://github.com/grab/front-end-guide#single-page-apps-spas"
+  ]
+}

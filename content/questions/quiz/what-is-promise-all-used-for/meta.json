@@ -1,0 +1,27 @@
+{
+  "slug": "what-is-promise-all-used-for",
+  "format": "quiz",
+  "title": "What is the use of `Promise.all()`",
+  "excerpt": "Running independent async work in parallel, fail-fast semantics and concurrency limits.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "promises",
+    "async",
+    "concurrency"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises"
+  ]
+}

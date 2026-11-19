@@ -1,0 +1,19 @@
+{
+  "slug": "get-elements-by-style",
+  "format": "javascript",
+  "title": "getElementsByStyle",
+  "excerpt": "Find descendant elements whose computed value for a CSS property equals a given value, normalising values like red vs #f00.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["dom", "css", "trees"],
+  "frameworks": ["vanilla"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle",
+    "https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/getPropertyValue",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/computed_value"
+  ]
+}

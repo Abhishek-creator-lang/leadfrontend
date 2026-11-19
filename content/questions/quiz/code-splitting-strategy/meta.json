@@ -1,0 +1,20 @@
+{
+  "slug": "code-splitting-strategy",
+  "format": "quiz",
+  "title": "How do you decide where to code-split a large front-end app, and what can go wrong?",
+  "excerpt": "Route, component and vendor splitting, request waterfalls, chunk granularity and caching trade-offs.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 9,
+  "topics": ["code-splitting", "bundling", "performance", "lazy-loading"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/reduce-javascript-payloads-with-code-splitting",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import",
+    "https://react.dev/reference/react/lazy"
+  ]
+}

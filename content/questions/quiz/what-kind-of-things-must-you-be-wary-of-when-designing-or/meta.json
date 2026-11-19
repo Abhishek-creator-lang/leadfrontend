@@ -1,0 +1,25 @@
+{
+  "slug": "what-kind-of-things-must-you-be-wary-of-when-designing-or",
+  "format": "quiz",
+  "title": "What kind of things must you be wary of when designing or developing for multilingual sites?",
+  "excerpt": "- Use lang attribute in your HTML.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "html"
+  ],
+  "frameworks": [],
+  "languages": [
+    "html"
+  ],
+  "companies": [],
+  "quizCategory": "html",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/html-questions"
+  },
+  "references": [
+    "https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites"
+  ]
+}

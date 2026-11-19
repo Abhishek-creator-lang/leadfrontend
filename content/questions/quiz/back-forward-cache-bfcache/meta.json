@@ -1,0 +1,21 @@
+{
+  "slug": "back-forward-cache-bfcache",
+  "format": "quiz",
+  "title": "What is the back/forward cache (bfcache), and what makes a page ineligible for it?",
+  "excerpt": "Instant back navigations, pageshow/pagehide, unload and other blockers, and how to test eligibility.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": ["bfcache", "performance", "navigation", "browser"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/bfcache",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/pageshow_event",
+    "https://developer.chrome.com/docs/web-platform/deprecating-unload",
+    "https://developer.mozilla.org/en-US/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons"
+  ]
+}

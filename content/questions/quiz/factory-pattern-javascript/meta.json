@@ -1,0 +1,25 @@
+{
+  "slug": "factory-pattern-javascript",
+  "format": "quiz",
+  "title": "What is the Factory pattern and how is it used?",
+  "excerpt": "Creating objects through a function that hides construction details.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "design-patterns"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://refactoring.guru/design-patterns/factory-method",
+    "https://www.patterns.dev/vanilla/factory-pattern"
+  ]
+}

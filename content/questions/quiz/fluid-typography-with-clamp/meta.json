@@ -1,0 +1,20 @@
+{
+  "slug": "fluid-typography-with-clamp",
+  "format": "quiz",
+  "title": "How do you build fluid typography and spacing with clamp(), and what are the accessibility pitfalls?",
+  "excerpt": "Deriving the preferred value, rem + vw mixing for zoom, container units, and WCAG resize requirements.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": ["css", "typography", "responsive-design", "accessibility"],
+  "frameworks": [],
+  "languages": ["css"],
+  "companies": [],
+  "quizCategory": "css",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/clamp",
+    "https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html",
+    "https://web.dev/articles/min-max-clamp"
+  ]
+}

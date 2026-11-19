@@ -1,0 +1,25 @@
+{
+  "slug": "explain-how-this-works-in-javascript",
+  "format": "quiz",
+  "title": "Explain how this works in JavaScript",
+  "excerpt": "There's no simple explanation for this; it is one of the most confusing concepts in JavaScript. A hand-wavey explanation is that the value of this depends on ho",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3?gi=86e207b492c4"
+  ]
+}

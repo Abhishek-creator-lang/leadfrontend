@@ -1,0 +1,28 @@
+{
+  "slug": "debouncing-vs-throttling",
+  "format": "quiz",
+  "title": "Explain the concept of debouncing and throttling",
+  "excerpt": "Run after activity stops versus at most once per interval, with implementations and use cases.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "performance",
+    "events",
+    "closures"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Glossary/Debounce",
+    "https://developer.mozilla.org/en-US/docs/Glossary/Throttle",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame"
+  ]
+}

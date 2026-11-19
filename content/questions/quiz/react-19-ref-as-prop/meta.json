@@ -1,0 +1,30 @@
+{
+  "slug": "react-19-ref-as-prop",
+  "format": "quiz",
+  "title": "How do refs work as a prop in React 19, and what are ref cleanup functions?",
+  "excerpt": "ref as a regular prop, the end of forwardRef, and callback ref cleanups.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "react",
+    "refs",
+    "react-19"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/blog/2024/12/05/react-19",
+    "https://react.dev/reference/react/useImperativeHandle",
+    "https://react.dev/reference/react-dom/components/common"
+  ]
+}

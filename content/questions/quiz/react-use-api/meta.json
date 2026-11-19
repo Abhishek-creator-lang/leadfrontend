@@ -1,0 +1,30 @@
+{
+  "slug": "react-use-api",
+  "format": "quiz",
+  "title": "What does the `use` API do in React 19 and how is it different from other hooks?",
+  "excerpt": "Reading promises and context during render, conditional calls, and the cached-promise rule.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "react",
+    "hooks",
+    "suspense",
+    "react-19"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/use",
+    "https://react.dev/reference/react/Suspense"
+  ]
+}

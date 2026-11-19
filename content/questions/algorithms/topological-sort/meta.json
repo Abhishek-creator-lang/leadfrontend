@@ -1,0 +1,15 @@
+{
+  "slug": "topological-sort",
+  "format": "algorithms",
+  "title": "Topological Sort",
+  "excerpt": "Order modules so each one comes after everything it imports, and detect circular imports.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 30,
+  "topics": ["graphs", "topological-sort"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Topological_sorting"]
+}

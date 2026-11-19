@@ -1,0 +1,15 @@
+{
+  "slug": "spiral-matrix",
+  "format": "algorithms",
+  "title": "Spiral Matrix",
+  "excerpt": "Read a rectangular grid in clockwise spiral order using shrinking boundaries.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["matrix", "arrays", "simulation"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

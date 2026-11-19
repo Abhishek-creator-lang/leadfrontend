@@ -1,0 +1,19 @@
+{
+  "slug": "union-by",
+  "format": "javascript",
+  "title": "Union By",
+  "excerpt": "Merge several arrays into one list of unique elements, where uniqueness is decided by an iteratee.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["arrays", "sets", "lodash", "higher-order functions"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters",
+    "https://lodash.com/docs/4.17.15#unionBy"
+  ]
+}

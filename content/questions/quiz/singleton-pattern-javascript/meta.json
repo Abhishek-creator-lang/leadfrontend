@@ -1,0 +1,25 @@
+{
+  "slug": "singleton-pattern-javascript",
+  "format": "quiz",
+  "title": "Explain the concept of the Singleton pattern",
+  "excerpt": "One shared instance, why ES modules already give you one, and the testing downsides.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "design-patterns"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://refactoring.guru/design-patterns/singleton",
+    "https://www.patterns.dev/vanilla/singleton-pattern"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "preventing-sql-injection-in-javascript-apps",
+  "format": "quiz",
+  "title": "How can you prevent SQL injection vulnerabilities in JavaScript applications?",
+  "excerpt": "Parameterized queries, ORMs, query builders and least privilege on the Node.js side.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "security",
+    "injection",
+    "node"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "security",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://owasp.org/www-community/attacks/SQL_Injection",
+    "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "what-is-use-strict-what-are-the-advantages-and-disadvantages",
+  "format": "quiz",
+  "title": "What is \"use strict\";? What are the advantages and disadvantages to using it?",
+  "excerpt": "'use strict' is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt into a restricted variant of JavaS",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://2ality.com/2011/10/strict-mode-hatred.html"
+  ]
+}

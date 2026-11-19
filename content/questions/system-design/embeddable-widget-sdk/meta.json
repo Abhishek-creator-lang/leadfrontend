@@ -1,0 +1,23 @@
+{
+  "slug": "embeddable-widget-sdk",
+  "format": "system-design",
+  "title": "Embeddable Widget SDK (Third-Party Script)",
+  "excerpt": "Design a third-party embeddable widget and loader script that runs on thousands of customer sites, covering isolation, versioning, security and performance.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 55,
+  "topics": ["system design", "third-party scripts", "sdk design", "iframes", "postmessage", "security", "versioning", "performance"],
+  "frameworks": ["vanilla"],
+  "languages": ["ts"],
+  "companies": [],
+  "sdType": "lead",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM",
+    "https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Storage_Access_API"
+  ]
+}

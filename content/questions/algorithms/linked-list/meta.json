@@ -1,0 +1,15 @@
+{
+  "slug": "linked-list",
+  "format": "algorithms",
+  "title": "Linked List",
+  "excerpt": "Implement a linked list class with insertion and removal at both ends, by index, and in-place reversal.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 30,
+  "topics": ["data-structures", "linked-list"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Linked_list"]
+}

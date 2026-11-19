@@ -1,0 +1,20 @@
+{
+  "slug": "css-custom-properties-vs-preprocessor-variables",
+  "format": "quiz",
+  "title": "How do CSS custom properties differ from Sass/Less variables, and how would you use them for theming?",
+  "excerpt": "Runtime vs compile-time, inheritance and scoping, @property typing, fallbacks and design-token architecture.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": ["css", "custom-properties", "theming", "design-systems"],
+  "frameworks": [],
+  "languages": ["css"],
+  "companies": [],
+  "quizCategory": "css",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/@property",
+    "https://www.w3.org/TR/css-variables-1/"
+  ]
+}

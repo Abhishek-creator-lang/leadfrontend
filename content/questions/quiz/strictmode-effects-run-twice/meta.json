@@ -1,0 +1,29 @@
+{
+  "slug": "strictmode-effects-run-twice",
+  "format": "quiz",
+  "title": "Why do my effects run twice in development, and how should I fix it?",
+  "excerpt": "Strict Mode's mount-unmount-mount check and how to write symmetric cleanups.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "react",
+    "effects",
+    "strict-mode"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/synchronizing-with-effects",
+    "https://react.dev/reference/react/StrictMode"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "toast-notifications",
+  "format": "user-interface",
+  "title": "Toast Notifications",
+  "excerpt": "Build a toast system with a context API, live-region announcements, auto-dismiss that pauses on hover or focus, and a visible limit.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 35,
+  "topics": ["context", "timers", "accessibility", "design-system"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions",
+    "https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html",
+    "https://react.dev/learn/passing-data-deeply-with-context"
+  ]
+}

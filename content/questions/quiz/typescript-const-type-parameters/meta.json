@@ -1,0 +1,27 @@
+{
+  "slug": "typescript-const-type-parameters",
+  "format": "quiz",
+  "title": "What are `const` type parameters in TypeScript 5.0?",
+  "excerpt": "as const-style literal inference without caller ceremony.",
+  "difficulty": "medium",
+  "importance": "low",
+  "duration": 5,
+  "topics": [
+    "typescript",
+    "generics",
+    "inference"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html",
+    "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-4.html"
+  ]
+}

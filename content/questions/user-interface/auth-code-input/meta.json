@@ -1,0 +1,20 @@
+{
+  "slug": "auth-code-input",
+  "format": "user-interface",
+  "title": "Auth Code Input",
+  "excerpt": "Build a one-time-code input split into digit boxes with auto-advance, backspace, arrow keys and paste support.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 30,
+  "topics": ["forms", "accessibility", "focus-management", "state"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/paste_event",
+    "https://react.dev/reference/react/useRef"
+  ]
+}

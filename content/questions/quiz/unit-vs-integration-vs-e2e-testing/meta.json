@@ -1,0 +1,26 @@
+{
+  "slug": "unit-vs-integration-vs-e2e-testing",
+  "format": "quiz",
+  "title": "Explain the difference between unit testing, integration testing, and end-to-end testing",
+  "excerpt": "Scope, speed, confidence and cost of each level, with front-end examples.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "testing"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://martinfowler.com/articles/practical-test-pyramid.html",
+    "https://playwright.dev/docs/intro",
+    "https://testing-library.com/docs/guiding-principles"
+  ]
+}

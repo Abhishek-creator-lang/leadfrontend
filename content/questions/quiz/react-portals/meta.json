@@ -1,0 +1,29 @@
+{
+  "slug": "react-portals",
+  "format": "quiz",
+  "title": "What are React Portals used for?",
+  "excerpt": "Rendering into another DOM node while staying in the React tree for context and events.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "react",
+    "dom",
+    "accessibility"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react-dom/createPortal",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog"
+  ]
+}

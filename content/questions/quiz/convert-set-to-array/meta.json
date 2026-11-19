@@ -1,0 +1,27 @@
+{
+  "slug": "convert-set-to-array",
+  "format": "quiz",
+  "title": "How do you convert a Set to an array in JavaScript?",
+  "excerpt": "Spread, Array.from and when you might not need to convert at all.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 4,
+  "topics": [
+    "data-structures",
+    "collections"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "slug": "breadth-first-search",
+  "format": "algorithms",
+  "title": "Breadth-First Search",
+  "excerpt": "Find the fewest clicks between two pages of a site with breadth-first search.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["graphs", "breadth-first-search", "queue"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Breadth-first_search"]
+}

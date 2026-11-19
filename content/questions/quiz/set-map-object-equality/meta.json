@@ -1,0 +1,28 @@
+{
+  "slug": "set-map-object-equality",
+  "format": "quiz",
+  "title": "How do Sets and Maps handle equality checks for objects?",
+  "excerpt": "SameValueZero and reference identity for object keys, and how to dedupe by value.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "data-structures",
+    "collections",
+    "equality"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set"
+  ]
+}

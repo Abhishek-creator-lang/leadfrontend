@@ -1,0 +1,27 @@
+{
+  "slug": "how-does-garbage-collection-work",
+  "format": "quiz",
+  "title": "How does JavaScript garbage collection work?",
+  "excerpt": "Reachability, mark-and-sweep, generational collection and how front-end apps leak memory.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "memory",
+    "performance"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_management",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "settimeout-vs-setimmediate-vs-process-nexttick",
+  "format": "quiz",
+  "title": "What is the difference between `setTimeout()`, `setImmediate()`, and `process.nextTick()`?",
+  "excerpt": "Where each callback lands in the Node.js event loop, and the browser equivalents.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "event-loop",
+    "node",
+    "timers"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick",
+    "https://nodejs.org/api/process.html#processnexttickcallback-args",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout"
+  ]
+}

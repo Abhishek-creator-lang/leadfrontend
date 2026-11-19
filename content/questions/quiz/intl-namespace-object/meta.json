@@ -1,0 +1,27 @@
+{
+  "slug": "intl-namespace-object",
+  "format": "quiz",
+  "title": "What is the Intl namespace object for?",
+  "excerpt": "Locale-aware formatting of numbers, dates, plurals, lists, collation and segmentation.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "i18n",
+    "formatting"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter"
+  ]
+}

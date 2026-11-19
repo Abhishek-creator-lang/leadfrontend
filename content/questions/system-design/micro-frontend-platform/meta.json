@@ -1,0 +1,22 @@
+{
+  "slug": "micro-frontend-platform",
+  "format": "system-design",
+  "title": "Micro-Frontend Platform",
+  "excerpt": "Design a platform that lets many teams build, deploy and compose independently released front-ends into one coherent product.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 60,
+  "topics": ["system design", "micro-frontends", "module federation", "import maps", "deployment", "governance", "architecture"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": [],
+  "sdType": "lead",
+  "source": { "type": "original" },
+  "references": [
+    "https://martinfowler.com/articles/micro-frontends.html",
+    "https://module-federation.io/",
+    "https://single-spa.js.org/docs/getting-started-overview",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage"
+  ]
+}

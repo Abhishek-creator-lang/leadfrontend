@@ -1,0 +1,18 @@
+{
+  "slug": "mortgage-calculator",
+  "format": "user-interface",
+  "title": "Mortgage Calculator",
+  "excerpt": "Calculate the monthly payment, total cost and total interest of a fixed-rate loan as the user types.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["forms", "derived-state", "i18n", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output"
+  ]
+}

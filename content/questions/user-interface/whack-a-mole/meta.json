@@ -1,0 +1,19 @@
+{
+  "slug": "whack-a-mole",
+  "format": "user-interface",
+  "title": "Whack-a-Mole",
+  "excerpt": "Build a timed whack-a-mole game with random moles, scoring, a countdown and keyboard play, managing several timers safely.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 35,
+  "topics": ["games", "timers", "effects", "state", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/learn/synchronizing-with-effects",
+    "https://react.dev/learn/lifecycle-of-reactive-effects",
+    "https://developer.mozilla.org/en-US/docs/Web/API/setInterval#delay_restrictions"
+  ]
+}

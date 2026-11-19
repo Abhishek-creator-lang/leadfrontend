@@ -1,0 +1,18 @@
+{
+  "slug": "drop-right-while",
+  "format": "javascript",
+  "title": "Drop Right While",
+  "excerpt": "Drop trailing elements of an array for as long as a predicate holds, scanning from the end.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 10,
+  "topics": ["arrays", "lodash", "higher-order functions"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLastIndex",
+    "https://lodash.com/docs/4.17.15#dropRightWhile"
+  ]
+}

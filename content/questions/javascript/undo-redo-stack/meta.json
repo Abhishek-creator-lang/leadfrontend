@@ -1,0 +1,19 @@
+{
+  "slug": "undo-redo-stack",
+  "format": "javascript",
+  "title": "Undo/Redo History",
+  "excerpt": "Implement an undoable value with past and future stacks, redo invalidation, no-op detection and a bounded history size.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["stacks", "state-management", "classes"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://redux.js.org/usage/implementing-undo-history",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is",
+    "https://en.wikipedia.org/wiki/Command_pattern"
+  ]
+}

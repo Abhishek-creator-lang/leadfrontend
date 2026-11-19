@@ -1,0 +1,29 @@
+{
+  "slug": "react-context-pitfalls",
+  "format": "quiz",
+  "title": "What are some pitfalls about using context in React?",
+  "excerpt": "Re-render cascades, unstable values, overuse and missing providers.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "react",
+    "context",
+    "performance"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/passing-data-deeply-with-context",
+    "https://react.dev/reference/react/useContext"
+  ]
+}

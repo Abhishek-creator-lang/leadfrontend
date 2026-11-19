@@ -1,0 +1,21 @@
+{
+  "slug": "source-maps-in-production",
+  "format": "quiz",
+  "title": "How do source maps work, and should you ship them to production?",
+  "excerpt": "Mappings, sourcesContent, hidden source maps, uploading to error trackers, and the security trade-offs.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": ["source-maps", "tooling", "debugging", "observability"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Glossary/Source_map",
+    "https://developer.chrome.com/docs/devtools/javascript/source-maps",
+    "https://tc39.es/ecma426/",
+    "https://webpack.js.org/configuration/devtool/"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "what-s-the-difference-between-resetting-and-normalizing-css",
+  "format": "quiz",
+  "title": "What's the difference between \"resetting\" and \"normalizing\" CSS? Which would you choose, and why?",
+  "excerpt": "- Resetting - Resetting is meant to strip all default browser styling on elements. For e.g. margins, paddings, font-sizes of all elements are reset to be the sa",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css"
+  ]
+}

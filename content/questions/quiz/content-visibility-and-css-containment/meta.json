@@ -1,0 +1,21 @@
+{
+  "slug": "content-visibility-and-css-containment",
+  "format": "quiz",
+  "title": "How do content-visibility and CSS containment improve rendering performance, and what can go wrong?",
+  "excerpt": "contain values, content-visibility: auto, contain-intrinsic-size, and effects on scrollbars, find-in-page and a11y.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 8,
+  "topics": ["css", "performance", "rendering", "containment"],
+  "frameworks": [],
+  "languages": ["css"],
+  "companies": [],
+  "quizCategory": "css",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Using_CSS_containment",
+    "https://web.dev/articles/content-visibility",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/contain-intrinsic-size"
+  ]
+}

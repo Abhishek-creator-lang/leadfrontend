@@ -1,0 +1,25 @@
+{
+  "slug": "difference-between-function-person-var-person-person-and-var",
+  "format": "quiz",
+  "title": "Difference between: function Person(){}, var person = Person(), and var person = new Person()?",
+  "excerpt": "This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, function Person(){} i",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new"
+  ]
+}

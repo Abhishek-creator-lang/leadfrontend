@@ -1,0 +1,27 @@
+{
+  "slug": "object-prevent-extensions",
+  "format": "quiz",
+  "title": "What is `Object.preventExtensions()` for?",
+  "excerpt": "Blocking new properties, and how it compares to Object.seal and Object.freeze.",
+  "difficulty": "medium",
+  "importance": "low",
+  "duration": 4,
+  "topics": [
+    "objects",
+    "immutability"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze"
+  ]
+}

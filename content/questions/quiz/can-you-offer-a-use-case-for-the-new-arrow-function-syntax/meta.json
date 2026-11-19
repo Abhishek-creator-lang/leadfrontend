@@ -1,0 +1,23 @@
+{
+  "slug": "can-you-offer-a-use-case-for-the-new-arrow-function-syntax",
+  "format": "quiz",
+  "title": "Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?",
+  "excerpt": "One obvious benefit of arrow functions is to simplify the syntax needed to create functions, without a need for the function keyword. The this within arrow func",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": []
+}

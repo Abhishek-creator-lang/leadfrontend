@@ -1,0 +1,15 @@
+{
+  "slug": "min-heap",
+  "format": "algorithms",
+  "title": "Min Heap",
+  "excerpt": "Implement a binary min-heap priority queue with a custom comparator.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 30,
+  "topics": ["data-structures", "heap", "priority-queue"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Binary_heap"]
+}

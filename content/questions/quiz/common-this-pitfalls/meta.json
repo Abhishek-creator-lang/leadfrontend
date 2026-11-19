@@ -1,0 +1,26 @@
+{
+  "slug": "common-this-pitfalls",
+  "format": "quiz",
+  "title": "What are the common pitfalls of using the `this` keyword?",
+  "excerpt": "Lost receivers, callbacks, nested functions, arrow methods on objects and class field trade-offs.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "this",
+    "functions"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions"
+  ]
+}

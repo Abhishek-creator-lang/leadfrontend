@@ -1,0 +1,29 @@
+{
+  "slug": "testing-react-applications",
+  "format": "quiz",
+  "title": "How do you test React applications?",
+  "excerpt": "A layered strategy built on Testing Library, user-event, MSW and E2E tests.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": [
+    "react",
+    "testing"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://testing-library.com/docs/react-testing-library/intro/",
+    "https://mswjs.io/docs/",
+    "https://playwright.dev/docs/intro"
+  ]
+}

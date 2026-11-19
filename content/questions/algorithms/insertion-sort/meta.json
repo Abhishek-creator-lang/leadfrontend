@@ -1,0 +1,15 @@
+{
+  "slug": "insertion-sort",
+  "format": "algorithms",
+  "title": "Insertion Sort",
+  "excerpt": "Sort an array in place by growing a sorted prefix one element at a time.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["sorting", "arrays"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Insertion_sort"]
+}

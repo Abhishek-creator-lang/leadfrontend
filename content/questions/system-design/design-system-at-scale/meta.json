@@ -1,0 +1,24 @@
+{
+  "slug": "design-system-at-scale",
+  "format": "system-design",
+  "title": "Design System at Scale",
+  "excerpt": "Design a company-wide design system (tokens, components, docs, tooling) consumed by dozens of teams across multiple frameworks and brands.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 60,
+  "topics": ["system design", "design systems", "design tokens", "component libraries", "versioning", "governance", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["ts", "css"],
+  "companies": [],
+  "sdType": "lead",
+  "source": { "type": "original" },
+  "references": [
+    "https://www.designtokens.org/",
+    "https://styledictionary.com/",
+    "https://storybook.js.org/docs",
+    "https://www.chromatic.com/docs/",
+    "https://semver.org/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties",
+    "https://www.w3.org/WAI/ARIA/apg/"
+  ]
+}

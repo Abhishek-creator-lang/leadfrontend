@@ -1,0 +1,44 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.game {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.status {
+  margin: 0;
+  font-weight: 600;
+  min-height: 1.5em;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 72px);
+  grid-template-rows: repeat(3, 72px);
+  gap: 6px;
+}
+
+.cell {
+  font: inherit;
+  font-size: 2rem;
+  font-weight: 700;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.cell:focus-visible {
+  outline: 3px solid #6366f1;
+  outline-offset: 2px;
+}

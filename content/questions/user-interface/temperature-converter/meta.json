@@ -1,0 +1,18 @@
+{
+  "slug": "temperature-converter",
+  "format": "user-interface",
+  "title": "Temperature Converter",
+  "excerpt": "Two linked inputs, Celsius and Fahrenheit, that update each other and handle invalid input gracefully.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["forms", "state", "controlled-components"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/learn/sharing-state-between-components",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode"
+  ]
+}

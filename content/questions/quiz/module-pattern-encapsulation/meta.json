@@ -1,0 +1,28 @@
+{
+  "slug": "module-pattern-encapsulation",
+  "format": "quiz",
+  "title": "What is the Module pattern and how does it help with encapsulation?",
+  "excerpt": "IIFE closures, revealing module, ES modules and private class fields for encapsulation.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "design-patterns",
+    "closures",
+    "modules"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_properties"
+  ]
+}

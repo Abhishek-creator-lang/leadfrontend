@@ -1,0 +1,23 @@
+{
+  "slug": "collaborative-spreadsheet",
+  "format": "system-design",
+  "title": "Collaborative Spreadsheet (e.g. Google Sheets)",
+  "excerpt": "Design a browser spreadsheet with a virtualized grid, formula engine, dependency graph and real-time co-editing.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 60,
+  "topics": ["system design", "virtualization", "canvas", "dependency graph", "real-time", "web workers", "performance"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Google", "Microsoft"],
+  "sdType": "application",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API",
+    "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+    "https://docs.yjs.dev/",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API"
+  ]
+}

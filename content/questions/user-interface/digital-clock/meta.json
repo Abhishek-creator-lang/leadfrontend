@@ -1,0 +1,19 @@
+{
+  "slug": "digital-clock",
+  "format": "user-interface",
+  "title": "Digital Clock",
+  "excerpt": "Build a ticking digital clock that stays aligned to real seconds, with a 12/24-hour toggle and clean timer teardown.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["timers", "effects", "dates", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time",
+    "https://react.dev/learn/synchronizing-with-effects",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat"
+  ]
+}

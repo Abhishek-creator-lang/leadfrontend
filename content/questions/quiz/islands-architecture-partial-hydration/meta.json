@@ -1,0 +1,20 @@
+{
+  "slug": "islands-architecture-partial-hydration",
+  "format": "quiz",
+  "title": "What is islands architecture, and how does it compare with full hydration and React Server Components?",
+  "excerpt": "Static HTML with isolated interactive islands, hydration directives, resumability, and when islands fit.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 9,
+  "topics": ["rendering", "hydration", "architecture", "performance"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://docs.astro.build/en/concepts/islands/",
+    "https://web.dev/articles/rendering-on-the-web",
+    "https://react.dev/reference/rsc/server-components"
+  ]
+}

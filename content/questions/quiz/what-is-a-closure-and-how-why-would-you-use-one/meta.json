@@ -1,0 +1,25 @@
+{
+  "slug": "what-is-a-closure-and-how-why-would-you-use-one",
+  "format": "quiz",
+  "title": "What is a closure, and how/why would you use one?",
+  "excerpt": "A closure is the combination of a function and the lexical environment within which that function was declared. The word \"lexical\" refers to the fact that lexic",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures"
+  ]
+}

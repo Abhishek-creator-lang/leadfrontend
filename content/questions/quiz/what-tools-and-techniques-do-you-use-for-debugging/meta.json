@@ -1,0 +1,25 @@
+{
+  "slug": "what-tools-and-techniques-do-you-use-for-debugging",
+  "format": "quiz",
+  "title": "What tools and techniques do you use for debugging JavaScript code?",
+  "excerpt": "- Good old console.log debugging",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://raygun.com/learn/javascript-debugging-tips"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "fill",
+  "format": "javascript",
+  "title": "Fill",
+  "excerpt": "Overwrite a range of an array with a value, supporting negative start and end indices.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 10,
+  "topics": ["arrays", "lodash", "indices"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill",
+    "https://lodash.com/docs/4.17.15#fill"
+  ]
+}

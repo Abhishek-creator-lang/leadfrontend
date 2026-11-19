@@ -1,0 +1,28 @@
+{
+  "slug": "handling-sensitive-data-in-javascript",
+  "format": "quiz",
+  "title": "What are some best practices for handling sensitive data in JavaScript?",
+  "excerpt": "What never belongs in the client, token storage, transport, logging and memory hygiene.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "security",
+    "privacy",
+    "auth"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "security",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html",
+    "https://developer.mozilla.org/en-US/docs/Web/Security",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie"
+  ]
+}

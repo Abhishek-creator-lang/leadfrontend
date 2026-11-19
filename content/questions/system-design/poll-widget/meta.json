@@ -1,0 +1,23 @@
+{
+  "slug": "poll-widget",
+  "format": "system-design",
+  "title": "Embeddable Poll Widget",
+  "excerpt": "Design a poll widget embeddable on many sites, with voting, live results, abuse prevention and isolation.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 40,
+  "topics": ["system design", "component design", "embeds", "real-time", "optimistic updates", "accessibility", "security"],
+  "frameworks": ["vanilla"],
+  "languages": ["ts"],
+  "companies": ["Meta", "Microsoft", "Twitter"],
+  "sdType": "component",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset",
+    "https://developer.mozilla.org/en-US/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies"
+  ]
+}

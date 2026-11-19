@@ -1,0 +1,30 @@
+{
+  "slug": "code-splitting-in-react",
+  "format": "quiz",
+  "title": "What is code splitting in a React application?",
+  "excerpt": "Dynamic import, lazy and Suspense, route-level splitting and prefetching.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "react",
+    "performance",
+    "bundling"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/lazy",
+    "https://react.dev/reference/react/Suspense",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import"
+  ]
+}

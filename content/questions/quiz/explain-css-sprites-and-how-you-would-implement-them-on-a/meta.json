@@ -1,0 +1,25 @@
+{
+  "slug": "explain-css-sprites-and-how-you-would-implement-them-on-a",
+  "format": "quiz",
+  "title": "Explain CSS sprites, and how you would implement them on a page or site.",
+  "excerpt": "CSS sprites combine multiple images into one single larger image. It is a commonly-used technique for icons (Gmail uses it). How to implement it:",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://css-tricks.com/css-sprites/"
+  ]
+}

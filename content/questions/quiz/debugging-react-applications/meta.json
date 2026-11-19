@@ -1,0 +1,30 @@
+{
+  "slug": "debugging-react-applications",
+  "format": "quiz",
+  "title": "How do you debug React applications?",
+  "excerpt": "DevTools, the Profiler, Strict Mode, lint rules and production error reporting.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "react",
+    "debugging",
+    "tooling"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/react-developer-tools",
+    "https://react.dev/reference/react/Profiler",
+    "https://react.dev/reference/react-dom/client/createRoot"
+  ]
+}

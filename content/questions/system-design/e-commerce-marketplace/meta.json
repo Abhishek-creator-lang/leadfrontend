@@ -1,0 +1,22 @@
+{
+  "slug": "e-commerce-marketplace",
+  "format": "system-design",
+  "title": "E-commerce Marketplace (e.g. Amazon)",
+  "excerpt": "Design the front end of a large e-commerce site: search and listing, product detail, cart and checkout, with SEO and Core Web Vitals in mind.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "ssr", "seo", "caching", "checkout", "performance", "security"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Amazon", "Shopify", "Walmart"],
+  "sdType": "application",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/vitals",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API",
+    "https://developers.google.com/search/docs/appearance/structured-data/product",
+    "https://react.dev/reference/react-dom/server/renderToPipeableStream"
+  ]
+}

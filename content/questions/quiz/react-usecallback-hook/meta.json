@@ -1,0 +1,31 @@
+{
+  "slug": "react-usecallback-hook",
+  "format": "quiz",
+  "title": "What is the `useCallback` hook in React and when should it be used?",
+  "excerpt": "Stable function identities, when they matter, and the React Compiler.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "react",
+    "hooks",
+    "memoization",
+    "performance"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/useCallback",
+    "https://react.dev/reference/react/memo",
+    "https://react.dev/learn/react-compiler"
+  ]
+}

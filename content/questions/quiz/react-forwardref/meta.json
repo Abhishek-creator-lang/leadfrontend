@@ -1,0 +1,30 @@
+{
+  "slug": "react-forwardref",
+  "format": "quiz",
+  "title": "What is `forwardRef()` in React used for?",
+  "excerpt": "Passing refs through components, and why React 19 makes ref a regular prop.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "react",
+    "refs",
+    "react-19"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/forwardRef",
+    "https://react.dev/reference/react/useImperativeHandle",
+    "https://react.dev/blog/2024/12/05/react-19"
+  ]
+}

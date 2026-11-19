@@ -1,0 +1,15 @@
+{
+  "slug": "meeting-rooms-ii",
+  "format": "algorithms",
+  "title": "Meeting Rooms II",
+  "excerpt": "Find the minimum number of rooms (or calendar columns) needed so no two overlapping meetings share one.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["intervals", "sorting", "heap", "greedy"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "users-database-crud",
+  "format": "user-interface",
+  "title": "Users Database (CRUD)",
+  "excerpt": "Build a small users database with search, a keyboard-accessible listbox, and create, update, delete and cancel actions.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 40,
+  "topics": ["forms", "state", "crud", "accessibility", "keyboard"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/",
+    "https://react.dev/learn/choosing-the-state-structure",
+    "https://react.dev/learn/reacting-to-input-with-state"
+  ]
+}

@@ -1,0 +1,49 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.clock {
+  max-width: 100%;
+  height: auto;
+}
+
+.clock-face {
+  fill: #fff;
+  stroke: #1e293b;
+  stroke-width: 4;
+}
+
+.tick {
+  stroke: #64748b;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.tick--major {
+  stroke: #1e293b;
+  stroke-width: 4;
+}
+
+.hand {
+  stroke-linecap: round;
+}
+
+.hand--hour {
+  stroke: #1e293b;
+  stroke-width: 6;
+}
+
+.hand--minute {
+  stroke: #334155;
+  stroke-width: 4;
+}
+
+.hand--second {
+  stroke: #e11d48;
+  stroke-width: 2;
+}
+
+.hub {
+  fill: #e11d48;
+}

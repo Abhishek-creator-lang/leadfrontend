@@ -1,0 +1,19 @@
+{
+  "slug": "get-elements-by-tag-name",
+  "format": "javascript",
+  "title": "getElementsByTagName",
+  "excerpt": "Return every descendant element with a given tag name (or all of them for \"*\") by traversing the DOM tree.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["dom", "trees", "recursion"],
+  "frameworks": ["vanilla"],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Document/createTreeWalker"
+  ]
+}

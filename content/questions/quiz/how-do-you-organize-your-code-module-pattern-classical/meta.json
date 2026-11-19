@@ -1,0 +1,23 @@
+{
+  "slug": "how-do-you-organize-your-code-module-pattern-classical",
+  "format": "quiz",
+  "title": "How do you organize your code? (module pattern, classical inheritance?)",
+  "excerpt": "In the past, I've used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": []
+}

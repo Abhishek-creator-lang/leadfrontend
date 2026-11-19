@@ -1,0 +1,19 @@
+{
+  "slug": "virtual-dom-render",
+  "format": "javascript",
+  "title": "Virtual DOM: createElement and render",
+  "excerpt": "Implement h() to build virtual DOM nodes and render() to turn them into real DOM, with attributes, styles, events and function components.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 35,
+  "topics": ["dom", "virtual-dom", "recursion", "trees"],
+  "frameworks": ["vanilla"],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/reference/react/createElement",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement",
+    "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"
+  ]
+}

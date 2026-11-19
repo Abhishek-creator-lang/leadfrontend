@@ -1,0 +1,43 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.counter {
+  max-width: 320px;
+  text-align: center;
+}
+
+.counter-value {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 16px 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.counter-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.counter-actions button {
+  min-width: 48px;
+  min-height: 44px;
+  font: inherit;
+  font-size: 1.25rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.counter-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.counter-actions button:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}

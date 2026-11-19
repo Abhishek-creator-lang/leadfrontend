@@ -1,0 +1,26 @@
+{
+  "slug": "partial-application-explained",
+  "format": "quiz",
+  "title": "Explain the concept of partial application",
+  "excerpt": "Fixing some arguments of a function up front to create a more specific function.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "functional-programming",
+    "closures"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures"
+  ]
+}

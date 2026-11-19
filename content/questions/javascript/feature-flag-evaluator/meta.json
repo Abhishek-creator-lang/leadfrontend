@@ -1,0 +1,20 @@
+{
+  "slug": "feature-flag-evaluator",
+  "format": "javascript",
+  "title": "Feature Flag Evaluator",
+  "excerpt": "Evaluate feature flags with a kill switch, targeting rules and a percentage rollout that uses stable hashing so users keep their bucket.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 30,
+  "topics": ["hashing", "architecture", "experimentation"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul",
+    "https://martinfowler.com/articles/feature-toggles.html",
+    "https://openfeature.dev/specification/"
+  ]
+}

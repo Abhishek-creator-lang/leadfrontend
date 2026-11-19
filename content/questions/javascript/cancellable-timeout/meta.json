@@ -1,0 +1,18 @@
+{
+  "slug": "cancellable-timeout",
+  "format": "javascript",
+  "title": "Cancellable Timeout",
+  "excerpt": "Wrap setTimeout so it returns a cancel function instead of a timer id.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": ["timers", "closures", "async"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/setTimeout",
+    "https://developer.mozilla.org/en-US/docs/Web/API/clearTimeout"
+  ]
+}

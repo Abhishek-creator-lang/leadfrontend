@@ -1,0 +1,18 @@
+{
+  "slug": "flatten",
+  "format": "javascript",
+  "title": "Flatten",
+  "excerpt": "Flatten a nested array to a given depth, recursively or with an explicit stack.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["arrays", "recursion", "lodash"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": ["Rippling", "Roblox", "Salesforce"],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "first-rule-of-aria",
+  "format": "quiz",
+  "title": "What is the first rule of ARIA, and what are the most common ARIA mistakes you see in code reviews?",
+  "excerpt": "Native first, ARIA changes semantics not behaviour, and the recurring misuse patterns in component libraries.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": ["accessibility", "aria", "html", "code-review"],
+  "frameworks": [],
+  "languages": ["html"],
+  "companies": [],
+  "quizCategory": "html",
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/TR/using-aria/",
+    "https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA",
+    "https://www.w3.org/TR/wai-aria-1.2/"
+  ]
+}

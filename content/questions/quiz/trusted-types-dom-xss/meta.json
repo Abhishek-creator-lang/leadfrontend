@@ -1,0 +1,21 @@
+{
+  "slug": "trusted-types-dom-xss",
+  "format": "quiz",
+  "title": "What are Trusted Types, and how do they help eliminate DOM-based XSS?",
+  "excerpt": "Locking down injection sinks with CSP require-trusted-types-for, policies, default policies and rollout.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 9,
+  "topics": ["trusted-types", "xss", "security", "csp"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "security",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API",
+    "https://web.dev/articles/trusted-types",
+    "https://w3c.github.io/trusted-types/dist/spec/",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/require-trusted-types-for"
+  ]
+}

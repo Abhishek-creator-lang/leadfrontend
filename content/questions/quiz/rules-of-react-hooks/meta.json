@@ -1,0 +1,30 @@
+{
+  "slug": "rules-of-react-hooks",
+  "format": "quiz",
+  "title": "What are the rules of React hooks?",
+  "excerpt": "Top-level only, React functions only, why call order matters, and lint enforcement.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "react",
+    "hooks",
+    "linting"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/rules/rules-of-hooks",
+    "https://react.dev/reference/rules",
+    "https://react.dev/learn/editor-setup"
+  ]
+}

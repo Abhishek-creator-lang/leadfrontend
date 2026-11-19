@@ -1,0 +1,21 @@
+{
+  "slug": "reflow-repaint-and-compositing",
+  "format": "quiz",
+  "title": "Explain reflow (layout), repaint and compositing. How do you avoid layout thrashing and janky animations?",
+  "excerpt": "Which CSS changes trigger which pipeline stages, forced synchronous layout, will-change and layer costs.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 9,
+  "topics": ["rendering", "layout", "animation", "performance"],
+  "frameworks": [],
+  "languages": ["css", "js"],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/rendering-performance",
+    "https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing",
+    "https://web.dev/articles/stick-to-compositor-only-properties-and-manage-layer-count",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/will-change"
+  ]
+}

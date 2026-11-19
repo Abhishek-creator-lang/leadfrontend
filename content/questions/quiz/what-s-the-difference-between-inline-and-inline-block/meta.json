@@ -1,0 +1,23 @@
+{
+  "slug": "what-s-the-difference-between-inline-and-inline-block",
+  "format": "quiz",
+  "title": "What's the difference between inline and inline-block?",
+  "excerpt": "I shall throw in a comparison with block for good measure.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": []
+}

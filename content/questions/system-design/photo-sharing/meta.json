@@ -1,0 +1,22 @@
+{
+  "slug": "photo-sharing",
+  "format": "system-design",
+  "title": "Photo Sharing App (e.g. Instagram)",
+  "excerpt": "Design a photo-first social app: image feed, profile grid, upload with client-side processing, and likes and comments.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "images", "uploads", "infinite scroll", "performance", "pwa"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Meta"],
+  "sdType": "application",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/optimize-lcp",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img",
+    "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload",
+    "https://web.dev/articles/fetch-priority"
+  ]
+}

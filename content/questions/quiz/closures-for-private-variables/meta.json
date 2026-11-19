@@ -1,0 +1,26 @@
+{
+  "slug": "closures-for-private-variables",
+  "format": "quiz",
+  "title": "How can closures be used to create private variables?",
+  "excerpt": "The module/factory pattern for encapsulation, and how it compares to #private class fields.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "closures",
+    "encapsulation"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_properties"
+  ]
+}

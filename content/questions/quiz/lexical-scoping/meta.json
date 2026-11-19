@@ -1,0 +1,26 @@
+{
+  "slug": "lexical-scoping",
+  "format": "quiz",
+  "title": "Explain the concept of lexical scoping",
+  "excerpt": "Scope decided by where code is written, the scope chain, and how it enables closures.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "scope",
+    "closures"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Glossary/Scope",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "slug": "maximum-subarray",
+  "format": "algorithms",
+  "title": "Maximum Subarray",
+  "excerpt": "Find the contiguous stretch with the largest sum using Kadane's algorithm.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["arrays", "dynamic-programming", "greedy"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Maximum_subarray_problem"]
+}

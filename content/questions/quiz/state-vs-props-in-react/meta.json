@@ -1,0 +1,30 @@
+{
+  "slug": "state-vs-props-in-react",
+  "format": "quiz",
+  "title": "What is the difference between state and props in React?",
+  "excerpt": "Props are inputs owned by the parent; state is memory owned by the component.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 5,
+  "topics": [
+    "react",
+    "state",
+    "props"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/passing-props-to-a-component",
+    "https://react.dev/learn/state-a-components-memory",
+    "https://react.dev/learn/sharing-state-between-components"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "observer-pattern-javascript",
+  "format": "quiz",
+  "title": "Explain the Observer pattern and its use cases",
+  "excerpt": "Subjects notifying subscribers: event emitters, EventTarget, stores and their pitfalls.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "design-patterns",
+    "events"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://refactoring.guru/design-patterns/observer",
+    "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget",
+    "https://www.patterns.dev/vanilla/observer-pattern"
+  ]
+}

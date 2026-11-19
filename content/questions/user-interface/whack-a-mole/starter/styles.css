@@ -1,0 +1,53 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.whack {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.hud {
+  display: flex;
+  gap: 24px;
+  font-weight: 600;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: repeat(3, 88px);
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #65a30d;
+}
+
+.hole {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  border: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 60%, #3f2a14 55%, #57391b 56%);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.start {
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #4f46e5;
+  color: #fff;
+  cursor: pointer;
+}

@@ -1,0 +1,72 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+}
+
+.wizard {
+  max-width: 440px;
+}
+
+.steps {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  flex: 1;
+  padding: 6px 8px;
+  border-bottom: 3px solid #e2e8f0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.step {
+  display: grid;
+  gap: 12px;
+}
+
+.step h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+label {
+  display: grid;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input,
+select {
+  font: inherit;
+  font-weight: 400;
+  padding: 6px 8px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.nav button {
+  font: inherit;
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: 1px solid #94a3b8;
+  background: #f8fafc;
+  cursor: pointer;
+}

@@ -1,0 +1,42 @@
+// Two unrelated datasets. The point of the exercise: one DataTable renders both.
+
+export const USERS = [
+  { id: 1, name: 'Amara Okafor', age: 34, occupation: 'Product Designer' },
+  { id: 2, name: 'Bruno Silva', age: 28, occupation: 'Backend Engineer' },
+  { id: 3, name: 'Chen Wei', age: 41, occupation: 'Data Scientist' },
+  { id: 4, name: 'Dana Kowalski', age: 25, occupation: 'QA Engineer' },
+  { id: 5, name: 'Elif Demir', age: 37, occupation: 'Engineering Manager' },
+  { id: 6, name: 'Farah Haddad', age: 30, occupation: 'Frontend Engineer' },
+  { id: 7, name: 'Gustav Lind', age: 52, occupation: 'Architect' },
+  { id: 8, name: 'Hana Sato', age: 23, occupation: 'Intern' },
+  { id: 9, name: 'Ivan Petrov', age: 45, occupation: 'DevOps Engineer' },
+  { id: 10, name: 'Julia Rossi', age: 29, occupation: 'UX Researcher' },
+  { id: 11, name: 'Kwame Mensah', age: 33, occupation: 'Mobile Engineer' },
+  { id: 12, name: 'Lucia Fernandez', age: 38, occupation: 'Product Manager' },
+  { id: 13, name: 'Mateo Garcia', age: 26, occupation: 'Frontend Engineer' },
+  { id: 14, name: 'Nadia Rahman', age: 31, occupation: 'Security Engineer' },
+  { id: 15, name: 'Oskar Nilsson', age: 47, occupation: 'CTO' },
+  { id: 16, name: 'Priya Nair', age: 35, occupation: 'Data Engineer' },
+  { id: 17, name: 'Quentin Moreau', age: 27, occupation: 'Technical Writer' },
+  { id: 18, name: 'Rosa Jimenez', age: 43, occupation: 'Sales Engineer' },
+  { id: 19, name: 'Sven Berg', age: 39, occupation: 'Site Reliability Engineer' },
+  { id: 20, name: 'Tara Walsh', age: 24, occupation: 'Support Specialist' },
+  { id: 21, name: 'Umar Farooq', age: 32, occupation: 'Backend Engineer' },
+  { id: 22, name: 'Vera Novak', age: 50, occupation: 'VP Engineering' },
+  { id: 23, name: 'Yusuf Kaya', age: 36, occupation: 'Product Designer' },
+];
+
+export const HOUSES = [
+  { id: 'h1', street: '12 Alder Lane', city: 'Portland', price: 485000, builtYear: 1998 },
+  { id: 'h2', street: '7 Birch Court', city: 'Austin', price: 612000, builtYear: 2012 },
+  { id: 'h3', street: '301 Cedar Avenue', city: 'Denver', price: 539000, builtYear: 1975 },
+  { id: 'h4', street: '88 Dogwood Road', city: 'Portland', price: 1250000, builtYear: 2020 },
+  { id: 'h5', street: '19 Elm Street', city: 'Raleigh', price: 329000, builtYear: 1964 },
+  { id: 'h6', street: '402 Fir Boulevard', city: 'Austin', price: 774500, builtYear: 2005 },
+  { id: 'h7', street: '5 Grove Place', city: 'Denver', price: 418000, builtYear: 1989 },
+  { id: 'h8', street: '63 Hazel Way', city: 'Raleigh', price: 297500, builtYear: 1952 },
+  { id: 'h9', street: '210 Ivy Terrace', city: 'Portland', price: 689000, builtYear: 2016 },
+  { id: 'h10', street: '14 Juniper Path', city: 'Austin', price: 455000, builtYear: 1993 },
+  { id: 'h11', street: '77 Kestrel Row', city: 'Denver', price: 905000, builtYear: 2018 },
+  { id: 'h12', street: '9 Larch Close', city: 'Raleigh', price: 362000, builtYear: 2001 },
+];

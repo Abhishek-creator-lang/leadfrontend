@@ -1,0 +1,136 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.roller {
+  max-width: 520px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.form label {
+  font-weight: 600;
+}
+
+.form input {
+  width: 4.5em;
+  font: inherit;
+  padding: 6px 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.form [aria-invalid='true'] {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 1px #dc2626;
+}
+
+.form button {
+  font: inherit;
+  font-weight: 600;
+  padding: 6px 18px;
+  color: #fff;
+  background: #4f46e5;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.error {
+  flex-basis: 100%;
+  margin: 0;
+  color: #b91c1c;
+  font-size: 0.8125rem;
+}
+
+.dice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+/* A 3×3 grid; each pip is placed in a named cell. */
+.die {
+  width: 56px;
+  height: 56px;
+  padding: 8px;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  grid-template-areas:
+    'a . c'
+    'e g f'
+    'd . b';
+  background: #fff;
+  border: 2px solid #1e293b;
+  border-radius: 10px;
+  animation: settle 300ms ease-out;
+}
+
+.pip {
+  width: 10px;
+  height: 10px;
+  place-self: center;
+  border-radius: 50%;
+  background: #1e293b;
+}
+
+.pip:nth-child(1) { grid-area: a; }
+.pip:nth-child(2) { grid-area: b; }
+.pip:nth-child(3) { grid-area: c; }
+.pip:nth-child(4) { grid-area: d; }
+.pip:nth-child(5) { grid-area: e; }
+.pip:nth-child(6) { grid-area: f; }
+
+/* Odd faces put their last pip in the centre. */
+.die[data-value='1'] .pip:nth-child(1),
+.die[data-value='3'] .pip:nth-child(3),
+.die[data-value='5'] .pip:nth-child(5) {
+  grid-area: g;
+}
+
+@keyframes settle {
+  from {
+    transform: rotate(-20deg) scale(0.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .die {
+    animation: none;
+  }
+}
+
+.total {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.hint {
+  color: #64748b;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

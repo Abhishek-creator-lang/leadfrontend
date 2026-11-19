@@ -1,0 +1,25 @@
+{
+  "slug": "how-do-you-serve-a-page-with-content-in-multiple-languages",
+  "format": "quiz",
+  "title": "How do you serve a page with content in multiple languages?",
+  "excerpt": "I will assume that it is asking about the most common case, which is how to serve a page with content available in multiple languages, but the content within th",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "html"
+  ],
+  "frameworks": [],
+  "languages": [
+    "html"
+  ],
+  "companies": [],
+  "quizCategory": "html",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/html-questions"
+  },
+  "references": [
+    "https://www.w3.org/International/getting-started/language"
+  ]
+}

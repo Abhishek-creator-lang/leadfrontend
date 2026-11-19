@@ -1,0 +1,56 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 8px;
+}
+
+.light {
+  width: 64px;
+  height: 64px;
+  border: 2px solid #94a3b8;
+  border-radius: 8px;
+  background: #f1f5f9;
+  cursor: pointer;
+  transition: background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.light[aria-pressed='true'] {
+  background: #22c55e;
+  border-color: #15803d;
+  box-shadow: 0 0 12px #86efac;
+}
+
+.light[aria-disabled='true'] {
+  cursor: default;
+}
+
+.light:focus-visible {
+  outline: 3px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .light {
+    transition: none;
+  }
+}

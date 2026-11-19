@@ -1,0 +1,25 @@
+{
+  "slug": "consider-html5-as-an-open-web-platform-what-are-the-building",
+  "format": "quiz",
+  "title": "Consider HTML5 as an open web platform. What are the building blocks of HTML5?",
+  "excerpt": "- Semantics - Allowing you to describe more precisely what your content is.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "html"
+  ],
+  "frameworks": [],
+  "languages": [
+    "html"
+  ],
+  "companies": [],
+  "quizCategory": "html",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/html-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Glossary/HTML5"
+  ]
+}

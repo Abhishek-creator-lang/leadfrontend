@@ -1,0 +1,133 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.c4 {
+  --slot: min(52px, calc((100vw - 96px) / 7));
+  --gap: 6px;
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.status {
+  margin: 0;
+  font-weight: 600;
+  min-height: 1.5em;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(7, var(--slot));
+  gap: var(--gap);
+  padding: 0 var(--gap);
+}
+
+.drop {
+  height: 36px;
+  border: 0;
+  border-radius: 6px;
+  background: #e2e8f0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.c4[data-turn='red'] .drop:hover,
+.c4[data-turn='red'] .drop:focus-visible {
+  background: #fecaca;
+}
+
+.c4[data-turn='yellow'] .drop:hover,
+.c4[data-turn='yellow'] .drop:focus-visible {
+  background: #fef08a;
+}
+
+.drop[aria-disabled='true'] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.drop:focus-visible {
+  outline: 3px solid #0f172a;
+  outline-offset: 2px;
+}
+
+.board {
+  display: grid;
+  gap: var(--gap);
+  padding: var(--gap);
+  border-radius: 12px;
+  background: #1d4ed8;
+  overflow: hidden;
+}
+
+.board-row {
+  display: grid;
+  grid-template-columns: repeat(7, var(--slot));
+  gap: var(--gap);
+}
+
+.slot {
+  position: relative;
+  width: var(--slot);
+  height: var(--slot);
+  border-radius: 50%;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.disc {
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+}
+
+.disc--red {
+  background: #dc2626;
+}
+
+/* Pattern + colour: yellow discs carry a ring so they differ by more than hue. */
+.disc--yellow {
+  background: #facc15;
+  box-shadow: inset 0 0 0 6px #ca8a04;
+}
+
+.disc--win {
+  outline: 4px solid #16a34a;
+  outline-offset: -2px;
+}
+
+.disc--last {
+  animation: fall calc(120ms + var(--fall) * 50ms) cubic-bezier(0.5, 0, 1, 1);
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(calc(var(--fall) * -1 * (var(--slot) + var(--gap))));
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.reset {
+  font: inherit;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid #94a3b8;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .disc--last {
+    animation: none;
+  }
+}

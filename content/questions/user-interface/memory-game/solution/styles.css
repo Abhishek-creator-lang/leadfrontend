@@ -1,0 +1,120 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.memory {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.moves,
+.won {
+  margin: 0;
+  font-weight: 600;
+}
+
+.won {
+  color: #15803d;
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 72px);
+  gap: 8px;
+}
+
+.card {
+  width: 72px;
+  height: 88px;
+  padding: 0;
+  border: 0;
+  background: none;
+  perspective: 600px;
+  cursor: pointer;
+}
+
+.card[aria-disabled='true'] {
+  cursor: default;
+}
+
+.card-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 300ms ease;
+}
+
+.card--up .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-back,
+.card-front {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  font-size: 2rem;
+}
+
+.card-back {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.card-front {
+  background: #fff;
+  border: 2px solid #cbd5e1;
+  transform: rotateY(180deg);
+}
+
+.card--matched .card-front {
+  border-color: #16a34a;
+  background: #dcfce7;
+}
+
+.card:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+.new-game {
+  font: inherit;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid #94a3b8;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-inner {
+    transition: none;
+  }
+}

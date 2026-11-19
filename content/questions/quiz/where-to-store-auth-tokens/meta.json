@@ -1,0 +1,21 @@
+{
+  "slug": "where-to-store-auth-tokens",
+  "format": "quiz",
+  "title": "Where should a browser app store JWTs or session tokens: localStorage, memory or cookies?",
+  "excerpt": "XSS vs CSRF exposure, HttpOnly cookies, in-memory access tokens with refresh rotation, and the BFF pattern.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 10,
+  "topics": ["authentication", "jwt", "security", "cookies"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "quizCategory": "security",
+  "source": { "type": "original" },
+  "references": [
+    "https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html",
+    "https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html",
+    "https://datatracker.ietf.org/doc/draft-ietf-oauth-browser-based-apps/",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "react-usereducer-hook",
+  "format": "quiz",
+  "title": "What is the `useReducer` hook in React and when should it be used?",
+  "excerpt": "Centralized, testable state transitions with a pure reducer and stable dispatch.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "react",
+    "hooks",
+    "state"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/useReducer",
+    "https://react.dev/learn/extracting-state-logic-into-a-reducer",
+    "https://react.dev/learn/scaling-up-with-reducer-and-context"
+  ]
+}

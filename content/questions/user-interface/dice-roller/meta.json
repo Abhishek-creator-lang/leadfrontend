@@ -1,0 +1,19 @@
+{
+  "slug": "dice-roller",
+  "format": "user-interface",
+  "title": "Dice Roller",
+  "excerpt": "Roll a chosen number of six-sided dice, draw each face with CSS pips and announce the total accessibly.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["forms", "css", "accessibility", "randomness"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout"
+  ]
+}

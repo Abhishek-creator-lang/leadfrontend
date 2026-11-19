@@ -1,0 +1,18 @@
+{
+  "slug": "progress-bar",
+  "format": "user-interface",
+  "title": "Progress Bar",
+  "excerpt": "Build a reusable, accessible progress bar that clamps its value and shows the percentage.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["accessibility", "css", "design-system"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress"
+  ]
+}

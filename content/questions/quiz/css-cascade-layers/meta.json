@@ -1,0 +1,20 @@
+{
+  "slug": "css-cascade-layers",
+  "format": "quiz",
+  "title": "What are CSS cascade layers (@layer), and how would you use them to tame specificity in a large codebase?",
+  "excerpt": "Layer order vs specificity, unlayered styles, !important inversion, and layering resets, libraries and utilities.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 8,
+  "topics": ["css", "cascade", "specificity", "architecture"],
+  "frameworks": [],
+  "languages": ["css"],
+  "companies": [],
+  "quizCategory": "css",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/@layer",
+    "https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers",
+    "https://www.w3.org/TR/css-cascade-5/#layering"
+  ]
+}

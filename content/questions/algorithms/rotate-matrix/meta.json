@@ -1,0 +1,15 @@
+{
+  "slug": "rotate-matrix",
+  "format": "algorithms",
+  "title": "Rotate Matrix",
+  "excerpt": "Rotate a square grid 90° clockwise in place, like rotating an image's pixel grid.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["matrix", "arrays"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Transpose"]
+}

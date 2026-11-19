@@ -1,0 +1,15 @@
+{
+  "slug": "product-of-array-except-self",
+  "format": "algorithms",
+  "title": "Product of Array Except Self",
+  "excerpt": "For each position, compute the product of every other element without using division.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["arrays", "prefix-sums"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

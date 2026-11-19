@@ -1,0 +1,15 @@
+{
+  "slug": "longest-increasing-subsequence",
+  "format": "algorithms",
+  "title": "Longest Increasing Subsequence",
+  "excerpt": "Find the length of the longest strictly increasing subsequence, from O(n²) DP to O(n log n) patience sorting.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 30,
+  "topics": ["dynamic-programming", "binary-search", "arrays"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Longest_increasing_subsequence"]
+}

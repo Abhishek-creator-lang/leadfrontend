@@ -1,0 +1,22 @@
+{
+  "slug": "csrf-and-samesite-cookies",
+  "format": "quiz",
+  "title": "What is CSRF, and is SameSite=Lax enough to prevent it in 2025?",
+  "excerpt": "How CSRF works, SameSite modes and browser defaults, same-site vs same-origin, and layered defences.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 10,
+  "topics": ["csrf", "cookies", "security", "samesite"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "quizCategory": "security",
+  "source": { "type": "original" },
+  "references": [
+    "https://owasp.org/www-community/attacks/csrf",
+    "https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value",
+    "https://web.dev/articles/samesite-cookies-explained",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site"
+  ]
+}

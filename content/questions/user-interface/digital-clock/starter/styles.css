@@ -1,0 +1,47 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.clock {
+  display: inline-grid;
+  gap: 8px;
+  justify-items: center;
+  padding: 24px 32px;
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 16px;
+}
+
+.clock-face {
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  /* Every digit has the same width, so the display doesn't shift as it ticks. */
+  font-variant-numeric: tabular-nums;
+}
+
+.clock-date {
+  margin: 0;
+  color: #94a3b8;
+}
+
+.clock-toggle {
+  font: inherit;
+  font-size: 0.875rem;
+  padding: 4px 12px;
+  color: inherit;
+  background: transparent;
+  border: 1px solid #475569;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.clock-toggle[aria-pressed='true'] {
+  background: #334155;
+}
+
+.clock-toggle:focus-visible {
+  outline: 2px solid #a5b4fc;
+  outline-offset: 2px;
+}

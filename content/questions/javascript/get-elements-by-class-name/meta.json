@@ -1,0 +1,19 @@
+{
+  "slug": "get-elements-by-class-name",
+  "format": "javascript",
+  "title": "getElementsByClassName",
+  "excerpt": "Find every descendant element that has all of the given class names by walking the DOM tree yourself.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["dom", "trees", "recursion"],
+  "frameworks": ["vanilla"],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/classList",
+    "https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker"
+  ]
+}

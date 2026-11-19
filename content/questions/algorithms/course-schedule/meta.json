@@ -1,0 +1,15 @@
+{
+  "slug": "course-schedule",
+  "format": "algorithms",
+  "title": "Course Schedule",
+  "excerpt": "Decide whether a set of lessons with prerequisites can all be completed, by detecting cycles.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["graphs", "topological-sort"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Directed_acyclic_graph"]
+}

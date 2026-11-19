@@ -1,0 +1,30 @@
+{
+  "slug": "react-data-fetching-pitfalls",
+  "format": "quiz",
+  "title": "What are some common pitfalls when doing data fetching in React?",
+  "excerpt": "Races, missing cleanup, waterfalls, missing caching and stale copies of server data.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": [
+    "react",
+    "data-fetching",
+    "effects"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/synchronizing-with-effects",
+    "https://react.dev/learn/you-might-not-need-an-effect",
+    "https://react.dev/reference/react/useEffect"
+  ]
+}

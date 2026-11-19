@@ -1,0 +1,18 @@
+{
+  "slug": "promise-with-resolvers",
+  "format": "javascript",
+  "title": "Promise.withResolvers",
+  "excerpt": "Implement Promise.withResolvers to create a promise you can settle from outside its executor.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["promises", "async", "polyfills", "closures"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers",
+    "https://tc39.es/ecma262/#sec-promise.withResolvers"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "slug": "production-incident-you-owned",
+  "format": "behavioral",
+  "title": "A production incident you owned",
+  "excerpt": "Walk through a front-end production incident: detection, mitigation, communication, root cause and the blameless follow-up that prevented a repeat.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["ownership", "incident", "execution"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "javascript-testing-tools",
+  "format": "quiz",
+  "title": "What are some tools that can be used for JavaScript testing?",
+  "excerpt": "The wider testing toolbox: runners, DOM utilities, mocking, browsers, visual, a11y and static checks.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 5,
+  "topics": [
+    "testing",
+    "tooling"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://vitest.dev/guide/",
+    "https://playwright.dev/docs/intro",
+    "https://mswjs.io/docs/",
+    "https://github.com/dequelabs/axe-core"
+  ]
+}

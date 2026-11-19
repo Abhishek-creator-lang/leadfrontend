@@ -1,0 +1,19 @@
+{
+  "slug": "progress-bars",
+  "format": "user-interface",
+  "title": "Progress Bars",
+  "excerpt": "Each click adds a progress bar that fills from 0 to 100% over two seconds, driven by requestAnimationFrame.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["animation", "effects", "timers", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame",
+    "https://react.dev/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role"
+  ]
+}

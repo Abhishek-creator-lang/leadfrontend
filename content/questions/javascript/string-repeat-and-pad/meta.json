@@ -1,0 +1,19 @@
+{
+  "slug": "string-repeat-and-pad",
+  "format": "javascript",
+  "title": "String Repeat and Pad",
+  "excerpt": "Implement repeat, padStart and padEnd without the built-in string methods, matching their edge-case behaviour.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 15,
+  "topics": ["strings", "polyfills"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd"
+  ]
+}

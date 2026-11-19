@@ -1,0 +1,19 @@
+{
+  "slug": "url-query-parse-stringify",
+  "format": "javascript",
+  "title": "Query String Parse and Stringify",
+  "excerpt": "Parse a URL query string into an object (with repeated keys as arrays) and serialise it back, handling encoding, + as space and malformed input.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["strings", "urls", "encoding"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent",
+    "https://url.spec.whatwg.org/#application/x-www-form-urlencoded"
+  ]
+}

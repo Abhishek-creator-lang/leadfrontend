@@ -1,0 +1,25 @@
+{
+  "slug": "what-s-a-typical-use-case-for-anonymous-functions",
+  "format": "quiz",
+  "title": "What's a typical use case for anonymous functions?",
+  "excerpt": "They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://www.quora.com/What-is-a-typical-usecase-for-anonymous-functions"
+  ]
+}

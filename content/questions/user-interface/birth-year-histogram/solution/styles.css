@@ -1,0 +1,110 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.app {
+  max-width: 720px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.toolbar button[aria-pressed='true'] {
+  background: #e0e7ff;
+  border-color: #6366f1;
+}
+
+.figure {
+  margin: 16px 0;
+}
+
+.chart {
+  list-style: none;
+  margin: 0;
+  padding: 24px 0 40px;
+  height: 240px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  border-bottom: 1px solid #94a3b8;
+  overflow-x: auto;
+}
+
+.bar-slot {
+  position: relative;
+  flex: 1 0 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.bar {
+  width: 100%;
+  min-height: 1px;
+  background: #6366f1;
+  border-radius: 4px 4px 0 0;
+  transition: height 200ms ease;
+}
+
+.bar-count {
+  font-size: 0.75rem;
+  color: #475569;
+}
+
+.bar-label {
+  position: absolute;
+  top: calc(100% + 6px);
+  font-size: 0.7rem;
+  white-space: nowrap;
+  color: #475569;
+}
+
+.data-table {
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #e2e8f0;
+  padding: 4px 12px;
+  text-align: left;
+}
+
+.add-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.add-form input[aria-invalid='true'] {
+  border-color: #dc2626;
+}
+
+.error {
+  flex-basis: 100%;
+  margin: 0;
+  color: #dc2626;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    transition: none;
+  }
+}

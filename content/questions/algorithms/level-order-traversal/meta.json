@@ -1,0 +1,15 @@
+{
+  "slug": "level-order-traversal",
+  "format": "algorithms",
+  "title": "Binary Tree Level Order Traversal",
+  "excerpt": "Group a tree's values by depth, row by row, using breadth-first search.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["trees", "breadth-first-search", "queue"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

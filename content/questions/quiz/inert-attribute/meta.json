@@ -1,0 +1,20 @@
+{
+  "slug": "inert-attribute",
+  "format": "quiz",
+  "title": "What does the inert attribute do, and when would you use it instead of aria-hidden or tabindex=-1?",
+  "excerpt": "Removing subtrees from focus, interaction and the accessibility tree in one attribute, with real use cases.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": ["html", "accessibility", "focus-management", "inert"],
+  "frameworks": [],
+  "languages": ["html"],
+  "companies": [],
+  "quizCategory": "html",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inert",
+    "https://html.spec.whatwg.org/multipage/interaction.html#the-inert-attribute",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-hidden"
+  ]
+}

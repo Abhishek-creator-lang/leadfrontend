@@ -1,0 +1,18 @@
+{
+  "slug": "promise-race",
+  "format": "javascript",
+  "title": "Promise.race",
+  "excerpt": "Implement Promise.race: settle the same way as the first input to settle.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 10,
+  "topics": ["promises", "async", "polyfills"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race",
+    "https://tc39.es/ecma262/#sec-promise.race"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "typescript-strict-mode-flags",
+  "format": "quiz",
+  "title": "What does `strict` mode enable in TypeScript, and which extra flags are worth turning on?",
+  "excerpt": "The strict family, noUncheckedIndexedAccess, exactOptionalPropertyTypes and migration strategy.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 7,
+  "topics": [
+    "typescript",
+    "tsconfig",
+    "tooling"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/tsconfig/#strict",
+    "https://www.typescriptlang.org/tsconfig/#noUncheckedIndexedAccess",
+    "https://www.typescriptlang.org/tsconfig/#exactOptionalPropertyTypes"
+  ]
+}

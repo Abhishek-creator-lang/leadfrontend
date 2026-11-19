@@ -1,0 +1,19 @@
+{
+  "slug": "retry-with-backoff",
+  "format": "javascript",
+  "title": "Retry with Backoff",
+  "excerpt": "Retry a failing async operation with exponential backoff and a predicate that decides which errors are worth retrying.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["async", "promises", "timers", "resilience"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/setTimeout",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After"
+  ]
+}

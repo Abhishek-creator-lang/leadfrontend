@@ -1,0 +1,27 @@
+{
+  "slug": "typescript-keyof-typeof-indexed-access",
+  "format": "quiz",
+  "title": "Explain `keyof`, `typeof` and indexed access types in TypeScript",
+  "excerpt": "Deriving key unions, value types and property types from existing code.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "type-operators"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/2/keyof-types.html",
+    "https://www.typescriptlang.org/docs/handbook/2/typeof-types.html",
+    "https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html"
+  ]
+}

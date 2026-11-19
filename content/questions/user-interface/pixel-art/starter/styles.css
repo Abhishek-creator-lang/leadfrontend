@@ -1,0 +1,30 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.palette {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+.canvas {
+  display: grid;
+  width: min(100%, 400px);
+  aspect-ratio: 1;
+  border: 1px solid #cbd5e1;
+  user-select: none;
+}
+
+.cell {
+  border: 1px solid #f1f5f9;
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "promise-resolve",
+  "format": "javascript",
+  "title": "Promise.resolve",
+  "excerpt": "Implement Promise.resolve, including promise pass-through and thenable adoption.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["promises", "async", "polyfills", "event-loop"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables",
+    "https://tc39.es/ecma262/#sec-promise-resolve-functions"
+  ]
+}

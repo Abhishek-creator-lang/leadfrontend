@@ -1,0 +1,18 @@
+{
+  "slug": "array-prototype-map",
+  "format": "javascript",
+  "title": "Array.prototype.map",
+  "excerpt": "Implement Array.prototype.map, keeping holes in sparse arrays and supporting thisArg.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 10,
+  "topics": ["arrays", "polyfills", "this"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+    "https://tc39.es/ecma262/#sec-array.prototype.map"
+  ]
+}

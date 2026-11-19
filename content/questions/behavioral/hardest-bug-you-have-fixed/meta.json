@@ -1,0 +1,15 @@
+{
+  "slug": "hardest-bug-you-have-fixed",
+  "format": "behavioral",
+  "title": "What is the hardest bug you have fixed?",
+  "excerpt": "Tell a debugging story that shows systematic investigation, technical depth and how you prevented the bug class from returning.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["ownership", "execution", "debugging"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

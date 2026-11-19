@@ -1,0 +1,82 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.page {
+  max-width: 480px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.toolbar button {
+  font: inherit;
+  padding: 6px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.toolbar button:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.bars {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 96px 1fr 48px;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+}
+
+.bar {
+  height: 10px;
+  overflow: hidden;
+  background: #e2e8f0;
+  border-radius: 999px;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 100%;
+  background: #22c55e;
+  transform-origin: left;
+}
+
+.bar-status {
+  color: #475569;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.hint {
+  color: #64748b;
+}
+
+.summary {
+  color: #475569;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.bar--queued .bar-fill {
+  background: #94a3b8;
+}
+
+.bar--queued {
+  background: repeating-linear-gradient(45deg, #e2e8f0 0 6px, #f1f5f9 6px 12px);
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "deep-clone",
+  "format": "javascript",
+  "title": "Deep Clone",
+  "excerpt": "Make a deep copy of a JSON-like value so that no nested object or array is shared with the original.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["objects", "recursion", "lodash"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone",
+    "https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify"
+  ]
+}

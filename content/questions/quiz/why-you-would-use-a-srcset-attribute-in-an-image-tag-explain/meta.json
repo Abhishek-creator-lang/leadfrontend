@@ -1,0 +1,25 @@
+{
+  "slug": "why-you-would-use-a-srcset-attribute-in-an-image-tag-explain",
+  "format": "quiz",
+  "title": "Why you would use a srcset attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.",
+  "excerpt": "You would use the srcset attribute when you want to serve different images to users depending on their device display width - serve higher quality images to dev",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "html"
+  ],
+  "frameworks": [],
+  "languages": [
+    "html"
+  ],
+  "companies": [],
+  "quizCategory": "html",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/html-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images"
+  ]
+}

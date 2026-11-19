@@ -1,0 +1,26 @@
+{
+  "slug": "purpose-of-finally-block",
+  "format": "quiz",
+  "title": "What is the purpose of the finally block?",
+  "excerpt": "Cleanup that runs on every exit path, Promise.finally, override gotchas and using declarations.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 4,
+  "topics": [
+    "errors"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/using"
+  ]
+}

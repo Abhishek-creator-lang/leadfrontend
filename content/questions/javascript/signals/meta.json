@@ -1,0 +1,20 @@
+{
+  "slug": "signals",
+  "format": "javascript",
+  "title": "Signals (Fine-Grained Reactivity)",
+  "excerpt": "Implement createSignal, createEffect, createMemo, batch and untrack with automatic dependency tracking and glitch-free updates.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 60,
+  "topics": ["reactivity", "closures", "graphs", "state-management"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://docs.solidjs.com/concepts/signals",
+    "https://github.com/tc39/proposal-signals",
+    "https://angular.dev/guide/signals",
+    "https://preactjs.com/guide/v10/signals/"
+  ]
+}

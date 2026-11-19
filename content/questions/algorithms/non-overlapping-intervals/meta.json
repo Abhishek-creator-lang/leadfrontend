@@ -1,0 +1,15 @@
+{
+  "slug": "non-overlapping-intervals",
+  "format": "algorithms",
+  "title": "Non-overlapping Intervals",
+  "excerpt": "Drop the fewest bookings so the remaining ones never overlap.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 25,
+  "topics": ["intervals", "greedy", "sorting"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Interval_scheduling"]
+}

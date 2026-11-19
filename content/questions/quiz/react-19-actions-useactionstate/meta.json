@@ -1,0 +1,32 @@
+{
+  "slug": "react-19-actions-useactionstate",
+  "format": "quiz",
+  "title": "What are Actions in React 19? Explain `useActionState` and `useFormStatus`",
+  "excerpt": "Async transitions for mutations with built-in pending, error and form-reset handling.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 9,
+  "topics": [
+    "react",
+    "forms",
+    "actions",
+    "react-19"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/reference/react/useActionState",
+    "https://react.dev/reference/react-dom/hooks/useFormStatus",
+    "https://react.dev/reference/react-dom/components/form",
+    "https://react.dev/blog/2024/12/05/react-19"
+  ]
+}

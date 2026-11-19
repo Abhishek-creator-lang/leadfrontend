@@ -1,0 +1,27 @@
+{
+  "slug": "innerhtml-vs-textcontent",
+  "format": "quiz",
+  "title": "What is the difference between innerHTML and textContent?",
+  "excerpt": "How markup parsing, text nodes and innerText differ, and why textContent is the safe default.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "dom",
+    "security"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent",
+    "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText"
+  ]
+}

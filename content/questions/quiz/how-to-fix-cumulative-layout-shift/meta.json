@@ -1,0 +1,20 @@
+{
+  "slug": "how-to-fix-cumulative-layout-shift",
+  "format": "quiz",
+  "title": "What causes Cumulative Layout Shift (CLS) and how do you fix it?",
+  "excerpt": "Session windows, the usual culprits (images, ads, fonts, injected banners) and how to debug shifts.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": ["core-web-vitals", "cls", "performance", "layout"],
+  "frameworks": [],
+  "languages": ["css", "html"],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/cls",
+    "https://web.dev/articles/optimize-cls",
+    "https://developer.mozilla.org/en-US/docs/Web/API/LayoutShift"
+  ]
+}

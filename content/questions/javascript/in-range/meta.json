@@ -1,0 +1,18 @@
+{
+  "slug": "in-range",
+  "format": "javascript",
+  "title": "In Range",
+  "excerpt": "Check whether a number lies in a half-open range, with an optional start and swapped bounds.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 10,
+  "topics": ["math", "lodash", "function arguments"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters",
+    "https://lodash.com/docs/4.17.15#inRange"
+  ]
+}

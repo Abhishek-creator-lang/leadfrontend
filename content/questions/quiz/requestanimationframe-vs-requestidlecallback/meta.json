@@ -1,0 +1,20 @@
+{
+  "slug": "requestanimationframe-vs-requestidlecallback",
+  "format": "quiz",
+  "title": "requestAnimationFrame vs requestIdleCallback vs setTimeout: when does each run and what is each for?",
+  "excerpt": "Frame-aligned visual work, idle-time background work, deadlines, throttling in background tabs and alternatives.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": ["event-loop", "rendering", "scheduling", "animation"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback",
+    "https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "memoize-ii",
+  "format": "javascript",
+  "title": "Memoize II (multiple arguments)",
+  "excerpt": "Memoize a function of any number of arguments with a collision-free cache keyed on every argument.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 25,
+  "topics": ["closures", "caching", "performance", "data structures"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": ["LinkedIn"],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify"
+  ]
+}

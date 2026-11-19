@@ -1,0 +1,19 @@
+{
+  "slug": "promise-timeout",
+  "format": "javascript",
+  "title": "Promise Timeout",
+  "excerpt": "Wrap a promise so it rejects with a TimeoutError if it doesn't settle in time, without leaking timers.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["promises", "async", "timers"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/timeout_static",
+    "https://developer.mozilla.org/en-US/docs/Web/API/clearTimeout"
+  ]
+}

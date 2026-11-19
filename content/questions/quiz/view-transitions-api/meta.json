@@ -1,0 +1,21 @@
+{
+  "slug": "view-transitions-api",
+  "format": "quiz",
+  "title": "How does the View Transitions API work for same-document and cross-document navigations?",
+  "excerpt": "startViewTransition, view-transition-name, pseudo-element tree, @view-transition for MPAs, support and pitfalls.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 9,
+  "topics": ["css", "animation", "view-transitions", "navigation"],
+  "frameworks": [],
+  "languages": ["css", "js"],
+  "companies": [],
+  "quizCategory": "css",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API",
+    "https://developer.chrome.com/docs/web-platform/view-transitions",
+    "https://www.w3.org/TR/css-view-transitions-1/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/@view-transition"
+  ]
+}

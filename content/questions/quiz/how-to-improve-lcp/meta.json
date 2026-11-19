@@ -1,0 +1,20 @@
+{
+  "slug": "how-to-improve-lcp",
+  "format": "quiz",
+  "title": "Your field LCP is 4.1 s on mobile. How do you diagnose and improve it?",
+  "excerpt": "Breaking LCP into TTFB, resource load delay, load duration and render delay, and fixing each part.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 10,
+  "topics": ["core-web-vitals", "lcp", "performance"],
+  "frameworks": [],
+  "languages": ["html"],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/lcp",
+    "https://web.dev/articles/optimize-lcp",
+    "https://developer.mozilla.org/en-US/docs/Web/API/LargestContentfulPaint"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "function-prototype-bind",
+  "format": "javascript",
+  "title": "Function.prototype.bind",
+  "excerpt": "Implement Function.prototype.bind with partial application and correct behaviour under new.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["this", "functions", "polyfills", "closures", "prototypes"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new.target",
+    "https://tc39.es/ecma262/#sec-function.prototype.bind",
+    "https://tc39.es/ecma262/#sec-bound-function-exotic-objects"
+  ]
+}

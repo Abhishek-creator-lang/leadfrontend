@@ -1,0 +1,18 @@
+{
+  "slug": "memoize",
+  "format": "javascript",
+  "title": "Memoize",
+  "excerpt": "Cache a function's results by argument so repeated calls with the same input skip the work.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["closures", "caching", "performance"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": ["LinkedIn"],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value-zero_equality"
+  ]
+}

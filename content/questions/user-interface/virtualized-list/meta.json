@@ -1,0 +1,20 @@
+{
+  "slug": "virtualized-list",
+  "format": "user-interface",
+  "title": "Virtualized List",
+  "excerpt": "Render a 10,000-row list smoothly by windowing: only the visible rows plus overscan are in the DOM.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 50,
+  "topics": ["performance", "virtualization", "scroll", "accessibility", "memoization"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/virtualize-long-lists-react-window",
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-setsize",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility",
+    "https://react.dev/reference/react/memo"
+  ]
+}

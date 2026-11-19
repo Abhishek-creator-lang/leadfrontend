@@ -1,0 +1,26 @@
+{
+  "slug": "callback-functions-in-async-code",
+  "format": "quiz",
+  "title": "Explain the concept of a callback function in asynchronous operations",
+  "excerpt": "Passing functions to be called later, error-first callbacks, callback hell and inversion of control.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "async",
+    "callbacks"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Glossary/Callback_function",
+    "https://nodejs.org/en/learn/asynchronous-work/javascript-asynchronous-programming-and-callbacks"
+  ]
+}

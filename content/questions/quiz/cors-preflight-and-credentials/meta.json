@@ -1,0 +1,21 @@
+{
+  "slug": "cors-preflight-and-credentials",
+  "format": "quiz",
+  "title": "When does the browser send a CORS preflight, and how do credentialed cross-origin requests work?",
+  "excerpt": "Simple vs preflighted requests, the response headers involved, credentials mode, caching preflights and debugging.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 9,
+  "topics": ["cors", "http", "fetch", "networking"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS",
+    "https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request",
+    "https://fetch.spec.whatwg.org/#http-cors-protocol",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age"
+  ]
+}

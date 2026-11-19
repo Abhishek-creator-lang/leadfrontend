@@ -1,0 +1,28 @@
+{
+  "slug": "typescript-index-signatures",
+  "format": "quiz",
+  "title": "What are index signatures in TypeScript and what are their pitfalls?",
+  "excerpt": "Dictionaries vs exhaustive Records, noUncheckedIndexedAccess, and when to use Map.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "object-types",
+    "tsconfig"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/2/objects.html",
+    "https://www.typescriptlang.org/tsconfig/#noUncheckedIndexedAccess",
+    "https://www.typescriptlang.org/docs/handbook/utility-types.html"
+  ]
+}

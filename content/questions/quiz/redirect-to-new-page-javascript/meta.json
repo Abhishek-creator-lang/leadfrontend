@@ -1,0 +1,27 @@
+{
+  "slug": "redirect-to-new-page-javascript",
+  "format": "quiz",
+  "title": "How do you redirect to a new page in JavaScript?",
+  "excerpt": "location.assign vs replace, router navigation, server redirects and open-redirect safety.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 4,
+  "topics": [
+    "routing",
+    "security"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "web",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Location/assign",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Location/replace",
+    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "mouseenter-vs-mouseover",
+  "format": "quiz",
+  "title": "What is the difference between `mouseenter` and `mouseover` event in JavaScript and browsers?",
+  "excerpt": "Why mouseenter does not bubble or fire for children, and when each is the right choice.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 4,
+  "topics": [
+    "events",
+    "dom"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerenter_event"
+  ]
+}

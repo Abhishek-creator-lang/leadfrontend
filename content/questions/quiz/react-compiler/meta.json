@@ -1,0 +1,31 @@
+{
+  "slug": "react-compiler",
+  "format": "quiz",
+  "title": "What is the React Compiler and how does it change memoization?",
+  "excerpt": "Build-time automatic memoization, its reliance on the Rules of React, and adoption.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": [
+    "react",
+    "performance",
+    "memoization",
+    "compiler"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/react-compiler",
+    "https://react.dev/reference/react-compiler/configuration",
+    "https://react.dev/reference/rules"
+  ]
+}

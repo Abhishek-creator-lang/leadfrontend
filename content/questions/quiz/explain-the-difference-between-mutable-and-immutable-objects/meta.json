@@ -1,0 +1,25 @@
+{
+  "slug": "explain-the-difference-between-mutable-and-immutable-objects",
+  "format": "quiz",
+  "title": "Explain the difference between mutable and immutable objects.",
+  "excerpt": "Immutability is a core principle in functional programming, and has lots to offer to object-oriented programs as well. A mutable object is an object whose state",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://stackoverflow.com/questions/1863515/pros-cons-of-immutability-vs-mutability"
+  ]
+}

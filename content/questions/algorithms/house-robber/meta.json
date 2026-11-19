@@ -1,0 +1,15 @@
+{
+  "slug": "house-robber",
+  "format": "algorithms",
+  "title": "House Robber",
+  "excerpt": "Pick non-adjacent items to maximise their total value, a classic 1-D dynamic programming problem.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["dynamic-programming"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

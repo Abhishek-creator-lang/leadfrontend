@@ -1,0 +1,18 @@
+{
+  "slug": "array-prototype-square",
+  "format": "javascript",
+  "title": "Array.prototype.square",
+  "excerpt": "Add a square() method to every array that returns a new array of squared values.",
+  "difficulty": "easy",
+  "importance": "low",
+  "duration": 5,
+  "topics": ["arrays", "prototypes", "this"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"
+  ]
+}

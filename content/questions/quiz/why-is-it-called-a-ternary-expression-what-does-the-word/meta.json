@@ -1,0 +1,25 @@
+{
+  "slug": "why-is-it-called-a-ternary-expression-what-does-the-word",
+  "format": "quiz",
+  "title": "Why is it called a Ternary expression, what does the word \"Ternary\" indicate?",
+  "excerpt": "\"Ternary\" indicates three, and a ternary expression accepts three operands, the test condition, the \"then\" expression and the \"else\" expression. Ternary express",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator"
+  ]
+}

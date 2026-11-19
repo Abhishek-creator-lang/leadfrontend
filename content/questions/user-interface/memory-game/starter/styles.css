@@ -1,0 +1,43 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.memory {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.moves {
+  margin: 0;
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 72px);
+  gap: 8px;
+}
+
+.card {
+  width: 72px;
+  height: 88px;
+  border: 0;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.card:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}

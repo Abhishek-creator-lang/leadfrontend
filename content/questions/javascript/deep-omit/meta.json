@@ -1,0 +1,18 @@
+{
+  "slug": "deep-omit",
+  "format": "javascript",
+  "title": "Deep Omit",
+  "excerpt": "Remove the given keys from an object at every level of nesting, including inside arrays.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["objects", "recursion", "lodash"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray"
+  ]
+}

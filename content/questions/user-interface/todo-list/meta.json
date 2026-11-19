@@ -1,0 +1,19 @@
+{
+  "slug": "todo-list",
+  "format": "user-interface",
+  "title": "Todo List",
+  "excerpt": "Build a todo list with add, complete, delete and filters, using semantic forms and good focus management.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["state", "forms", "lists", "accessibility"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/learn/updating-arrays-in-state",
+    "https://react.dev/learn/rendering-lists#why-does-react-need-keys",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"
+  ]
+}

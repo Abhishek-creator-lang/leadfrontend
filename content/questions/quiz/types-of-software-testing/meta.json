@@ -1,0 +1,25 @@
+{
+  "slug": "types-of-software-testing",
+  "format": "quiz",
+  "title": "What are the different types of testing in software development?",
+  "excerpt": "Functional and non-functional test types and how they fit a front-end strategy.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "testing"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://martinfowler.com/articles/practical-test-pyramid.html",
+    "https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications"
+  ]
+}

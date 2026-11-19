@@ -1,0 +1,25 @@
+{
+  "slug": "why-is-extending-built-in-javascript-objects-not-a-good-idea",
+  "format": "quiz",
+  "title": "Why is extending built-in JavaScript objects not a good idea?",
+  "excerpt": "Extending a built-in/native JavaScript object means adding properties/functions to its prototype. While this may seem like a good idea at first, it is dangerous",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://lucybain.com/blog/2014/js-extending-built-in-objects/"
+  ]
+}

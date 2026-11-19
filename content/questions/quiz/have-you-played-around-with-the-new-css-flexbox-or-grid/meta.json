@@ -1,0 +1,25 @@
+{
+  "slug": "have-you-played-around-with-the-new-css-flexbox-or-grid",
+  "format": "quiz",
+  "title": "Have you played around with the new CSS Flexbox or Grid specs?",
+  "excerpt": "Yes. Flexbox is mainly meant for 1-dimensional layouts while Grid is meant for 2-dimensional layouts.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://philipwalton.github.io/solved-by-flexbox/"
+  ]
+}

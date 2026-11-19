@@ -1,0 +1,19 @@
+{
+  "slug": "html-serializer",
+  "format": "javascript",
+  "title": "HTML Serializer",
+  "excerpt": "Turn a plain-object element tree into pretty-printed, correctly escaped HTML with indentation and void elements.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["trees", "recursion", "strings", "html"],
+  "frameworks": [],
+  "languages": ["js", "html"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Glossary/Void_element",
+    "https://html.spec.whatwg.org/multipage/parsing.html#escapingString",
+    "https://developer.mozilla.org/en-US/docs/Glossary/Entity"
+  ]
+}

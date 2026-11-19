@@ -1,0 +1,21 @@
+{
+  "slug": "autocomplete",
+  "format": "system-design",
+  "title": "Autocomplete / Typeahead Component",
+  "excerpt": "Design a reusable, accessible autocomplete component with debounced search, caching, race handling and keyboard navigation.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 45,
+  "topics": ["system design", "component design", "accessibility", "caching", "debounce", "race conditions"],
+  "frameworks": ["react"],
+  "languages": ["ts"],
+  "companies": ["Google", "Meta", "Amazon"],
+  "sdType": "component",
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/",
+    "https://developer.mozilla.org/en-US/docs/Web/API/AbortController",
+    "https://developer.mozilla.org/en-US/docs/Web/API/CompositionEvent",
+    "https://react.dev/reference/react/useDeferredValue"
+  ]
+}

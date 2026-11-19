@@ -1,0 +1,18 @@
+{
+  "slug": "sequential-async",
+  "format": "javascript",
+  "title": "Run Async Tasks in Series",
+  "excerpt": "Run a list of async functions one after another, passing each result to the next and stopping at the first failure.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 15,
+  "topics": ["async", "promises"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#composition",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce"
+  ]
+}

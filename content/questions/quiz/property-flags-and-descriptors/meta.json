@@ -1,0 +1,27 @@
+{
+  "slug": "property-flags-and-descriptors",
+  "format": "quiz",
+  "title": "What are JavaScript object property flags and descriptors?",
+  "excerpt": "writable, enumerable, configurable, accessor descriptors and how freeze/seal build on them.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "objects",
+    "immutability"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties"
+  ]
+}

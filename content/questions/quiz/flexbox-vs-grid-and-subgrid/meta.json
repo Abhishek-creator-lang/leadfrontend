@@ -1,0 +1,20 @@
+{
+  "slug": "flexbox-vs-grid-and-subgrid",
+  "format": "quiz",
+  "title": "How do you decide between Flexbox and Grid, and what problem does subgrid solve?",
+  "excerpt": "Content-out vs layout-in thinking, intrinsic sizing, auto-fit/minmax, subgrid alignment and accessibility of visual reordering.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": ["css", "layout", "flexbox", "grid"],
+  "frameworks": [],
+  "languages": ["css"],
+  "companies": [],
+  "quizCategory": "css",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox"
+  ]
+}

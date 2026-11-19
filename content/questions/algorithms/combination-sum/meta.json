@@ -1,0 +1,15 @@
+{
+  "slug": "combination-sum",
+  "format": "algorithms",
+  "title": "Combination Sum",
+  "excerpt": "List every multiset of values (reuse allowed) that adds up to a target, without duplicates.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 25,
+  "topics": ["backtracking", "recursion"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

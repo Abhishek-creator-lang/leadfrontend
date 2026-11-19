@@ -1,0 +1,19 @@
+{
+  "slug": "tic-tac-toe-ii-n-by-m",
+  "format": "user-interface",
+  "title": "Tic-tac-toe II: N × N, M in a Row",
+  "excerpt": "Generalise tic-tac-toe to a configurable N × N board where M marks in a row win, with an efficient last-move win check.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 45,
+  "topics": ["games", "state", "use-reducer", "algorithms", "accessibility", "keyboard"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://react.dev/reference/react/useReducer",
+    "https://react.dev/learn/extracting-state-logic-into-a-reducer",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/grid/"
+  ]
+}

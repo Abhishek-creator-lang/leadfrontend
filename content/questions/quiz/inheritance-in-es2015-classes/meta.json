@@ -1,0 +1,28 @@
+{
+  "slug": "inheritance-in-es2015-classes",
+  "format": "quiz",
+  "title": "Explain the concept of inheritance in ES2015 classes",
+  "excerpt": "extends, super, constructor rules, method overriding, statics and private fields in subclasses.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "classes",
+    "oop",
+    "prototypes"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes"
+  ]
+}

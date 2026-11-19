@@ -1,0 +1,20 @@
+{
+  "slug": "web-font-loading-performance",
+  "format": "quiz",
+  "title": "How do you load web fonts without hurting LCP and CLS?",
+  "excerpt": "font-display, preloading, subsetting, self-hosting, variable fonts and metric-matched fallbacks.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 8,
+  "topics": ["fonts", "performance", "cls", "lcp"],
+  "frameworks": [],
+  "languages": ["css", "html"],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": { "type": "original" },
+  "references": [
+    "https://web.dev/articles/font-best-practices",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/size-adjust"
+  ]
+}

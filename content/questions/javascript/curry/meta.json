@@ -1,0 +1,19 @@
+{
+  "slug": "curry",
+  "format": "javascript",
+  "title": "Curry",
+  "excerpt": "Turn a function of n arguments into one that can be called with those arguments one or several at a time.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["closures", "functional programming", "currying"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply",
+    "https://lodash.com/docs/4.17.15#curry"
+  ]
+}

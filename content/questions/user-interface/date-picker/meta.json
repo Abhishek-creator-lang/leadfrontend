@@ -1,0 +1,20 @@
+{
+  "slug": "date-picker",
+  "format": "user-interface",
+  "title": "Date Picker",
+  "excerpt": "Build a date input with a calendar dialog following the WAI-ARIA date picker pattern: grid keyboard navigation, focus trap and return.",
+  "difficulty": "hard",
+  "importance": "mid",
+  "duration": 60,
+  "topics": ["accessibility", "dates", "keyboard", "focus-management", "design-system"],
+  "frameworks": ["react"],
+  "languages": ["js", "css"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/",
+    "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "can-you-give-an-example-of-an-media-property-other-than",
+  "format": "quiz",
+  "title": "Can you give an example of an @media property other than screen?",
+  "excerpt": "Yes, there are four types of @media properties (including screen):",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "css"
+  ],
+  "frameworks": [],
+  "languages": [
+    "css"
+  ],
+  "companies": [],
+  "quizCategory": "css",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/css-questions"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/@media#Syntax"
+  ]
+}

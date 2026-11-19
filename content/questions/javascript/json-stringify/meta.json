@@ -1,0 +1,19 @@
+{
+  "slug": "json-stringify",
+  "format": "javascript",
+  "title": "JSON.stringify",
+  "excerpt": "Reimplement JSON.stringify: escaping, undefined and function handling, toJSON, wrapper objects, cycles and BigInt errors.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 40,
+  "topics": ["recursion", "strings", "json", "types"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify",
+    "https://tc39.es/ecma262/#sec-json.stringify",
+    "https://github.com/tc39/proposal-well-formed-stringify"
+  ]
+}

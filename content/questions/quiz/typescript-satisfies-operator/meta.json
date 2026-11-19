@@ -1,0 +1,25 @@
+{
+  "slug": "typescript-satisfies-operator",
+  "format": "quiz",
+  "title": "What does the `satisfies` operator do in TypeScript and how is it different from a type annotation or `as`?",
+  "excerpt": "Validate against a type while keeping precise inference.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "inference"
+  ],
+  "frameworks": [],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html"
+  ]
+}

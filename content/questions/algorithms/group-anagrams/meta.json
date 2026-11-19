@@ -1,0 +1,15 @@
+{
+  "slug": "group-anagrams",
+  "format": "algorithms",
+  "title": "Group Anagrams",
+  "excerpt": "Bucket words that are rearrangements of each other using a canonical hash key.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 20,
+  "topics": ["strings", "hash-map", "sorting"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

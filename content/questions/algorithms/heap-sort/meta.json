@@ -1,0 +1,15 @@
+{
+  "slug": "heap-sort",
+  "format": "algorithms",
+  "title": "Heap Sort",
+  "excerpt": "Sort an array in place in guaranteed O(n log n) time using a binary max-heap.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 30,
+  "topics": ["sorting", "heap"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Heapsort"]
+}

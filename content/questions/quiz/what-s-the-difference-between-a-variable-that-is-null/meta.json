@@ -1,0 +1,25 @@
+{
+  "slug": "what-s-the-difference-between-a-variable-that-is-null",
+  "format": "quiz",
+  "title": "What's the difference between a variable that is: null, undefined or undeclared? How would you go about checking for any of these states?",
+  "excerpt": "Undeclared variables are created when you assign a value to an identifier that is not previously created using var, let or const. Undeclared variables will be d",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 3,
+  "topics": [
+    "javascript"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "mit-handbook",
+    "url": "https://www.frontendinterviewhandbook.com/javascript-questions"
+  },
+  "references": [
+    "https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "react-anti-patterns",
+  "format": "quiz",
+  "title": "What are some React anti-patterns?",
+  "excerpt": "Derived state, effect chains, nested component definitions, mutation and more.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": [
+    "react",
+    "best-practices"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "react",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/you-might-not-need-an-effect",
+    "https://react.dev/learn/choosing-the-state-structure",
+    "https://react.dev/reference/rules"
+  ]
+}

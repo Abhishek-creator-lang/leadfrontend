@@ -1,0 +1,21 @@
+{
+  "slug": "semantic-html-and-landmarks",
+  "format": "quiz",
+  "title": "Why does semantic HTML matter, and how do landmark elements help assistive technology users?",
+  "excerpt": "Implicit roles, landmark navigation, headings, buttons vs links, and the cost of div soup.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 7,
+  "topics": ["html", "accessibility", "semantics", "landmarks"],
+  "frameworks": [],
+  "languages": ["html"],
+  "companies": [],
+  "quizCategory": "html",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html",
+    "https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/",
+    "https://www.w3.org/TR/html-aria/",
+    "https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html"
+  ]
+}

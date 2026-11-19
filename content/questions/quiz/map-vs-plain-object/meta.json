@@ -1,0 +1,27 @@
+{
+  "slug": "map-vs-plain-object",
+  "format": "quiz",
+  "title": "What is the difference between a `Map` object and a plain object in JavaScript?",
+  "excerpt": "Key types, ordering, size, prototype pitfalls, performance and serialisation compared.",
+  "difficulty": "easy",
+  "importance": "mid",
+  "duration": 5,
+  "topics": [
+    "data-structures",
+    "objects"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/groupBy"
+  ]
+}

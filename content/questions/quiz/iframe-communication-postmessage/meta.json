@@ -1,0 +1,27 @@
+{
+  "slug": "iframe-communication-postmessage",
+  "format": "quiz",
+  "title": "How do iframes on a page communicate?",
+  "excerpt": "Cross-origin messaging with postMessage, origin checks and MessageChannel.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 7,
+  "topics": [
+    "iframes",
+    "security"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "web",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage",
+    "https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe"
+  ]
+}

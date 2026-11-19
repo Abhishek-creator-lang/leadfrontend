@@ -1,0 +1,15 @@
+{
+  "slug": "coin-change",
+  "format": "algorithms",
+  "title": "Coin Change",
+  "excerpt": "Find the fewest coins (or credit packs) that add up exactly to an amount, using dynamic programming.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 25,
+  "topics": ["dynamic-programming"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": ["https://en.wikipedia.org/wiki/Change-making_problem"]
+}

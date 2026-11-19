@@ -1,0 +1,20 @@
+{
+  "slug": "explain-event-loop",
+  "format": "quiz",
+  "title": "What is the event loop? Explain the difference between the macrotask and microtask queues.",
+  "excerpt": "How JavaScript schedules callbacks, promises and rendering on a single thread.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 8,
+  "topics": ["async", "event-loop", "browser"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": { "type": "original" },
+  "references": [
+    "https://html.spec.whatwg.org/multipage/webappapis.html#event-loops",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop",
+    "https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide"
+  ]
+}

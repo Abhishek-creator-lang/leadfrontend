@@ -1,0 +1,27 @@
+{
+  "slug": "what-are-symbols-used-for",
+  "format": "quiz",
+  "title": "What are `Symbol`s used for in JavaScript?",
+  "excerpt": "Unique property keys, the global registry, and well-known symbols that hook into language behaviour.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "symbols",
+    "objects"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for"
+  ]
+}

@@ -1,0 +1,78 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.menu-root {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-button {
+  font: inherit;
+  padding: 6px 12px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.menu-button[aria-expanded='true'] {
+  background: #eef2ff;
+  border-color: #6366f1;
+}
+
+.menu-button:focus-visible {
+  outline: 3px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 10;
+  min-width: 160px;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 0.12);
+}
+
+.menu-item {
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Focus is the single "active" indicator for mouse and keyboard alike. */
+.menu-item:focus {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.menu-item[aria-disabled='true'] {
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.menu-item[aria-disabled='true']:focus {
+  background: #e2e8f0;
+  color: #64748b;
+}
+
+.last {
+  margin-top: 200px;
+  color: #475569;
+}
+
+@media (forced-colors: active) {
+  .menu-item:focus {
+    outline: 2px solid Highlight;
+  }
+}

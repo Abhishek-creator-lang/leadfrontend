@@ -1,0 +1,21 @@
+{
+  "slug": "critical-rendering-path",
+  "format": "quiz",
+  "title": "Walk through the critical rendering path. What blocks rendering, and how do you shorten it?",
+  "excerpt": "HTML parsing, CSSOM, render-blocking vs parser-blocking resources, the preload scanner and first paint.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 9,
+  "topics": ["rendering", "browser", "performance", "critical-rendering-path"],
+  "frameworks": [],
+  "languages": ["html", "css", "js"],
+  "companies": [],
+  "quizCategory": "web",
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path",
+    "https://web.dev/articles/critical-rendering-path",
+    "https://web.dev/articles/preload-scanner",
+    "https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work"
+  ]
+}

@@ -1,0 +1,33 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.app {
+  max-width: 360px;
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+}
+
+.label input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 6px;
+  padding: 8px 10px;
+  font: inherit;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.selection {
+  margin-top: 16px;
+  color: #334155;
+}

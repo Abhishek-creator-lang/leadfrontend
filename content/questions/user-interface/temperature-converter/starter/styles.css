@@ -1,0 +1,58 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 16px;
+}
+
+.converter {
+  max-width: 520px;
+}
+
+.fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+  flex: 1 1 180px;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.field input {
+  font: inherit;
+  font-size: 1.25rem;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.field input:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.field [aria-invalid='true'] {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 1px #dc2626;
+}
+
+.equals {
+  align-self: center;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #94a3b8;
+}
+
+.error {
+  margin: 0;
+  color: #b91c1c;
+  font-size: 0.8125rem;
+}

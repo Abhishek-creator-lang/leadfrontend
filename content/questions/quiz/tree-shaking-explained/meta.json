@@ -1,0 +1,27 @@
+{
+  "slug": "tree-shaking-explained",
+  "format": "quiz",
+  "title": "Explain the concept of tree shaking in module bundling",
+  "excerpt": "Dead-code elimination of unused exports, side effects, and what defeats it.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "modules",
+    "bundling"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "performance",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking",
+    "https://webpack.js.org/guides/tree-shaking/",
+    "https://rollupjs.org/introduction/#tree-shaking"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "array-prototype-flat",
+  "format": "javascript",
+  "title": "Array.prototype.flat",
+  "excerpt": "Implement Array.prototype.flat with a depth argument, hole removal and an iterative variant.",
+  "difficulty": "medium",
+  "importance": "high",
+  "duration": 15,
+  "topics": ["arrays", "polyfills", "recursion"],
+  "frameworks": [],
+  "languages": ["js"],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+    "https://tc39.es/ecma262/#sec-array.prototype.flat"
+  ]
+}

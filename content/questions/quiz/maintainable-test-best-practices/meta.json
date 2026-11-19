@@ -1,0 +1,25 @@
+{
+  "slug": "maintainable-test-best-practices",
+  "format": "quiz",
+  "title": "What are some best practices for writing maintainable and effective tests in JavaScript?",
+  "excerpt": "Behaviour-focused, deterministic, readable tests that survive refactors.",
+  "difficulty": "medium",
+  "importance": "mid",
+  "duration": 6,
+  "topics": [
+    "testing"
+  ],
+  "frameworks": [],
+  "languages": [
+    "js"
+  ],
+  "companies": [],
+  "quizCategory": "javascript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://testing-library.com/docs/guiding-principles",
+    "https://kentcdodds.com/blog/common-mistakes-with-react-testing-library"
+  ]
+}

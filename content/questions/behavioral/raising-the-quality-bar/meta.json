@@ -1,0 +1,15 @@
+{
+  "slug": "raising-the-quality-bar",
+  "format": "behavioral",
+  "title": "How have you raised the quality bar on a team?",
+  "excerpt": "Describe how you improved testing, CI and review practices on a front-end team in a way that stuck and made shipping faster, not slower.",
+  "difficulty": "hard",
+  "importance": "high",
+  "duration": 20,
+  "topics": ["quality", "testing", "leadership", "execution"],
+  "frameworks": [],
+  "languages": [],
+  "companies": [],
+  "source": { "type": "original" },
+  "references": []
+}

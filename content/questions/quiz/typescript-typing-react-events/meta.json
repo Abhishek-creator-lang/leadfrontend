@@ -1,0 +1,29 @@
+{
+  "slug": "typescript-typing-react-events",
+  "format": "quiz",
+  "title": "How do you type event handlers in React with TypeScript?",
+  "excerpt": "Synthetic event types, handler aliases, target vs currentTarget, and DOM listener types.",
+  "difficulty": "easy",
+  "importance": "high",
+  "duration": 6,
+  "topics": [
+    "typescript",
+    "react",
+    "events"
+  ],
+  "frameworks": [
+    "react"
+  ],
+  "languages": [
+    "ts"
+  ],
+  "companies": [],
+  "quizCategory": "typescript",
+  "source": {
+    "type": "original"
+  },
+  "references": [
+    "https://react.dev/learn/typescript",
+    "https://react.dev/reference/react-dom/components/common"
+  ]
+}
