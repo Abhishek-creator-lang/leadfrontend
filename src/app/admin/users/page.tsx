@@ -5,6 +5,7 @@ import PersonAddAlt1RoundedIcon from '@mui/icons-material/PersonAddAlt1Rounded';
 import { ROLES, USER_STATUSES, type Role, type UserStatus } from '@/constants/roles';
 import { PageHeader } from '@/layout/Page';
 import { PATHS } from '@/routes/paths';
+import { requireAdmin } from '@/server/auth/dal';
 import { listUsers } from '@/server/repositories/users';
 import { firstParam, type SearchParamsProps } from '@/types/next';
 import { formatDate, formatDateTime } from '@/utils/date';
@@ -19,6 +20,8 @@ const oneOf = <T extends string>(options: readonly T[], value?: string) =>
   options.includes(value as T) ? (value as T) : undefined;
 
 export default async function AdminUsersPage({ searchParams }: SearchParamsProps) {
+  // Pages render in parallel with their layout, so each admin page checks access itself.
+  await requireAdmin(PATHS.adminUsers);
   const params = await searchParams;
   const q = firstParam(params.q)?.trim() || undefined;
   const role = oneOf<Role>(ROLES, firstParam(params.role));

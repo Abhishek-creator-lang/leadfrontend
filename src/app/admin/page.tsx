@@ -8,11 +8,14 @@ import { StatCard } from '@/components/StatCard';
 import { getQuestion } from '@/content';
 import { PageHeader } from '@/layout/Page';
 import { PATHS, questionPath } from '@/routes/paths';
+import { requireAdmin } from '@/server/auth/dal';
 import { progressOverview } from '@/server/repositories/progress';
 import { userStats } from '@/server/repositories/users';
 import { LinkButton, TextLink } from '@/components/links';
 
 export default async function AdminOverviewPage() {
+  // Pages render in parallel with their layout, so each admin page checks access itself.
+  await requireAdmin();
   const [users, progress] = await Promise.all([userStats(), progressOverview()]);
   const totalUsers = Object.values(users.byRole).reduce((a, b) => a + b, 0);
 

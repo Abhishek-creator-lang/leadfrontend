@@ -7,7 +7,11 @@ import { AdminNav } from '@/views/admin/AdminNav';
 
 export const metadata: Metadata = { title: { default: 'Admin', template: '%s · Admin' } };
 
-/** Every /admin page requires an admin or super admin (learners get "forbidden", guests the login). */
+/**
+ * Admin chrome. The check here keeps the nav hidden from non-admins, but it does NOT protect pages:
+ * Next.js renders a layout and its page in parallel, so every admin page must call requireAdmin()
+ * (or requireSuperAdmin()) itself.
+ */
 export default async function AdminLayout({ children }: { children: ReactNode }) {
   await requireAdmin();
   return (
