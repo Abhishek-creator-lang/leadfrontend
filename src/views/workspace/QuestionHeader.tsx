@@ -19,7 +19,7 @@ import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import { useContent } from '@/context/ContentContext';
 import { FORMAT_INFO } from '@/content/formats';
-import type { QuestionMeta } from '@/content/types';
+import type { QuestionMeta, QuestionSummary } from '@/content/types';
 import { formatPath, questionPath } from '@/routes/paths';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { toggleBookmark, toggleComplete } from '@/store/progressSlice';
@@ -30,7 +30,7 @@ function SiblingLink({
   direction,
   icon,
 }: {
-  sibling?: QuestionMeta;
+  sibling?: QuestionSummary;
   direction: 'Previous' | 'Next';
   icon: ReactNode;
 }) {

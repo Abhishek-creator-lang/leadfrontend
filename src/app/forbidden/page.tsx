@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
+import { NOINDEX } from '@/lib/seo';
 import { LinkButton } from '@/components/links';
 
 import { EmptyState } from '@/components/EmptyState';
 import { PATHS } from '@/routes/paths';
 
-export const metadata: Metadata = { title: 'Access denied' };
+export const metadata: Metadata = { title: 'Access denied', robots: NOINDEX };
 
 export default function ForbiddenPage() {
   return (

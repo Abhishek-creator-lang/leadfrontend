@@ -20,7 +20,7 @@ export default function GuidesPage() {
       <Grid container spacing={2}>
         {content.guides.map((g) => (
           <Grid item xs={12} md={6} key={g.id}>
-            <LinkCard href={guidePath(g.id)} padding={3}>
+            <LinkCard href={guidePath(g.id, g.chapters[0]?.slug)} padding={3}>
               <NamedIcon name={g.icon} color="primary" sx={{ fontSize: 32 }} />
               <Typography variant="h6" sx={{ mt: 1 }}>
                 {g.title}

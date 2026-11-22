@@ -7,21 +7,22 @@ import type {
   Guide,
   GuideChapter,
   QuestionMeta,
+  QuestionSummary,
   StudyPlan,
 } from './types';
 
 /** Fast lookups over a content index. Built on the server per content version and in the browser once. */
-export interface ContentLookups {
-  content: ContentIndex;
-  getQuestion: (id: string) => QuestionMeta | undefined;
+export interface ContentLookups<Q extends QuestionSummary = QuestionMeta> {
+  content: ContentIndex<Q>;
+  getQuestion: (id: string) => Q | undefined;
   getStudyPlan: (id: string) => StudyPlan | undefined;
   getFocusArea: (id: string) => FocusArea | undefined;
   getGuide: (id: string) => Guide | undefined;
   getCompany: (slug: string) => CompanyGuide | undefined;
   getGuideChapter: (guideId: string, slug: string) => GuideChapter | undefined;
   /** Resolves ids to questions, silently dropping unknown ids. */
-  getQuestions: (ids: readonly string[]) => QuestionMeta[];
-  questionsByFormat: (format: Format) => QuestionMeta[];
+  getQuestions: (ids: readonly string[]) => Q[];
+  questionsByFormat: (format: Format) => Q[];
   /** Number of questions per format. */
   FORMAT_COUNTS: Record<Format, number>;
 }
@@ -29,13 +30,13 @@ export interface ContentLookups {
 const indexBy = <T, K extends keyof T>(items: T[], key: K) =>
   new Map<T[K], T>(items.map((item) => [item[key], item]));
 
-export function createLookups(content: ContentIndex): ContentLookups {
+export function createLookups<Q extends QuestionSummary>(content: ContentIndex<Q>): ContentLookups<Q> {
   const questions = indexBy(content.questions, 'id');
   const studyPlans = indexBy(content.studyPlans, 'id');
   const focusAreas = indexBy(content.focusAreas, 'id');
   const guides = indexBy(content.guides, 'id');
   const companies = indexBy(content.companies, 'slug');
-  const byFormat = new Map<Format, QuestionMeta[]>(
+  const byFormat = new Map<Format, Q[]>(
     FORMAT_ORDER.map((f) => [f, content.questions.filter((q) => q.format === f)])
   );
   const getQuestion = (id: string) => questions.get(id);
@@ -50,7 +51,7 @@ export function createLookups(content: ContentIndex): ContentLookups {
     getCompany: (slug) => companies.get(slug),
     getGuideChapter: (guideId, slug) => guides.get(guideId)?.chapters.find((c) => c.slug === slug),
     getQuestions: (ids) =>
-      ids.map(getQuestion).filter((q): q is QuestionMeta => q !== undefined),
+      ids.map(getQuestion).filter((q): q is Q => q !== undefined),
     questionsByFormat,
     FORMAT_COUNTS: Object.fromEntries(
       FORMAT_ORDER.map((f) => [f, questionsByFormat(f).length])

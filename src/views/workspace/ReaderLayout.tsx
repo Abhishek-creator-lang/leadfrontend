@@ -11,6 +11,7 @@ import { FileMap } from '@/utils/files';
 import { MetaLine } from './MetaLine';
 import { NotesTab } from './NotesTab';
 import { References } from './References';
+import { RelatedQuestions } from './RelatedQuestions';
 
 /** Single-column layout for quiz, system design and behavioral questions. */
 export function ReaderLayout({ q, files }: { q: QuestionMeta; files: FileMap }) {
@@ -73,6 +74,7 @@ export function ReaderLayout({ q, files }: { q: QuestionMeta; files: FileMap }) 
             )}
             <References q={q} />
             <SourceNote source={q.source} />
+            <RelatedQuestions q={q} />
           </>
         )}
         {tab === 1 && <NotesTab id={q.id} />}

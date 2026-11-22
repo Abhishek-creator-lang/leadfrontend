@@ -193,7 +193,7 @@ export default function DashboardPage() {
         <Grid container spacing={2}>
           {content.guides.map((g) => (
             <Grid item xs={12} sm={6} md={4} key={g.id}>
-              <LinkCard href={guidePath(g.id)}>
+              <LinkCard href={guidePath(g.id, g.chapters[0]?.slug)}>
                 <NamedIcon name={g.icon} color="primary" />
                 <Typography fontWeight={600} sx={{ mt: 1 }}>
                   {g.title}

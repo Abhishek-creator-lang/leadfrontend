@@ -43,7 +43,7 @@ import { APP_BAR_HEIGHT, DRAWER_WIDTH } from '@/constants/layout';
 import { MAIN_NAV, NavKey, PAGE_TITLES } from '@/constants/navigation';
 import { useContent } from '@/context/ContentContext';
 import { FORMAT_INFO, FORMAT_ORDER } from '@/content/formats';
-import type { QuestionMeta } from '@/content/types';
+import type { QuestionSummary } from '@/content/types';
 import { isAdminRole } from '@/constants/roles';
 import { useCurrentUser } from '@/context/SessionContext';
 import { ThemeModeContext } from '@/context/ThemeModeContext';
@@ -238,7 +238,7 @@ function GlobalSearch() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
-  const [value, setValue] = useState<QuestionMeta | null>(null);
+  const [value, setValue] = useState<QuestionSummary | null>(null);
   return (
     <Autocomplete
       size="small"
@@ -290,7 +290,7 @@ function Brand() {
   return (
     <Box
       component={NextLink}
-      href={PATHS.dashboard}
+      href={PATHS.home}
       sx={{
         display: 'flex',
         alignItems: 'center',

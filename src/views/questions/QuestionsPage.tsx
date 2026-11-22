@@ -23,7 +23,7 @@ import { PAGE_TITLES } from '@/constants/navigation';
 import { DEBOUNCE_MS } from '@/constants/timing';
 import { useContent } from '@/context/ContentContext';
 import { FORMAT_INFO, FORMAT_ORDER, QUIZ_CATEGORY_LABEL } from '@/content/formats';
-import type { Format, QuestionMeta, QuizCategory } from '@/content/types';
+import type { Format, QuestionSummary, QuizCategory } from '@/content/types';
 import { useDebounce } from '@/hooks/useDebounce';
 import { Page, PageHeader } from '@/layout/Page';
 import { useAppSelector } from '@/store';
@@ -91,7 +91,7 @@ export default function QuestionsPage({ format }: { format?: Format }) {
   );
 
   const filtered = useMemo(() => {
-    const matches = (q: QuestionMeta) =>
+    const matches = (q: QuestionSummary) =>
       (!formats.length || formats.includes(q.format)) &&
       (!difficulty.length || difficulty.includes(q.difficulty)) &&
       (!category.length || (!!q.quizCategory && category.includes(q.quizCategory))) &&

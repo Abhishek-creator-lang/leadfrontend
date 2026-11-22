@@ -9,7 +9,7 @@ import type { SessionUser } from '@/constants/roles';
 import { DEBOUNCE_MS } from '@/constants/timing';
 import { ProgressHydrationContext } from '@/context/ProgressHydrationContext';
 import { ContentProvider } from '@/context/ContentContext';
-import type { ContentIndex } from '@/content/types';
+import type { ClientContentIndex } from '@/content/types';
 import { SessionContext } from '@/context/SessionContext';
 import { SupportContext } from '@/context/SupportContext';
 import type { SupportSettings } from '@/lib/validation/support';
@@ -121,7 +121,7 @@ export function Providers({
   user: SessionUser | null;
   initialProgress: ProgressState | null;
   /** Published content index, loaded from the database by the root layout. */
-  content: ContentIndex;
+  content: ClientContentIndex;
   /** Active "Buy me a coffee" settings, or null when off. */
   support: SupportSettings | null;
   children: ReactNode;

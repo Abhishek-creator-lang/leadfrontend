@@ -1,4 +1,4 @@
-import type { Difficulty, Importance, QuestionMeta } from '@/content/types';
+import type { Difficulty, Importance, QuestionSummary } from '@/content/types';
 
 export const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
 
@@ -16,7 +16,7 @@ export const SORT_OPTIONS = [
 
 export type SortKey = (typeof SORT_OPTIONS)[number]['value'];
 
-const COMPARATORS: Partial<Record<SortKey, (a: QuestionMeta, b: QuestionMeta) => number>> = {
+const COMPARATORS: Partial<Record<SortKey, (a: QuestionSummary, b: QuestionSummary) => number>> = {
   importance: (a, b) => IMPORTANCE_RANK[a.importance] - IMPORTANCE_RANK[b.importance],
   'difficulty-asc': (a, b) => DIFFICULTY_RANK[a.difficulty] - DIFFICULTY_RANK[b.difficulty],
   'difficulty-desc': (a, b) => DIFFICULTY_RANK[b.difficulty] - DIFFICULTY_RANK[a.difficulty],
@@ -25,7 +25,7 @@ const COMPARATORS: Partial<Record<SortKey, (a: QuestionMeta, b: QuestionMeta) =>
 };
 
 /** Returns a sorted copy; `default` keeps the content order. */
-export function sortQuestions(list: QuestionMeta[], sort: string) {
+export function sortQuestions(list: QuestionSummary[], sort: string) {
   const compare = COMPARATORS[sort as SortKey];
   return compare ? [...list].sort(compare) : list;
 }

@@ -6,9 +6,17 @@ import { CONTENT_MAX_WIDTH } from '@/constants/layout';
 import { isSupportActive } from '@/lib/validation/support';
 import { Page, PageHeader } from '@/layout/Page';
 import { getSupportSettings } from '@/server/support';
+import { pageMetadata } from '@/lib/seo';
+import { PATHS } from '@/routes/paths';
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: (await getSupportSettings()).heading };
+  const settings = await getSupportSettings();
+  return pageMetadata({
+    title: settings.heading,
+    description: settings.message || 'Support Lead Frontend, a free front end interview prep site.',
+    path: PATHS.support,
+    noindex: !isSupportActive(settings),
+  });
 }
 
 export default async function SupportPage() {

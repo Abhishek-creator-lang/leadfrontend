@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { NOINDEX } from '@/lib/seo';
 import { Chip } from '@mui/material';
 import { CONTENT_MAX_WIDTH } from '@/constants/layout';
 import { ROLE_LABEL } from '@/constants/roles';
@@ -7,7 +8,7 @@ import { PATHS } from '@/routes/paths';
 import { requireUser } from '@/server/auth/dal';
 import { ChangePasswordForm, ProfileForm, SessionsCard } from '@/views/account/AccountForms';
 
-export const metadata: Metadata = { title: 'Account' };
+export const metadata: Metadata = { title: 'Account', robots: NOINDEX };
 
 export default async function AccountPage() {
   const user = await requireUser(PATHS.account);

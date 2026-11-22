@@ -42,6 +42,20 @@ export interface QuestionMeta {
   files: string[]; // relative file names inside the question folder
 }
 
+/** Question fields only the question page needs. They are left out of the catalog sent to the browser. */
+export type QuestionDetailKey =
+  | 'references'
+  | 'files'
+  | 'source'
+  | 'frameworks'
+  | 'languages'
+  | 'sdType'
+  | 'hasStarter'
+  | 'hasTests';
+
+/** A question as listed, searched and filtered in the browser. */
+export type QuestionSummary = Omit<QuestionMeta, QuestionDetailKey>;
+
 export interface StudyPlan {
   id: string;
   title: string;
@@ -85,11 +99,14 @@ export interface CompanyGuide {
   source: SourceInfo;
 }
 
-export interface ContentIndex {
+/** The content catalog. The server holds full questions; the browser gets `ClientContentIndex`. */
+export interface ContentIndex<Q extends QuestionSummary = QuestionMeta> {
   generatedAt: string;
-  questions: QuestionMeta[];
+  questions: Q[];
   studyPlans: StudyPlan[];
   focusAreas: FocusArea[];
   guides: Guide[];
   companies: CompanyGuide[];
 }
+
+export type ClientContentIndex = ContentIndex<QuestionSummary>;

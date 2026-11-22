@@ -5,7 +5,7 @@ import { Box, Card, IconButton, Stack, Tooltip, Typography } from '@mui/material
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import RadioButtonUncheckedRoundedIcon from '@mui/icons-material/RadioButtonUncheckedRounded';
 import BookmarkRoundedIcon from '@mui/icons-material/BookmarkRounded';
-import type { QuestionMeta } from '@/content/types';
+import type { QuestionSummary } from '@/content/types';
 import { questionPath } from '@/routes/paths';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { toggleComplete } from '@/store/progressSlice';
@@ -13,7 +13,7 @@ import { DifficultyChip, FormatChip } from './Chips';
 import { DurationLabel } from './DurationLabel';
 import { EmptyState } from './EmptyState';
 
-export function QuestionRow({ q, index }: { q: QuestionMeta; index?: number }) {
+export function QuestionRow({ q, index }: { q: QuestionSummary; index?: number }) {
   const dispatch = useAppDispatch();
   const done = useAppSelector((s) => !!s.progress.completed[q.id]);
   const bookmarked = useAppSelector((s) => !!s.progress.bookmarked[q.id]);
@@ -82,7 +82,7 @@ export function QuestionList({
   questions,
   numbered,
 }: {
-  questions: QuestionMeta[];
+  questions: QuestionSummary[];
   numbered?: boolean;
 }) {
   if (!questions.length) {

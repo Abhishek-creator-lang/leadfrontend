@@ -3,10 +3,13 @@ import { cache } from 'react';
 import { createLookups, EMPTY_CONTENT, type ContentLookups } from '@/content/lookups';
 import type {
   CompanyGuide,
+  ClientContentIndex,
   ContentIndex,
   FocusArea,
   Guide,
+  QuestionDetailKey,
   QuestionMeta,
+  QuestionSummary,
   StudyPlan,
 } from '@/content/types';
 import type { CompanyDoc, GuideDoc, QuestionDoc } from '@/lib/validation/content';
@@ -132,6 +135,45 @@ export const getContent = cache(async (): Promise<ContentLookups> => {
   } catch (err) {
     console.error('[content] could not load the catalog:', err);
     return memory?.lookups ?? createLookups(EMPTY_CONTENT);
+  }
+});
+
+/**
+ * The catalog as sent to the browser (root layout → ContentProvider): question detail fields
+ * (references, file lists, source…) are dropped, roughly halving the per-page payload. The question
+ * page gets the full question from the server.
+ */
+const DETAIL_KEYS: readonly QuestionDetailKey[] = [
+  'references',
+  'files',
+  'source',
+  'frameworks',
+  'languages',
+  'sdType',
+  'hasStarter',
+  'hasTests',
+];
+
+export function toClientIndex(content: ContentIndex): ClientContentIndex {
+  return {
+    ...content,
+    questions: content.questions.map((q) => {
+      const summary: Partial<QuestionMeta> = { ...q };
+      for (const key of DETAIL_KEYS) delete summary[key];
+      return summary as QuestionSummary;
+    }),
+  };
+}
+
+/** When content was last published (sitemap lastModified). Falls back to now. */
+export const getContentUpdatedAt = cache(async (): Promise<Date> => {
+  try {
+    const row = await db('settings')
+      .where({ key: VERSION_KEY })
+      .first<{ updated_at: Date | string } | undefined>('updated_at');
+    return row?.updated_at ? new Date(row.updated_at) : new Date();
+  } catch {
+    return new Date();
   }
 });
 

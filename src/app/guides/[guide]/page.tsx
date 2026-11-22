@@ -1,5 +1,4 @@
-import { permanentRedirect, redirect } from 'next/navigation';
-import { EmptyState } from '@/components/EmptyState';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { guidePath } from '@/routes/paths';
 import { findRedirect, getContent } from '@/server/content/catalog';
 import type { PageProps } from '@/types/next';
@@ -14,10 +13,11 @@ export default async function Page({ params }: PageProps<Params>) {
   if (!guide) {
     const moved = await findRedirect(`/guides/${guideId}`);
     if (moved) permanentRedirect(moved);
-    return <EmptyState title="Guide not found" />;
+    notFound();
   }
 
   const [first] = guide.chapters;
-  if (!first) return <EmptyState title="Chapter not found" />;
-  redirect(guidePath(guide.id, first.slug));
+  if (!first) notFound();
+  // Permanent: the chapter URL is the canonical one for this content.
+  permanentRedirect(guidePath(guide.id, first.slug));
 }

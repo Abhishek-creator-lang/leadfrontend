@@ -12,6 +12,7 @@ import { FileMap, solutionCodeMarkdown } from '@/utils/files';
 import { MetaLine } from './MetaLine';
 import { NotesTab } from './NotesTab';
 import { References } from './References';
+import { RelatedQuestions } from './RelatedQuestions';
 import { SplitPane } from './SplitPane';
 
 const WorkspaceLoading = () => (
@@ -68,6 +69,7 @@ export function CodingLayout({ q, files }: { q: QuestionMeta; files: FileMap }) 
                 <MetaLine q={q} />
                 <Markdown>{files['prompt.md'] ?? ''}</Markdown>
                 <SourceNote source={q.source} />
+                <RelatedQuestions q={q} />
               </>
             )}
             {tab === 1 && (

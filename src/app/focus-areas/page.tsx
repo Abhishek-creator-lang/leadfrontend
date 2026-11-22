@@ -1,8 +1,14 @@
 import type { Metadata } from 'next';
-import { PAGE_TITLES } from '@/constants/navigation';
+import { pageMetadata } from '@/lib/seo';
+import { PATHS } from '@/routes/paths';
 import FocusAreasPage from '@/views/focus-areas/FocusAreasPage';
 
-export const metadata: Metadata = { title: PAGE_TITLES.focusAreas };
+export const metadata: Metadata = pageMetadata({
+  title: 'Front End Interview Questions by Topic',
+  description:
+    'Practice front end interview questions by topic: accessibility, async JavaScript, performance, state management, forms, networking and more.',
+  path: PATHS.focusAreas,
+});
 
 export default function Page() {
   return <FocusAreasPage />;

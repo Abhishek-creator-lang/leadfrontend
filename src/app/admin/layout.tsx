@@ -5,7 +5,10 @@ import { Page } from '@/layout/Page';
 import { requireAdmin } from '@/server/auth/dal';
 import { AdminNav } from '@/views/admin/AdminNav';
 
-export const metadata: Metadata = { title: { default: 'Admin', template: '%s · Admin' } };
+export const metadata: Metadata = {
+  title: { default: 'Admin', template: '%s · Admin' },
+  robots: { index: false, follow: false },
+};
 
 /**
  * Admin chrome. The check here keeps the nav hidden from non-admins, but it does NOT protect pages:

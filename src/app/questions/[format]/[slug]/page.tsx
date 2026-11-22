@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
-import { permanentRedirect } from 'next/navigation';
-import { EmptyState } from '@/components/EmptyState';
+import { notFound, permanentRedirect } from 'next/navigation';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { FORMAT_INFO } from '@/content/formats';
+import { breadcrumbLd, FORMAT_SEO, pageMetadata, questionLd } from '@/lib/seo';
+import { PATHS, formatPath, questionPath } from '@/routes/paths';
 import { findRedirect, getContent, getQuestionFiles } from '@/server/content/catalog';
 import type { PageProps } from '@/types/next';
 import QuestionPage from '@/views/workspace/QuestionPage';
@@ -9,9 +12,18 @@ type Params = { format: string; slug: string };
 
 const questionId = ({ format, slug }: Params) => `${format}/${slug}`;
 
+const DIFFICULTY_LABEL = { easy: 'Easy', medium: 'Medium', hard: 'Hard' } as const;
+
 export async function generateMetadata({ params }: PageProps<Params>): Promise<Metadata> {
   const { getQuestion } = await getContent();
-  return { title: getQuestion(questionId(await params))?.title ?? 'Question not found' };
+  const q = getQuestion(questionId(await params));
+  if (!q) return {};
+  return pageMetadata({
+    title: `${q.title} – ${FORMAT_SEO[q.format].question}`,
+    description: `${q.excerpt} ${DIFFICULTY_LABEL[q.difficulty]} · ${q.duration} min · with a worked solution.`,
+    path: questionPath(q),
+    type: 'article',
+  });
 }
 
 export default async function Page({ params }: PageProps<Params>) {
@@ -22,7 +34,23 @@ export default async function Page({ params }: PageProps<Params>) {
     // Renamed in the CMS: send old links (bookmarks, search engines) to the new URL.
     const moved = await findRedirect(`/questions/${id}`);
     if (moved) permanentRedirect(moved);
-    return <EmptyState title="Question not found" description="It may have been renamed." />;
+    notFound();
   }
-  return <QuestionPage q={q} files={await getQuestionFiles(id)} />;
+  const path = questionPath(q);
+  return (
+    <>
+      <JsonLd
+        data={[
+          questionLd(q, path),
+          breadcrumbLd([
+            { name: 'Home', path: PATHS.home },
+            { name: 'Questions', path: PATHS.questions },
+            { name: FORMAT_INFO[q.format].label, path: formatPath(q.format) },
+            { name: q.title, path },
+          ]),
+        ]}
+      />
+      <QuestionPage q={q} files={await getQuestionFiles(id)} />
+    </>
+  );
 }

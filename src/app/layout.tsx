@@ -7,10 +7,12 @@ import { AppShell } from '@/layout/AppShell';
 import { getCurrentUser } from '@/server/auth/dal';
 import { loadUserProgress } from '@/server/repositories/progress';
 import { getSupportSettings } from '@/server/support';
-import { getContent } from '@/server/content/catalog';
+import { getContent, toClientIndex } from '@/server/content/catalog';
 import { isSupportActive } from '@/lib/validation/support';
 import { DARK_TOKENS, LIGHT_TOKENS } from '@/theme/tokens';
 import { Providers } from './providers';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { siteLd, siteUrl } from '@/lib/seo';
 
 /** Fonts: Manrope (headings), Inter (UI and body), JetBrains Mono (code). Stacks: src/theme/fonts.ts. */
 const inter = Inter({
@@ -43,9 +45,19 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: { default: APP_TITLE, template: `%s · ${APP_NAME}` },
+  metadataBase: new URL(siteUrl()),
+  title: { default: APP_TITLE, template: `%s | ${APP_NAME}` },
   description: APP_DESCRIPTION,
+  applicationName: APP_NAME,
   icons: { icon: '/favicon.svg' },
+  openGraph: {
+    type: 'website',
+    siteName: APP_NAME,
+    locale: 'en_US',
+    title: APP_TITLE,
+    description: APP_DESCRIPTION,
+  },
+  twitter: { card: 'summary_large_image', title: APP_TITLE, description: APP_DESCRIPTION },
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
@@ -57,6 +69,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     getContent(),
   ]);
 
+  const clientContent = toClientIndex(content);
+
   return (
     <html
       lang="en"
@@ -67,11 +81,12 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
+        <JsonLd data={siteLd()} />
         <Providers
           key={user?.id ?? 'guest'}
           user={user}
           initialProgress={initialProgress}
-          content={content}
+          content={clientContent}
           support={isSupportActive(support) ? support : null}
         >
           <AppShell>{children}</AppShell>
