@@ -80,7 +80,7 @@ export function SupportSettingsForm({ initial }: { initial: SupportSettings }) {
               <FormAlert state={state} />
               {toggle('enabled', 'Show "Buy me a coffee" on the site')}
 
-              <Typography fontWeight={700}>UPI details</Typography>
+              <Typography fontWeight={600}>UPI details</Typography>
               {text('upiId', 'UPI ID', {
                 placeholder: 'yourname@okhdfcbank',
                 helperText:
@@ -104,18 +104,18 @@ export function SupportSettingsForm({ initial }: { initial: SupportSettings }) {
               })}
 
               <Divider />
-              <Typography fontWeight={700}>Text</Typography>
+              <Typography fontWeight={600}>Text</Typography>
               {text('heading', 'Heading')}
               {text('message', 'Message', { multiline: true, minRows: 2 })}
               {text('thankYou', 'Thank-you note', { multiline: true, minRows: 2 })}
 
               <Divider />
-              <Typography fontWeight={700}>Supporters outside India (optional)</Typography>
+              <Typography fontWeight={600}>Supporters outside India (optional)</Typography>
               {text('externalUrl', 'Link', { placeholder: 'https://buymeacoffee.com/yourname' })}
               {text('externalLabel', 'Link text')}
 
               <Divider />
-              <Typography fontWeight={700}>Where to show it</Typography>
+              <Typography fontWeight={600}>Where to show it</Typography>
               <Box>
                 {toggle('showInHeader', 'Button in the top bar')}
                 {toggle('showInSidebar', 'Link in the sidebar')}
@@ -137,7 +137,7 @@ export function SupportSettingsForm({ initial }: { initial: SupportSettings }) {
           <Typography variant="overline" color="text.secondary">
             Preview
           </Typography>
-          <Typography variant="h6" fontWeight={700} textAlign="center" sx={{ mb: 2 }}>
+          <Typography variant="h6" textAlign="center" sx={{ mb: 2 }}>
             {preview.heading} ☕
           </Typography>
           {isSupportActive({ ...preview, enabled: true }) ? (

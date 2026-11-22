@@ -77,7 +77,7 @@ export function UserMenu() {
         slotProps={{ paper: { sx: { minWidth: 240 } } }}
       >
         <Box sx={{ px: 2, py: 1 }}>
-          <Typography fontWeight={700} noWrap>
+          <Typography fontWeight={600} noWrap>
             {user.name}
           </Typography>
           <Typography variant="body2" color="text.secondary" noWrap>

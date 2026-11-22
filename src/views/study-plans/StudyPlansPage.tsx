@@ -29,9 +29,7 @@ export default function StudyPlansPage() {
             <Grid item xs={12} md={6} key={p.id}>
               <LinkCard href={studyPlanPath(p.id)} padding={3} stack>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
-                  <Typography variant="h6" fontWeight={700}>
-                    {p.title}
-                  </Typography>
+                  <Typography variant="h6">{p.title}</Typography>
                   {started[p.id] && <Chip size="small" color="primary" label="In progress" />}
                 </Stack>
                 <Typography color="text.secondary" sx={{ mb: 2, flex: 1 }}>

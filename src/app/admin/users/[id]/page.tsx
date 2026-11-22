@@ -60,7 +60,7 @@ export default async function AdminUserPage({ params }: PageProps<Params>) {
       <Grid container spacing={2} sx={{ mb: 5 }}>
         <Grid item xs={12} md={manageable ? 5 : 12}>
           <Card sx={{ p: 3, height: '100%' }}>
-            <Typography fontWeight={700} sx={{ mb: 2 }}>
+            <Typography fontWeight={600} sx={{ mb: 2 }}>
               Details
             </Typography>
             <Stack spacing={1}>

@@ -54,9 +54,7 @@ export default function StudyPlanDetailPage({ id }: { id: string }) {
               alignItems="baseline"
               sx={{ mb: 1 }}
             >
-              <Typography variant="h6" fontWeight={700}>
-                {s.title}
-              </Typography>
+              <Typography variant="h6">{s.title}</Typography>
               <Typography variant="body2" color="text.secondary">
                 {countCompleted(
                   questions.map((q) => q.id),

@@ -1,26 +1,28 @@
 import { Chip, ChipProps } from '@mui/material';
-import { alpha } from '@mui/material/styles';
-import { BRAND_COLORS } from '@/constants/colors';
+import { alpha, type Theme } from '@mui/material/styles';
 import { FORMAT_INFO, QUIZ_CATEGORY_LABEL } from '@/content/formats';
 import type { Difficulty, Format, QuizCategory } from '@/content/types';
 import { capitalize } from '@/utils/format';
 
 const CHIP_HEIGHT = 22;
 
-/** Coloured text on a 10% tint of the same colour. */
-const tintedChipSx = (color: string) => ({
-  color,
-  bgcolor: alpha(color, 0.1),
-  fontWeight: 600,
-  height: CHIP_HEIGHT,
-});
+/** Coloured text on a 10% tint of the same colour (colour picked from the theme per mode). */
+const tintedChipSx = (pick: (t: Theme) => string) => (theme: Theme) => {
+  const color = pick(theme);
+  return {
+    color,
+    bgcolor: alpha(color, 0.1),
+    fontWeight: 600,
+    height: CHIP_HEIGHT,
+  };
+};
 
 export function DifficultyChip({ difficulty, ...rest }: { difficulty: Difficulty } & ChipProps) {
   return (
     <Chip
       size="small"
       label={capitalize(difficulty)}
-      sx={tintedChipSx(BRAND_COLORS[difficulty])}
+      sx={tintedChipSx((t) => t.palette.difficulty[difficulty])}
       {...rest}
     />
   );
@@ -36,7 +38,7 @@ export function FormatChip({
   const info = FORMAT_INFO[format];
   const label =
     format === 'quiz' && quizCategory ? `Quiz · ${QUIZ_CATEGORY_LABEL[quizCategory]}` : info.short;
-  return <Chip size="small" label={label} sx={tintedChipSx(info.color)} />;
+  return <Chip size="small" label={label} sx={tintedChipSx((t) => t.palette.format[format])} />;
 }
 
 export function TagChip({ label }: { label: string }) {

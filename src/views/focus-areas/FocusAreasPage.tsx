@@ -25,7 +25,7 @@ export default function FocusAreasPage() {
           <Grid item xs={12} sm={6} md={4} key={f.id}>
             <LinkCard href={focusAreaPath(f.id)} padding={3} stack>
               <NamedIcon name={f.icon} color="primary" sx={{ fontSize: 32 }} />
-              <Typography variant="h6" fontWeight={700} sx={{ mt: 1 }}>
+              <Typography variant="h6" sx={{ mt: 1 }}>
                 {f.title}
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ flex: 1, mb: 2 }}>

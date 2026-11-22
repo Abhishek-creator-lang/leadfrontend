@@ -16,7 +16,7 @@ export function Section({
   return (
     <Box component="section" sx={{ mb: 5 }}>
       <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 2 }}>
-        <Typography variant="h6" component="h2" fontWeight={700}>
+        <Typography variant="h6" component="h2">
           {title}
         </Typography>
         {action}

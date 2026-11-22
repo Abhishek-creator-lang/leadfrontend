@@ -15,7 +15,7 @@ import { PASSWORD_MIN_LENGTH } from '@/lib/validation/auth';
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <Card sx={{ p: 3, mb: 2 }}>
-      <Typography fontWeight={700} sx={{ mb: 2 }}>
+      <Typography fontWeight={600} sx={{ mb: 2 }}>
         {title}
       </Typography>
       {children}

@@ -31,7 +31,7 @@ export default async function ContentHomePage() {
             <Grid item xs={12} sm={6} md={4} key={type}>
               <Card sx={{ height: '100%' }}>
                 <LinkCardArea href={contentListPath(type)}>
-                  <Typography variant="h6" fontWeight={700}>
+                  <Typography variant="h6">
                     {info.label}
                   </Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5, flex: 1 }}>

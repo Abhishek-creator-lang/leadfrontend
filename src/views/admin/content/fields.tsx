@@ -19,7 +19,7 @@ export const slugify = (s: string) =>
 export function FormSection({ title, description, children }: { title: string; description?: string; children: ReactNode }) {
   return (
     <Card sx={{ p: 3, mb: 2 }}>
-      <Typography fontWeight={700}>{title}</Typography>
+      <Typography fontWeight={600}>{title}</Typography>
       {description && (
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
           {description}

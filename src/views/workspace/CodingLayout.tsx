@@ -62,7 +62,7 @@ export function CodingLayout({ q, files }: { q: QuestionMeta; files: FileMap }) 
           <Box sx={{ p: 3 }}>
             {tab === 0 && (
               <>
-                <Typography variant="h5" component="h1" fontWeight={800} gutterBottom>
+                <Typography variant="h5" component="h1" gutterBottom>
                   {q.title}
                 </Typography>
                 <MetaLine q={q} />

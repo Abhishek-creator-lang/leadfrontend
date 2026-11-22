@@ -6,8 +6,10 @@ import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import { Box, useTheme } from '@mui/material';
 import { useModeColors } from '@/hooks/useModeColors';
+import { getTokens } from '@/theme/tokens';
 import { isExternalUrl } from './ExternalLink';
 import 'highlight.js/styles/github-dark.css';
+import { FONT_BODY, FONT_HEADING, FONT_MONO } from '@/theme/fonts';
 
 function Mermaid({ chart }: { chart: string }) {
   const id = useId().replace(/:/g, '');
@@ -16,9 +18,31 @@ function Mermaid({ chart }: { chart: string }) {
   useEffect(() => {
     let alive = true;
     import('mermaid').then(async ({ default: mermaid }) => {
+      // Diagrams use the app palette in both modes (mermaid "base" theme + our tokens).
+      const t = getTokens(theme.palette.mode);
       mermaid.initialize({
         startOnLoad: false,
-        theme: theme.palette.mode === 'dark' ? 'dark' : 'neutral',
+        theme: 'base',
+        themeVariables: {
+          darkMode: theme.palette.mode === 'dark',
+          fontFamily: FONT_BODY,
+          background: t.bgPaper,
+          primaryColor: t.bgSubtle,
+          primaryTextColor: t.textPrimary,
+          primaryBorderColor: t.primary,
+          secondaryColor: t.bgDefault,
+          tertiaryColor: t.bgPaper,
+          lineColor: t.textSecondary,
+          textColor: t.textPrimary,
+          noteBkgColor: t.codeBg,
+          noteTextColor: t.textPrimary,
+          noteBorderColor: t.secondary,
+          actorBkg: t.bgSubtle,
+          actorBorder: t.primary,
+          actorTextColor: t.textPrimary,
+          signalColor: t.textSecondary,
+          signalTextColor: t.textPrimary,
+        },
       });
       try {
         const { svg } = await mermaid.render(`m${id}`, chart);
@@ -80,7 +104,13 @@ function MarkdownImpl({ children }: { children: string }) {
         lineHeight: 1.7,
         color: 'text.primary',
         wordBreak: 'break-word',
-        '& h1, & h2, & h3, & h4': { fontWeight: 700, lineHeight: 1.3, mt: 3, mb: 1.5 },
+        '& h1, & h2, & h3, & h4': {
+          fontFamily: FONT_HEADING,
+          fontWeight: 700,
+          lineHeight: 1.3,
+          mt: 3,
+          mb: 1.5,
+        },
         '& h1': { fontSize: 28 },
         '& h2': { fontSize: 22, pb: 0.75, borderBottom: `1px solid ${mc.borderLight}` },
         '& h3': { fontSize: 18 },
@@ -89,10 +119,10 @@ function MarkdownImpl({ children }: { children: string }) {
         '& p, & ul, & ol, & table, & blockquote': { my: 1.5 },
         '& ul, & ol': { pl: 3 },
         '& li + li': { mt: 0.5 },
-        '& a': { color: 'primary.main' },
+        '& a': { color: mc.primaryText },
         '& pre': {
-          background: '#0D1117',
-          color: '#E6EDF3',
+          background: mc.codeBlockBg,
+          color: mc.codeBlockText,
           p: 2,
           borderRadius: 2,
           overflowX: 'auto',
@@ -100,7 +130,7 @@ function MarkdownImpl({ children }: { children: string }) {
           lineHeight: 1.6,
         },
         '& pre code': {
-          fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace',
+          fontFamily: FONT_MONO,
           background: 'none',
           p: 0,
         },

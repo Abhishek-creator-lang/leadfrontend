@@ -14,8 +14,8 @@ import { Section, ViewAllButton } from '@/components/Section';
 import { StatCard } from '@/components/StatCard';
 import { SupportCard } from '@/components/support/SupportCard';
 import { DEFAULT_PLAN_ID } from '@/constants/app';
-import { BRAND_COLORS } from '@/constants/colors';
 import { useContent } from '@/context/ContentContext';
+import { useModeColors } from '@/hooks/useModeColors';
 import { FORMAT_INFO, FORMAT_ORDER } from '@/content/formats';
 import { Page, PageHeader } from '@/layout/Page';
 import { PATHS, focusAreaPath, formatPath, guidePath, studyPlanPath } from '@/routes/paths';
@@ -29,6 +29,7 @@ const RECOMMENDED_LIMIT = 5;
 
 export default function DashboardPage() {
   const { content, getQuestions, getStudyPlan, questionsByFormat } = useContent();
+  const mc = useModeColors();
   const progress = useAppSelector((s) => s.progress);
   const { completed } = progress;
   const allIds = useMemo(() => content.questions.map((q) => q.id), [content.questions]);
@@ -53,36 +54,47 @@ export default function DashboardPage() {
 
   return (
     <Page>
-      <PageHeader
-        title="Interview dashboard"
-        subtitle="Prepare for senior and lead front end roles: coding, React, system design, and leadership."
-      />
+      {/* Cream gradient panel around the greeting and stats (reference: learner programs section). */}
+      <Box
+        sx={{
+          mb: 5,
+          p: { xs: 2, md: 3 },
+          borderRadius: 2,
+          backgroundImage: mc.gradient.goldPanel,
+          '& > :first-of-type': { mt: 0 },
+        }}
+      >
+        <PageHeader
+          title="Interview dashboard"
+          subtitle="Prepare for senior and lead front end roles: coding, React, system design, and leadership."
+        />
 
-      <Grid container spacing={2} sx={{ mb: 5 }}>
-        <Grid item xs={12} sm={4}>
-          <StatCard
-            icon={<TaskAltRoundedIcon color="success" />}
-            label="Questions completed"
-            value={`${countCompleted(allIds, completed)} / ${allIds.length}`}
-          />
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={4}>
+            <StatCard
+              icon={<TaskAltRoundedIcon color="success" />}
+              label="Questions completed"
+              value={`${countCompleted(allIds, completed)} / ${allIds.length}`}
+            />
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <StatCard
+              icon={<LocalFireDepartmentRoundedIcon color="secondary" />}
+              label="Current streak"
+              value={pluralize(streak, 'day')}
+              hint="Complete one question a day to keep it going"
+            />
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <StatCard
+              icon={<NamedIcon name="book" color="primary" />}
+              label="Study plans in progress"
+              value={Object.keys(progress.startedPlans).length}
+              hint="Pick a plan that matches your timeline"
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={4}>
-          <StatCard
-            icon={<LocalFireDepartmentRoundedIcon sx={{ color: BRAND_COLORS.streak }} />}
-            label="Current streak"
-            value={pluralize(streak, 'day')}
-            hint="Complete one question a day to keep it going"
-          />
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <StatCard
-            icon={<NamedIcon name="book" color="primary" />}
-            label="Study plans in progress"
-            value={Object.keys(progress.startedPlans).length}
-            hint="Pick a plan that matches your timeline"
-          />
-        </Grid>
-      </Grid>
+      </Box>
 
       <Section
         title="Progress by question format"
@@ -93,9 +105,9 @@ export default function DashboardPage() {
             <Grid item xs={12} sm={6} md={4} key={format}>
               <LinkCard href={formatPath(format)}>
                 <Stack direction="row" spacing={2} alignItems="center">
-                  <ProgressRing value={done} total={total} color={FORMAT_INFO[format].color} />
+                  <ProgressRing value={done} total={total} format={format} />
                   <Box sx={{ minWidth: 0 }}>
-                    <Typography fontWeight={700}>{FORMAT_INFO[format].label}</Typography>
+                    <Typography fontWeight={600}>{FORMAT_INFO[format].label}</Typography>
                     <Typography variant="body2" color="text.secondary">
                       {done} / {total} completed
                     </Typography>
@@ -131,7 +143,7 @@ export default function DashboardPage() {
             return (
               <Grid item xs={12} sm={6} md={4} key={p.id}>
                 <LinkCard href={studyPlanPath(p.id)} stack>
-                  <Typography fontWeight={700}>{p.title}</Typography>
+                  <Typography fontWeight={600}>{p.title}</Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 2, flex: 1 }}>
                     {p.subtitle}
                   </Typography>
@@ -183,7 +195,7 @@ export default function DashboardPage() {
             <Grid item xs={12} sm={6} md={4} key={g.id}>
               <LinkCard href={guidePath(g.id)}>
                 <NamedIcon name={g.icon} color="primary" />
-                <Typography fontWeight={700} sx={{ mt: 1 }}>
+                <Typography fontWeight={600} sx={{ mt: 1 }}>
                   {g.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">

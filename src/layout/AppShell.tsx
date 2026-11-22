@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useContext, useState } from 'react';
+import { ReactNode, useContext, useEffect, useRef, useState } from 'react';
 import NextLink from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import {
@@ -48,6 +48,7 @@ import { isAdminRole } from '@/constants/roles';
 import { useCurrentUser } from '@/context/SessionContext';
 import { ThemeModeContext } from '@/context/ThemeModeContext';
 import { useModeColors } from '@/hooks/useModeColors';
+import { getTokens } from '@/theme/tokens';
 import {
   PATHS,
   formatPath,
@@ -56,6 +57,8 @@ import {
   questionPath,
 } from '@/routes/paths';
 import { UserMenu } from './UserMenu';
+import { LogoMark } from '@/components/LogoMark';
+import { FONT_HEADING } from '@/theme/fonts';
 import { SupportButton } from '@/components/support/SupportButton';
 import { useSupportSettings } from '@/context/SupportContext';
 import LocalCafeRoundedIcon from '@mui/icons-material/LocalCafeRounded';
@@ -104,7 +107,11 @@ function NavItem({
       {icon && <ListItemIcon sx={{ minWidth: 34 }}>{icon}</ListItemIcon>}
       <ListItemText primary={label} primaryTypographyProps={{ fontSize: 14, fontWeight: 500 }} />
       {badge !== undefined && (
-        <Typography variant="caption" color="text.secondary">
+        <Typography
+          variant="caption"
+          color="text.secondary"
+          sx={{ fontVariantNumeric: 'tabular-nums' }}
+        >
           {badge}
         </Typography>
       )}
@@ -160,7 +167,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
                   width: 10,
                   height: 10,
                   borderRadius: '50%',
-                  bgcolor: FORMAT_INFO[f].color,
+                  bgcolor: `format.${f}`,
                   ml: 0.75,
                 }}
               />
@@ -220,6 +227,17 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 function GlobalSearch() {
   const { content } = useContent();
   const router = useRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        inputRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
   const [value, setValue] = useState<QuestionMeta | null>(null);
   return (
     <Autocomplete
@@ -233,16 +251,32 @@ function GlobalSearch() {
         setValue(null);
       }}
       blurOnSelect
+      popupIcon={null}
       sx={{ width: { xs: '100%', sm: 360 } }}
       renderInput={(params) => (
         <TextField
           {...params}
+          inputRef={inputRef}
           placeholder="Search questions…"
+          // Teal search field, as in the reference header.
+          sx={(t) => {
+            const c = getTokens(t.palette.mode);
+            return {
+              '& .MuiOutlinedInput-root': {
+                bgcolor: c.searchBg,
+                '& .MuiOutlinedInput-notchedOutline': { borderColor: c.searchBorder },
+                '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: c.secondaryBorder },
+                '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                  borderColor: c.secondaryBorder,
+                },
+              },
+            };
+          }}
           InputProps={{
             ...params.InputProps,
             startAdornment: (
               <InputAdornment position="start">
-                <SearchRoundedIcon fontSize="small" />
+                <SearchRoundedIcon fontSize="small" sx={{ color: 'text.secondary' }} />
               </InputAdornment>
             ),
           }}
@@ -265,8 +299,8 @@ function Brand() {
         textDecoration: 'none',
       }}
     >
-      <Box component="img" src="/favicon.svg" alt="" sx={{ width: 28, height: 28 }} />
-      <Typography fontWeight={800} letterSpacing="-0.02em">
+      <LogoMark size={28} />
+      <Typography component="span" fontFamily={FONT_HEADING} fontWeight={700} fontSize={17} noWrap>
         {APP_NAME}
       </Typography>
     </Box>
@@ -293,7 +327,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         sx={{
           borderBottom: 1,
           borderColor: 'divider',
-          bgcolor: mc.sidebarBg,
+          bgcolor: mc.appBarBg,
           zIndex: theme.zIndex.drawer + 1,
         }}
       >

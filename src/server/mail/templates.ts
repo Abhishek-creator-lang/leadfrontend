@@ -1,5 +1,6 @@
 import 'server-only';
 import { APP_NAME } from '@/constants/app';
+import { LIGHT_TOKENS as T } from '@/theme/tokens';
 
 export interface MailContent {
   subject: string;
@@ -43,19 +44,19 @@ function actionMail({ subject, greeting, lines, cta, url, expires }: ActionMail)
 
   const html = `<!doctype html>
 <html>
-  <body style="font-family: Inter, Arial, sans-serif; color: #0f172a; line-height: 1.6">
+  <body style="font-family: Inter, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: ${T.textPrimary}; line-height: 1.6">
     <div style="max-width: 520px; margin: 0 auto; padding: 24px">
       <h2 style="margin: 0 0 16px">${escapeHtml(APP_NAME)}</h2>
       <p>${escapeHtml(greeting)}</p>
       ${lines.map((l) => `<p>${escapeHtml(l)}</p>`).join('\n      ')}
       <p>
-        <a href="${escapeHtml(url)}" style="display: inline-block; background: #6366f1; color: #fff; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 600">${escapeHtml(cta)}</a>
+        <a href="${escapeHtml(url)}" style="display: inline-block; background: ${T.primary}; color: ${T.primaryContrast}; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 600">${escapeHtml(cta)}</a>
       </p>
-      <p style="color: #475569; font-size: 13px">
+      <p style="color: ${T.textSecondary}; font-size: 13px">
         This link expires in ${escapeHtml(expires)}. If the button doesn't work, paste this URL into
         your browser:<br />${escapeHtml(url)}
       </p>
-      <p style="color: #475569; font-size: 13px">If you did not expect this email, you can ignore it.</p>
+      <p style="color: ${T.textSecondary}; font-size: 13px">If you did not expect this email, you can ignore it.</p>
     </div>
   </body>
 </html>`;

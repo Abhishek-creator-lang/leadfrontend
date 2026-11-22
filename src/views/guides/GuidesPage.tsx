@@ -22,7 +22,7 @@ export default function GuidesPage() {
           <Grid item xs={12} md={6} key={g.id}>
             <LinkCard href={guidePath(g.id)} padding={3}>
               <NamedIcon name={g.icon} color="primary" sx={{ fontSize: 32 }} />
-              <Typography variant="h6" fontWeight={700} sx={{ mt: 1 }}>
+              <Typography variant="h6" sx={{ mt: 1 }}>
                 {g.title}
               </Typography>
               <Typography color="text.secondary" sx={{ mb: 1 }}>

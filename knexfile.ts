@@ -36,6 +36,7 @@ export function knexConfig(databaseUrl = process.env.DATABASE_URL): Knex.Config 
  * Connection used by migrations and content import/export: the direct (unpooled) URL when one is
  * configured. Schema changes and long transactions should not go through a transaction pooler.
  */
-export const scriptDatabaseUrl = () => process.env.DATABASE_URL_UNPOOLED || process.env.DATABASE_URL;
+export const scriptDatabaseUrl = () =>
+  process.env.DATABASE_URL_UNPOOLED || process.env.DATABASE_URL;
 
 export default knexConfig;

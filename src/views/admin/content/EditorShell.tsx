@@ -234,7 +234,7 @@ export function EditorShell<D extends Doc>({
           </IconButton>
         </Tooltip>
         <Box sx={{ flex: 1, minWidth: 200 }}>
-          <Typography variant="h6" fontWeight={800} noWrap>
+          <Typography variant="h6" noWrap>
             {title || `New ${info.singular}`}
           </Typography>
           <Stack direction="row" spacing={1} alignItems="center">
@@ -338,7 +338,7 @@ export function EditorShell<D extends Doc>({
 
       <Drawer anchor="right" open={historyOpen} onClose={() => setHistoryOpen(false)}>
         <Box sx={{ width: 360, p: 2 }}>
-          <Typography variant="h6" fontWeight={700}>
+          <Typography variant="h6">
             Revision history
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>

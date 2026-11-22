@@ -19,6 +19,7 @@ import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 import PhoneIphoneRoundedIcon from '@mui/icons-material/PhoneIphoneRounded';
 import type { SupportSettings } from '@/lib/validation/support';
 import { buildUpiUri, formatRupees } from '@/utils/upi';
+import { FONT_MONO } from '@/theme/fonts';
 
 const QR_SIZE = 208;
 
@@ -90,12 +91,12 @@ export function SupportPanel({ settings }: { settings: SupportSettings }) {
       </Box>
 
       <Box>
-        <Typography fontWeight={700}>
+        <Typography fontWeight={600}>
           {settings.payeeName}
           {amount ? ` · ${formatRupees(amount)}` : ''}
         </Typography>
         <Stack direction="row" alignItems="center" justifyContent="center" spacing={0.5}>
-          <Typography variant="body2" color="text.secondary" sx={{ fontFamily: 'monospace' }}>
+          <Typography variant="body2" color="text.secondary" sx={{ fontFamily: FONT_MONO }}>
             {settings.upiId}
           </Typography>
           <Tooltip title={copied ? 'Copied' : 'Copy UPI ID'}>

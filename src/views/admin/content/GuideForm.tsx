@@ -72,7 +72,7 @@ export function GuideForm({ doc, update, errors, isNew }: EditorFormProps<GuideD
       </FormSection>
 
       <Stack direction="row" alignItems="center" sx={{ mb: 1 }}>
-        <Typography variant="h6" fontWeight={700} sx={{ flex: 1 }}>
+        <Typography variant="h6" sx={{ flex: 1 }}>
           Chapters ({doc.chapters.length})
         </Typography>
         <Button startIcon={<AddRoundedIcon />} onClick={addChapter}>

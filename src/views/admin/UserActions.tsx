@@ -43,7 +43,7 @@ export function UserActions({
 
   return (
     <Card sx={{ p: 3 }}>
-      <Typography fontWeight={700} sx={{ mb: 2 }}>
+      <Typography fontWeight={600} sx={{ mb: 2 }}>
         Manage account
       </Typography>
       <Stack spacing={2}>

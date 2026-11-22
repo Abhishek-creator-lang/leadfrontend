@@ -1,7 +1,10 @@
+'use client';
+
 import { ReactNode } from 'react';
 import { Box, Card, Stack, Typography } from '@mui/material';
+import { getTokens } from '@/theme/tokens';
 
-/** Icon tile + label + big value (+ optional hint). */
+/** Icon tile + label + value (+ optional hint). */
 export function StatCard({
   icon,
   label,
@@ -18,21 +21,31 @@ export function StatCard({
       <Stack direction="row" spacing={2} alignItems="center">
         <Box
           sx={{
-            width: 44,
-            height: 44,
-            borderRadius: 2,
+            width: 40,
+            height: 40,
+            flexShrink: 0,
+            borderRadius: 1,
             display: 'grid',
             placeItems: 'center',
-            bgcolor: 'action.hover',
+            backgroundImage: (t) => getTokens(t.palette.mode).gradient.goldCard,
+            border: 1,
+            borderColor: 'divider',
+            '& svg': { fontSize: 22 },
           }}
         >
           {icon}
         </Box>
-        <Box>
+        <Box sx={{ minWidth: 0 }}>
           <Typography variant="body2" color="text.secondary">
             {label}
           </Typography>
-          <Typography variant="h5" fontWeight={800}>
+          <Typography
+            variant="h5"
+            component="p"
+            fontWeight={700}
+            lineHeight={1.3}
+            sx={{ fontVariantNumeric: 'tabular-nums' }}
+          >
             {value}
           </Typography>
           {hint && (

@@ -47,7 +47,7 @@ function SettingsCard({
 }) {
   return (
     <Card sx={{ p: 3, mb: last ? 0 : 2 }}>
-      <Typography fontWeight={700} gutterBottom>
+      <Typography fontWeight={600} gutterBottom>
         {title}
       </Typography>
       {children}

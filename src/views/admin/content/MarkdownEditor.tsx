@@ -22,10 +22,10 @@ import FormatListBulletedRoundedIcon from '@mui/icons-material/FormatListBullete
 import TableChartRoundedIcon from '@mui/icons-material/TableChartRounded';
 import AccountTreeRoundedIcon from '@mui/icons-material/AccountTreeRounded';
 import { Markdown } from '@/components/Markdown';
+import { FONT_MONO } from '@/theme/fonts';
 
 type Mode = 'write' | 'split' | 'preview';
 
-const MONO = '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace';
 
 /** [before, after, placeholder] wrapped around the selection (or inserted at the cursor). */
 const SNIPPETS = {
@@ -93,7 +93,7 @@ export function MarkdownEditor({
         spacing={0.5}
         sx={{ px: 1, py: 0.5, borderBottom: 1, borderColor: 'divider', flexWrap: 'wrap' }}
       >
-        <Typography variant="body2" fontWeight={700} sx={{ px: 1, mr: 1 }}>
+        <Typography variant="body2" fontWeight={600} sx={{ px: 1, mr: 1 }}>
           {label}
         </Typography>
         {mode !== 'preview' &&
@@ -136,7 +136,7 @@ export function MarkdownEditor({
               border: 0,
               outline: 0,
               p: 2,
-              fontFamily: MONO,
+              fontFamily: FONT_MONO,
               fontSize: 13.5,
               lineHeight: 1.6,
               bgcolor: 'background.paper',

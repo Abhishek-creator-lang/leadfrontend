@@ -13,6 +13,7 @@
     "format:check": "prettier --check .",
     "verify:content": "npm run index && tsx scripts/verify-content.ts && tsx scripts/check-mermaid.ts",
     "check:mermaid": "tsx scripts/check-mermaid.ts",
+    "check:contrast": "tsx scripts/check-contrast.ts",
     "db:migrate": "tsx scripts/db.ts latest",
     "db:rollback": "tsx scripts/db.ts rollback",
     "db:status": "tsx scripts/db.ts status",

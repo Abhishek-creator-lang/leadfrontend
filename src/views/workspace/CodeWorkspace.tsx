@@ -17,6 +17,7 @@ import RestartAltRoundedIcon from '@mui/icons-material/RestartAltRounded';
 import LightbulbRoundedIcon from '@mui/icons-material/LightbulbRounded';
 import { UI_TEST_DEPENDENCIES } from '@/constants/sandpack';
 import { DEBOUNCE_MS } from '@/constants/timing';
+import { sandpackTheme } from '@/theme/sandpack';
 import type { QuestionMeta } from '@/content/types';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { clearDraft, saveDraft } from '@/store/progressSlice';
@@ -186,7 +187,7 @@ export function CodeWorkspace({
     <SandpackProvider
       key={q.id}
       template={isUI ? 'react' : 'vanilla'}
-      theme={dark ? 'dark' : 'light'}
+      theme={sandpackTheme(dark ? 'dark' : 'light')}
       files={initialFiles}
       customSetup={isUI && testFiles.length ? { dependencies: UI_TEST_DEPENDENCIES } : undefined}
       options={{

@@ -23,7 +23,7 @@ export default function CompaniesPage() {
           {content.companies.map((c) => (
             <Grid item xs={6} sm={4} md={3} key={c.slug}>
               <LinkCard href={companyPath(c.slug)} padding={2}>
-                <Typography fontWeight={700}>{c.name}</Typography>
+                <Typography fontWeight={600}>{c.name}</Typography>
               </LinkCard>
             </Grid>
           ))}

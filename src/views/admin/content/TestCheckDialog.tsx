@@ -18,7 +18,9 @@ import {
   Tab,
   Tabs,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { UI_TEST_DEPENDENCIES } from '@/constants/sandpack';
+import { sandpackTheme } from '@/theme/sandpack';
 import { buildSandpackFiles, isTestFile } from '@/utils/files';
 
 type Variant = 'solution' | 'starter';
@@ -42,6 +44,7 @@ export function TestCheckDialog({
   onClose: () => void;
 }) {
   const [variant, setVariant] = useState<Variant>('solution');
+  const mode = useTheme().palette.mode;
   const isUI = format === 'user-interface';
   const sandpackFiles = buildSandpackFiles(files, variant);
   const hasTests = Object.keys(files).some(isTestFile);
@@ -62,6 +65,7 @@ export function TestCheckDialog({
           <SandpackProvider
             key={variant}
             template={isUI ? 'react' : 'vanilla'}
+            theme={sandpackTheme(mode)}
             files={sandpackFiles}
             customSetup={isUI && hasTests ? { dependencies: UI_TEST_DEPENDENCIES } : undefined}
             options={{ activeFile: isUI ? '/App.js' : '/index.js' }}

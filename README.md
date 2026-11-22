@@ -69,6 +69,10 @@ stored) in an httpOnly cookie; passwords are hashed with scrypt. Authorization i
 Server Action in `src/server/auth/dal.ts`; `src/middleware.ts` only redirects guests away from
 `/admin` and `/account`.
 
+## Deployment
+
+Free setup on **Vercel + Neon** (Postgres): see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ## Buy me a coffee (UPI)
 
 All content is free. Visitors can optionally support the site by scanning a UPI QR code (or, on a phone,

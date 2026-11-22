@@ -27,8 +27,8 @@ import ScienceRoundedIcon from '@mui/icons-material/ScienceRounded';
 import { useConfirm } from '@/components/ConfirmDialog';
 import { isTestFile } from '@/utils/files';
 import { TestCheckDialog } from './TestCheckDialog';
+import { FONT_MONO } from '@/theme/fonts';
 
-const MONO = '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace';
 
 type Group = 'starter' | 'solution' | 'tests';
 
@@ -142,7 +142,7 @@ export function CodeFilesEditor({
                 .filter((p) => groupOf(p) === g.id)
                 .map((p) => (
                   <ListItemButton key={p} selected={p === current} onClick={() => setActive(p)} sx={{ pl: 3 }}>
-                    <ListItemText primary={nameOf(p)} primaryTypographyProps={{ fontFamily: MONO, fontSize: 13 }} />
+                    <ListItemText primary={nameOf(p)} primaryTypographyProps={{ fontFamily: FONT_MONO, fontSize: 13 }} />
                   </ListItemButton>
                 ))}
             </List>
@@ -150,7 +150,7 @@ export function CodeFilesEditor({
         </Box>
         <Box sx={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
           <Stack direction="row" alignItems="center" spacing={1} sx={{ px: 1.5, py: 0.5, borderBottom: 1, borderColor: 'divider' }}>
-            <Typography variant="body2" sx={{ fontFamily: MONO, flex: 1 }} noWrap>
+            <Typography variant="body2" sx={{ fontFamily: FONT_MONO, flex: 1 }} noWrap>
               {current ?? 'No file selected'}
             </Typography>
             {current && (
@@ -186,7 +186,7 @@ export function CodeFilesEditor({
                 outline: 0,
                 resize: 'vertical',
                 p: 2,
-                fontFamily: MONO,
+                fontFamily: FONT_MONO,
                 fontSize: 13,
                 lineHeight: 1.6,
                 tabSize: 2,
@@ -216,7 +216,7 @@ export function CodeFilesEditor({
             onKeyDown={(e) => e.key === 'Enter' && applyDialog()}
             error={!!nameError}
             helperText={nameError || (dialog ? `Saved as ${prefixOf(dialog.group)}${name.trim()}` : '')}
-            InputProps={{ sx: { fontFamily: MONO } }}
+            InputProps={{ sx: { fontFamily: FONT_MONO } }}
           />
         </DialogContent>
         <DialogActions>

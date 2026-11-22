@@ -3,7 +3,7 @@ import { getDesignTokens } from './palette';
 import typography from './typography';
 import { getShadows } from './shadows';
 import overrides from './overrides';
-import { ThemeMode } from '../constants/colors';
+import type { ThemeMode } from './tokens';
 
 export const createProjectTheme = (mode: ThemeMode) => {
   let theme = createTheme({

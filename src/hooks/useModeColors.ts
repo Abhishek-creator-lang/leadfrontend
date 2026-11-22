@@ -1,8 +1,5 @@
 import { useTheme } from '@mui/material/styles';
-import { BRAND_COLORS, ThemeMode, getModeColors } from '../constants/colors';
+import { getTokens, type ThemeMode } from '@/theme/tokens';
 
-/** Mode-aware color tokens (brand + light/dark surface tokens). */
-export const useModeColors = () => {
-  const theme = useTheme();
-  return { ...BRAND_COLORS, ...getModeColors(theme.palette.mode as ThemeMode) };
-};
+/** Design tokens for the current color mode (surfaces, text, brand, status, format colors…). */
+export const useModeColors = () => getTokens(useTheme().palette.mode as ThemeMode);
