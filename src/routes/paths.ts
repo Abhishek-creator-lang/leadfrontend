@@ -25,6 +25,7 @@ export const PATHS = {
   adminUsers: '/admin/users',
   adminNewUser: '/admin/users/new',
   adminSupport: '/admin/support',
+  adminContent: '/admin/content',
 } as const;
 
 export const questionPath = (q: Pick<QuestionMeta, 'format' | 'slug'>) =>

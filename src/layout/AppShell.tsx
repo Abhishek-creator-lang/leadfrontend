@@ -37,10 +37,11 @@ import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import AdminPanelSettingsRoundedIcon from '@mui/icons-material/AdminPanelSettingsRounded';
 import GroupRoundedIcon from '@mui/icons-material/GroupRounded';
+import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
 import { APP_NAME } from '@/constants/app';
 import { APP_BAR_HEIGHT, DRAWER_WIDTH } from '@/constants/layout';
 import { MAIN_NAV, NavKey, PAGE_TITLES } from '@/constants/navigation';
-import { content, FORMAT_COUNTS } from '@/content';
+import { useContent } from '@/context/ContentContext';
 import { FORMAT_INFO, FORMAT_ORDER } from '@/content/formats';
 import type { QuestionMeta } from '@/content/types';
 import { isAdminRole } from '@/constants/roles';
@@ -129,6 +130,7 @@ function SectionHeader({ children }: { children: ReactNode }) {
 }
 
 function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
+  const { FORMAT_COUNTS } = useContent();
   const isAdmin = isAdminRole(useCurrentUser()?.role);
   const support = useSupportSettings();
   return (
@@ -180,6 +182,12 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
               onNavigate={onNavigate}
             />
             <NavItem
+              to={PATHS.adminContent}
+              label="Content"
+              icon={<ArticleRoundedIcon />}
+              onNavigate={onNavigate}
+            />
+            <NavItem
               to={PATHS.adminUsers}
               label="Users"
               icon={<GroupRoundedIcon />}
@@ -210,6 +218,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 }
 
 function GlobalSearch() {
+  const { content } = useContent();
   const router = useRouter();
   const [value, setValue] = useState<QuestionMeta | null>(null);
   return (

@@ -7,6 +7,7 @@ import { AppShell } from '@/layout/AppShell';
 import { getCurrentUser } from '@/server/auth/dal';
 import { loadUserProgress } from '@/server/repositories/progress';
 import { getSupportSettings } from '@/server/support';
+import { getContent } from '@/server/content/catalog';
 import { isSupportActive } from '@/lib/validation/support';
 import { Providers } from './providers';
 
@@ -26,9 +27,10 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: ReactNode }) {
   // Reads the session cookie, so every page renders per request. Guests (no cookie) skip the DB.
   const user = await getCurrentUser();
-  const [initialProgress, support] = await Promise.all([
+  const [initialProgress, support, { content }] = await Promise.all([
     user ? loadUserProgress(user.id) : null,
     getSupportSettings(),
+    getContent(),
   ]);
 
   return (
@@ -41,6 +43,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           key={user?.id ?? 'guest'}
           user={user}
           initialProgress={initialProgress}
+          content={content}
           support={isSupportActive(support) ? support : null}
         >
           <AppShell>{children}</AppShell>

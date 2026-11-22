@@ -8,13 +8,13 @@
  */
 import nextEnv from '@next/env';
 import knex from 'knex';
-import { knexConfig } from '../knexfile';
+import { knexConfig, scriptDatabaseUrl } from '../knexfile';
 
 nextEnv.loadEnvConfig(process.cwd());
 
 async function main() {
   const [command, name] = process.argv.slice(2);
-  const db = knex(knexConfig());
+  const db = knex(knexConfig(scriptDatabaseUrl()));
   try {
     switch (command) {
       case 'latest': {

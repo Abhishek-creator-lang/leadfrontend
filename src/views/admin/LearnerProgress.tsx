@@ -3,16 +3,17 @@ import { ActivityHeatmap } from '@/components/ActivityHeatmap';
 import { TextLink } from '@/components/links';
 import { ProgressSummary } from '@/components/ProgressSummary';
 import { Section } from '@/components/Section';
-import { content, getQuestions, getStudyPlan, questionsByFormat } from '@/content';
 import { FORMAT_INFO, FORMAT_ORDER } from '@/content/formats';
 import { questionPath } from '@/routes/paths';
+import { getContent } from '@/server/content/catalog';
 import type { ProgressState } from '@/store/progressSlice';
 import { countCompleted, planQuestionIds } from '@/utils/progress';
 
 const RECENT_LIMIT = 10;
 
 /** Read-only view of a learner's progress for admins (server-rendered; nothing here mutates). */
-export function LearnerProgress({ progress }: { progress: ProgressState }) {
+export async function LearnerProgress({ progress }: { progress: ProgressState }) {
+  const { content, getQuestions, getStudyPlan, questionsByFormat } = await getContent();
   const { completed } = progress;
   const allIds = content.questions.map((q) => q.id);
   const recent = getQuestions(progress.recent).slice(0, RECENT_LIMIT);

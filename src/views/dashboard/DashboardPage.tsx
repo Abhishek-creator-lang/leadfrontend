@@ -15,7 +15,7 @@ import { StatCard } from '@/components/StatCard';
 import { SupportCard } from '@/components/support/SupportCard';
 import { DEFAULT_PLAN_ID } from '@/constants/app';
 import { BRAND_COLORS } from '@/constants/colors';
-import { content, getQuestions, getStudyPlan, questionsByFormat } from '@/content';
+import { useContent } from '@/context/ContentContext';
 import { FORMAT_INFO, FORMAT_ORDER } from '@/content/formats';
 import { Page, PageHeader } from '@/layout/Page';
 import { PATHS, focusAreaPath, formatPath, guidePath, studyPlanPath } from '@/routes/paths';
@@ -28,9 +28,10 @@ const RECENT_LIMIT = 5;
 const RECOMMENDED_LIMIT = 5;
 
 export default function DashboardPage() {
+  const { content, getQuestions, getStudyPlan, questionsByFormat } = useContent();
   const progress = useAppSelector((s) => s.progress);
   const { completed } = progress;
-  const allIds = useMemo(() => content.questions.map((q) => q.id), []);
+  const allIds = useMemo(() => content.questions.map((q) => q.id), [content.questions]);
   const streak = currentStreak(progress.activity);
 
   const byFormat = useMemo(
@@ -39,7 +40,7 @@ export default function DashboardPage() {
         const ids = questionsByFormat(format).map((q) => q.id);
         return { format, total: ids.length, done: countCompleted(ids, completed) };
       }),
-    [completed]
+    [completed, questionsByFormat]
   );
 
   const recent = getQuestions(progress.recent).slice(0, RECENT_LIMIT);
@@ -48,7 +49,7 @@ export default function DashboardPage() {
     const plan = getStudyPlan(DEFAULT_PLAN_ID) ?? content.studyPlans[0];
     const ids = plan ? planQuestionIds(plan) : allIds;
     return getQuestions(ids.filter((id) => !completed[id])).slice(0, RECOMMENDED_LIMIT);
-  }, [completed, allIds]);
+  }, [completed, allIds, content.studyPlans, getQuestions, getStudyPlan]);
 
   return (
     <Page>

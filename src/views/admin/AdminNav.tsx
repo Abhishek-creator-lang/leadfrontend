@@ -8,6 +8,7 @@ import { PATHS } from '@/routes/paths';
 
 const TABS = [
   { href: PATHS.admin, label: 'Overview' },
+  { href: PATHS.adminContent, label: 'Content' },
   { href: PATHS.adminUsers, label: 'Users' },
   { href: PATHS.adminSupport, label: 'Buy me a coffee', superAdminOnly: true },
 ];

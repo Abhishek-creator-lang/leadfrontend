@@ -30,7 +30,7 @@ interview dashboard (formats, study plans, focus areas, playbooks), but the cont
 
 ```bash
 npm install
-npm run dev            # builds the content index, then starts Next.js on http://localhost:3100
+npm run dev            # starts Next.js on http://localhost:3100 (needs the database, see below)
 npm run build          # type-checks and builds for production
 npm start              # serves the production build on http://localhost:3100
 npm run verify:content # runs every coding solution against its tests (starters must fail)
@@ -46,7 +46,8 @@ account on first sign-in.
 1. Copy `.env.example` to `.env.local` and set `DATABASE_URL`, `APP_URL` and the `SUPER_ADMIN_*` values.
 2. `npm run db:migrate` creates the tables and the **super admin** (from `SUPER_ADMIN_*`). Change that
    password after the first sign-in (Account → Change password).
-3. Leave `SMTP_HOST` empty in development: emails (confirmation, invite, reset links) are printed to the
+3. `npm run content:import` loads all learner content from `content/` into the database (once; safe to re-run).
+4. Leave `SMTP_HOST` empty in development: emails (confirmation, invite, reset links) are printed to the
    server console instead of being sent.
 
 ```bash
@@ -80,8 +81,8 @@ the app does not process or verify them.
 ## Stack
 
 - Next.js 15 (App Router), React 19, TypeScript and MUI 5 (theme structure adapted from `mt-business-frontend`)
-- Routes live in `src/app/`. Server components read `content/` from disk; pages render per request because the
-  root layout reads the session. Interactive screens are client components in `src/views/`.
+- Routes live in `src/app/`. Content is read from PostgreSQL (`src/server/content/catalog.ts`); pages render per
+  request because the root layout reads the session. Interactive screens are client components in `src/views/`.
 - PostgreSQL + Knex (migrations in `db/migrations`), Nodemailer, zod, Server Actions
 - Redux Toolkit (`progress` slice: synced to the database for signed-in users, `localStorage` for guests)
 
@@ -91,8 +92,8 @@ src/
   views/       client screens, one folder per feature (dashboard, questions, workspace, …)
   components/  shared UI (LinkCard, ProgressSummary, Section, QuestionList, Markdown, …)
   layout/      AppShell (app bar + sidebar) and Page/PageHeader
-  content/     content index + lookups (index.ts), filesystem loaders (server.ts)
-  server/      server-only: db (Knex), auth (sessions, tokens, DAL), mail, repositories
+  content/     content types + lookups (client: `useContent()`, server: `getContent()`)
+  server/      server-only: db (Knex), auth (sessions, tokens, DAL), mail, content catalog, repositories
   middleware.ts  redirects guests away from /admin and /account
   constants/   app, layout, navigation, storage keys, timings, colors
   utils/       pure helpers (progress, format, files, date, download)
@@ -101,13 +102,31 @@ src/
 - `@codesandbox/sandpack-react`, `react-markdown` with GFM and highlight.js, and Mermaid for diagrams
 - Vitest, jsdom and Testing Library to verify the content
 
-## Content
+## Content (CMS)
 
-All content lives in `content/`. Each question is a folder containing `meta.json`, `prompt.md` and `solution.md`, plus
-`starter/`, `solution/` and tests for coding questions. `scripts/build-index.ts` validates everything with zod and
-generates `src/content/index.generated.json`, and invalid content fails the build. See
-[CONTENT_GUIDE.md](./CONTENT_GUIDE.md) for the authoring spec and [content-plan/CATALOG.md](./content-plan/CATALOG.md)
-for the full catalog.
+All learner content (questions, guides and chapters, study plans, focus areas, company guides and the topic/company
+tag lists) is stored in PostgreSQL and managed by admins under **Admin → Content** (`/admin/content`). Every item is
+one JSON document validated by the zod schemas in `src/lib/validation/content.ts`.
+
+- **Draft → Published.** Editors change a draft; learners only see the published copy until **Publish**. Unpublish,
+  archive (hidden, progress kept) and restore are one click; never-published drafts can be deleted.
+- **Editors:** Markdown with live preview for prompts, solutions, chapters and company guides; a file editor for
+  starter / solution / test code with **Check tests** (runs the tests against the solution and the starter in the
+  sandbox — advisory only); question pickers for study plans and focus areas; managed tag lists with rename/merge.
+- **Revision history:** every save and publish is kept (last 50 saves per item); any revision can be restored
+  into the draft.
+- **Renames are safe:** changing a slug/format and publishing redirects the old URL, rewrites plan / focus-area
+  references and moves learners' progress to the new id. Plans can only reference published questions, and a
+  question used by a plan can't be archived or unpublished.
+- Publishing bumps a content version; every server instance reloads the catalog on its next request.
+
+`content/` is now an archive in the original file layout ([CONTENT_GUIDE.md](./CONTENT_GUIDE.md)):
+
+```bash
+npm run content:import             # files → database (adds missing items; --force overwrites CMS edits)
+npm run content:export             # published database content → content/ (e.g. to commit a snapshot)
+npm run verify:content             # runs every coding solution in content/ against its tests
+```
 
 ```
 content/

@@ -1,12 +1,12 @@
 'use server';
 
-import { getQuestion, getStudyPlan } from '@/content';
 import {
   progressStateSchema,
   questionPatchSchema,
   type QuestionPatchInput,
 } from '@/lib/validation/progress';
 import { getCurrentUser } from '@/server/auth/dal';
+import { getContent } from '@/server/content/catalog';
 import {
   loadUserProgress,
   mergeUserProgress,
@@ -30,7 +30,8 @@ async function userId() {
 }
 
 /** Drops ids that are not in the content index (renamed or made-up questions/plans). */
-function sanitize(state: ProgressState): ProgressState {
+async function sanitize(state: ProgressState): Promise<ProgressState> {
+  const { getQuestion, getStudyPlan } = await getContent();
   const keepQuestions = <T>(r: Record<string, T>) =>
     Object.fromEntries(Object.entries(r).filter(([id]) => getQuestion(id)));
   return {
@@ -48,7 +49,7 @@ function sanitize(state: ProgressState): ProgressState {
 
 export async function syncQuestionAction(questionId: string, patch: QuestionPatchInput) {
   const uid = await userId();
-  if (!getQuestion(questionId)) throw new Error('Unknown question');
+  if (!(await getContent()).getQuestion(questionId)) throw new Error('Unknown question');
   const p = questionPatchSchema.parse(patch);
   const now = new Date();
   await upsertQuestionProgress(uid, questionId, {
@@ -62,14 +63,14 @@ export async function syncQuestionAction(questionId: string, patch: QuestionPatc
 
 export async function setPlanStartedAction(planId: string, started: boolean) {
   const uid = await userId();
-  if (!getStudyPlan(planId)) throw new Error('Unknown study plan');
+  if (!(await getContent()).getStudyPlan(planId)) throw new Error('Unknown study plan');
   await setPlanStarted(uid, planId, started);
 }
 
 /** Settings → Import while signed in: replaces the account's progress. */
 export async function replaceProgressAction(state: ProgressState) {
   const uid = await userId();
-  await replaceUserProgress(uid, sanitize(progressStateSchema.parse(state)));
+  await replaceUserProgress(uid, await sanitize(progressStateSchema.parse(state)));
 }
 
 /** Settings → Reset while signed in. */
@@ -83,6 +84,6 @@ export async function resetProgressAction() {
  */
 export async function mergeGuestProgressAction(state: ProgressState): Promise<ProgressState> {
   const uid = await userId();
-  await mergeUserProgress(uid, sanitize(progressStateSchema.parse(state)));
+  await mergeUserProgress(uid, await sanitize(progressStateSchema.parse(state)));
   return loadUserProgress(uid);
 }

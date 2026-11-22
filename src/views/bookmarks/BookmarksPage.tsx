@@ -4,11 +4,12 @@ import { EmptyState } from '@/components/EmptyState';
 import { QuestionList } from '@/components/QuestionList';
 import { CONTENT_MAX_WIDTH } from '@/constants/layout';
 import { PAGE_TITLES } from '@/constants/navigation';
-import { getQuestions } from '@/content';
+import { useContent } from '@/context/ContentContext';
 import { Page, PageHeader } from '@/layout/Page';
 import { useAppSelector } from '@/store';
 
 export default function BookmarksPage() {
+  const { getQuestions } = useContent();
   const bookmarked = useAppSelector((s) => s.progress.bookmarked);
   const questions = getQuestions(Object.keys(bookmarked));
   return (

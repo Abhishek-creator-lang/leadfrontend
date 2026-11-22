@@ -4,12 +4,13 @@ import { Grid, Typography } from '@mui/material';
 import { NamedIcon } from '@/components/icons';
 import { LinkCard } from '@/components/LinkCard';
 import { PAGE_TITLES } from '@/constants/navigation';
-import { content } from '@/content';
+import { useContent } from '@/context/ContentContext';
 import { Page, PageHeader } from '@/layout/Page';
 import { guidePath } from '@/routes/paths';
 import { pluralize } from '@/utils/format';
 
 export default function GuidesPage() {
+  const { content } = useContent();
   return (
     <Page>
       <PageHeader

@@ -18,7 +18,7 @@ import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 import DescriptionRoundedIcon from '@mui/icons-material/DescriptionRounded';
 import type { SvgIconComponent } from '@mui/icons-material';
 
-const ICONS: Record<string, SvgIconComponent> = {
+export const ICONS: Record<string, SvgIconComponent> = {
   accessibility: AccessibilityNewRoundedIcon,
   async: SyncRoundedIcon,
   dsa: AccountTreeRoundedIcon,

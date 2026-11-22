@@ -4,11 +4,12 @@ import { Grid, Typography } from '@mui/material';
 import { EmptyState } from '@/components/EmptyState';
 import { LinkCard } from '@/components/LinkCard';
 import { PAGE_TITLES } from '@/constants/navigation';
-import { content } from '@/content';
+import { useContent } from '@/context/ContentContext';
 import { Page, PageHeader } from '@/layout/Page';
 import { companyPath } from '@/routes/paths';
 
 export default function CompaniesPage() {
+  const { content } = useContent();
   return (
     <Page>
       <PageHeader

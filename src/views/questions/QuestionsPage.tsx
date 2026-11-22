@@ -21,7 +21,7 @@ import { ProgressSummary } from '@/components/ProgressSummary';
 import { QuestionList } from '@/components/QuestionList';
 import { PAGE_TITLES } from '@/constants/navigation';
 import { DEBOUNCE_MS } from '@/constants/timing';
-import { content, FORMAT_COUNTS, questionsByFormat } from '@/content';
+import { useContent } from '@/context/ContentContext';
 import { FORMAT_INFO, FORMAT_ORDER, QUIZ_CATEGORY_LABEL } from '@/content/formats';
 import type { Format, QuestionMeta, QuizCategory } from '@/content/types';
 import { useDebounce } from '@/hooks/useDebounce';
@@ -65,6 +65,7 @@ function useQueryFilters() {
 }
 
 export default function QuestionsPage({ format }: { format?: Format }) {
+  const { content, FORMAT_COUNTS, questionsByFormat } = useContent();
   const { params, getList, set, clear } = useQueryFilters();
   const completed = useAppSelector((s) => s.progress.completed);
 
@@ -78,7 +79,10 @@ export default function QuestionsPage({ format }: { format?: Format }) {
   const status = params.get('status') ?? '';
   const sort = params.get('sort') ?? 'default';
 
-  const base = useMemo(() => (format ? questionsByFormat(format) : content.questions), [format]);
+  const base = useMemo(
+    () => (format ? questionsByFormat(format) : content.questions),
+    [format, questionsByFormat, content.questions]
+  );
   const topicOptions = useMemo(() => uniqueSorted(base.flatMap((q) => q.topics)), [base]);
   const companyOptions = useMemo(() => uniqueSorted(base.flatMap((q) => q.companies)), [base]);
   const categoryOptions = useMemo(

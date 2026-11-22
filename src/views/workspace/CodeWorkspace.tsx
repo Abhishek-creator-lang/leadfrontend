@@ -15,17 +15,12 @@ import { Box, Button, ButtonGroup, Stack, Tooltip, Typography } from '@mui/mater
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import RestartAltRoundedIcon from '@mui/icons-material/RestartAltRounded';
 import LightbulbRoundedIcon from '@mui/icons-material/LightbulbRounded';
+import { UI_TEST_DEPENDENCIES } from '@/constants/sandpack';
 import { DEBOUNCE_MS } from '@/constants/timing';
 import type { QuestionMeta } from '@/content/types';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { clearDraft, saveDraft } from '@/store/progressSlice';
 import { buildSandpackFiles, FileMap, isTestFile } from '@/utils/files';
-
-/** Testing Library versions installed in the Sandpack runtime for UI questions that ship tests. */
-const UI_TEST_DEPENDENCIES = {
-  '@testing-library/react': '^14.3.1',
-  '@testing-library/dom': '^9.3.4',
-};
 
 /** Max number of visible files before the file explorer is shown for UI questions. */
 const MAX_FILES_WITHOUT_EXPLORER = 2;

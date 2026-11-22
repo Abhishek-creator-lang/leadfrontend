@@ -5,7 +5,7 @@ import { EmptyState } from '@/components/EmptyState';
 import { ProgressSummary } from '@/components/ProgressSummary';
 import { QuestionList } from '@/components/QuestionList';
 import { CONTENT_MAX_WIDTH } from '@/constants/layout';
-import { getQuestions, getStudyPlan } from '@/content';
+import { useContent } from '@/context/ContentContext';
 import { Page, PageHeader } from '@/layout/Page';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { leavePlan, startPlan } from '@/store/progressSlice';
@@ -13,6 +13,7 @@ import { countCompleted, planQuestionIds } from '@/utils/progress';
 import { PlanStats } from './PlanStats';
 
 export default function StudyPlanDetailPage({ id }: { id: string }) {
+  const { getQuestions, getStudyPlan } = useContent();
   const plan = getStudyPlan(id);
   const dispatch = useAppDispatch();
   const completed = useAppSelector((s) => s.progress.completed);

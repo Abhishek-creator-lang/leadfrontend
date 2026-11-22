@@ -8,6 +8,8 @@ import { mergeGuestProgressAction } from '@/app/actions/progress';
 import type { SessionUser } from '@/constants/roles';
 import { DEBOUNCE_MS } from '@/constants/timing';
 import { ProgressHydrationContext } from '@/context/ProgressHydrationContext';
+import { ContentProvider } from '@/context/ContentContext';
+import type { ContentIndex } from '@/content/types';
 import { SessionContext } from '@/context/SessionContext';
 import { SupportContext } from '@/context/SupportContext';
 import type { SupportSettings } from '@/lib/validation/support';
@@ -112,11 +114,14 @@ function AccountProviders({
 export function Providers({
   user,
   initialProgress,
+  content,
   support,
   children,
 }: {
   user: SessionUser | null;
   initialProgress: ProgressState | null;
+  /** Published content index, loaded from the database by the root layout. */
+  content: ContentIndex;
   /** Active "Buy me a coffee" settings, or null when off. */
   support: SupportSettings | null;
   children: ReactNode;
@@ -125,13 +130,15 @@ export function Providers({
     <AppRouterCacheProvider>
       <ThemeModeProvider>
         <SessionContext.Provider value={user}>
-          <SupportContext.Provider value={support}>
-            {user && initialProgress ? (
-              <AccountProviders initialProgress={initialProgress}>{children}</AccountProviders>
-            ) : (
-              <GuestProviders>{children}</GuestProviders>
-            )}
-          </SupportContext.Provider>
+          <ContentProvider content={content}>
+            <SupportContext.Provider value={support}>
+              {user && initialProgress ? (
+                <AccountProviders initialProgress={initialProgress}>{children}</AccountProviders>
+              ) : (
+                <GuestProviders>{children}</GuestProviders>
+              )}
+            </SupportContext.Provider>
+          </ContentProvider>
         </SessionContext.Provider>
       </ThemeModeProvider>
     </AppRouterCacheProvider>

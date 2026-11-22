@@ -8,7 +8,7 @@ import { EmptyState } from '@/components/EmptyState';
 import { Markdown } from '@/components/Markdown';
 import { SourceNote } from '@/components/SourceNote';
 import { APP_BAR_HEIGHT, CONTENT_MAX_WIDTH, FULL_HEIGHT_BELOW_APP_BAR } from '@/constants/layout';
-import { getGuide } from '@/content';
+import { useContent } from '@/context/ContentContext';
 import { guidePath } from '@/routes/paths';
 
 const TOC_WIDTH = 280;
@@ -23,6 +23,7 @@ export default function GuideChapterPage({
   chapter: string;
   md: string | null;
 }) {
+  const { getGuide } = useContent();
   const guide = getGuide(guideId);
   if (!guide) return <EmptyState title="Guide not found" />;
 

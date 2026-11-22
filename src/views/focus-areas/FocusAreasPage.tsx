@@ -5,13 +5,14 @@ import { NamedIcon } from '@/components/icons';
 import { LinkCard } from '@/components/LinkCard';
 import { ProgressSummary } from '@/components/ProgressSummary';
 import { PAGE_TITLES } from '@/constants/navigation';
-import { content } from '@/content';
+import { useContent } from '@/context/ContentContext';
 import { Page, PageHeader } from '@/layout/Page';
 import { focusAreaPath } from '@/routes/paths';
 import { useAppSelector } from '@/store';
 import { countCompleted } from '@/utils/progress';
 
 export default function FocusAreasPage() {
+  const { content } = useContent();
   const completed = useAppSelector((s) => s.progress.completed);
   return (
     <Page>

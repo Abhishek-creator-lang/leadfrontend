@@ -5,10 +5,10 @@ import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
 import TrendingUpRoundedIcon from '@mui/icons-material/TrendingUpRounded';
 import { Section } from '@/components/Section';
 import { StatCard } from '@/components/StatCard';
-import { getQuestion } from '@/content';
 import { PageHeader } from '@/layout/Page';
 import { PATHS, questionPath } from '@/routes/paths';
 import { requireAdmin } from '@/server/auth/dal';
+import { getContent } from '@/server/content/catalog';
 import { progressOverview } from '@/server/repositories/progress';
 import { userStats } from '@/server/repositories/users';
 import { LinkButton, TextLink } from '@/components/links';
@@ -16,7 +16,11 @@ import { LinkButton, TextLink } from '@/components/links';
 export default async function AdminOverviewPage() {
   // Pages render in parallel with their layout, so each admin page checks access itself.
   await requireAdmin();
-  const [users, progress] = await Promise.all([userStats(), progressOverview()]);
+  const [users, progress, { getQuestion }] = await Promise.all([
+    userStats(),
+    progressOverview(),
+    getContent(),
+  ]);
   const totalUsers = Object.values(users.byRole).reduce((a, b) => a + b, 0);
 
   return (

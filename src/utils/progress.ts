@@ -1,5 +1,4 @@
-import type { StudyPlan } from '@/content/types';
-import { getQuestion } from '@/content';
+import type { QuestionMeta, StudyPlan } from '@/content/types';
 
 type CompletedMap = Record<string, unknown>;
 
@@ -13,9 +12,9 @@ export const percent = (done: number, total: number) => (total ? (done / total) 
 /** Every question id in a study plan, in section order. */
 export const planQuestionIds = (plan: StudyPlan) => plan.sections.flatMap((s) => s.questions);
 
-/** Total estimated minutes for a list of question ids. */
-export const totalMinutes = (ids: readonly string[]) =>
-  ids.reduce((sum, id) => sum + (getQuestion(id)?.duration ?? 0), 0);
+/** Total estimated minutes for a list of questions. */
+export const totalMinutes = (questions: readonly Pick<QuestionMeta, 'duration'>[]) =>
+  questions.reduce((sum, q) => sum + q.duration, 0);
 
 export const formatHours = (mins: number) =>
   mins < 60 ? `${mins} min` : `${Math.round(mins / 6) / 10} hrs`;

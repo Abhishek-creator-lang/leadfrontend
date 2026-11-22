@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
+import { permanentRedirect } from 'next/navigation';
 import { EmptyState } from '@/components/EmptyState';
-import { content, getQuestion } from '@/content';
-import { loadQuestionFiles } from '@/content/server';
+import { findRedirect, getContent, getQuestionFiles } from '@/server/content/catalog';
 import type { PageProps } from '@/types/next';
 import QuestionPage from '@/views/workspace/QuestionPage';
 
@@ -9,16 +9,20 @@ type Params = { format: string; slug: string };
 
 const questionId = ({ format, slug }: Params) => `${format}/${slug}`;
 
-export function generateStaticParams(): Params[] {
-  return content.questions.map(({ format, slug }) => ({ format, slug }));
-}
-
 export async function generateMetadata({ params }: PageProps<Params>): Promise<Metadata> {
+  const { getQuestion } = await getContent();
   return { title: getQuestion(questionId(await params))?.title ?? 'Question not found' };
 }
 
 export default async function Page({ params }: PageProps<Params>) {
-  const q = getQuestion(questionId(await params));
-  if (!q) return <EmptyState title="Question not found" description="It may have been renamed." />;
-  return <QuestionPage q={q} files={await loadQuestionFiles(q)} />;
+  const id = questionId(await params);
+  const { getQuestion } = await getContent();
+  const q = getQuestion(id);
+  if (!q) {
+    // Renamed in the CMS: send old links (bookmarks, search engines) to the new URL.
+    const moved = await findRedirect(`/questions/${id}`);
+    if (moved) permanentRedirect(moved);
+    return <EmptyState title="Question not found" description="It may have been renamed." />;
+  }
+  return <QuestionPage q={q} files={await getQuestionFiles(id)} />;
 }

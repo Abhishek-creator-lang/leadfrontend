@@ -16,7 +16,7 @@ import FileUploadRoundedIcon from '@mui/icons-material/FileUploadRounded';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import { CONTENT_MAX_WIDTH } from '@/constants/layout';
 import { PAGE_TITLES } from '@/constants/navigation';
-import { content } from '@/content';
+import { useContent } from '@/context/ContentContext';
 import { ThemeModeContext } from '@/context/ThemeModeContext';
 import { Page, PageHeader } from '@/layout/Page';
 import { useCurrentUser } from '@/context/SessionContext';
@@ -56,6 +56,7 @@ function SettingsCard({
 }
 
 export default function SettingsPage() {
+  const { content } = useContent();
   const { mode, setMode } = useContext(ThemeModeContext);
   const dispatch = useAppDispatch();
   const store = useAppStore();

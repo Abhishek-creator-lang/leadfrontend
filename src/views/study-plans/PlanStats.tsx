@@ -1,13 +1,17 @@
+'use client';
+
 import { Chip, Stack } from '@mui/material';
+import { useContent } from '@/context/ContentContext';
 import type { StudyPlan } from '@/content/types';
 import { pluralize } from '@/utils/format';
 import { formatHours, planQuestionIds, totalMinutes } from '@/utils/progress';
 
 /** Duration / workload chips for a study plan. `detailed` adds the audience and merges the schedule. */
 export function PlanStats({ plan, detailed = false }: { plan: StudyPlan; detailed?: boolean }) {
+  const { getQuestions } = useContent();
   const ids = planQuestionIds(plan);
   const weeks = pluralize(plan.weeks, 'week');
-  const total = formatHours(totalMinutes(ids));
+  const total = formatHours(totalMinutes(getQuestions(ids)));
 
   return (
     <Stack direction="row" spacing={1} sx={{ mb: 2 }} flexWrap="wrap" useFlexGap>

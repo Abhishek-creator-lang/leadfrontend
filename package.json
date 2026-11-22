@@ -5,9 +5,7 @@
   "type": "module",
   "scripts": {
     "index": "tsx scripts/build-index.ts",
-    "predev": "npm run index",
     "dev": "next dev -p 3100",
-    "prebuild": "npm run index",
     "build": "next build",
     "start": "next start -p 3100",
     "lint": "next lint --dir src",
@@ -18,7 +16,9 @@
     "db:migrate": "tsx scripts/db.ts latest",
     "db:rollback": "tsx scripts/db.ts rollback",
     "db:status": "tsx scripts/db.ts status",
-    "db:make": "tsx scripts/db.ts make"
+    "db:make": "tsx scripts/db.ts make",
+    "content:import": "tsx scripts/content-import.ts",
+    "content:export": "tsx scripts/content-export.ts"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.2",

@@ -4,7 +4,7 @@ import { Chip, Grid, Stack, Typography } from '@mui/material';
 import { LinkCard } from '@/components/LinkCard';
 import { ProgressSummary } from '@/components/ProgressSummary';
 import { PAGE_TITLES } from '@/constants/navigation';
-import { content } from '@/content';
+import { useContent } from '@/context/ContentContext';
 import { Page, PageHeader } from '@/layout/Page';
 import { studyPlanPath } from '@/routes/paths';
 import { useAppSelector } from '@/store';
@@ -12,6 +12,7 @@ import { countCompleted, planQuestionIds } from '@/utils/progress';
 import { PlanStats } from './PlanStats';
 
 export default function StudyPlansPage() {
+  const { content } = useContent();
   const completed = useAppSelector((s) => s.progress.completed);
   const started = useAppSelector((s) => s.progress.startedPlans);
 

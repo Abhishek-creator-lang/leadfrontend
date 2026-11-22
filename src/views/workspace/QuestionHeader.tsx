@@ -17,7 +17,7 @@ import BookmarkRoundedIcon from '@mui/icons-material/BookmarkRounded';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
-import { questionsByFormat } from '@/content';
+import { useContent } from '@/context/ContentContext';
 import { FORMAT_INFO } from '@/content/formats';
 import type { QuestionMeta } from '@/content/types';
 import { formatPath, questionPath } from '@/routes/paths';
@@ -54,10 +54,11 @@ function SiblingLink({
 
 /** Breadcrumb, bookmark/complete toggles and prev/next navigation within the question's format. */
 export function QuestionHeader({ q }: { q: QuestionMeta }) {
+  const { questionsByFormat } = useContent();
   const dispatch = useAppDispatch();
   const done = useAppSelector((s) => !!s.progress.completed[q.id]);
   const bookmarked = useAppSelector((s) => !!s.progress.bookmarked[q.id]);
-  const siblings = useMemo(() => questionsByFormat(q.format), [q.format]);
+  const siblings = useMemo(() => questionsByFormat(q.format), [q.format, questionsByFormat]);
   const idx = siblings.findIndex((s) => s.id === q.id);
 
   return (
