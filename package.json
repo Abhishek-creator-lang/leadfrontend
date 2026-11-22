@@ -19,7 +19,8 @@
     "db:status": "tsx scripts/db.ts status",
     "db:make": "tsx scripts/db.ts make",
     "content:import": "tsx scripts/content-import.ts",
-    "content:export": "tsx scripts/content-export.ts"
+    "content:export": "tsx scripts/content-export.ts",
+    "audit:content": "tsx scripts/audit-content-sources.ts"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.2",

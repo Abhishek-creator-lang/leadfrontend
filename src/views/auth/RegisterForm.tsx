@@ -3,7 +3,13 @@
 import { useActionState } from 'react';
 import { Stack } from '@mui/material';
 import { registerAction } from '@/app/(auth)/actions';
-import { FormAlert, FormField, PasswordField, SubmitButton } from '@/components/auth/FormParts';
+import {
+  FormAlert,
+  FormField,
+  PasswordField,
+  SubmitButton,
+  TermsCheckbox,
+} from '@/components/auth/FormParts';
 import { initialActionState } from '@/lib/actionState';
 import { PASSWORD_MIN_LENGTH } from '@/lib/validation/auth';
 
@@ -45,6 +51,7 @@ export function RegisterForm() {
           autoComplete="new-password"
           required
         />
+        <TermsCheckbox state={state} />
         <SubmitButton>Create account</SubmitButton>
       </Stack>
     </form>

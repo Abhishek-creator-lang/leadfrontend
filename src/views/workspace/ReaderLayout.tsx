@@ -5,6 +5,7 @@ import { Box, Button, Divider, Tab, Tabs, Typography } from '@mui/material';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import { Markdown } from '@/components/Markdown';
 import { SourceNote } from '@/components/SourceNote';
+import { ReportIssueLink } from '@/components/ReportIssueLink';
 import { CONTENT_MAX_WIDTH } from '@/constants/layout';
 import type { QuestionMeta } from '@/content/types';
 import { FileMap } from '@/utils/files';
@@ -74,6 +75,7 @@ export function ReaderLayout({ q, files }: { q: QuestionMeta; files: FileMap }) 
             )}
             <References q={q} />
             <SourceNote source={q.source} />
+            <ReportIssueLink />
             <RelatedQuestions q={q} />
           </>
         )}

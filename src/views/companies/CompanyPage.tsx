@@ -1,8 +1,11 @@
 'use client';
 
+import { Alert } from '@mui/material';
 import { EmptyState } from '@/components/EmptyState';
+import { APP_NAME } from '@/constants/app';
 import { Markdown } from '@/components/Markdown';
 import { SourceNote } from '@/components/SourceNote';
+import { ReportIssueLink } from '@/components/ReportIssueLink';
 import { CONTENT_MAX_WIDTH } from '@/constants/layout';
 import { useContent } from '@/context/ContentContext';
 import { Page, PageHeader } from '@/layout/Page';
@@ -15,8 +18,14 @@ export default function CompanyPage({ slug, md }: { slug: string; md: string | n
   return (
     <Page maxWidth={CONTENT_MAX_WIDTH.reading}>
       <PageHeader title={company.title} />
+      <Alert severity="info" sx={{ mb: 3 }}>
+        {APP_NAME} is not affiliated with {company.name}. This guide summarizes publicly shared
+        candidate reports, which may be outdated or inaccurate. Follow your recruiter&apos;s
+        instructions.
+      </Alert>
       <Markdown>{md ?? ''}</Markdown>
       <SourceNote source={company.source} />
+      <ReportIssueLink />
     </Page>
   );
 }

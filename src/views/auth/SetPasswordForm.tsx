@@ -3,7 +3,13 @@
 import { useActionState } from 'react';
 import { Stack } from '@mui/material';
 import { acceptInviteAction, resetPasswordAction } from '@/app/(auth)/actions';
-import { FormAlert, FormField, PasswordField, SubmitButton } from '@/components/auth/FormParts';
+import {
+  FormAlert,
+  FormField,
+  PasswordField,
+  SubmitButton,
+  TermsCheckbox,
+} from '@/components/auth/FormParts';
 import { initialActionState } from '@/lib/actionState';
 import { PASSWORD_MIN_LENGTH } from '@/lib/validation/auth';
 
@@ -55,6 +61,7 @@ export function SetPasswordForm({
           autoComplete="new-password"
           required
         />
+        {mode === 'invite' && <TermsCheckbox state={state} />}
         <SubmitButton>{mode === 'invite' ? 'Activate account' : 'Set new password'}</SubmitButton>
       </Stack>
     </form>

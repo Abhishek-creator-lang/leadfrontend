@@ -19,6 +19,8 @@ import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 import PhoneIphoneRoundedIcon from '@mui/icons-material/PhoneIphoneRounded';
 import type { SupportSettings } from '@/lib/validation/support';
 import { buildUpiUri, formatRupees } from '@/utils/upi';
+import NextLink from 'next/link';
+import { PATHS } from '@/routes/paths';
 import { FONT_MONO } from '@/theme/fonts';
 
 const QR_SIZE = 208;
@@ -136,6 +138,15 @@ export function SupportPanel({ settings }: { settings: SupportSettings }) {
           <OpenInNewRoundedIcon sx={{ fontSize: 14, verticalAlign: 'middle' }} />
         </Link>
       )}
+
+      <Typography variant="caption" color="text.secondary" textAlign="center">
+        A voluntary contribution to a free project. Nothing is sold, and contributions are
+        non-refundable. See the{' '}
+        <Link component={NextLink} href={PATHS.terms} color="inherit">
+          Terms
+        </Link>
+        .
+      </Typography>
     </Stack>
   );
 }

@@ -17,6 +17,7 @@ import {
   ListItemText,
   ListSubheader,
   TextField,
+  Stack,
   Toolbar,
   Tooltip,
   Typography,
@@ -57,6 +58,7 @@ import {
   questionPath,
 } from '@/routes/paths';
 import { UserMenu } from './UserMenu';
+import { Footer, LEGAL_LINKS } from './Footer';
 import { LogoMark } from '@/components/LogoMark';
 import { FONT_HEADING } from '@/theme/fonts';
 import { SupportButton } from '@/components/support/SupportButton';
@@ -220,6 +222,31 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
           onNavigate={onNavigate}
         />
       </List>
+      <Stack
+        direction="row"
+        flexWrap="wrap"
+        useFlexGap
+        columnGap={1.5}
+        rowGap={0.5}
+        sx={{ px: 2, pt: 2, pb: 1 }}
+      >
+        {LEGAL_LINKS.slice(0, 3).map((l) => (
+          <Box
+            key={l.href}
+            component={NextLink}
+            href={l.href}
+            onClick={onNavigate}
+            sx={{
+              fontSize: 12,
+              color: 'text.secondary',
+              textDecoration: 'none',
+              '&:hover': { textDecoration: 'underline' },
+            }}
+          >
+            {l.label}
+          </Box>
+        ))}
+      </Stack>
     </Box>
   );
 }
@@ -388,8 +415,13 @@ export function AppShell({ children }: { children: ReactNode }) {
         </Drawer>
       )}
 
-      <Box component="main" sx={{ flex: 1, minWidth: 0, pt: appBarOffset }}>
-        {children}
+      <Box
+        component="main"
+        sx={{ flex: 1, minWidth: 0, pt: appBarOffset, display: 'flex', flexDirection: 'column' }}
+      >
+        <Box sx={{ flex: 1 }}>{children}</Box>
+        {/* The question workspace is full height, so it shows the links in the sidebar instead. */}
+        {!isQuestionWorkspacePath(pathname) && <Footer />}
       </Box>
     </Box>
   );

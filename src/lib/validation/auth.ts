@@ -13,6 +13,11 @@ const email = z
 
 const name = z.string().trim().min(1, 'Name is required').max(100, 'Name is too long');
 
+/** The "I agree to the Terms and Privacy Policy" checkbox (sent as "on" when ticked). */
+const acceptTerms = z.literal('on', {
+  errorMap: () => ({ message: 'Please accept the Terms of Use and Privacy Policy to continue' }),
+});
+
 const newPassword = z
   .string()
   .min(PASSWORD_MIN_LENGTH, `Use at least ${PASSWORD_MIN_LENGTH} characters`)
@@ -31,13 +36,17 @@ export const loginSchema = z.object({
   password: z.string().min(1, 'Password is required'),
 });
 
-export const registerSchema = withConfirmation({ name, email });
+export const registerSchema = withConfirmation({ name, email, acceptTerms });
 
 export const emailOnlySchema = z.object({ email });
 
 export const resetPasswordSchema = withConfirmation({ token: z.string().min(1) });
 
-export const acceptInviteSchema = withConfirmation({ token: z.string().min(1), name });
+export const acceptInviteSchema = withConfirmation({
+  token: z.string().min(1),
+  name,
+  acceptTerms,
+});
 
 export const updateProfileSchema = z.object({ name });
 

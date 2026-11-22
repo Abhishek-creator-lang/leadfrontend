@@ -7,6 +7,7 @@ import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import { EmptyState } from '@/components/EmptyState';
 import { Markdown } from '@/components/Markdown';
 import { SourceNote } from '@/components/SourceNote';
+import { ReportIssueLink } from '@/components/ReportIssueLink';
 import { APP_BAR_HEIGHT, CONTENT_MAX_WIDTH, FULL_HEIGHT_BELOW_APP_BAR } from '@/constants/layout';
 import { useContent } from '@/context/ContentContext';
 import { guidePath } from '@/routes/paths';
@@ -91,6 +92,7 @@ export default function GuideChapterPage({
             </Typography>
             <Markdown>{md}</Markdown>
             <SourceNote source={current.source} />
+            <ReportIssueLink />
             <Stack
               direction="row"
               justifyContent="space-between"

@@ -11,6 +11,8 @@ export interface UserRow {
   status: UserStatus;
   email_verified_at: Date | null;
   last_login_at: Date | null;
+  /** When the Terms of Use and Privacy Policy were accepted. */
+  terms_accepted_at: Date | null;
   created_by: string | null;
   created_at: Date;
   updated_at: Date;
@@ -51,6 +53,7 @@ export async function createUser(input: {
   status: UserStatus;
   passwordHash?: string | null;
   createdBy?: string | null;
+  termsAccepted?: boolean;
 }): Promise<UserRow> {
   const [row] = await db<UserRow>('users')
     .insert({
@@ -60,6 +63,7 @@ export async function createUser(input: {
       status: input.status,
       password_hash: input.passwordHash ?? null,
       created_by: input.createdBy ?? null,
+      terms_accepted_at: input.termsAccepted ? db.fn.now() : null,
     })
     .returning('*');
   return row;
@@ -75,11 +79,18 @@ export async function updateUser(
 }
 
 /** Marks the email as verified and the account active (verify link / accepted invite). */
-export const activateUser = (id: string, extra: { name?: string; password_hash?: string } = {}) =>
+export const activateUser = (
+  id: string,
+  {
+    termsAccepted,
+    ...extra
+  }: { name?: string; password_hash?: string; termsAccepted?: boolean } = {}
+) =>
   db('users')
     .where({ id })
     .update({
       ...extra,
+      ...(termsAccepted ? { terms_accepted_at: db.fn.now() } : {}),
       status: 'active',
       email_verified_at: db.raw('coalesce(email_verified_at, now())'),
       updated_at: db.fn.now(),

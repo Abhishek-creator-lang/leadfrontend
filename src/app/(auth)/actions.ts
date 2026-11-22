@@ -97,6 +97,7 @@ export async function registerAction(_prev: ActionState, form: FormData): Promis
       role: 'learner',
       status: 'pending',
       passwordHash: await hashPassword(password),
+      termsAccepted: true,
     });
     await sendVerification(user);
   } catch (err) {
@@ -189,6 +190,7 @@ export async function acceptInviteAction(_prev: ActionState, form: FormData): Pr
   await activateUser(userId, {
     name: parsed.data.name,
     password_hash: await hashPassword(parsed.data.password),
+    termsAccepted: true,
   });
   await createSession(userId);
   redirect(isAdminRole(user.role) ? PATHS.admin : PATHS.dashboard);

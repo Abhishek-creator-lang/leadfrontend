@@ -1,5 +1,9 @@
 # Content sources and licenses
 
+> The public version of this page is `/licenses` (source: `src/content/legal/licenses.ts`), which also
+> reproduces the license notices as MIT requires. Update both when sources change. Run
+> `npm run audit:content` to list titles and names to reword.
+
 Most of the content in `content/` was written for this project. Third-party material appears only where its
 license allows it, and every imported page carries a `source` field. The app shows an attribution line on those
 pages.

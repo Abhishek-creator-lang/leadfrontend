@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import { Alert, Box, CircularProgress, Tab, Tabs, Typography } from '@mui/material';
 import { Markdown } from '@/components/Markdown';
 import { SourceNote } from '@/components/SourceNote';
+import { ReportIssueLink } from '@/components/ReportIssueLink';
 import type { QuestionMeta } from '@/content/types';
 import { useProgressHydrated } from '@/context/ProgressHydrationContext';
 import { ThemeModeContext } from '@/context/ThemeModeContext';
@@ -69,6 +70,7 @@ export function CodingLayout({ q, files }: { q: QuestionMeta; files: FileMap }) 
                 <MetaLine q={q} />
                 <Markdown>{files['prompt.md'] ?? ''}</Markdown>
                 <SourceNote source={q.source} />
+                <ReportIssueLink />
                 <RelatedQuestions q={q} />
               </>
             )}

@@ -35,6 +35,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry(PATHS.guides, 0.8),
     entry(PATHS.companies, 0.8),
     entry(PATHS.support, 0.3, 'monthly'),
+    ...[PATHS.terms, PATHS.privacy, PATHS.disclaimer, PATHS.copyright, PATHS.licenses].map((p) =>
+      entry(p, 0.2, 'monthly')
+    ),
     ...content.questions.map((q) => entry(questionPath(q), 0.7)),
     ...content.studyPlans.map((p) => entry(studyPlanPath(p.id), 0.7)),
     ...content.focusAreas.map((a) => entry(focusAreaPath(a.id), 0.7)),

@@ -12,6 +12,12 @@ export const PATHS = {
   settings: '/settings',
   support: '/support',
 
+  terms: '/terms',
+  privacy: '/privacy',
+  disclaimer: '/disclaimer',
+  copyright: '/copyright',
+  licenses: '/licenses',
+
   login: '/login',
   register: '/register',
   verifyEmail: '/verify-email',

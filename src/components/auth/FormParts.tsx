@@ -6,6 +6,11 @@ import {
   Alert,
   Button,
   ButtonProps,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormHelperText,
+  Link,
   IconButton,
   InputAdornment,
   TextField,
@@ -13,7 +18,9 @@ import {
 } from '@mui/material';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
+import NextLink from 'next/link';
 import type { ActionState } from '@/lib/actionState';
+import { PATHS } from '@/routes/paths';
 
 /** Submit button that disables itself and shows progress while the form's action runs. */
 export function SubmitButton({ children, ...rest }: ButtonProps) {
@@ -77,4 +84,30 @@ export function FormAlert({ state }: { state: ActionState }) {
   if (error) return <Alert severity="error">{error}</Alert>;
   if (state.ok && state.message) return <Alert severity="success">{state.message}</Alert>;
   return null;
+}
+
+/** Required "I agree to the Terms of Use and Privacy Policy" checkbox (field `acceptTerms`). */
+export function TermsCheckbox({ state }: { state: ActionState }) {
+  const error = state.errors?.acceptTerms;
+  return (
+    <FormControl error={!!error}>
+      <FormControlLabel
+        control={<Checkbox name="acceptTerms" required size="small" />}
+        label={
+          <>
+            I agree to the{' '}
+            <Link component={NextLink} href={PATHS.terms} target="_blank">
+              Terms of Use
+            </Link>{' '}
+            and{' '}
+            <Link component={NextLink} href={PATHS.privacy} target="_blank">
+              Privacy Policy
+            </Link>
+          </>
+        }
+        slotProps={{ typography: { variant: 'body2' } }}
+      />
+      {error && <FormHelperText sx={{ mt: 0 }}>{error}</FormHelperText>}
+    </FormControl>
+  );
 }
