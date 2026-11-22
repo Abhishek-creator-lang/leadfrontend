@@ -30,6 +30,17 @@ export function clip(text: string, max = 155): string {
   return `${cut.slice(0, cut.lastIndexOf(' ') > 80 ? cut.lastIndexOf(' ') : cut.length).replace(/[,.;:\s]+$/, '')}…`;
 }
 
+/** Default share image (src/app/opengraph-image.tsx). */
+const OG_IMAGE = { url: '/opengraph-image', width: 1200, height: 630 };
+
+/** Joins sentences, adding a period only where one is missing. */
+export const sentences = (...parts: (string | undefined)[]) =>
+  parts
+    .map((p) => p?.trim())
+    .filter(Boolean)
+    .map((p) => (/[.!?…]$/.test(p!) ? p : `${p}.`))
+    .join(' ');
+
 /** Pages that must not appear in search results (auth, account, admin, personal pages). */
 export const NOINDEX: Metadata['robots'] = { index: false, follow: true };
 
@@ -51,8 +62,17 @@ export function pageMetadata({
     title,
     description: desc,
     alternates: { canonical: path },
-    openGraph: { type, url: path, title, description: desc, siteName: APP_NAME, locale: 'en_US' },
-    twitter: { card: 'summary_large_image', title, description: desc },
+    // A page-level openGraph replaces the root one, so the share image is set explicitly.
+    openGraph: {
+      type,
+      url: path,
+      title,
+      description: desc,
+      siteName: APP_NAME,
+      locale: 'en_US',
+      images: [OG_IMAGE],
+    },
+    twitter: { card: 'summary_large_image', title, description: desc, images: [OG_IMAGE.url] },
     ...(noindex ? { robots: NOINDEX } : {}),
   };
 }

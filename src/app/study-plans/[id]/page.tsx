@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { breadcrumbLd, itemListLd, pageMetadata } from '@/lib/seo';
+import { breadcrumbLd, itemListLd, pageMetadata, sentences } from '@/lib/seo';
 import { PATHS, questionPath, studyPlanPath } from '@/routes/paths';
 import { findRedirect, getContent } from '@/server/content/catalog';
 import type { PageProps } from '@/types/next';
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps<Params>): Promise<M
   if (!p) return {};
   return pageMetadata({
     title: `${p.title}: ${p.weeks}-Week Front End Interview Study Plan`,
-    description: `${p.subtitle}. ${p.description}`,
+    description: sentences(p.subtitle, p.description),
     path: studyPlanPath(p.id),
   });
 }
