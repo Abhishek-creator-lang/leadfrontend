@@ -30,6 +30,9 @@ export function clip(text: string, max = 155): string {
   return `${cut.slice(0, cut.lastIndexOf(' ') > 80 ? cut.lastIndexOf(' ') : cut.length).replace(/[,.;:\s]+$/, '')}…`;
 }
 
+/** Text without Markdown code ticks, for titles and structured data. */
+export const plain = (text: string) => text.replace(/`/g, '');
+
 /** Default share image (src/app/opengraph-image.tsx). */
 const OG_IMAGE = { url: '/opengraph-image', width: 1200, height: 630 };
 
@@ -177,8 +180,8 @@ const publisher = () => ({ '@type': 'Organization', name: APP_NAME, url: siteUrl
 export const questionLd = (q: QuestionSummary, path: string) => ({
   '@context': 'https://schema.org',
   '@type': 'LearningResource',
-  name: q.title,
-  description: q.excerpt,
+  name: plain(q.title),
+  description: plain(q.excerpt),
   url: absoluteUrl(path),
   learningResourceType: FORMAT_SEO[q.format].resourceType,
   educationalLevel: LEVEL[q.difficulty],

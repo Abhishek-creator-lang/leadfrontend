@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { FORMAT_INFO, FORMAT_ORDER, isFormat } from '@/content/formats';
-import { breadcrumbLd, FORMAT_SEO, itemListLd, pageMetadata } from '@/lib/seo';
+import { breadcrumbLd, FORMAT_SEO, itemListLd, pageMetadata, plain } from '@/lib/seo';
 import { PATHS, formatPath, questionPath } from '@/routes/paths';
 import { getContent } from '@/server/content/catalog';
 import type { PageProps } from '@/types/next';
@@ -38,7 +38,7 @@ export default async function Page({ params }: PageProps<Params>) {
         data={[
           itemListLd(
             FORMAT_SEO[format].list,
-            questions.map((q) => ({ name: q.title, path: questionPath(q) }))
+            questions.map((q) => ({ name: plain(q.title), path: questionPath(q) }))
           ),
           breadcrumbLd([
             { name: 'Home', path: PATHS.home },

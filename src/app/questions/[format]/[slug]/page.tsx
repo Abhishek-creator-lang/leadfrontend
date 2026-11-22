@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { FORMAT_INFO } from '@/content/formats';
-import { breadcrumbLd, FORMAT_SEO, pageMetadata, questionLd } from '@/lib/seo';
+import { breadcrumbLd, FORMAT_SEO, pageMetadata, plain, questionLd } from '@/lib/seo';
 import { PATHS, formatPath, questionPath } from '@/routes/paths';
 import { findRedirect, getContent, getQuestionFiles } from '@/server/content/catalog';
 import type { PageProps } from '@/types/next';
@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: PageProps<Params>): Promise<M
   const q = getQuestion(questionId(await params));
   if (!q) return {};
   return pageMetadata({
-    title: `${q.title} – ${FORMAT_SEO[q.format].question}`,
-    description: `${q.excerpt} ${DIFFICULTY_LABEL[q.difficulty]} · ${q.duration} min · with a worked solution.`,
+    title: `${plain(q.title)} – ${FORMAT_SEO[q.format].question}`,
+    description: `${plain(q.excerpt)} ${DIFFICULTY_LABEL[q.difficulty]} · ${q.duration} min · with a worked solution.`,
     path: questionPath(q),
     type: 'article',
   });
@@ -46,7 +46,7 @@ export default async function Page({ params }: PageProps<Params>) {
             { name: 'Home', path: PATHS.home },
             { name: 'Questions', path: PATHS.questions },
             { name: FORMAT_INFO[q.format].label, path: formatPath(q.format) },
-            { name: q.title, path },
+            { name: plain(q.title), path },
           ]),
         ]}
       />

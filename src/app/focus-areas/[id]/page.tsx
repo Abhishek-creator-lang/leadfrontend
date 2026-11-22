@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { breadcrumbLd, itemListLd, pageMetadata } from '@/lib/seo';
+import { breadcrumbLd, itemListLd, pageMetadata, plain } from '@/lib/seo';
 import { PATHS, focusAreaPath, questionPath } from '@/routes/paths';
 import { findRedirect, getContent } from '@/server/content/catalog';
 import type { PageProps } from '@/types/next';
@@ -35,7 +35,10 @@ export default async function Page({ params }: PageProps<Params>) {
         data={[
           itemListLd(
             `${area.title} interview questions`,
-            getQuestions(area.questions).map((q) => ({ name: q.title, path: questionPath(q) }))
+            getQuestions(area.questions).map((q) => ({
+              name: plain(q.title),
+              path: questionPath(q),
+            }))
           ),
           breadcrumbLd([
             { name: 'Home', path: PATHS.home },
