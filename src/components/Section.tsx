@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import NextLink from 'next/link';
-import { Box, Button, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import { LinkButton } from './links';
 
 /** A titled block of a page, with an optional action on the right of the heading. */
 export function Section({
@@ -35,8 +35,8 @@ export function ViewAllButton({
   children?: ReactNode;
 }) {
   return (
-    <Button component={NextLink} href={href} endIcon={<ArrowForwardRoundedIcon />}>
+    <LinkButton href={href} endIcon={<ArrowForwardRoundedIcon />}>
       {children}
-    </Button>
+    </LinkButton>
   );
 }

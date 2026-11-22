@@ -7,3 +7,5 @@ src/content/index.generated.json
 *.local
 scripts/.handbook-manifest.json
 .verify-full.log
+.env
+.env*.local

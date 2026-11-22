@@ -23,25 +23,67 @@ interview dashboard (formats, study plans, focus areas, playbooks), but the cont
   - Behavioral
   - Resume & negotiation
 - **Company guides** for 36 companies.
-- **Local-first:** progress, notes and drafts are saved in `localStorage`, with JSON export and import in Settings.
+- **Accounts:** sign up with email confirmation; progress, notes and drafts sync to your account (guests keep them in `localStorage`). JSON export and import in Settings.
+- **Admin area:** user management, invitations and learner progress for admins and the super admin.
 
 ## Getting started
 
 ```bash
 npm install
 npm run dev            # builds the content index, then starts Next.js on http://localhost:3100
-npm run build          # type-checks and builds for production (pre-renders every page)
+npm run build          # type-checks and builds for production
 npm start              # serves the production build on http://localhost:3100
 npm run verify:content # runs every coding solution against its tests (starters must fail)
 npm run format         # formats the code with Prettier (format:check in CI)
 ```
 
+## Accounts and database
+
+Guests can browse everything; their progress stays in `localStorage`. Signed-in users get their
+progress stored in PostgreSQL (13+) and synced across devices. Guest progress is merged into the
+account on first sign-in.
+
+1. Copy `.env.example` to `.env.local` and set `DATABASE_URL`, `APP_URL` and the `SUPER_ADMIN_*` values.
+2. `npm run db:migrate` creates the tables and the **super admin** (from `SUPER_ADMIN_*`). Change that
+   password after the first sign-in (Account → Change password).
+3. Leave `SMTP_HOST` empty in development: emails (confirmation, invite, reset links) are printed to the
+   server console instead of being sent.
+
+```bash
+npm run db:migrate         # apply pending migrations
+npm run db:rollback        # undo the last batch
+npm run db:status          # list applied / pending migrations
+npm run db:make -- <name>  # new migration in db/migrations
+```
+
+| Role | Can do |
+| --- | --- |
+| Learner | Register (email confirmation), sign in, track progress, notes, drafts and study plans |
+| Admin | Everything a learner can, plus `/admin`: overview stats, user list, learner progress, invite learners, activate/deactivate, send reset links, delete learners |
+| Super admin | Exactly one (created by the migration, enforced by a unique index). Also creates and manages admins |
+
+Credentials are never handled by admins: new accounts get an invite link to set their own password, and
+"reset password" emails the user a reset link. Sessions are opaque random tokens (only their SHA-256 is
+stored) in an httpOnly cookie; passwords are hashed with scrypt. Authorization is checked on every page and
+Server Action in `src/server/auth/dal.ts`; `src/middleware.ts` only redirects guests away from
+`/admin` and `/account`.
+
+## Buy me a coffee (UPI)
+
+All content is free. Visitors can optionally support the site by scanning a UPI QR code (or, on a phone,
+tapping "Pay with UPI app"). The super admin configures it under **Admin → Buy me a coffee**
+(`/admin/support`): turn it on, enter the UPI ID and payee name, suggested amounts, texts, an optional link
+for supporters outside India, and where to show it (top bar, sidebar, dashboard; `/support` always works).
+Settings are stored in the `settings` table (`npm run db:migrate`). Payments go directly to the UPI ID;
+the app does not process or verify them.
+
 ## Stack
 
 - Next.js 15 (App Router), React 19, TypeScript and MUI 5 (theme structure adapted from `mt-business-frontend`)
-- Routes live in `src/app/`. Server components read `content/` from disk and every page is pre-rendered with
-  `generateStaticParams`. Interactive screens are client components in `src/views/`.
-- Redux Toolkit (`progress` slice persisted to localStorage, loaded after hydration)
+- Routes live in `src/app/`. Server components read `content/` from disk; pages render per request because the
+  root layout reads the session. Interactive screens are client components in `src/views/`.
+- PostgreSQL + Knex (migrations in `db/migrations`), Nodemailer, zod, Server Actions
+- Redux Toolkit (`progress` slice: synced to the database for signed-in users, `localStorage` for guests)
 
 ```
 src/
@@ -50,6 +92,8 @@ src/
   components/  shared UI (LinkCard, ProgressSummary, Section, QuestionList, Markdown, …)
   layout/      AppShell (app bar + sidebar) and Page/PageHeader
   content/     content index + lookups (index.ts), filesystem loaders (server.ts)
+  server/      server-only: db (Knex), auth (sessions, tokens, DAL), mail, repositories
+  middleware.ts  redirects guests away from /admin and /account
   constants/   app, layout, navigation, storage keys, timings, colors
   utils/       pure helpers (progress, format, files, date, download)
   store/ context/ hooks/ theme/ routes/

@@ -19,6 +19,7 @@ import { PAGE_TITLES } from '@/constants/navigation';
 import { content } from '@/content';
 import { ThemeModeContext } from '@/context/ThemeModeContext';
 import { Page, PageHeader } from '@/layout/Page';
+import { useCurrentUser } from '@/context/SessionContext';
 import { useAppDispatch, useAppStore } from '@/store';
 import { importProgress, ProgressState, resetProgress } from '@/store/progressSlice';
 import { toISODate } from '@/utils/date';
@@ -58,6 +59,7 @@ export default function SettingsPage() {
   const { mode, setMode } = useContext(ThemeModeContext);
   const dispatch = useAppDispatch();
   const store = useAppStore();
+  const user = useCurrentUser();
   const fileRef = useRef<HTMLInputElement>(null);
   const [msg, setMsg] = useState<Message | null>(null);
 
@@ -78,7 +80,13 @@ export default function SettingsPage() {
   };
 
   const onReset = () => {
-    if (window.confirm('Delete all progress, notes and drafts? This cannot be undone.')) {
+    if (
+      window.confirm(
+        user
+          ? 'Delete all progress, notes and drafts from your account? This cannot be undone.'
+          : 'Delete all progress, notes and drafts? This cannot be undone.'
+      )
+    ) {
       dispatch(resetProgress());
     }
   };
@@ -99,8 +107,9 @@ export default function SettingsPage() {
       </SettingsCard>
       <SettingsCard title="Progress data">
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-          Progress, notes and code drafts are stored only in this browser. Export a backup to move
-          them to another device.
+          {user
+            ? 'Progress, notes and code drafts are saved to your account and sync across devices. Import replaces your account data; reset deletes it.'
+            : 'Progress, notes and code drafts are stored only in this browser. Sign in to keep them in your account, or export a backup to move them to another device.'}
         </Typography>
         <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
           <Button variant="outlined" startIcon={<FileDownloadRoundedIcon />} onClick={onExport}>

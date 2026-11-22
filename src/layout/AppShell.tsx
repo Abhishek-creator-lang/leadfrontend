@@ -35,15 +35,29 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
+import AdminPanelSettingsRoundedIcon from '@mui/icons-material/AdminPanelSettingsRounded';
+import GroupRoundedIcon from '@mui/icons-material/GroupRounded';
 import { APP_NAME } from '@/constants/app';
 import { APP_BAR_HEIGHT, DRAWER_WIDTH } from '@/constants/layout';
 import { MAIN_NAV, NavKey, PAGE_TITLES } from '@/constants/navigation';
 import { content, FORMAT_COUNTS } from '@/content';
 import { FORMAT_INFO, FORMAT_ORDER } from '@/content/formats';
 import type { QuestionMeta } from '@/content/types';
+import { isAdminRole } from '@/constants/roles';
+import { useCurrentUser } from '@/context/SessionContext';
 import { ThemeModeContext } from '@/context/ThemeModeContext';
 import { useModeColors } from '@/hooks/useModeColors';
-import { PATHS, formatPath, isQuestionWorkspacePath, questionPath } from '@/routes/paths';
+import {
+  PATHS,
+  formatPath,
+  isAuthPath,
+  isQuestionWorkspacePath,
+  questionPath,
+} from '@/routes/paths';
+import { UserMenu } from './UserMenu';
+import { SupportButton } from '@/components/support/SupportButton';
+import { useSupportSettings } from '@/context/SupportContext';
+import LocalCafeRoundedIcon from '@mui/icons-material/LocalCafeRounded';
 
 const NAV_ICONS: Partial<Record<NavKey, ReactNode>> = {
   dashboard: <DashboardRoundedIcon />,
@@ -97,7 +111,26 @@ function NavItem({
   );
 }
 
+function SectionHeader({ children }: { children: ReactNode }) {
+  return (
+    <ListSubheader
+      disableSticky
+      sx={{
+        bgcolor: 'transparent',
+        lineHeight: '32px',
+        fontSize: 12,
+        textTransform: 'uppercase',
+        letterSpacing: '0.06em',
+      }}
+    >
+      {children}
+    </ListSubheader>
+  );
+}
+
 function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
+  const isAdmin = isAdminRole(useCurrentUser()?.role);
+  const support = useSupportSettings();
   return (
     <Box sx={{ px: 1.5, py: 1, overflowY: 'auto', flex: 1 }}>
       <List dense disablePadding>
@@ -113,24 +146,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
         ))}
       </List>
       <Divider sx={{ my: 1.5 }} />
-      <List
-        dense
-        disablePadding
-        subheader={
-          <ListSubheader
-            disableSticky
-            sx={{
-              bgcolor: 'transparent',
-              lineHeight: '32px',
-              fontSize: 12,
-              textTransform: 'uppercase',
-              letterSpacing: '0.06em',
-            }}
-          >
-            Question formats
-          </ListSubheader>
-        }
-      >
+      <List dense disablePadding subheader={<SectionHeader>Question formats</SectionHeader>}>
         {FORMAT_ORDER.map((f) => (
           <NavItem
             key={f}
@@ -152,8 +168,36 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
           />
         ))}
       </List>
+      {isAdmin && (
+        <>
+          <Divider sx={{ my: 1.5 }} />
+          <List dense disablePadding subheader={<SectionHeader>Admin</SectionHeader>}>
+            <NavItem
+              to={PATHS.admin}
+              label="Overview"
+              icon={<AdminPanelSettingsRoundedIcon />}
+              end
+              onNavigate={onNavigate}
+            />
+            <NavItem
+              to={PATHS.adminUsers}
+              label="Users"
+              icon={<GroupRoundedIcon />}
+              onNavigate={onNavigate}
+            />
+          </List>
+        </>
+      )}
       <Divider sx={{ my: 1.5 }} />
       <List dense disablePadding>
+        {support?.showInSidebar && (
+          <NavItem
+            to={PATHS.support}
+            label={support.heading}
+            icon={<LocalCafeRoundedIcon />}
+            onNavigate={onNavigate}
+          />
+        )}
         <NavItem
           to={PATHS.settings}
           label={PAGE_TITLES.settings}
@@ -228,7 +272,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const { mode, toggleTheme } = useContext(ThemeModeContext);
   const pathname = usePathname() ?? '';
-  const permanent = isDesktop && !isQuestionWorkspacePath(pathname);
+  const permanent = isDesktop && !isQuestionWorkspacePath(pathname) && !isAuthPath(pathname);
   const appBarOffset = `${APP_BAR_HEIGHT}px`;
 
   return (
@@ -260,11 +304,13 @@ export function AppShell({ children }: { children: ReactNode }) {
           </Box>
           <GlobalSearch />
           <Box sx={{ flex: 1 }} />
+          <SupportButton />
           <Tooltip title={mode === 'dark' ? 'Light mode' : 'Dark mode'}>
             <IconButton onClick={toggleTheme} aria-label="Toggle color mode">
               {mode === 'dark' ? <LightModeRoundedIcon /> : <DarkModeRoundedIcon />}
             </IconButton>
           </Tooltip>
+          <UserMenu />
         </Toolbar>
       </AppBar>
 
