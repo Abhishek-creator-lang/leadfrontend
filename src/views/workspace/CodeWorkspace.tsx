@@ -27,10 +27,14 @@ import { buildSandpackFiles, FileMap, isTestFile } from '@/utils/files';
 const MAX_FILES_WITHOUT_EXPLORER = 2;
 
 /**
- * Sandpack's own "Run tests" button inside the tests panel. Its run function isn't exposed as an API,
+ * Sandpack's own run button inside the tests panel. Its run function isn't exposed as an API,
  * so our toolbar button and the keyboard shortcut click this one.
+ *
+ * Don't select it by `title`: Sandpack's `RoundedButton` drops the `title` prop, so
+ * `button[title="Run tests"]` never matches. Inside `.sp-tests` the run button is the only
+ * `.sp-icon-standalone` (the header buttons use `.sp-test-header-button`).
  */
-const SANDPACK_RUN_TESTS_BUTTON = 'button[title="Run tests"]';
+const SANDPACK_RUN_TESTS_BUTTON = '.sp-tests .sp-icon-standalone';
 
 const isMac = () => typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform);
 
@@ -150,8 +154,18 @@ export function CodeWorkspace({
   // Tests never run on their own (watchMode off): only from the button or Ctrl/Cmd+Enter.
   const panelRef = useRef<HTMLDivElement>(null);
   const runTests = useCallback(() => {
-    // While a run is in progress Sandpack shows a spinner instead of the button, so this is a no-op.
-    panelRef.current?.querySelector<HTMLButtonElement>(SANDPACK_RUN_TESTS_BUTTON)?.click();
+    // While a run is in progress (or the runner is initialising) Sandpack shows a spinner instead
+    // of the button, so this is a no-op then.
+    const panel = panelRef.current;
+    const button = panel?.querySelector<HTMLButtonElement>(SANDPACK_RUN_TESTS_BUTTON);
+    if (button) {
+      button.click();
+      return;
+    }
+    // A missing button with no spinner means Sandpack's markup changed and the selector is stale.
+    if (process.env.NODE_ENV !== 'production' && panel && !panel.querySelector('.sp-tests .sp-loading')) {
+      console.warn(`[CodeWorkspace] Sandpack run-tests button not found (${SANDPACK_RUN_TESTS_BUTTON}).`);
+    }
   }, []);
 
   useEffect(() => {
