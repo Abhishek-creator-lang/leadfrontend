@@ -59,6 +59,7 @@ import {
 } from '@/routes/paths';
 import { UserMenu } from './UserMenu';
 import { Footer, LEGAL_LINKS } from './Footer';
+import { NavigationProgress, startNavigationProgress } from './NavigationProgress';
 import { LogoMark } from '@/components/LogoMark';
 import { FONT_HEADING } from '@/theme/fonts';
 import { SupportButton } from '@/components/support/SupportButton';
@@ -274,7 +275,11 @@ function GlobalSearch() {
       getOptionLabel={(q) => q.title}
       groupBy={(q) => FORMAT_INFO[q.format].label}
       onChange={(_, q) => {
-        if (q) router.push(questionPath(q));
+        if (q) {
+          const href = questionPath(q);
+          startNavigationProgress(href);
+          router.push(href);
+        }
         setValue(null);
       }}
       blurOnSelect
@@ -347,6 +352,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
+      <NavigationProgress />
       <AppBar
         position="fixed"
         color="inherit"

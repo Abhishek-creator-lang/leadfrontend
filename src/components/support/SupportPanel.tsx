@@ -7,6 +7,7 @@ import {
   Box,
   Button,
   Chip,
+  Divider,
   IconButton,
   Link,
   Stack,
@@ -15,6 +16,7 @@ import {
 } from '@mui/material';
 import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
+import CreditCardRoundedIcon from '@mui/icons-material/CreditCardRounded';
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 import PhoneIphoneRoundedIcon from '@mui/icons-material/PhoneIphoneRounded';
 import type { SupportSettings } from '@/lib/validation/support';
@@ -25,7 +27,10 @@ import { FONT_MONO } from '@/theme/fonts';
 
 const QR_SIZE = 208;
 
-/** UPI QR (updates with the chosen amount), pay-in-app button for phones and copy-UPI-ID. */
+/**
+ * Card / international link (when configured) at the top, then the UPI QR (updates with the
+ * chosen amount), pay-in-app button for phones and copy-UPI-ID.
+ */
 export function SupportPanel({ settings }: { settings: SupportSettings }) {
   const [amount, setAmount] = useState<number | undefined>(
     settings.amounts[1] ?? settings.amounts[0]
@@ -52,6 +57,33 @@ export function SupportPanel({ settings }: { settings: SupportSettings }) {
   return (
     <Stack spacing={2.5} alignItems="center" textAlign="center">
       {settings.message && <Typography color="text.secondary">{settings.message}</Typography>}
+
+      {/* Card / international option sits above the QR so it's visible without scrolling. */}
+      {settings.externalUrl && (
+        <>
+          <Box sx={{ width: '100%' }}>
+            <Button
+              href={settings.externalUrl}
+              target="_blank"
+              rel="noreferrer"
+              variant="outlined"
+              fullWidth
+              startIcon={<CreditCardRoundedIcon />}
+              endIcon={<OpenInNewRoundedIcon />}
+            >
+              {settings.externalLabel || 'Support from outside India'}
+            </Button>
+            <Typography variant="caption" color="text.secondary" component="p" sx={{ mt: 0.5 }}>
+              Pay by card or from outside India
+            </Typography>
+          </Box>
+          <Divider flexItem>
+            <Typography variant="caption" color="text.secondary">
+              or pay with UPI (India)
+            </Typography>
+          </Divider>
+        </>
+      )}
 
       {settings.amounts.length > 0 && (
         <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap justifyContent="center">
@@ -130,13 +162,6 @@ export function SupportPanel({ settings }: { settings: SupportSettings }) {
         <Alert severity="success" icon={false} sx={{ width: '100%', justifyContent: 'center' }}>
           {settings.thankYou}
         </Alert>
-      )}
-
-      {settings.externalUrl && (
-        <Link href={settings.externalUrl} target="_blank" rel="noreferrer" variant="body2">
-          {settings.externalLabel || 'Support from outside India'}{' '}
-          <OpenInNewRoundedIcon sx={{ fontSize: 14, verticalAlign: 'middle' }} />
-        </Link>
       )}
 
       <Typography variant="caption" color="text.secondary" textAlign="center">
