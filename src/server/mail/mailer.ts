@@ -1,5 +1,6 @@
 import 'server-only';
 import nodemailer, { Transporter } from 'nodemailer';
+import { siteUrl } from '@/lib/seo';
 import { env } from '../env';
 import type { MailContent } from './templates';
 
@@ -33,4 +34,4 @@ export async function sendMail(to: string, content: MailContent) {
 }
 
 /** Absolute URL for an email link. */
-export const appUrl = (path: string) => new URL(path, env().APP_URL).toString();
+export const appUrl = (path: string) => new URL(path, siteUrl()).toString();

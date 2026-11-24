@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { APP_NAME } from '@/constants/app';
+import { APP_NAME, PRODUCTION_URL } from '@/constants/app';
 import type { Difficulty, Format, QuestionMeta } from '@/content/types';
 
 /** Question fields used by SEO helpers (works with the slim client summary too). */
@@ -13,8 +13,15 @@ type QuestionSummary = Pick<
  * schema.org builders for JSON-LD. Server-only by usage (metadata functions and server pages).
  */
 
-/** Public origin of the site, from APP_URL (no trailing slash). */
-export const siteUrl = () => (process.env.APP_URL || 'http://localhost:3100').replace(/\/+$/, '');
+/**
+ * Public origin of the site, from APP_URL (trimmed, no trailing slash). Without APP_URL it falls
+ * back to the production domain in production and to localhost in development.
+ */
+export const siteUrl = () =>
+  (
+    process.env.APP_URL?.trim() ||
+    (process.env.NODE_ENV === 'production' ? PRODUCTION_URL : 'http://localhost:3100')
+  ).replace(/\/+$/, '');
 
 export const absoluteUrl = (path: string) =>
   `${siteUrl()}${path.startsWith('/') ? path : `/${path}`}`;

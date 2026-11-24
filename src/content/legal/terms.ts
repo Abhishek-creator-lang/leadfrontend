@@ -4,7 +4,7 @@ import { LEGAL } from '@/constants/legal';
 const L = LEGAL;
 
 export const TERMS_MD = `
-These Terms of Use ("**Terms**") govern your use of ${APP_NAME} (the "**Site**"), run by ${L.operatorName}, an individual based in ${L.country} ("**we**", "**us**"). By using the Site or creating an account you agree to these Terms and to our [Privacy Policy](/privacy). If you do not agree, do not use the Site.
+These Terms of Use ("**Terms**") govern your use of ${APP_NAME} (the "**Site**"), run by an individual based in ${L.country} ("**we**", "**us**"). By using the Site or creating an account you agree to these Terms and to our [Privacy Policy](/privacy). If you do not agree, do not use the Site.
 
 ## 1. Who can use the Site
 
@@ -78,7 +78,7 @@ We may change, suspend or discontinue the Site or any content at any time. We ma
 
 ## 14. Governing law and disputes
 
-These Terms are governed by the laws of **${L.country}**. Subject to applicable law, the courts at **${L.jurisdictionCity}** have exclusive jurisdiction over any dispute arising from these Terms or the Site. Before starting any proceedings, you agree to contact us at ${L.contactEmail} and give us 30 days to try to resolve the matter informally.
+These Terms are governed by the laws of **${L.country}**. Before starting any proceedings, you agree to contact us at ${L.contactEmail} and give us 30 days to try to resolve the matter informally.
 
 ## 15. General
 
