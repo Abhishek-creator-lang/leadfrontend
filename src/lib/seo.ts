@@ -135,7 +135,7 @@ export const siteLd = () => [
     '@type': 'Organization',
     name: APP_NAME,
     url: siteUrl(),
-    logo: absoluteUrl('/favicon.svg'),
+    logo: absoluteUrl('/icon-192.png'),
   },
 ];
 

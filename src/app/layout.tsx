@@ -49,7 +49,16 @@ export const metadata: Metadata = {
   title: { default: APP_TITLE, template: `%s | ${APP_NAME}` },
   description: APP_DESCRIPTION,
   applicationName: APP_NAME,
-  icons: { icon: '/favicon.svg' },
+  // Raster sizes (multiples of 48px) are what Google Search reliably uses; the SVG is for browsers.
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon-48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/icon-96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+  },
   openGraph: {
     type: 'website',
     siteName: APP_NAME,
