@@ -4,9 +4,9 @@ import { PATHS } from '@/routes/paths';
 import StudyPlansPage from '@/views/study-plans/StudyPlansPage';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Front End Interview Study Plans',
+  title: 'Frontend Interview Study Plans',
   description:
-    'Structured front end interview study plans for every timeline: curated JavaScript, React, algorithms and system design questions, week by week.',
+    'Structured frontend interview study plans for every timeline: curated JavaScript, React, algorithms and system design questions, week by week.',
   path: PATHS.studyPlans,
 });
 

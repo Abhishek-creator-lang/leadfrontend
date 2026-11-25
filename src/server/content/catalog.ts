@@ -177,6 +177,23 @@ export const getContentUpdatedAt = cache(async (): Promise<Date> => {
   }
 });
 
+/**
+ * When each live entry was last published, keyed `${type}:${key}` (e.g. `question:javascript/debounce`,
+ * `company:google`). Feeds per-URL `lastmod` in the sitemap. Empty without a database.
+ */
+export const getPublishedDates = cache(async (): Promise<Map<string, Date>> => {
+  try {
+    const rows = await live().select<{ type: string; key: string; published_at: Date | string }[]>(
+      'type',
+      'key',
+      'published_at'
+    );
+    return new Map(rows.map((r) => [`${r.type}:${r.key}`, new Date(r.published_at)]));
+  } catch {
+    return new Map();
+  }
+});
+
 /** Prompt, solution and code files of a published question, keyed like the old content folder. */
 export const getQuestionFiles = cache(async (id: string): Promise<Record<string, string>> => {
   const row = await live()

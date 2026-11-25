@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { APP_NAME } from '@/constants/app';
 
-export const alt = `${APP_NAME}: front end interview questions and prep for senior engineers`;
+export const alt = `${APP_NAME}: frontend interview questions and prep for senior engineers`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -36,7 +36,7 @@ export default function OpenGraphImage() {
       <div
         style={{ fontSize: 64, fontWeight: 700, lineHeight: 1.15, marginTop: 48, maxWidth: 980 }}
       >
-        Front end interview questions & prep for senior engineers
+        Frontend interview questions & prep for senior engineers
       </div>
       <div style={{ fontSize: 30, color: '#5F636D', marginTop: 28 }}>
         JavaScript · React UI coding · Algorithms · System design · Behavioral

@@ -9,8 +9,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const total = (await getContent()).content.questions.length;
   const rounded = Math.max(10, Math.floor(total / 50) * 50);
   return pageMetadata({
-    title: `${rounded}+ Front End Interview Questions with Solutions`,
-    description: `Browse ${total} front end interview questions with solutions: JavaScript functions, React UI coding, algorithms, quizzes, system design and behavioral. Filter by company, topic and difficulty.`,
+    title: `${rounded}+ Frontend Interview Questions with Solutions`,
+    description: `Browse ${total} frontend interview questions with solutions: JavaScript functions, React UI coding, algorithms, quizzes, system design and behavioral. Filter by company, topic and difficulty.`,
     // Filters (?q, ?company…) are views of the same page.
     path: PATHS.questions,
   });

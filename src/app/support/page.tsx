@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSupportSettings();
   return pageMetadata({
     title: settings.heading,
-    description: settings.message || 'Support Lead Frontend, a free front end interview prep site.',
+    description: settings.message || 'Support Lead Frontend, a free frontend interview prep site.',
     path: PATHS.support,
     noindex: !isSupportActive(settings),
   });

@@ -4,9 +4,9 @@ import { PATHS } from '@/routes/paths';
 import GuidesPage from '@/views/guides/GuidesPage';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Front End Interview Guides & Playbooks',
+  title: 'Frontend Interview Guides & Playbooks',
   description:
-    'Free front end interview guides: how to prepare, system design frameworks, behavioral answers and what senior and lead interviews look for.',
+    'Free frontend interview guides: how to prepare, system design frameworks, behavioral answers and what senior and lead interviews look for.',
   path: PATHS.guides,
 });
 

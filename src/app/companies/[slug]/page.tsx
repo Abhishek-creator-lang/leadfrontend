@@ -14,10 +14,10 @@ import CompanyPage from '@/views/companies/CompanyPage';
 
 type Params = { slug: string };
 
-const title = (name: string) => `${name} Front End Interview Guide`;
+const title = (name: string) => `${name} Frontend Interview Questions & Process`;
 const description = (name: string, md: string | null) =>
   firstParagraph(md ?? '') ||
-  `How the ${name} front end interview works: the rounds, the questions asked and how to prepare.`;
+  `How the ${name} frontend interview works: the rounds, the questions asked and how to prepare.`;
 
 export async function generateMetadata({ params }: PageProps<Params>): Promise<Metadata> {
   const { slug } = await params;

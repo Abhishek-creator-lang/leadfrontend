@@ -4,9 +4,9 @@ import { PATHS } from '@/routes/paths';
 import FocusAreasPage from '@/views/focus-areas/FocusAreasPage';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Front End Interview Questions by Topic',
+  title: 'Frontend Interview Questions by Topic',
   description:
-    'Practice front end interview questions by topic: accessibility, async JavaScript, performance, state management, forms, networking and more.',
+    'Practice frontend interview questions by topic: accessibility, async JavaScript, performance, state management, forms, networking and more.',
   path: PATHS.focusAreas,
 });
 

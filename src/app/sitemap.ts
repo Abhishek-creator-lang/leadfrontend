@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { LANDINGS } from '@/content/landings';
 import { FORMAT_ORDER } from '@/content/formats';
 import { absoluteUrl } from '@/lib/seo';
 import {
@@ -7,41 +8,49 @@ import {
   focusAreaPath,
   formatPath,
   guidePath,
+  landingPath,
   questionPath,
   studyPlanPath,
 } from '@/routes/paths';
-import { getContent, getContentUpdatedAt } from '@/server/content/catalog';
+import { getContent, getContentUpdatedAt, getPublishedDates } from '@/server/content/catalog';
 
-/** Every public, indexable URL. Rebuilt per request from the published catalog. */
+/**
+ * Every public, indexable URL. Rebuilt per request from the published catalog. Detail pages carry
+ * the date their entry was last published; list pages the date anything was last published.
+ * (Google ignores `priority` and `changefreq`, so they're left out.)
+ */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [{ content }, lastModified] = await Promise.all([getContent(), getContentUpdatedAt()]);
-  const entry = (
-    path: string,
-    priority: number,
-    changeFrequency: 'daily' | 'weekly' | 'monthly' = 'weekly'
-  ) => ({
+  const [{ content }, catalogDate, dates] = await Promise.all([
+    getContent(),
+    getContentUpdatedAt(),
+    getPublishedDates(),
+  ]);
+  const entry = (path: string, lastModified: Date = catalogDate) => ({
     url: absoluteUrl(path),
     lastModified,
-    changeFrequency,
-    priority,
   });
+  const dated = (path: string, key: string) => entry(path, dates.get(key) ?? catalogDate);
 
   return [
-    entry(PATHS.home, 1, 'daily'),
-    entry(PATHS.questions, 0.9, 'daily'),
-    ...FORMAT_ORDER.map((f) => entry(formatPath(f), 0.8)),
-    entry(PATHS.studyPlans, 0.8),
-    entry(PATHS.focusAreas, 0.8),
-    entry(PATHS.guides, 0.8),
-    entry(PATHS.companies, 0.8),
-    entry(PATHS.support, 0.3, 'monthly'),
+    entry(PATHS.home),
+    entry(PATHS.questions),
+    ...FORMAT_ORDER.map((f) => entry(formatPath(f))),
+    entry(PATHS.interviewQuestions),
+    ...LANDINGS.map((l) => entry(landingPath(l.slug))),
+    entry(PATHS.studyPlans),
+    entry(PATHS.focusAreas),
+    entry(PATHS.guides),
+    entry(PATHS.companies),
+    entry(PATHS.support),
     ...[PATHS.terms, PATHS.privacy, PATHS.disclaimer, PATHS.copyright, PATHS.licenses].map((p) =>
-      entry(p, 0.2, 'monthly')
+      entry(p)
     ),
-    ...content.questions.map((q) => entry(questionPath(q), 0.7)),
-    ...content.studyPlans.map((p) => entry(studyPlanPath(p.id), 0.7)),
-    ...content.focusAreas.map((a) => entry(focusAreaPath(a.id), 0.7)),
-    ...content.guides.flatMap((g) => g.chapters.map((c) => entry(guidePath(g.id, c.slug), 0.7))),
-    ...content.companies.map((c) => entry(companyPath(c.slug), 0.6)),
+    ...content.questions.map((q) => dated(questionPath(q), `question:${q.id}`)),
+    ...content.studyPlans.map((p) => dated(studyPlanPath(p.id), `study_plan:${p.id}`)),
+    ...content.focusAreas.map((a) => dated(focusAreaPath(a.id), `focus_area:${a.id}`)),
+    ...content.guides.flatMap((g) =>
+      g.chapters.map((c) => dated(guidePath(g.id, c.slug), `guide:${g.id}`))
+    ),
+    ...content.companies.map((c) => dated(companyPath(c.slug), `company:${c.slug}`)),
   ];
 }

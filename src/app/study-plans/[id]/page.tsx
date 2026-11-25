@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps<Params>): Promise<M
   const p = (await getContent()).getStudyPlan(id);
   if (!p) return {};
   return pageMetadata({
-    title: `${p.title}: ${p.weeks}-Week Front End Interview Study Plan`,
+    title: `${p.title}: ${p.weeks}-Week Frontend Interview Study Plan`,
     description: sentences(p.subtitle, p.description),
     path: studyPlanPath(p.id),
   });

@@ -4,6 +4,7 @@ export const PATHS = {
   home: '/',
   dashboard: '/dashboard',
   questions: '/questions',
+  interviewQuestions: '/interview-questions',
   studyPlans: '/study-plans',
   focusAreas: '/focus-areas',
   guides: '/guides',
@@ -37,7 +38,8 @@ export const PATHS = {
 export const questionPath = (q: Pick<QuestionMeta, 'format' | 'slug'>) =>
   `${PATHS.questions}/${q.format}/${q.slug}`;
 export const formatPath = (format: Format) => `${PATHS.questions}/${format}`;
-export const studyPlanPath = (id: string) => `${PATHS.studyPlans}/${id}`;
+export const landingPath = (slug: string) => `${PATHS.interviewQuestions}/${slug}`;
+export const studyPlanPath =(id: string) => `${PATHS.studyPlans}/${id}`;
 export const focusAreaPath = (id: string) => `${PATHS.focusAreas}/${id}`;
 export const guidePath = (guide: string, chapter?: string) =>
   `${PATHS.guides}/${guide}${chapter ? `/${chapter}` : ''}`;

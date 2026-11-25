@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { APP_NAME, PRODUCTION_URL } from '@/constants/app';
+import { QUIZ_CATEGORY_LABEL } from '@/content/formats';
 import type { Difficulty, Format, QuestionMeta } from '@/content/types';
 
 /** Question fields used by SEO helpers (works with the slim client summary too). */
@@ -142,39 +143,64 @@ export const siteLd = () => [
 // ---- Content-specific wording and schema ----
 
 /** Search-friendly nouns per format: what people actually type ("javascript interview questions"). */
-export const FORMAT_SEO: Record<Format, { question: string; list: string; resourceType: string }> =
-  {
-    javascript: {
-      question: 'JavaScript Interview Question',
-      list: 'JavaScript Coding Interview Questions',
-      resourceType: 'Coding exercise',
-    },
-    'user-interface': {
-      question: 'React UI Coding Interview Question',
-      list: 'React & UI Coding Interview Questions',
-      resourceType: 'Coding exercise',
-    },
-    algorithms: {
-      question: 'Algorithm Interview Question',
-      list: 'Algorithm Interview Questions for Front End Engineers',
-      resourceType: 'Coding exercise',
-    },
-    quiz: {
-      question: 'Front End Interview Question',
-      list: 'Front End Quiz Interview Questions',
-      resourceType: 'Quiz',
-    },
-    'system-design': {
-      question: 'Front End System Design Interview Question',
-      list: 'Front End System Design Interview Questions',
-      resourceType: 'Case study',
-    },
-    behavioral: {
-      question: 'Behavioral Interview Question',
-      list: 'Behavioral & Leadership Interview Questions',
-      resourceType: 'Interview question',
-    },
-  };
+export const FORMAT_SEO: Record<Format, { list: string; resourceType: string }> = {
+  javascript: { list: 'JavaScript Coding Interview Questions', resourceType: 'Coding exercise' },
+  'user-interface': {
+    list: 'React Machine Coding Interview Questions',
+    resourceType: 'Coding exercise',
+  },
+  algorithms: {
+    list: 'Algorithm Interview Questions for Frontend Engineers',
+    resourceType: 'Coding exercise',
+  },
+  quiz: { list: 'Frontend Interview Questions and Answers', resourceType: 'Quiz' },
+  'system-design': {
+    list: 'Frontend System Design Interview Questions',
+    resourceType: 'Case study',
+  },
+  behavioral: {
+    list: 'Behavioral & Leadership Interview Questions',
+    resourceType: 'Interview question',
+  },
+};
+
+type TitleQuestion = Pick<QuestionMeta, 'title' | 'format' | 'quizCategory'>;
+
+/**
+ * Page title for a question, phrased the way people search for it
+ * ("implement debounce in javascript", "progress bar react machine coding"). Kept short: Google
+ * shows about 60 characters, so the search terms come first.
+ */
+export function questionTitle(q: TitleQuestion): string {
+  const t = plain(q.title);
+  switch (q.format) {
+    case 'javascript':
+      return `Implement ${t} in JavaScript – Interview Question`;
+    case 'user-interface':
+      return `${t} – React Machine Coding Question`;
+    case 'algorithms':
+      return `${t} in JavaScript – Interview Question`;
+    case 'quiz':
+      return `${t} – ${QUIZ_CATEGORY_LABEL[q.quizCategory ?? 'javascript']} Interview`;
+    case 'system-design':
+      return `Design ${t} – Frontend System Design`;
+    case 'behavioral':
+      return `${t} – Lead Behavioral Interview`;
+  }
+}
+
+/** What the page gives the reader, appended to the question's own excerpt. */
+const QUESTION_PROMISE: Record<Format, string> = {
+  javascript: 'Step-by-step solution with tests you can run in the browser.',
+  'user-interface': 'Code it in a live React editor and compare with a worked solution.',
+  algorithms: 'Worked JavaScript solution with tests you can run in the browser.',
+  quiz: 'Clear, interview-ready answer.',
+  'system-design': 'Requirements, architecture, data model, API and optimizations.',
+  behavioral: 'How to structure a STAR answer for senior and lead roles.',
+};
+
+export const questionDescription = (q: QuestionSummary): string =>
+  sentences(plain(q.excerpt), QUESTION_PROMISE[q.format]);
 
 const LEVEL: Record<Difficulty, string> = {
   easy: 'Beginner',
