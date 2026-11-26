@@ -132,6 +132,50 @@ export function InterviewReportView({
           </Card>
         )}
 
+        {report.coding && (
+          <Card sx={{ p: 2.5, mb: 3 }}>
+            <Typography variant="h6" sx={{ mb: 1 }}>
+              Coding
+            </Typography>
+            <Link component={NextLink} href={`/questions/${report.coding.id}`}>
+              {report.coding.title}
+            </Link>
+            <Stack direction="row" spacing={1} sx={{ mt: 1.5, flexWrap: 'wrap', rowGap: 1 }}>
+              <Chip
+                size="small"
+                color={
+                  report.coding.total && report.coding.passed === report.coding.total
+                    ? 'success'
+                    : 'warning'
+                }
+                label={
+                  report.coding.total
+                    ? `Tests ${report.coding.passed}/${report.coding.total}`
+                    : 'Tests not run'
+                }
+              />
+              <Chip
+                size="small"
+                variant="outlined"
+                label={report.coding.complexityCorrect ? 'Complexity ✓' : 'Complexity ✗'}
+              />
+              <Chip
+                size="small"
+                variant="outlined"
+                label={`${report.coding.clarifications} clarifying ${report.coding.clarifications === 1 ? 'question' : 'questions'}`}
+              />
+              <Chip
+                size="small"
+                variant="outlined"
+                label={`${report.coding.hints} ${report.coding.hints === 1 ? 'hint' : 'hints'}`}
+              />
+              {report.coding.timedOut && (
+                <Chip size="small" color="warning" label="Ran out of time" />
+              )}
+            </Stack>
+          </Card>
+        )}
+
         <Accordion sx={{ mb: 3 }}>
           <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />}>
             <Typography fontWeight={600}>Full transcript</Typography>

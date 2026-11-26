@@ -2,21 +2,32 @@ import type { Difficulty } from '@/content/types';
 import * as S from '@/content/interviewer/script';
 import type { InterviewRole } from '@/content/interviewer/script';
 import { verdict } from '@/utils/mockInterview';
-import { gradeAnswer, intentOf, storySignals, wordCount, type Grade } from './classify';
-import type { BehavioralMaterial, QuizMaterial } from './material';
+import {
+  answerFromRequirements,
+  gradeAnswer,
+  intentOf,
+  isQuestion,
+  mentionsComplexity,
+  storySignals,
+  wordCount,
+  type Grade,
+} from './classify';
+import type { BehavioralMaterial, CodingMaterial, QuizMaterial } from './material';
 
 /**
  * The live interviewer's brain: a pure state machine. The room (src/views/mock/room) feeds it what
  * the candidate said (or a silence) and speaks the lines it returns. Stages run in order:
- * opening → intro → warm-up fundamentals → behavioral → candidate's questions → closing.
+ * opening → intro → warm-up fundamentals → coding → behavioral → candidate's questions → closing.
+ * The coding round also reacts to events from the editor (tests run, idle, time): see codingEvent.
  */
 
-export type Stage = 'opening' | 'intro' | 'warmup' | 'behavioral' | 'questions' | 'done';
+export type Stage = 'opening' | 'intro' | 'warmup' | 'coding' | 'behavioral' | 'questions' | 'done';
 
 export const STAGES: { id: Exclude<Stage, 'done'>; label: string }[] = [
   { id: 'opening', label: 'Welcome' },
   { id: 'intro', label: 'Your intro' },
   { id: 'warmup', label: 'Fundamentals' },
+  { id: 'coding', label: 'Coding' },
   { id: 'behavioral', label: 'Leadership' },
   { id: 'questions', label: 'Your questions' },
 ];
@@ -33,6 +44,8 @@ export interface InterviewPlan {
   introFollowups: number;
   quiz: QuizMaterial[];
   behavioral: BehavioralMaterial[];
+  /** The coding problem, or null for an interview without a coding round. */
+  coding: CodingMaterial | null;
 }
 
 type WarmGrade = Grade | 'dontKnow' | 'skipped';
@@ -45,6 +58,51 @@ export interface WarmupResult {
   score: number;
   missing: string[];
 }
+
+export interface CodingResult {
+  id: string;
+  title: string;
+  passed: number;
+  total: number;
+  hints: number;
+  clarifications: number;
+  thinkAloud: number;
+  complexityCorrect: boolean;
+  timedOut: boolean;
+  score: number;
+  notes: string[];
+}
+
+export type CodingPhase = 'clarify' | 'coding' | 'followups';
+
+interface CodingState {
+  phase: CodingPhase;
+  clarifications: number;
+  hintIndex: number;
+  thinkAloud: number;
+  tests: { passed: number; total: number } | null;
+  runs: number;
+  nudges: number;
+  warnedTime: boolean;
+  offeredHint: boolean;
+  askedRun: boolean;
+  confirmedDone: boolean;
+  timedOut: boolean;
+  solvedEarly: boolean;
+  questions: { kind: 'walkthrough' | 'complexity' | 'edge' | 'twist'; ask: string }[];
+  qIndex: number;
+  complexityCorrect: boolean;
+  edgeAnswered: boolean;
+  result: CodingResult | null;
+}
+
+/** Things that happen in the editor or on the clock during the coding round. */
+export type CodingEvent =
+  | { type: 'tests'; passed: number; total: number; elapsedRatio: number }
+  | { type: 'idle' }
+  | { type: 'timeWarning'; minutesLeft: number }
+  | { type: 'timeUp' }
+  | { type: 'done' };
 
 export interface BehavioralResult {
   id: string;
@@ -80,6 +138,7 @@ export interface EngineState {
     results: WarmupResult[];
   };
   beh: { index: number; probes: string[]; answers: string[]; results: BehavioralResult[] };
+  coding: CodingState;
   qa: { count: number };
 }
 
@@ -125,10 +184,30 @@ export function startInterview(plan: InterviewPlan, seed = 1): Turn {
       results: [],
     },
     beh: { index: 0, probes: [], answers: [], results: [] },
+    coding: {
+      phase: 'clarify',
+      clarifications: 0,
+      hintIndex: 0,
+      thinkAloud: 0,
+      tests: null,
+      runs: 0,
+      nudges: 0,
+      warnedTime: false,
+      offeredHint: false,
+      askedRun: false,
+      confirmedDone: false,
+      timedOut: false,
+      solvedEarly: false,
+      questions: [],
+      qIndex: 0,
+      complexityCorrect: false,
+      edgeAnswered: false,
+      result: null,
+    },
     qa: { count: 0 },
   };
   const say: string[] = [];
-  ask(state, say, ...S.opening(plan.role, plan.behavioral.length));
+  ask(state, say, ...S.opening(plan.role, plan.behavioral.length, Boolean(plan.coding)));
   return { state, say };
 }
 
@@ -165,6 +244,10 @@ export function respond(prev: EngineState, input: string | null): Turn {
 
   if (intent === 'repeat' && s.lastAsk) {
     ask(s, say, S.REPEAT_PREFIX, s.lastAsk);
+    return { state: s, say };
+  }
+  if (s.stage === 'coding') {
+    onCoding(s, say, text, intent);
     return { state: s, say };
   }
   if (intent === 'clarify') {
@@ -225,6 +308,9 @@ function onSilence(s: EngineState, say: string[]) {
     case 'questions':
       onQuestions(s, say, '', true);
       return;
+    case 'coding':
+      onCodingSilence(s, say);
+      return;
     default:
       // intro and behavioral: encourage once, then move on
       if (s.silences === 1) {
@@ -245,6 +331,9 @@ function skipStage(s: EngineState, say: string[]) {
       return;
     case 'warmup':
       if (s.warm.current) finishQuiz(s, say, 'skipped', ['No problem, let’s skip that one.']);
+      return;
+    case 'coding':
+      finishCoding(s, say, ['Okay, let’s move on.']);
       return;
     case 'behavioral':
       finishStory(s, say, ['Okay, let’s leave that one.']);
@@ -291,7 +380,8 @@ const quizById = (s: EngineState, id: string) => s.plan.quiz.find((q) => q.id ==
 function nextQuiz(s: EngineState, say: string[], first = false) {
   const left = s.plan.quiz.filter((q) => !s.warm.asked.includes(q.id));
   if (s.warm.results.length >= s.plan.warmupCount || !left.length) {
-    startBehavioral(s, say);
+    if (s.plan.coding) startCoding(s, say);
+    else startBehavioral(s, say);
     return;
   }
   const last = s.warm.results[s.warm.results.length - 1];
@@ -375,6 +465,232 @@ function finishQuiz(s: EngineState, say: string[], grade: WarmGrade, lines: stri
   s.warm.current = null;
   tell(s, say, ...lines);
   nextQuiz(s, say);
+}
+
+// ---- coding round ----
+
+const DONE_CODING =
+  /\b(i'?m done|i am done|i'?m finished|i am finished|done coding|that'?s my solution|i think i'?m done)\b/i;
+
+function startCoding(s: EngineState, say: string[]) {
+  const m = s.plan.coding!;
+  s.stage = 'coding';
+  s.coding.phase = 'clarify';
+  ask(s, say, S.CODING_START, ...S.codingIntro(m.title, m.intro));
+}
+
+function onCoding(
+  s: EngineState,
+  say: string[],
+  text: string,
+  intent: ReturnType<typeof intentOf>
+) {
+  const c = s.coding;
+  if (intent === 'repeat' && s.lastAsk) {
+    ask(s, say, S.REPEAT_PREFIX, s.lastAsk);
+    return;
+  }
+  if (intent === 'hint') {
+    s.hintsAsked++;
+    codingHint(s, say);
+    return;
+  }
+  if (intent === 'skip' && c.phase !== 'followups') {
+    finishCoding(s, say, ['Okay, let’s move on.']);
+    return;
+  }
+  if (c.phase === 'followups') {
+    onCodingFollowup(s, say, text);
+    return;
+  }
+  const question = isQuestion(text) || intent === 'clarify';
+  if (c.phase === 'clarify') {
+    if (question && c.clarifications < 3) {
+      c.clarifications++;
+      const req = answerFromRequirements(text, s.plan.coding!.requirements);
+      ask(s, say, req ? S.CLARIFY_ANSWER(req) : S.CLARIFY_OPEN, S.CLARIFY_MORE);
+      return;
+    }
+    c.phase = 'coding';
+    ask(s, say, c.clarifications ? S.CODING_GO : S.CODING_GO_NO_QUESTIONS);
+    return;
+  }
+  // Phase 'coding': the candidate is thinking out loud, asking, or saying they are done.
+  if (DONE_CODING.test(text) && wordCount(text) <= 12) {
+    doneCoding(s, say);
+    return;
+  }
+  if (question) {
+    const req = answerFromRequirements(text, s.plan.coding!.requirements);
+    ask(s, say, req ? S.CLARIFY_ANSWER(req) : S.CLARIFY_OPEN);
+    return;
+  }
+  c.thinkAloud++;
+  // A real interviewer mostly listens while you code: acknowledge now and then.
+  if (c.thinkAloud % 2 === 1) ask(s, say, pick(s, S.THINK_ACK));
+  else s.awaiting = true;
+}
+
+function onCodingSilence(s: EngineState, say: string[]) {
+  const c = s.coding;
+  if (c.phase === 'clarify') {
+    c.phase = 'coding';
+    ask(s, say, S.CODING_GO_NO_QUESTIONS);
+  } else if (c.phase === 'followups') {
+    s.transcript.push({ who: 'candidate', text: '(no answer)', stage: s.stage });
+    onCodingFollowup(s, say, '');
+  } else {
+    s.awaiting = true; // silence while coding is normal
+  }
+}
+
+function codingHint(s: EngineState, say: string[]) {
+  const c = s.coding;
+  const hints = s.plan.coding!.hints;
+  if (c.hintIndex < hints.length) {
+    ask(s, say, S.CODING_HINT(hints[c.hintIndex]));
+    c.hintIndex++;
+  } else {
+    ask(s, say, S.CODING_NO_MORE_HINTS);
+  }
+}
+
+function doneCoding(s: EngineState, say: string[]) {
+  const c = s.coding;
+  if (!c.tests && !c.askedRun) {
+    c.askedRun = true;
+    ask(s, say, S.CODING_RUN_FIRST);
+    return;
+  }
+  const passing = Boolean(c.tests && c.tests.total > 0 && c.tests.passed === c.tests.total);
+  if (!passing && !c.confirmedDone) {
+    c.confirmedDone = true;
+    ask(s, say, S.CODING_STILL_FAILING);
+    return;
+  }
+  startCodingFollowups(s, say, passing ? [S.CODING_ALL_PASS] : [], !passing);
+}
+
+function startCodingFollowups(s: EngineState, say: string[], lead: string[], walkthrough: boolean) {
+  const c = s.coding;
+  const m = s.plan.coding!;
+  c.phase = 'followups';
+  c.qIndex = 0;
+  c.questions = [
+    ...(walkthrough ? [{ kind: 'walkthrough' as const, ask: S.CODING_WALKTHROUGH }] : []),
+    { kind: 'complexity' as const, ask: S.CODING_COMPLEXITY_Q },
+    ...(m.edgeCases[0] ? [{ kind: 'edge' as const, ask: S.codingEdgeQ(m.edgeCases[0]) }] : []),
+    ...(c.solvedEarly && m.followUps[0] ? [{ kind: 'twist' as const, ask: m.followUps[0] }] : []),
+  ];
+  ask(s, say, ...lead, c.questions[0].ask);
+}
+
+function onCodingFollowup(s: EngineState, say: string[], text: string) {
+  const c = s.coding;
+  const m = s.plan.coding!;
+  const q = c.questions[c.qIndex];
+  const reply: string[] = [];
+  if (q.kind === 'complexity') {
+    c.complexityCorrect = m.complexityTerms.length
+      ? mentionsComplexity(text, m.complexityTerms)
+      : wordCount(text) >= 3;
+    reply.push(
+      c.complexityCorrect || !m.complexity
+        ? pick(s, S.CODING_COMPLEXITY_OK)
+        : S.codingComplexityFix(m.complexity)
+    );
+  } else {
+    if (q.kind === 'edge') c.edgeAnswered = wordCount(text) >= 6;
+    reply.push(pick(s, S.CODING_FOLLOWUP_ACK));
+  }
+  c.qIndex++;
+  if (c.qIndex < c.questions.length) ask(s, say, ...reply, c.questions[c.qIndex].ask);
+  else finishCoding(s, say, [...reply, S.CODING_DONE]);
+}
+
+function finishCoding(s: EngineState, say: string[], lines: string[]) {
+  const c = s.coding;
+  const m = s.plan.coding!;
+  const passed = c.tests?.passed ?? 0;
+  const total = c.tests?.total ?? 0;
+  const notes: string[] = [];
+  let score = total ? Math.round((passed / total) * 50) : 0;
+  if (c.clarifications) score += 10;
+  else notes.push('Ask at least one clarifying question before you start coding.');
+  if (c.thinkAloud) score += 10;
+  else notes.push('Think out loud while coding so the interviewer can follow your reasoning.');
+  if (c.complexityCorrect) score += 15;
+  else if (m.complexity)
+    notes.push(`State the complexity clearly. For this problem: ${m.complexity}`);
+  if (c.edgeAnswered) score += 10;
+  if (!c.timedOut) score += 5;
+  score = Math.max(0, Math.min(100, score - c.hintIndex * 8));
+  if (!total || passed < total) notes.push(`Get all the tests passing: practise "${m.title}".`);
+  if (c.hintIndex)
+    notes.push(
+      `You used ${c.hintIndex} ${c.hintIndex === 1 ? 'hint' : 'hints'} in the coding round.`
+    );
+  c.result = {
+    id: m.id,
+    title: m.title,
+    passed,
+    total,
+    hints: c.hintIndex,
+    clarifications: c.clarifications,
+    thinkAloud: c.thinkAloud,
+    complexityCorrect: c.complexityCorrect,
+    timedOut: c.timedOut,
+    score,
+    notes,
+  };
+  tell(s, say, ...lines);
+  startBehavioral(s, say);
+}
+
+/** Reacts to the editor and the clock during the coding round. */
+export function codingEvent(prev: EngineState, ev: CodingEvent): Turn {
+  const s: EngineState = structuredClone(prev);
+  const say: string[] = [];
+  const c = s.coding;
+  if (s.stage !== 'coding' || c.phase === 'followups') return { state: s, say };
+
+  switch (ev.type) {
+    case 'tests': {
+      c.tests = { passed: ev.passed, total: ev.total };
+      c.runs++;
+      if (c.phase === 'clarify') c.phase = 'coding';
+      if (ev.total > 0 && ev.passed === ev.total) {
+        c.solvedEarly = ev.elapsedRatio < 0.6;
+        startCodingFollowups(s, say, [S.CODING_ALL_PASS], false);
+      } else if (c.runs === 1) {
+        ask(s, say, S.CODING_FAILING(ev.total - ev.passed));
+      } else if (c.runs >= 3 && !c.offeredHint && c.hintIndex < s.plan.coding!.hints.length) {
+        c.offeredHint = true;
+        ask(s, say, S.CODING_OFFER_HINT);
+      }
+      break;
+    }
+    case 'idle':
+      if (c.phase === 'coding' && c.nudges < 2) {
+        c.nudges++;
+        ask(s, say, S.CODING_NUDGE);
+      }
+      break;
+    case 'timeWarning':
+      if (!c.warnedTime) {
+        c.warnedTime = true;
+        ask(s, say, S.CODING_TIME_WARNING(Math.max(1, Math.round(ev.minutesLeft))));
+      }
+      break;
+    case 'timeUp':
+      c.timedOut = true;
+      startCodingFollowups(s, say, [S.CODING_TIME_UP], true);
+      break;
+    case 'done':
+      doneCoding(s, say);
+      break;
+  }
+  return { state: s, say };
 }
 
 // ---- behavioral ----
@@ -478,6 +794,7 @@ export interface InterviewReport {
   strengths: string[];
   gaps: string[];
   warmup: WarmupResult[];
+  coding: CodingResult | null;
   behavioral: BehavioralResult[];
   hintsUsed: number;
 }
@@ -497,12 +814,15 @@ export function buildReport(s: EngineState): InterviewReport {
     xs.length ? Math.round(xs.reduce((a, b) => a + b, 0) / xs.length) : null;
   const warm = avg(s.warm.results.map((r) => r.score));
   const beh = avg(s.beh.results.map((r) => r.score));
+  const codingResult = s.coding.result;
+  const coding = codingResult ? codingResult.score : null;
   const qa = s.stage === 'done' || s.qa.count ? (s.qa.count ? 100 : 40) : null;
 
   const parts: [number | null, number][] = [
-    [intro, 15],
-    [warm, 40],
-    [beh, 35],
+    [intro, 10],
+    [warm, 25],
+    [coding, 30],
+    [beh, 25],
     [qa, 10],
   ];
   const weight = parts.reduce((w, [v, k]) => w + (v === null ? 0 : k), 0);
@@ -515,12 +835,16 @@ export function buildReport(s: EngineState): InterviewReport {
   if (s.beh.results.some((r) => r.score >= 80))
     strengths.push('Clear, structured leadership stories.');
   if (intro !== null && intro >= 80) strengths.push('A concise, relevant introduction.');
+  if (codingResult && codingResult.total && codingResult.passed === codingResult.total)
+    strengths.push(`Solved the coding problem with all ${codingResult.total} tests passing.`);
+  if (codingResult?.clarifications) strengths.push('Asked clarifying questions before coding.');
   if (s.qa.count) strengths.push('Asked thoughtful questions at the end.');
 
   for (const r of s.warm.results.filter((x) => x.grade !== 'good'))
     gaps.push(
       `Revisit "${r.title}"${r.missing.length ? `: mention ${r.missing.slice(0, 2).join(' and ')}` : ''}.`
     );
+  for (const n of codingResult?.notes ?? []) gaps.push(n);
   for (const n of new Set(s.beh.results.flatMap((r) => r.notes))) gaps.push(n);
   if (introWords && introWords < 60)
     gaps.push('Your intro was short. Aim for about a minute: role, scope, one highlight.');
@@ -534,13 +858,15 @@ export function buildReport(s: EngineState): InterviewReport {
     stages: [
       { id: 'intro', label: 'Intro', score: intro },
       { id: 'warmup', label: 'Fundamentals', score: warm },
+      { id: 'coding', label: 'Coding', score: coding },
       { id: 'behavioral', label: 'Leadership', score: beh },
       { id: 'questions', label: 'Your questions', score: qa },
     ],
     strengths,
-    gaps: gaps.slice(0, 6),
+    gaps: gaps.slice(0, 8),
     warmup: s.warm.results,
+    coding: codingResult,
     behavioral: s.beh.results,
-    hintsUsed: s.hintsAsked + s.warm.results.filter((r) => r.hinted).length,
+    hintsUsed: s.warm.results.filter((r) => r.hinted).length + (codingResult?.hints ?? 0),
   };
 }

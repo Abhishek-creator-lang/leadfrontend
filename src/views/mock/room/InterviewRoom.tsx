@@ -1,6 +1,7 @@
 'use client';
 
-import { FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
+import { FormEvent, KeyboardEvent, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
 import {
   Alert,
@@ -28,14 +29,22 @@ import VideocamRoundedIcon from '@mui/icons-material/VideocamRounded';
 import VideocamOffRoundedIcon from '@mui/icons-material/VideocamOffRounded';
 import VolumeUpRoundedIcon from '@mui/icons-material/VolumeUpRounded';
 import VolumeOffRoundedIcon from '@mui/icons-material/VolumeOffRounded';
-import { loadInterviewMaterialAction } from '@/app/mock-interview/actions';
+import DoneAllRoundedIcon from '@mui/icons-material/DoneAllRounded';
+import {
+  loadCodingQuestionAction,
+  loadInterviewMaterialAction,
+} from '@/app/mock-interview/actions';
+import { Markdown } from '@/components/Markdown';
 import { INTERVIEWER, ROLE_LABEL } from '@/content/interviewer/script';
 import { useContent } from '@/context/ContentContext';
+import { ThemeModeContext } from '@/context/ThemeModeContext';
 import { useNow } from '@/hooks/useNow';
 import { track } from '@/lib/analytics';
 import { speechSupport } from '@/lib/speech';
 import { PATHS } from '@/routes/paths';
-import { buildReport, STAGES, type InterviewPlan } from '@/utils/interview/engine';
+import { useAppSelector } from '@/store';
+import { buildReport, STAGES, type InterviewPlan, type Line } from '@/utils/interview/engine';
+import type { CodingMaterial } from '@/utils/interview/material';
 import {
   buildPlan,
   LENGTHS,
@@ -59,6 +68,19 @@ const micPulse = keyframes`
   100% { box-shadow: 0 0 0 0 rgba(211,47,47,0); }
 `;
 
+// Sandpack touches browser APIs on mount: client only, and only downloaded for the coding round.
+const InterviewCodeEditor = dynamic(() => import('./InterviewCodeEditor'), {
+  ssr: false,
+  loading: () => (
+    <Box sx={{ display: 'grid', placeItems: 'center', height: '100%' }}>
+      <CircularProgress />
+    </Box>
+  ),
+});
+
+/** No edits and no speech for this long while coding → the interviewer checks in. */
+const IDLE_MS = 3 * 60_000;
+
 const DEFAULT_CONFIG: LiveInterviewConfig = { role: 'lead', length: 'short', mode: 'text' };
 
 /** Full-screen interview room: one page from "hello" to the feedback report. */
@@ -67,6 +89,7 @@ export default function InterviewRoom({
   lineDelayMs,
 }: { lineDelayMs?: number } = {}) {
   const { content } = useContent();
+  const completed = useAppSelector((s) => s.progress.completed);
   const [config, setConfig] = useState<LiveInterviewConfig | null>(null);
   const [plan, setPlan] = useState<InterviewPlan | null>(null);
   const [loadError, setLoadError] = useState(false);
@@ -80,10 +103,14 @@ export default function InterviewRoom({
   useEffect(() => {
     if (!config || !content.questions.length) return;
     let cancelled = false;
-    loadInterviewMaterialAction(selectQuestionIds(content.questions, config))
-      .then((materials) => {
+    Promise.all([
+      loadInterviewMaterialAction(selectQuestionIds(content.questions, config)),
+      // Prefer a coding problem the candidate hasn't solved yet.
+      loadCodingQuestionAction(config.role, Object.keys(completed).slice(0, 500)).catch(() => null),
+    ])
+      .then(([materials, coding]) => {
         if (cancelled) return;
-        const p = buildPlan(config, materials);
+        const p = buildPlan(config, materials, coding);
         if (!p.quiz.length && !p.behavioral.length) setLoadError(true);
         else setPlan(p);
       })
@@ -91,6 +118,8 @@ export default function InterviewRoom({
     return () => {
       cancelled = true;
     };
+    // `completed` only steers the choice; don't reload the interview when it changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config, content.questions]);
 
   const room = useInterview(plan, config?.mode ?? 'text', lineDelayMs);
@@ -199,6 +228,50 @@ function Live({
   const [camera, setCamera] = useState(false);
   const scroller = useRef<HTMLDivElement>(null);
   const saved = useRef(false);
+  const { mode: themeMode } = useContext(ThemeModeContext);
+
+  const codingMaterial = state?.stage === 'coding' ? state.plan.coding : null;
+  const codingPhase = state?.stage === 'coding' ? state.coding.phase : null;
+  const codingLimitMs = LENGTHS[config.length].coding * 60_000;
+  const codingStart = useRef<number | null>(null);
+  const lastActivity = useRef(Date.now());
+
+  useEffect(() => {
+    if (state?.stage === 'coding' && codingStart.current === null) {
+      codingStart.current = Date.now();
+      lastActivity.current = Date.now();
+    }
+  }, [state?.stage]);
+
+  useEffect(() => {
+    if (interim) lastActivity.current = Date.now();
+  }, [interim]);
+
+  // The interviewer keeps an eye on the clock and on whether you're stuck.
+  useEffect(() => {
+    if (codingPhase !== 'coding' || codingStart.current === null || !state) return;
+    if (status !== 'listening' && status !== 'waiting') return; // never talk over him
+    const elapsed = now - codingStart.current;
+    if (elapsed >= codingLimitMs) {
+      room.sendEvent({ type: 'timeUp' });
+    } else if (elapsed >= codingLimitMs * 0.8 && !state.coding.warnedTime) {
+      room.sendEvent({ type: 'timeWarning', minutesLeft: (codingLimitMs - elapsed) / 60_000 });
+    } else if (now - lastActivity.current > IDLE_MS && state.coding.nudges < 2) {
+      lastActivity.current = now;
+      room.sendEvent({ type: 'idle' });
+    }
+    // Runs on every clock tick.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [now]);
+
+  const onTests = (r: { passed: number; total: number }) => {
+    lastActivity.current = Date.now();
+    const elapsed = codingStart.current ? Date.now() - codingStart.current : 0;
+    room.sendEvent({ type: 'tests', ...r, elapsedRatio: elapsed / codingLimitMs });
+  };
+  const onActivity = () => {
+    lastActivity.current = Date.now();
+  };
 
   const report = useMemo(
     () => (status === 'done' && state ? buildReport(state) : null),
@@ -225,6 +298,7 @@ function Live({
   const send = (e?: FormEvent) => {
     e?.preventDefault();
     if (!draft.trim()) return;
+    lastActivity.current = Date.now();
     room.submit(draft.trim());
     setDraft('');
   };
@@ -260,9 +334,18 @@ function Live({
             />
           ))}
         </Stack>
-        <Typography fontFamily="var(--font-mono)" color="text.secondary">
-          {formatClock(Math.round((now - startedAt) / 1000))}
-        </Typography>
+        {codingPhase && codingStart.current !== null ? (
+          <Chip
+            size="small"
+            color={now - codingStart.current > codingLimitMs * 0.8 ? 'warning' : 'default'}
+            label={`Coding · ${formatClock(Math.round((codingLimitMs - (now - codingStart.current)) / 1000))} left`}
+            sx={{ fontFamily: 'var(--font-mono)' }}
+          />
+        ) : (
+          <Typography fontFamily="var(--font-mono)" color="text.secondary">
+            {formatClock(Math.round((now - startedAt) / 1000))}
+          </Typography>
+        )}
         {speechSupport().speak && (
           <Tooltip title={speakerOn ? `Mute ${INTERVIEWER.name}` : `Unmute ${INTERVIEWER.name}`}>
             <IconButton
@@ -290,7 +373,7 @@ function Live({
           flex: 1,
           minHeight: 0,
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: '340px 1fr' },
+          gridTemplateColumns: { xs: '1fr', md: codingMaterial ? '260px 1fr' : '340px 1fr' },
         }}
       >
         <Stack
@@ -305,9 +388,9 @@ function Live({
         >
           <Avatar
             sx={{
-              width: 120,
-              height: 120,
-              fontSize: 48,
+              width: codingMaterial ? 72 : 120,
+              height: codingMaterial ? 72 : 120,
+              fontSize: codingMaterial ? 32 : 48,
               bgcolor: 'primary.main',
               animation: status === 'speaking' ? `${pulse} 1.4s infinite` : 'none',
             }}
@@ -335,11 +418,20 @@ function Live({
           />
           <Typography
             aria-live="polite"
-            sx={{ fontSize: 18, textAlign: 'center', minHeight: 100, color: 'text.primary' }}
+            sx={{
+              fontSize: codingMaterial ? 15 : 18,
+              textAlign: 'center',
+              minHeight: codingMaterial ? 60 : 100,
+              color: 'text.primary',
+            }}
           >
             {status === 'speaking' ? caption : ''}
           </Typography>
-          <Box sx={{ flex: 1 }} />
+          {codingMaterial ? (
+            <MiniTranscript lines={lines} interim={interim} />
+          ) : (
+            <Box sx={{ flex: 1 }} />
+          )}
           {camera && <SelfView />}
           <Button
             size="small"
@@ -354,15 +446,24 @@ function Live({
           </Typography>
         </Stack>
 
-        {/* Conversation */}
-        <Box ref={scroller} sx={{ overflowY: 'auto', p: { xs: 2, md: 3 } }}>
-          <Stack spacing={1.5} sx={{ maxWidth: 760, mx: 'auto' }}>
-            {lines.map((l, i) => (
-              <Bubble key={i} who={l.who} text={l.text} />
-            ))}
-            {interim && <Bubble who="candidate" text={interim} live />}
-          </Stack>
-        </Box>
+        {codingMaterial ? (
+          <CodingStage
+            material={codingMaterial}
+            dark={themeMode === 'dark'}
+            onTests={onTests}
+            onActivity={onActivity}
+          />
+        ) : (
+          /* Conversation */
+          <Box ref={scroller} sx={{ overflowY: 'auto', p: { xs: 2, md: 3 } }}>
+            <Stack spacing={1.5} sx={{ maxWidth: 760, mx: 'auto' }}>
+              {lines.map((l, i) => (
+                <Bubble key={i} who={l.who} text={l.text} />
+              ))}
+              {interim && <Bubble who="candidate" text={interim} live />}
+            </Stack>
+          </Box>
+        )}
       </Box>
 
       {/* Controls */}
@@ -465,6 +566,18 @@ function Live({
               </IconButton>
             </Box>
           )}
+          {codingPhase === 'coding' && (
+            <Button
+              variant="outlined"
+              color="success"
+              startIcon={<DoneAllRoundedIcon />}
+              onClick={() => room.sendEvent({ type: 'done' })}
+              disabled={status === 'speaking'}
+              sx={{ flexShrink: 0 }}
+            >
+              I&apos;m done coding
+            </Button>
+          )}
           <Tooltip title="Ask to repeat">
             <span>
               <IconButton
@@ -564,5 +677,82 @@ function SelfView() {
       playsInline
       sx={{ width: '100%', borderRadius: 2, transform: 'scaleX(-1)', bgcolor: 'black' }}
     />
+  );
+}
+
+/** Prompt on the left, editor and tests on the right. */
+function CodingStage({
+  material,
+  dark,
+  onTests,
+  onActivity,
+}: {
+  material: CodingMaterial;
+  dark: boolean;
+  onTests: (r: { passed: number; total: number }) => void;
+  onActivity: () => void;
+}) {
+  return (
+    <Box
+      sx={{
+        minHeight: 0,
+        display: 'grid',
+        gridTemplateColumns: { xs: '1fr', lg: 'minmax(260px, 2fr) 3fr' },
+        gridTemplateRows: { xs: 'auto minmax(420px, 1fr)', lg: '1fr' },
+        overflow: { xs: 'auto', lg: 'hidden' },
+      }}
+    >
+      <Box
+        sx={{
+          overflowY: 'auto',
+          p: 2.5,
+          borderRight: { lg: 1 },
+          borderColor: { lg: 'divider' },
+          maxHeight: { xs: '40vh', lg: 'none' },
+        }}
+      >
+        <Typography variant="h6" component="h2" gutterBottom>
+          {material.title}
+        </Typography>
+        <Markdown>{material.prompt}</Markdown>
+      </Box>
+      <Box sx={{ minHeight: 0, height: '100%' }}>
+        <InterviewCodeEditor
+          material={material}
+          dark={dark}
+          onTests={onTests}
+          onActivity={onActivity}
+        />
+      </Box>
+    </Box>
+  );
+}
+
+/** The last few lines of the conversation, shown beside the editor while coding. */
+function MiniTranscript({ lines, interim }: { lines: Line[]; interim: string }) {
+  const end = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    end.current?.scrollIntoView?.({ block: 'end' });
+  }, [lines.length, interim]);
+  return (
+    <Box sx={{ flex: 1, minHeight: 0, width: '100%', overflowY: 'auto' }}>
+      <Stack spacing={1}>
+        {lines.slice(-12).map((l, i) => (
+          <Typography
+            key={i}
+            variant="body2"
+            color={l.who === 'interviewer' ? 'text.primary' : 'text.secondary'}
+          >
+            <b>{l.who === 'interviewer' ? INTERVIEWER.name : 'You'}:</b> {l.text}
+          </Typography>
+        ))}
+        {interim && (
+          <Typography variant="body2" color="text.secondary" fontStyle="italic">
+            <b>You:</b> {interim}
+          </Typography>
+        )}
+        <div ref={end} />
+      </Stack>
+    </Box>
   );
 }

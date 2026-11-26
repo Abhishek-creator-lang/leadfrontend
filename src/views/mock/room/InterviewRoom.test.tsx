@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 import { ReactNode } from 'react';
+import { Provider } from 'react-redux';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -8,7 +9,8 @@ import { ThemeModeProvider } from '@/context/ThemeModeContext';
 import { STORAGE_KEYS } from '@/constants/storage';
 import { EMPTY_CONTENT } from '@/content/lookups';
 import type { ClientContentIndex, QuestionSummary } from '@/content/types';
-import type { InterviewMaterial } from '@/utils/interview/material';
+import { makeStore } from '@/store';
+import type { CodingMaterial, InterviewMaterial } from '@/utils/interview/material';
 import InterviewRoom from './InterviewRoom';
 
 vi.mock('next/link', () => ({
@@ -39,8 +41,22 @@ const MATERIALS: InterviewMaterial[] = [
   },
 ];
 
+const mocks = vi.hoisted(() => ({ coding: null as unknown }));
+
 vi.mock('@/app/mock-interview/actions', () => ({
   loadInterviewMaterialAction: vi.fn(async () => MATERIALS),
+  loadCodingQuestionAction: vi.fn(async () => mocks.coding),
+}));
+
+// Sandpack can't run in jsdom: a stand-in editor that reports test results like the real one.
+vi.mock('./InterviewCodeEditor', () => ({
+  default: ({ onTests }: { onTests: (r: { passed: number; total: number }) => void }) => (
+    <div>
+      <p>Fake editor</p>
+      <button onClick={() => onTests({ passed: 1, total: 3 })}>Fail some tests</button>
+      <button onClick={() => onTests({ passed: 3, total: 3 })}>Pass all tests</button>
+    </div>
+  ),
 }));
 
 const q = (id: string): QuestionSummary =>
@@ -63,6 +79,7 @@ const CONTENT: ClientContentIndex = {
 };
 
 beforeEach(() => {
+  mocks.coding = null;
   localStorage.clear();
   sessionStorage.setItem(
     STORAGE_KEYS.liveInterviewConfig,
@@ -86,11 +103,13 @@ describe('InterviewRoom (typing mode)', () => {
   it('runs a whole interview: intro, follow-up, fundamentals, story, questions, report', async () => {
     const user = userEvent.setup();
     render(
-      <ThemeModeProvider>
-        <ContentProvider content={CONTENT}>
-          <InterviewRoom lineDelayMs={0} />
-        </ContentProvider>
-      </ThemeModeProvider>
+      <Provider store={makeStore()}>
+        <ThemeModeProvider>
+          <ContentProvider content={CONTENT}>
+            <InterviewRoom lineDelayMs={0} />
+          </ContentProvider>
+        </ThemeModeProvider>
+      </Provider>
     );
     const answer = async (text: string) => {
       const box = await screen.findByRole('textbox', { name: 'Your answer' });
@@ -124,13 +143,11 @@ describe('InterviewRoom (typing mode)', () => {
     await answer('A closure keeps the lexical scope alive after the outer function returns');
     expect(await screen.findByText('What is the hard thing?')).toBeTruthy();
 
-    // Don't know → short explanation, then the next (easier) one.
+    // Don't know → short explanation, then the next stage (short interview: 2 questions).
     await answer("I don't know");
     expect(
       await screen.findByText('The short version: The hard thing is about closures.')
     ).toBeTruthy();
-    expect(await screen.findByText('What is the easy thing?')).toBeTruthy();
-    await answer('skip');
 
     expect(await screen.findByText('Tell me about a conflict.')).toBeTruthy();
     await answer(
@@ -212,11 +229,13 @@ describe('InterviewRoom (voice)', () => {
 
   const renderRoom = () =>
     render(
-      <ThemeModeProvider>
-        <ContentProvider content={CONTENT}>
-          <InterviewRoom lineDelayMs={0} />
-        </ContentProvider>
-      </ThemeModeProvider>
+      <Provider store={makeStore()}>
+        <ThemeModeProvider>
+          <ContentProvider content={CONTENT}>
+            <InterviewRoom lineDelayMs={0} />
+          </ContentProvider>
+        </ThemeModeProvider>
+      </Provider>
     );
 
   it('speaks out loud and listens when voice was chosen in the lobby', async () => {
@@ -255,5 +274,87 @@ describe('InterviewRoom (voice)', () => {
     await user.click(await screen.findByRole('button', { name: 'Join interview' }));
     await user.click(await screen.findByRole('button', { name: 'Mute Aarav' }));
     expect(screen.getByRole('button', { name: 'Unmute Aarav' })).toBeTruthy();
+  });
+});
+
+// ---- coding round in the room ----
+
+const CODING: CodingMaterial = {
+  kind: 'coding',
+  id: 'javascript/at',
+  title: 'Array.prototype.at',
+  format: 'javascript',
+  difficulty: 'medium',
+  prompt:
+    'Implement **myAt**.\n\n## Requirements\n\n- Return undefined when the position is outside the array.',
+  intro: 'Implement myAt(index).',
+  files: { '/index.js': '', '/index.test.js': '' },
+  hints: ['Convert the index first.'],
+  requirements: ['Return undefined when the position is outside the array.'],
+  complexity: 'O(1) time and space.',
+  complexityTerms: ['O(1)'],
+  edgeCases: ['Sparse arrays'],
+  followUps: [],
+};
+
+describe('InterviewRoom (coding round)', () => {
+  it('shows the problem and editor in the room and reacts to test results', async () => {
+    mocks.coding = CODING;
+    const user = userEvent.setup();
+    render(
+      <Provider store={makeStore()}>
+        <ThemeModeProvider>
+          <ContentProvider content={CONTENT}>
+            <InterviewRoom lineDelayMs={0} />
+          </ContentProvider>
+        </ThemeModeProvider>
+      </Provider>
+    );
+    const answer = async (text: string) => {
+      const box = await screen.findByRole('textbox', { name: 'Your answer' });
+      await vi.waitFor(() => expect((box as HTMLTextAreaElement).disabled).toBe(false));
+      await user.click(box);
+      await user.paste(text);
+      await user.keyboard('{Enter}');
+    };
+
+    await user.click(await screen.findByRole('button', { name: 'Join interview' }));
+    expect(await screen.findByText(/a coding problem/)).toBeTruthy();
+    await answer('Sounds good');
+    await answer(
+      'I lead a team of six frontend engineers at an ecommerce company, we own checkout and I spend my time on architecture and reviews'
+    );
+    await answer(
+      'Six engineers, and my week is mostly design reviews, planning and pairing with people'
+    );
+    await answer('A closure keeps the lexical scope alive after the outer function returns');
+    await answer("I don't know");
+
+    // Coding: problem and editor appear in the same room.
+    expect(await screen.findByText('Fake editor')).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Array.prototype.at' })).toBeTruthy();
+    expect(await screen.findByText(/do you have any questions\?/)).toBeTruthy();
+
+    await answer('What should happen if the index is outside the array?');
+    expect(
+      await screen.findByText(
+        'Good question. Return undefined when the position is outside the array.'
+      )
+    ).toBeTruthy();
+    await answer('No, ready');
+    expect(await screen.findByRole('button', { name: /I'm done coding/ })).toBeTruthy();
+
+    await user.click(screen.getByRole('button', { name: 'Fail some tests' }));
+    expect(await screen.findByText('I see 2 tests failing. Take your time.')).toBeTruthy();
+    await user.click(screen.getByRole('button', { name: 'Pass all tests' }));
+    expect(await screen.findByText(/What's the time and space complexity/)).toBeTruthy();
+
+    await answer("It's constant, O of one");
+    expect(await screen.findByText('How does your solution handle sparse arrays?')).toBeTruthy();
+    await answer('A hole is a missing property so reading it returns undefined, no special code');
+
+    // Back to the conversation for the leadership question.
+    expect(await screen.findByText('Tell me about a conflict.')).toBeTruthy();
+    expect(screen.queryByText('Fake editor')).toBeNull();
   });
 });

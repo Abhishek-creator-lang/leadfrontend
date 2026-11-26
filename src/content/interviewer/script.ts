@@ -16,10 +16,12 @@ export const ROLE_LABEL: Record<InterviewRole, string> = {
   lead: 'Lead Frontend Engineer',
 };
 
-export const opening = (role: InterviewRole, behavioralCount: number) => [
+export const opening = (role: InterviewRole, behavioralCount: number, hasCoding = false) => [
   `Hi, I'm ${INTERVIEWER.name}, a staff engineer on the web platform team. Thanks for making time today.`,
   `This is the interview for the ${ROLE_LABEL[role]} role. Here's the plan.`,
-  `We'll start with a quick intro from you, then a few frontend fundamentals, then ${
+  `We'll start with a quick intro from you, then a few frontend fundamentals, ${
+    hasCoding ? 'a coding problem, ' : ''
+  }then ${
     behavioralCount > 1 ? 'a couple of questions' : 'a question'
   } about how you work with teams. We'll keep a few minutes at the end for your questions.`,
   "Think out loud, ask if anything is unclear, and it's fine to ask for a hint. Sound good?",
@@ -139,3 +141,40 @@ export const CLOSING = [
 
 export const ENCOURAGE_SILENCE = 'Take your time. Whenever you are ready.';
 export const REPEAT_PREFIX = 'Sure.';
+
+// ---- coding round ----
+
+export const CODING_START = "Good. Let's do some coding now.";
+export const codingIntro = (title: string, intro: string) => [
+  `The problem is: ${title}. ${intro}`,
+  'The full details and the tests are on your screen. Take a minute to read them.',
+  'Before you start, do you have any questions?',
+];
+export const CLARIFY_ANSWER = (req: string) => `Good question. ${req}`;
+export const CLARIFY_OPEN = "That's up to you. Make a reasonable assumption and tell me what it is.";
+export const CLARIFY_MORE = 'Anything else, or are you ready to start?';
+export const CODING_GO =
+  "Sounds good. Go ahead, and talk me through your thinking as you code. Run the tests whenever you're ready.";
+export const CODING_GO_NO_QUESTIONS =
+  "Okay, go ahead. Talk me through your thinking as you code, and run the tests whenever you're ready.";
+export const THINK_ACK = ['Mm-hm.', 'Okay, sounds good.', 'Makes sense.', 'Okay.'];
+export const CODING_HINT = (hint: string) => `Here's a hint: ${hint}`;
+export const CODING_NO_MORE_HINTS = "I've given you all my hints. Try writing it step by step, and test as you go.";
+export const CODING_NUDGE = "How's it going? Can you talk me through your approach so far?";
+export const CODING_FAILING = (failing: number) =>
+  `I see ${failing === 1 ? 'one test' : `${failing} tests`} failing. Take your time.`;
+export const CODING_OFFER_HINT = 'If you want a hint, just ask.';
+export const CODING_TIME_WARNING = (minutes: number) =>
+  `Just a heads-up: we have about ${minutes} ${minutes === 1 ? 'minute' : 'minutes'} left for this one.`;
+export const CODING_TIME_UP = "Let's pause the coding here, in the interest of time.";
+export const CODING_RUN_FIRST = 'Before we wrap up, could you run the tests?';
+export const CODING_STILL_FAILING =
+  'A few tests still fail. Do you want to keep going, or walk me through what you have?';
+export const CODING_ALL_PASS = 'Nice, all the tests pass.';
+export const CODING_WALKTHROUGH = 'Walk me through your approach, and what you would do next.';
+export const CODING_COMPLEXITY_Q = "What's the time and space complexity of your solution?";
+export const CODING_COMPLEXITY_OK = ['Right.', "Yes, that's right."];
+export const codingComplexityFix = (c: string) => `Hmm, I'd say: ${c}`;
+export const codingEdgeQ = (edge: string) => `How does your solution handle ${edge.charAt(0).toLowerCase()}${edge.slice(1)}?`;
+export const CODING_FOLLOWUP_ACK = ['Good.', 'Okay, that makes sense.', 'Interesting.'];
+export const CODING_DONE = 'Great, thanks for walking me through that.';

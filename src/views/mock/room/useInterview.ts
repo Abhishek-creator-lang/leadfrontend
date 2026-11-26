@@ -3,8 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { listen, speak, speechSupport, stopSpeaking, type Listener } from '@/lib/speech';
 import {
+  codingEvent,
   respond,
   startInterview,
+  type CodingEvent,
   type EngineState,
   type InterviewPlan,
   type Turn,
@@ -136,10 +138,32 @@ export function useInterview(
         setStatus('waiting');
       },
     });
+    // While coding, silence is normal: never treat it as "no answer".
+    const st = stateRef.current;
+    if (st?.stage === 'coding' && st.coding.phase === 'coding') return;
     silenceTimer.current = window.setTimeout(() => {
       if (run.current === id && !heard) submit(null);
     }, VOICE_SILENCE_MS);
   }
+
+  /** Editor and clock events in the coding round (tests run, idle, time). */
+  const sendEvent = useCallback(
+    (ev: CodingEvent) => {
+      const s = stateRef.current;
+      if (!s || s.stage !== 'coding') return;
+      const turn = codingEvent(s, ev);
+      if (!turn.say.length) {
+        // Nothing to say (e.g. a repeated warning): update quietly, keep listening.
+        stateRef.current = turn.state;
+        setState(turn.state);
+        return;
+      }
+      stopSpeaking();
+      stopListening();
+      void playTurn(turn);
+    },
+    [playTurn]
+  );
 
   const begin = useCallback(() => {
     if (!plan) return;
@@ -200,6 +224,7 @@ export function useInterview(
     },
     begin,
     submit,
+    sendEvent,
     doneAnswering,
     interrupt,
     end,

@@ -171,6 +171,7 @@ const PLAN: InterviewPlan = {
     quiz('hard1', 'hard', ['event loop', 'microtask']),
   ],
   behavioral: [story('conflict')],
+  coding: null,
 };
 
 const say = (s: EngineState, text: string | null) => respond(s, text);

@@ -29,17 +29,21 @@ export interface BehavioralMaterial {
 }
 
 export type InterviewMaterial = QuizMaterial | BehavioralMaterial;
+// CodingMaterial is loaded separately (see loadCodingQuestionAction).
 
 /** Markdown → plain spoken text: no code ticks, emphasis, links or extra spaces. */
 export function plainText(md: string): string {
-  return md
-    .replace(/```[\s\S]*?```/g, ' ')
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-    .replace(/<\/?([a-zA-Z][\w-]*)[^>]*>/g, '$1')
-    .replace(/[`*_>#]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return (
+    md
+      .replace(/```[\s\S]*?```/g, ' ')
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+      .replace(/<\/?([a-zA-Z][\w-]*)[^>]*>/g, '$1')
+      // `_` stays: it is part of identifiers like MAX_SAFE_INTEGER (the content uses ** for emphasis).
+      .replace(/[`*>#]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+  );
 }
 
 /** Text of a `## Heading` section (up to the next `## `), or ''. */
@@ -134,5 +138,107 @@ export function behavioralMaterial(
     ask: ask.length > 15 ? ask : `${plainText(q.title)}.`,
     title: plainText(q.title),
     assessing: boldTerms(section(promptMd, /assess/i)).slice(0, 6),
+  };
+}
+
+// ---- coding round ----
+
+export interface CodingMaterial {
+  kind: 'coding';
+  id: string;
+  title: string;
+  format: 'javascript' | 'algorithms' | 'user-interface';
+  difficulty: Difficulty;
+  /** Prompt shown on screen (Markdown), without its follow-up section. */
+  prompt: string;
+  /** One sentence the interviewer says to introduce the problem. */
+  intro: string;
+  /** Sandpack files: starter code and tests only, never the solution. */
+  files: Record<string, string>;
+  /** Hint ladder from the solution's Approach: general first, more specific later. */
+  hints: string[];
+  /** Answers to clarifying questions, from the prompt's Requirements. */
+  requirements: string[];
+  /** Expected complexity, said if the candidate gets it wrong. */
+  complexity: string;
+  /** Big-O terms from the Complexity section, e.g. ["O(n)", "O(1)"]. */
+  complexityTerms: string[];
+  /** Edge cases worth probing. */
+  edgeCases: string[];
+  /** Follow-up questions or twists. */
+  followUps: string[];
+}
+
+const bullets = (md: string) =>
+  md
+    .split(/\r?\n/)
+    .filter((l) => /^\s*(?:[-*]|\d+\.)\s+/.test(l))
+    .map((l) => plainText(l.replace(/^\s*(?:[-*]|\d+\.)\s+/, '')))
+    .filter(Boolean);
+
+const clip = (text: string, max = 220) =>
+  text.length > max ? `${text.slice(0, max - 1).replace(/\s+\S*$/, '')}…` : text;
+
+/** Removes `## Follow-up(s)` sections (they are the interviewer's questions, not the candidate's). */
+export function withoutFollowUps(md: string): string {
+  const lines = md.split(/\r?\n/);
+  const out: string[] = [];
+  let skipping = false;
+  for (const l of lines) {
+    if (/^##\s/.test(l)) skipping = /^##\s+follow-?ups?\b/i.test(l);
+    if (!skipping) out.push(l);
+  }
+  return out.join('\n').trim();
+}
+
+export function codingMaterial(
+  q: { id: string; title: string; format: string; difficulty: Difficulty },
+  files: Record<string, string>
+): CodingMaterial | null {
+  if (q.format !== 'javascript' && q.format !== 'algorithms' && q.format !== 'user-interface')
+    return null;
+  const sandpack: Record<string, string> = {};
+  for (const [name, code] of Object.entries(files)) {
+    if (name.startsWith('starter/')) sandpack[`/${name.slice('starter/'.length)}`] = code;
+    else if (/\.test\.jsx?$/.test(name)) sandpack[`/${name}`] = code;
+  }
+  const hasStarter = Object.keys(sandpack).some((f) => !/\.test\.jsx?$/.test(f));
+  const hasTests = Object.keys(sandpack).some((f) => /\.test\.jsx?$/.test(f));
+  if (!hasStarter || !hasTests) return null;
+
+  const promptMd = files['prompt.md'] ?? '';
+  const solutionMd = files['solution.md'] ?? '';
+  const approach = section(solutionMd, /approach/i);
+  const approachIntro =
+    approach.split(/\n\s*\n/).find((p) => p.trim() && !/^\s*(\d+\.|[-*])\s/.test(p)) ?? '';
+  const hints = [approachIntro && firstSentence(plainText(approachIntro)), ...bullets(approach)]
+    .filter(Boolean)
+    .map((h) => clip(h))
+    .slice(0, 3);
+
+  const complexitySection = plainText(section(solutionMd, /complexity/i));
+  const promptFollowUps = bullets(section(promptMd, /follow-?ups?/i)).filter((b) => /\?$/.test(b));
+  const solutionFollowUps = boldTerms(section(solutionMd, /follow-?ups?/i)).map(
+    (t) => `How would you approach ${t.charAt(0).toLowerCase()}${t.slice(1)}?`
+  );
+  const firstPromptPara =
+    promptMd.split(/\n\s*\n/).find((p) => p.trim() && !/^(#|```|\||>)/.test(p.trim())) ?? '';
+
+  return {
+    kind: 'coding',
+    id: q.id,
+    title: plainText(q.title),
+    format: q.format,
+    difficulty: q.difficulty,
+    prompt: withoutFollowUps(promptMd),
+    intro: clip(firstSentence(plainText(firstPromptPara)), 240),
+    files: sandpack,
+    hints,
+    requirements: bullets(section(promptMd, /requirements?|constraints?|rules/i)).slice(0, 10),
+    complexity: clip(firstSentence(complexitySection), 200),
+    complexityTerms: [...new Set(complexitySection.match(/O\([^)]*\)/g) ?? [])],
+    edgeCases: boldTerms(section(solutionMd, /edge cases?/i)).slice(0, 4),
+    // The prompt's own follow-up questions read naturally; bold terms are only a fallback.
+    followUps: (promptFollowUps.length ? promptFollowUps : solutionFollowUps).slice(0, 3),
   };
 }

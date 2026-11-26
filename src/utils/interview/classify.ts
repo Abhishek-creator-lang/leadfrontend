@@ -93,3 +93,61 @@ export function storySignals(answer: string) {
       ),
   };
 }
+
+/** Spoken forms of common Big-O classes ("O of n", "linear"…), keyed by squashed notation. */
+const COMPLEXITY_WORDS: [RegExp, RegExp][] = [
+  [/^o1$/, /\b(o\s*\(?\s*(1|one)\s*\)?|o of (1|one)|constant)\b/],
+  [/^ologn$/, /\b(log\s*n|logarithmic|login)\b/],
+  [/^on$/, /\b(o\s*\(\s*n\s*\)|o of n|big o n|linear)\b/],
+  [/^onlogn$/, /\b(n\s*log\s*n|n login|linearithmic)\b/],
+  [/^on(\^2|2|²)$/, /\b(n\s*(squared|\^\s*2|²)|quadratic)\b/],
+  [/^on\*m$|^onm$|^on\+m$/, /\b(n\s*(times|plus|\+|\*)\s*m|n and m)\b/],
+];
+
+/** True when a spoken answer names at least one of the expected Big-O terms. */
+export function mentionsComplexity(answer: string, terms: string[]): boolean {
+  const a = answer.toLowerCase();
+  return terms.some((term) => {
+    const key = term.toLowerCase().replace(/[\s()]/g, '');
+    const match = COMPLEXITY_WORDS.find(([k]) => k.test(key));
+    if (match && match[1].test(a)) return true;
+    return a.replace(/\s/g, '').includes(term.toLowerCase().replace(/\s/g, ''));
+  });
+}
+
+/** Sounds like a question (clarifying question, not an answer). */
+export const isQuestion = (text: string) =>
+  /\?\s*$/.test(text.trim()) ||
+  /^(what|how|can|could|should|do|does|did|is|are|will|would|may|which|when|where|why|if)\b/i.test(
+    text.trim()
+  );
+
+/** Best-matching requirement for a clarifying question (most shared meaningful words), or null. */
+export function answerFromRequirements(question: string, requirements: string[]): string | null {
+  const stop = new Set([
+    'what',
+    'about',
+    'should',
+    'would',
+    'could',
+    'there',
+    'their',
+    'which',
+    'when',
+    'with',
+    'that',
+    'this',
+    'does',
+    'have',
+    'will',
+    'from',
+    'into',
+  ]);
+  const qWords = new Set(words(question).filter((w) => w.length > 3 && !stop.has(w)));
+  let best: { r: string; score: number } | null = null;
+  for (const r of requirements) {
+    const score = words(r).filter((w) => qWords.has(w)).length;
+    if (score > 0 && (!best || score > best.score)) best = { r, score };
+  }
+  return best?.r ?? null;
+}

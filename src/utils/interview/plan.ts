@@ -4,6 +4,7 @@ import type { InterviewPlan } from './engine';
 import {
   isSpeakableTitle,
   type BehavioralMaterial,
+  type CodingMaterial,
   type InterviewMaterial,
   type QuizMaterial,
 } from './material';
@@ -19,10 +20,18 @@ export interface LiveInterviewConfig {
 
 export const LENGTHS: Record<
   InterviewLength,
-  { label: string; minutes: number; warmup: number; behavioral: number; followups: number }
+  {
+    label: string;
+    minutes: number;
+    warmup: number;
+    /** Minutes for the coding round. */
+    coding: number;
+    behavioral: number;
+    followups: number;
+  }
 > = {
-  short: { label: 'Short', minutes: 15, warmup: 3, behavioral: 1, followups: 1 },
-  standard: { label: 'Standard', minutes: 25, warmup: 5, behavioral: 2, followups: 2 },
+  short: { label: 'Short', minutes: 30, warmup: 2, coding: 15, behavioral: 1, followups: 1 },
+  standard: { label: 'Standard', minutes: 50, warmup: 4, coding: 25, behavioral: 2, followups: 2 },
 };
 
 /** Behavioral prompts that are not stories (meta questions handled by the script itself). */
@@ -79,13 +88,15 @@ export function selectQuestionIds(
 
 export function buildPlan(
   config: LiveInterviewConfig,
-  materials: InterviewMaterial[]
+  materials: InterviewMaterial[],
+  coding: CodingMaterial | null = null
 ): InterviewPlan {
   const len = LENGTHS[config.length];
   return {
     role: config.role,
     warmupCount: len.warmup,
     introFollowups: len.followups,
+    coding,
     quiz: materials.filter((m): m is QuizMaterial => m.kind === 'quiz'),
     behavioral: materials
       .filter((m): m is BehavioralMaterial => m.kind === 'behavioral')
