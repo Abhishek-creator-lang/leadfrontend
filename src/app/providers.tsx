@@ -9,7 +9,6 @@ import type { SessionUser } from '@/constants/roles';
 import { DEBOUNCE_MS } from '@/constants/timing';
 import { ProgressHydrationContext } from '@/context/ProgressHydrationContext';
 import { ContentProvider } from '@/context/ContentContext';
-import { MockInterviewProvider } from '@/context/MockInterviewContext';
 import type { ClientContentIndex } from '@/content/types';
 import { SessionContext } from '@/context/SessionContext';
 import { SupportContext } from '@/context/SupportContext';
@@ -133,13 +132,11 @@ export function Providers({
         <SessionContext.Provider value={user}>
           <ContentProvider content={content}>
             <SupportContext.Provider value={support}>
-              <MockInterviewProvider>
-                {user && initialProgress ? (
-                  <AccountProviders initialProgress={initialProgress}>{children}</AccountProviders>
-                ) : (
-                  <GuestProviders>{children}</GuestProviders>
-                )}
-              </MockInterviewProvider>
+              {user && initialProgress ? (
+                <AccountProviders initialProgress={initialProgress}>{children}</AccountProviders>
+              ) : (
+                <GuestProviders>{children}</GuestProviders>
+              )}
             </SupportContext.Provider>
           </ContentProvider>
         </SessionContext.Provider>

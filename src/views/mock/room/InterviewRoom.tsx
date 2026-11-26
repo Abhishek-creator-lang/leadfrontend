@@ -54,7 +54,7 @@ import {
   selectQuestionIds,
   type LiveInterviewConfig,
 } from '@/utils/interview/plan';
-import { formatClock } from '@/utils/mockInterview';
+import { formatClock } from '@/utils/interview/format';
 import { loadConfig, saveRecord } from './liveStore';
 import { InterviewReportView } from './InterviewReportView';
 import { useInterview } from './useInterview';

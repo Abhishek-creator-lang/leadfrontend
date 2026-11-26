@@ -12,9 +12,6 @@ export type AnalyticsEvent =
   | 'question_completed'
   | 'plan_started'
   | 'share_clicked'
-  | 'mock_started'
-  | 'mock_completed'
-  | 'ai_feedback'
   | 'live_interview_started'
   | 'live_interview_completed';
 

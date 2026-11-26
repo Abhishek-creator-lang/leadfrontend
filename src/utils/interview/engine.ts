@@ -1,7 +1,7 @@
 import type { Difficulty } from '@/content/types';
 import * as S from '@/content/interviewer/script';
 import type { InterviewRole } from '@/content/interviewer/script';
-import { verdict } from '@/utils/mockInterview';
+import { verdict } from './format';
 import {
   answerFromRequirements,
   coverage,

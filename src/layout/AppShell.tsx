@@ -62,7 +62,6 @@ import { UserMenu } from './UserMenu';
 import { Footer, LEGAL_LINKS } from './Footer';
 import { NavigationProgress, startNavigationProgress } from './NavigationProgress';
 import { LogoMark } from '@/components/LogoMark';
-import { MockInterviewBar } from '@/components/MockInterviewBar';
 import { FONT_HEADING } from '@/theme/fonts';
 import { SupportButton } from '@/components/support/SupportButton';
 import { useSupportSettings } from '@/context/SupportContext';
@@ -431,7 +430,6 @@ export function AppShell({ children }: { children: ReactNode }) {
         <Box sx={{ flex: 1 }}>{children}</Box>
         {/* The question workspace is full height, so it shows the links in the sidebar instead. */}
         {!isQuestionWorkspacePath(pathname) && <Footer />}
-        <MockInterviewBar />
       </Box>
     </Box>
   );
