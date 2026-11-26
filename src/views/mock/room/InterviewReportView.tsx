@@ -176,6 +176,52 @@ export function InterviewReportView({
           </Card>
         )}
 
+        {report.design && (
+          <Card sx={{ p: 2.5, mb: 3 }}>
+            <Typography variant="h6" sx={{ mb: 1 }}>
+              System design
+            </Typography>
+            <Link component={NextLink} href={`/questions/${report.design.id}`}>
+              {report.design.title}
+            </Link>
+            <Stack spacing={1} sx={{ mt: 1.5 }}>
+              {report.design.steps.map((st) => (
+                <Stack key={st.id} direction="row" spacing={1} alignItems="center">
+                  <Typography variant="body2" sx={{ flex: 1 }}>
+                    {st.label}
+                    {st.grade !== 'good' && st.missing.length > 0 && (
+                      <Typography component="span" variant="body2" color="text.secondary">
+                        {' '}
+                        · missed {st.missing.slice(0, 2).join(', ')}
+                      </Typography>
+                    )}
+                  </Typography>
+                  <Chip
+                    size="small"
+                    color={
+                      st.grade === 'good'
+                        ? 'success'
+                        : st.grade === 'partial'
+                          ? 'warning'
+                          : 'default'
+                    }
+                    label={
+                      st.grade === 'good' ? 'Strong' : st.grade === 'partial' ? 'Partial' : 'Light'
+                    }
+                  />
+                </Stack>
+              ))}
+            </Stack>
+            {report.design.pushbacks.length > 0 && (
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
+                Handled {report.design.pushbacks.filter((p) => p.good).length} of{' '}
+                {report.design.pushbacks.length} pushback{' '}
+                {report.design.pushbacks.length === 1 ? 'question' : 'questions'}.
+              </Typography>
+            )}
+          </Card>
+        )}
+
         <Accordion sx={{ mb: 3 }}>
           <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />}>
             <Typography fontWeight={600}>Full transcript</Typography>

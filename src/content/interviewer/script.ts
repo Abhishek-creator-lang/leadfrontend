@@ -16,12 +16,17 @@ export const ROLE_LABEL: Record<InterviewRole, string> = {
   lead: 'Lead Frontend Engineer',
 };
 
-export const opening = (role: InterviewRole, behavioralCount: number, hasCoding = false) => [
+export const opening = (
+  role: InterviewRole,
+  behavioralCount: number,
+  hasCoding = false,
+  hasDesign = false
+) => [
   `Hi, I'm ${INTERVIEWER.name}, a staff engineer on the web platform team. Thanks for making time today.`,
   `This is the interview for the ${ROLE_LABEL[role]} role. Here's the plan.`,
   `We'll start with a quick intro from you, then a few frontend fundamentals, ${
     hasCoding ? 'a coding problem, ' : ''
-  }then ${
+  }${hasDesign ? 'a system design discussion, ' : ''}then ${
     behavioralCount > 1 ? 'a couple of questions' : 'a question'
   } about how you work with teams. We'll keep a few minutes at the end for your questions.`,
   "Think out loud, ask if anything is unclear, and it's fine to ask for a hint. Sound good?",
@@ -178,3 +183,30 @@ export const codingComplexityFix = (c: string) => `Hmm, I'd say: ${c}`;
 export const codingEdgeQ = (edge: string) => `How does your solution handle ${edge.charAt(0).toLowerCase()}${edge.slice(1)}?`;
 export const CODING_FOLLOWUP_ACK = ['Good.', 'Okay, that makes sense.', 'Interesting.'];
 export const CODING_DONE = 'Great, thanks for walking me through that.';
+
+// ---- system design round ----
+
+export const DESIGN_START = "Great. Let's zoom out to system design.";
+export const designIntro = (title: string, intro: string) => [
+  `Here's the problem: ${title}. ${intro}`,
+  "The details are on your screen, and there's a notes board for each step if you want to write things down.",
+  "We'll go step by step, starting with requirements.",
+];
+export const DESIGN_ACK_GOOD = ['Good, that covers the important parts.', "Nice, that's thorough.", 'Good.'];
+export const DESIGN_ACK = ['Okay.', 'Got it.', 'Okay, thanks.'];
+export const designProbe = (topic: string) =>
+  `What about ${topic.charAt(0).toLowerCase()}${topic.slice(1)}? How would you handle that here?`;
+export const designNudge = (a: string, b?: string) =>
+  `Some things I'd also look for here: ${b ? `${a} and ${b}` : a}.`;
+export const designHint = (topic: string) => `Think about ${topic.charAt(0).toLowerCase()}${topic.slice(1)}.`;
+export const DESIGN_CLARIFY =
+  "Make reasonable assumptions and state them out loud. That's part of the exercise.";
+export const DESIGN_PUSHBACK_START = "Let me push on a few things, like I would in a real interview.";
+export const DESIGN_PUSHBACK_GOOD = ["Good, that's a solid approach.", "Yes, that's what I'd look for."];
+export const designPushbackTeach = (a: string) => `Okay. One approach I like: ${a}`;
+export const DESIGN_LEAD_Q =
+  "Last one on this. As the lead, how would you roll this out across teams, and how would you keep it healthy over time?";
+export const DESIGN_TIME_WARNING = (minutes: number) =>
+  `We have about ${minutes} ${minutes === 1 ? 'minute' : 'minutes'} left for the design, so let's keep moving.`;
+export const DESIGN_TIME_UP = "We're out of time for the design, so let's stop here.";
+export const DESIGN_DONE = 'Thanks, that was a good discussion.';

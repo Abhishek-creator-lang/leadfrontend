@@ -10,7 +10,7 @@ import { STORAGE_KEYS } from '@/constants/storage';
 import { EMPTY_CONTENT } from '@/content/lookups';
 import type { ClientContentIndex, QuestionSummary } from '@/content/types';
 import { makeStore } from '@/store';
-import type { CodingMaterial, InterviewMaterial } from '@/utils/interview/material';
+import type { CodingMaterial, DesignMaterial, InterviewMaterial } from '@/utils/interview/material';
 import InterviewRoom from './InterviewRoom';
 
 vi.mock('next/link', () => ({
@@ -41,11 +41,12 @@ const MATERIALS: InterviewMaterial[] = [
   },
 ];
 
-const mocks = vi.hoisted(() => ({ coding: null as unknown }));
+const mocks = vi.hoisted(() => ({ coding: null as unknown, design: null as unknown }));
 
 vi.mock('@/app/mock-interview/actions', () => ({
   loadInterviewMaterialAction: vi.fn(async () => MATERIALS),
   loadCodingQuestionAction: vi.fn(async () => mocks.coding),
+  loadDesignQuestionAction: vi.fn(async () => mocks.design),
 }));
 
 // Sandpack can't run in jsdom: a stand-in editor that reports test results like the real one.
@@ -80,6 +81,7 @@ const CONTENT: ClientContentIndex = {
 
 beforeEach(() => {
   mocks.coding = null;
+  mocks.design = null;
   localStorage.clear();
   sessionStorage.setItem(
     STORAGE_KEYS.liveInterviewConfig,
@@ -356,5 +358,145 @@ describe('InterviewRoom (coding round)', () => {
     // Back to the conversation for the leadership question.
     expect(await screen.findByText('Tell me about a conflict.')).toBeTruthy();
     expect(screen.queryByText('Fake editor')).toBeNull();
+  });
+});
+
+// ---- system design round in the room ----
+
+const DESIGN: DesignMaterial = {
+  kind: 'design',
+  id: 'system-design/news-feed',
+  title: 'News Feed',
+  prompt: 'Design the front end of a **social news feed**.',
+  intro: 'Design the front end of a social news feed.',
+  steps: [
+    {
+      id: 'requirements',
+      label: 'Requirements',
+      ask: "Let's start with requirements. What would you clarify?",
+      keyPoints: ['Browse the feed', 'Compose'],
+    },
+    {
+      id: 'architecture',
+      label: 'Architecture',
+      ask: 'Walk me through the high-level architecture.',
+      keyPoints: ['Rendering strategy', 'Component tree', 'Normalized entity store'],
+    },
+    {
+      id: 'api',
+      label: 'API',
+      ask: 'What does the interface look like?',
+      keyPoints: ['Pagination', 'Mutations'],
+    },
+  ],
+  pushbacks: [{ q: 'How would you avoid showing the same post twice?', a: 'Dedupe by post id.' }],
+  leadPoints: ['Defines contracts across teams'],
+};
+
+async function reachDesign(user: ReturnType<typeof userEvent.setup>) {
+  const answer = async (text: string) => {
+    const box = await screen.findByRole('textbox', { name: 'Your answer' });
+    await vi.waitFor(() => expect((box as HTMLTextAreaElement).disabled).toBe(false));
+    await user.click(box);
+    await user.paste(text);
+    await user.keyboard('{Enter}');
+  };
+  render(
+    <Provider store={makeStore()}>
+      <ThemeModeProvider>
+        <ContentProvider content={CONTENT}>
+          <InterviewRoom lineDelayMs={0} />
+        </ContentProvider>
+      </ThemeModeProvider>
+    </Provider>
+  );
+  await user.click(await screen.findByRole('button', { name: 'Join interview' }));
+  expect(await screen.findByText(/a system design discussion/)).toBeTruthy();
+  await answer('Sounds good');
+  await answer(
+    'I lead a team of six frontend engineers at an ecommerce company, we own checkout and I spend my time on architecture and reviews'
+  );
+  await answer(
+    'Six engineers, and my week is mostly design reviews, planning and pairing with people'
+  );
+  await answer('A closure keeps the lexical scope alive after the outer function returns');
+  await answer("I don't know");
+  await answer('skip');
+  expect(await screen.findByText('Notes board')).toBeTruthy();
+  return answer;
+}
+
+describe('InterviewRoom (system design round)', () => {
+  beforeEach(() => {
+    mocks.design = DESIGN;
+    sessionStorage.setItem(
+      STORAGE_KEYS.liveInterviewConfig,
+      JSON.stringify({ role: 'lead', length: 'standard', mode: 'text' })
+    );
+  });
+  afterEach(() => {
+    delete (globalThis as Record<string, unknown>).LanguageModel;
+  });
+
+  it('runs the design steps with a notes board, probes, pushback and the lead question', async () => {
+    const user = userEvent.setup();
+    const answer = await reachDesign(user);
+
+    expect(screen.getByRole('heading', { name: 'News Feed' })).toBeTruthy();
+    expect(await screen.findByText(/start with requirements/)).toBeTruthy();
+
+    // Notes count: requirements written on the board, then "Next step".
+    await user.click(screen.getByRole('textbox', { name: 'Notes: Requirements' }));
+    await user.paste('Browse the feed with infinite scroll. Compose posts with images.');
+    await user.click(screen.getByRole('button', { name: 'Next step' }));
+    expect(await screen.findByText('Walk me through the high-level architecture.')).toBeTruthy();
+
+    // A thin answer gets a probe on a missed topic.
+    await answer('Some React components');
+    expect(
+      await screen.findByText('What about rendering strategy? How would you handle that here?')
+    ).toBeTruthy();
+    await answer('Server render the first page, then a normalized entity store on the client');
+    expect(await screen.findByText('What does the interface look like?')).toBeTruthy();
+
+    await user.click(screen.getByRole('button', { name: 'Next step' }));
+    expect(
+      await screen.findByText('How would you avoid showing the same post twice?')
+    ).toBeTruthy();
+    await answer('I do not know');
+    expect(await screen.findByText('Okay. One approach I like: Dedupe by post id.')).toBeTruthy();
+    expect(await screen.findByText(/As the lead, how would you roll this out/)).toBeTruthy();
+    await answer(
+      'Define contracts across teams, roll out behind flags and measure with real user data'
+    );
+
+    expect(await screen.findByText('Tell me about a conflict.')).toBeTruthy();
+    expect(screen.queryByText('Notes board')).toBeNull();
+  });
+
+  it('asks a follow-up written by Chrome’s on-device AI when it is available', async () => {
+    (globalThis as Record<string, unknown>).LanguageModel = {
+      availability: async () => 'available',
+      create: async () => ({
+        promptStreaming: () =>
+          new ReadableStream<string>({
+            start(c) {
+              c.enqueue('Which posts would you load first on a slow 3G phone?');
+              c.close();
+            },
+          }),
+        destroy: () => {},
+      }),
+    };
+    const user = userEvent.setup();
+    const answer = await reachDesign(user);
+    await answer('Hmm, a list of posts I guess');
+    expect(
+      await screen.findByText(
+        'Which posts would you load first on a slow 3G phone?',
+        {},
+        { timeout: 4000 }
+      )
+    ).toBeTruthy();
   });
 });

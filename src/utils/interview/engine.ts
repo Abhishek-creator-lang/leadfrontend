@@ -4,6 +4,7 @@ import type { InterviewRole } from '@/content/interviewer/script';
 import { verdict } from '@/utils/mockInterview';
 import {
   answerFromRequirements,
+  coverage,
   gradeAnswer,
   intentOf,
   isQuestion,
@@ -12,22 +13,25 @@ import {
   wordCount,
   type Grade,
 } from './classify';
-import type { BehavioralMaterial, CodingMaterial, QuizMaterial } from './material';
+import type { BehavioralMaterial, CodingMaterial, DesignMaterial, QuizMaterial } from './material';
 
 /**
  * The live interviewer's brain: a pure state machine. The room (src/views/mock/room) feeds it what
  * the candidate said (or a silence) and speaks the lines it returns. Stages run in order:
- * opening → intro → warm-up fundamentals → coding → behavioral → candidate's questions → closing.
- * The coding round also reacts to events from the editor (tests run, idle, time): see codingEvent.
+ * opening → intro → warm-up fundamentals → coding → system design → behavioral → candidate's
+ * questions → closing. The coding and design rounds also react to events from the room (tests run,
+ * idle, time, "next step"): see roundEvent.
  */
 
-export type Stage = 'opening' | 'intro' | 'warmup' | 'coding' | 'behavioral' | 'questions' | 'done';
+export type Stage =
+  'opening' | 'intro' | 'warmup' | 'coding' | 'design' | 'behavioral' | 'questions' | 'done';
 
 export const STAGES: { id: Exclude<Stage, 'done'>; label: string }[] = [
   { id: 'opening', label: 'Welcome' },
   { id: 'intro', label: 'Your intro' },
   { id: 'warmup', label: 'Fundamentals' },
   { id: 'coding', label: 'Coding' },
+  { id: 'design', label: 'System design' },
   { id: 'behavioral', label: 'Leadership' },
   { id: 'questions', label: 'Your questions' },
 ];
@@ -46,6 +50,8 @@ export interface InterviewPlan {
   behavioral: BehavioralMaterial[];
   /** The coding problem, or null for an interview without a coding round. */
   coding: CodingMaterial | null;
+  /** The system design problem, or null for an interview without a design round. */
+  design: DesignMaterial | null;
 }
 
 type WarmGrade = Grade | 'dontKnow' | 'skipped';
@@ -73,6 +79,41 @@ export interface CodingResult {
   notes: string[];
 }
 
+export interface DesignStepResult {
+  id: string;
+  label: string;
+  grade: Grade;
+  hit: string[];
+  missing: string[];
+}
+
+export interface DesignResult {
+  id: string;
+  title: string;
+  steps: DesignStepResult[];
+  pushbacks: { q: string; good: boolean }[];
+  leadAnswered: boolean | null;
+  timedOut: boolean;
+  score: number;
+  notes: string[];
+}
+
+interface DesignState {
+  phase: 'steps' | 'pushback' | 'lead';
+  stepIndex: number;
+  probed: boolean;
+  answers: string[];
+  steps: DesignStepResult[];
+  pushIndex: number;
+  /** How many pushback questions to ask (more for lead roles). */
+  pushLimit: number;
+  pushbacks: { q: string; good: boolean }[];
+  leadAnswered: boolean | null;
+  timedOut: boolean;
+  warnedTime: boolean;
+  result: DesignResult | null;
+}
+
 export type CodingPhase = 'clarify' | 'coding' | 'followups';
 
 interface CodingState {
@@ -96,13 +137,25 @@ interface CodingState {
   result: CodingResult | null;
 }
 
-/** Things that happen in the editor or on the clock during the coding round. */
-export type CodingEvent =
+/** Things that happen in the room during the coding and design rounds. */
+export type RoundEvent =
   | { type: 'tests'; passed: number; total: number; elapsedRatio: number }
   | { type: 'idle' }
   | { type: 'timeWarning'; minutesLeft: number }
   | { type: 'timeUp' }
-  | { type: 'done' };
+  /** Coding: "I'm done coding". Design: "next step", with the notes written for the current step. */
+  | { type: 'done'; notes?: string };
+
+/** @deprecated use RoundEvent */
+export type CodingEvent = RoundEvent;
+
+/** Extra input for an answer: design-board notes and an on-device AI follow-up question. */
+export interface AnswerExtras {
+  /** Notes the candidate wrote for the current design step (graded with the spoken answer). */
+  notes?: string;
+  /** A follow-up written by Chrome's built-in AI, used instead of the scripted probe. */
+  aiFollowUp?: string;
+}
 
 export interface BehavioralResult {
   id: string;
@@ -139,6 +192,7 @@ export interface EngineState {
   };
   beh: { index: number; probes: string[]; answers: string[]; results: BehavioralResult[] };
   coding: CodingState;
+  design: DesignState;
   qa: { count: number };
 }
 
@@ -204,10 +258,28 @@ export function startInterview(plan: InterviewPlan, seed = 1): Turn {
       edgeAnswered: false,
       result: null,
     },
+    design: {
+      phase: 'steps',
+      stepIndex: 0,
+      probed: false,
+      answers: [],
+      steps: [],
+      pushIndex: 0,
+      pushLimit: 0,
+      pushbacks: [],
+      leadAnswered: null,
+      timedOut: false,
+      warnedTime: false,
+      result: null,
+    },
     qa: { count: 0 },
   };
   const say: string[] = [];
-  ask(state, say, ...S.opening(plan.role, plan.behavioral.length, Boolean(plan.coding)));
+  ask(
+    state,
+    say,
+    ...S.opening(plan.role, plan.behavioral.length, Boolean(plan.coding), Boolean(plan.design))
+  );
   return { state, say };
 }
 
@@ -227,7 +299,7 @@ function tell(s: EngineState, say: string[], ...lines: string[]) {
 }
 
 /** Feeds the candidate's answer (text) or a long silence (null) to the interviewer. */
-export function respond(prev: EngineState, input: string | null): Turn {
+export function respond(prev: EngineState, input: string | null, extras: AnswerExtras = {}): Turn {
   const s: EngineState = structuredClone(prev);
   const say: string[] = [];
   if (s.stage === 'done') return { state: s, say };
@@ -248,6 +320,10 @@ export function respond(prev: EngineState, input: string | null): Turn {
   }
   if (s.stage === 'coding') {
     onCoding(s, say, text, intent);
+    return { state: s, say };
+  }
+  if (s.stage === 'design') {
+    onDesign(s, say, text, intent, extras);
     return { state: s, say };
   }
   if (intent === 'clarify') {
@@ -311,6 +387,9 @@ function onSilence(s: EngineState, say: string[]) {
     case 'coding':
       onCodingSilence(s, say);
       return;
+    case 'design':
+      s.awaiting = true; // thinking or writing notes: the candidate moves on with "next step"
+      return;
     default:
       // intro and behavioral: encourage once, then move on
       if (s.silences === 1) {
@@ -334,6 +413,9 @@ function skipStage(s: EngineState, say: string[]) {
       return;
     case 'coding':
       finishCoding(s, say, ['Okay, let’s move on.']);
+      return;
+    case 'design':
+      finishDesign(s, say, ['Okay, let’s move on.']);
       return;
     case 'behavioral':
       finishStory(s, say, ['Okay, let’s leave that one.']);
@@ -381,7 +463,7 @@ function nextQuiz(s: EngineState, say: string[], first = false) {
   const left = s.plan.quiz.filter((q) => !s.warm.asked.includes(q.id));
   if (s.warm.results.length >= s.plan.warmupCount || !left.length) {
     if (s.plan.coding) startCoding(s, say);
-    else startBehavioral(s, say);
+    else afterCoding(s, say);
     return;
   }
   const last = s.warm.results[s.warm.results.length - 1];
@@ -644,13 +726,22 @@ function finishCoding(s: EngineState, say: string[], lines: string[]) {
     notes,
   };
   tell(s, say, ...lines);
-  startBehavioral(s, say);
+  afterCoding(s, say);
 }
 
-/** Reacts to the editor and the clock during the coding round. */
-export function codingEvent(prev: EngineState, ev: CodingEvent): Turn {
+function afterCoding(s: EngineState, say: string[]) {
+  if (s.plan.design) startDesign(s, say);
+  else startBehavioral(s, say);
+}
+
+/** Reacts to the room during the coding and design rounds (tests, idle, time, done). */
+export function roundEvent(prev: EngineState, ev: RoundEvent): Turn {
   const s: EngineState = structuredClone(prev);
   const say: string[] = [];
+  if (s.stage === 'design') {
+    onDesignEvent(s, say, ev);
+    return { state: s, say };
+  }
   const c = s.coding;
   if (s.stage !== 'coding' || c.phase === 'followups') return { state: s, say };
 
@@ -691,6 +782,231 @@ export function codingEvent(prev: EngineState, ev: CodingEvent): Turn {
       break;
   }
   return { state: s, say };
+}
+
+/** @deprecated use roundEvent */
+export const codingEvent = roundEvent;
+
+// ---- system design round ----
+
+const DESIGN_SCORE: Record<Grade, number> = { good: 100, partial: 60, weak: 20 };
+
+/** Design key points are many and broad: a few hits make a good answer. */
+function gradeDesign(
+  text: string,
+  keyPoints: string[]
+): { grade: Grade; hit: string[]; missing: string[] } {
+  const { hit, missing, ratio } = coverage(text, keyPoints);
+  const words = wordCount(text);
+  const grade: Grade =
+    hit.length >= 3 || (hit.length >= 2 && ratio >= 0.5)
+      ? 'good'
+      : hit.length >= 1 || words >= 40
+        ? 'partial'
+        : 'weak';
+  return { grade, hit, missing };
+}
+
+function startDesign(s: EngineState, say: string[]) {
+  const m = s.plan.design!;
+  s.stage = 'design';
+  s.design.phase = 'steps';
+  s.design.stepIndex = 0;
+  ask(s, say, S.DESIGN_START, ...S.designIntro(m.title, m.intro), m.steps[0].ask);
+}
+
+/** Would the interviewer probe this answer? (Lets the room ask Chrome's AI only when needed.) */
+export function designWouldProbe(st: EngineState, text: string, notes = ''): boolean {
+  const d = st.design;
+  if (st.stage !== 'design' || d.phase !== 'steps' || d.probed) return false;
+  const step = st.plan.design!.steps[d.stepIndex];
+  const all = [...d.answers, text, notes].join(' ');
+  return gradeDesign(all, step.keyPoints).grade !== 'good';
+}
+
+function onDesign(
+  s: EngineState,
+  say: string[],
+  text: string,
+  intent: ReturnType<typeof intentOf>,
+  extras: AnswerExtras
+) {
+  const d = s.design;
+  const m = s.plan.design!;
+  if (intent === 'repeat' && s.lastAsk) {
+    ask(s, say, S.REPEAT_PREFIX, s.lastAsk);
+    return;
+  }
+  if (d.phase === 'pushback') {
+    onDesignPushback(s, say, text);
+    return;
+  }
+  if (d.phase === 'lead') {
+    d.leadAnswered =
+      wordCount(text) >= 20 || m.leadPoints.some((p) => coverage(text, [p]).hit.length > 0);
+    finishDesign(s, say, [pick(s, S.DESIGN_ACK), S.DESIGN_DONE]);
+    return;
+  }
+  const step = m.steps[d.stepIndex];
+  if (intent === 'skip') {
+    finishDesignStep(s, say, text, extras.notes, true);
+    return;
+  }
+  if (intent === 'hint') {
+    s.hintsAsked++;
+    const { missing } = gradeDesign([...d.answers, extras.notes ?? ''].join(' '), step.keyPoints);
+    ask(s, say, S.designHint(missing[0] ?? step.keyPoints[0]));
+    return;
+  }
+  if (intent === 'clarify' && wordCount(text) <= 8) {
+    ask(s, say, S.DESIGN_CLARIFY);
+    return;
+  }
+  d.answers.push(text);
+  const { grade, missing } = gradeDesign(
+    [...d.answers, extras.notes ?? ''].join(' '),
+    step.keyPoints
+  );
+  if (grade !== 'good' && !d.probed && missing.length) {
+    d.probed = true;
+    ask(s, say, pick(s, S.DESIGN_ACK), extras.aiFollowUp?.trim() || S.designProbe(missing[0]));
+    return;
+  }
+  finishDesignStep(s, say, '', extras.notes, false);
+}
+
+/** Grades the current step (spoken answers + notes) and moves to the next step or the pushback. */
+function finishDesignStep(
+  s: EngineState,
+  say: string[],
+  lastText: string,
+  notes: string | undefined,
+  skipped: boolean
+) {
+  const d = s.design;
+  const m = s.plan.design!;
+  const step = m.steps[d.stepIndex];
+  if (lastText) d.answers.push(lastText);
+  const graded = gradeDesign([...d.answers, notes ?? ''].join(' '), step.keyPoints);
+  const grade: Grade = skipped && graded.grade === 'good' ? 'partial' : graded.grade;
+  d.steps.push({ id: step.id, label: step.label, grade, hit: graded.hit, missing: graded.missing });
+  const lines =
+    grade === 'good'
+      ? [pick(s, S.DESIGN_ACK_GOOD)]
+      : graded.missing.length
+        ? [pick(s, S.DESIGN_ACK), S.designNudge(graded.missing[0], graded.missing[1])]
+        : [pick(s, S.DESIGN_ACK)];
+  d.stepIndex++;
+  d.probed = false;
+  d.answers = [];
+  if (d.stepIndex < m.steps.length) {
+    ask(s, say, ...lines, m.steps[d.stepIndex].ask);
+  } else {
+    startDesignPushback(s, say, lines);
+  }
+}
+
+function startDesignPushback(s: EngineState, say: string[], lead: string[]) {
+  const d = s.design;
+  const m = s.plan.design!;
+  const count = s.plan.role === 'lead' ? 2 : 1;
+  if (!m.pushbacks.length) {
+    startDesignLead(s, say, lead);
+    return;
+  }
+  d.phase = 'pushback';
+  d.pushIndex = 0;
+  d.pushbacks = [];
+  d.pushLimit = Math.min(count, m.pushbacks.length);
+  ask(s, say, ...lead, S.DESIGN_PUSHBACK_START, m.pushbacks[0].q);
+}
+
+function onDesignPushback(s: EngineState, say: string[], text: string) {
+  const d = s.design;
+  const m = s.plan.design!;
+  const pb = m.pushbacks[d.pushIndex];
+  const good = wordCount(text) >= 15;
+  d.pushbacks.push({ q: pb.q, good });
+  const reply = good ? pick(s, S.DESIGN_PUSHBACK_GOOD) : S.designPushbackTeach(pb.a);
+  d.pushIndex++;
+  if (d.pushIndex < d.pushLimit) ask(s, say, reply, m.pushbacks[d.pushIndex].q);
+  else startDesignLead(s, say, [reply]);
+}
+
+function startDesignLead(s: EngineState, say: string[], lead: string[]) {
+  const d = s.design;
+  if (s.plan.role === 'lead' && s.plan.design!.leadPoints.length) {
+    d.phase = 'lead';
+    ask(s, say, ...lead, S.DESIGN_LEAD_Q);
+  } else {
+    finishDesign(s, say, [...lead, S.DESIGN_DONE]);
+  }
+}
+
+function finishDesign(s: EngineState, say: string[], lines: string[]) {
+  const d = s.design;
+  const m = s.plan.design!;
+  // Steps never reached count as missed.
+  for (const step of m.steps.slice(d.steps.length)) {
+    d.steps.push({
+      id: step.id,
+      label: step.label,
+      grade: 'weak',
+      hit: [],
+      missing: step.keyPoints,
+    });
+  }
+  const stepAvg =
+    d.steps.reduce((t, x) => t + DESIGN_SCORE[x.grade], 0) / Math.max(1, d.steps.length);
+  const pushAvg = d.pushbacks.length
+    ? (d.pushbacks.filter((p) => p.good).length / d.pushbacks.length) * 100
+    : 50;
+  const lead = d.leadAnswered === null ? null : d.leadAnswered ? 100 : 30;
+  let score =
+    lead === null ? stepAvg * 0.75 + pushAvg * 0.25 : stepAvg * 0.65 + pushAvg * 0.2 + lead * 0.15;
+  if (d.timedOut) score -= 5;
+  score = Math.max(0, Math.min(100, Math.round(score)));
+
+  const notes: string[] = [];
+  for (const x of d.steps.filter((x) => x.grade !== 'good'))
+    notes.push(
+      `System design, ${x.label.toLowerCase()}: cover ${x.missing.slice(0, 2).join(' and ') || 'more of the key points'}.`
+    );
+  if (d.pushbacks.some((p) => !p.good))
+    notes.push('Answer pushback with a concrete approach and its trade-off.');
+  if (d.timedOut) notes.push('Manage time in system design: about 5 minutes per step.');
+
+  d.result = {
+    id: m.id,
+    title: m.title,
+    steps: d.steps,
+    pushbacks: d.pushbacks,
+    leadAnswered: d.leadAnswered,
+    timedOut: d.timedOut,
+    score,
+    notes,
+  };
+  tell(s, say, ...lines);
+  startBehavioral(s, say);
+}
+
+function onDesignEvent(s: EngineState, say: string[], ev: RoundEvent) {
+  const d = s.design;
+  switch (ev.type) {
+    case 'done':
+      if (d.phase === 'steps') finishDesignStep(s, say, '', ev.notes, false);
+      break;
+    case 'timeWarning':
+      if (!d.warnedTime) {
+        d.warnedTime = true;
+        ask(s, say, S.DESIGN_TIME_WARNING(Math.max(1, Math.round(ev.minutesLeft))));
+      }
+      break;
+    case 'timeUp':
+      d.timedOut = true;
+      finishDesign(s, say, [S.DESIGN_TIME_UP]);
+      break;
+  }
 }
 
 // ---- behavioral ----
@@ -795,6 +1111,7 @@ export interface InterviewReport {
   gaps: string[];
   warmup: WarmupResult[];
   coding: CodingResult | null;
+  design: DesignResult | null;
   behavioral: BehavioralResult[];
   hintsUsed: number;
 }
@@ -816,14 +1133,17 @@ export function buildReport(s: EngineState): InterviewReport {
   const beh = avg(s.beh.results.map((r) => r.score));
   const codingResult = s.coding.result;
   const coding = codingResult ? codingResult.score : null;
+  const designResult = s.design.result;
+  const design = designResult ? designResult.score : null;
   const qa = s.stage === 'done' || s.qa.count ? (s.qa.count ? 100 : 40) : null;
 
   const parts: [number | null, number][] = [
     [intro, 10],
-    [warm, 25],
-    [coding, 30],
-    [beh, 25],
-    [qa, 10],
+    [warm, 20],
+    [coding, 25],
+    [design, 25],
+    [beh, 15],
+    [qa, 5],
   ];
   const weight = parts.reduce((w, [v, k]) => w + (v === null ? 0 : k), 0);
   const score = weight ? Math.round(parts.reduce((t, [v, k]) => t + (v ?? 0) * k, 0) / weight) : 0;
@@ -838,6 +1158,8 @@ export function buildReport(s: EngineState): InterviewReport {
   if (codingResult && codingResult.total && codingResult.passed === codingResult.total)
     strengths.push(`Solved the coding problem with all ${codingResult.total} tests passing.`);
   if (codingResult?.clarifications) strengths.push('Asked clarifying questions before coding.');
+  if (designResult && designResult.score >= 75)
+    strengths.push('A structured system design that covered the key areas.');
   if (s.qa.count) strengths.push('Asked thoughtful questions at the end.');
 
   for (const r of s.warm.results.filter((x) => x.grade !== 'good'))
@@ -845,6 +1167,7 @@ export function buildReport(s: EngineState): InterviewReport {
       `Revisit "${r.title}"${r.missing.length ? `: mention ${r.missing.slice(0, 2).join(' and ')}` : ''}.`
     );
   for (const n of codingResult?.notes ?? []) gaps.push(n);
+  for (const n of designResult?.notes ?? []) gaps.push(n);
   for (const n of new Set(s.beh.results.flatMap((r) => r.notes))) gaps.push(n);
   if (introWords && introWords < 60)
     gaps.push('Your intro was short. Aim for about a minute: role, scope, one highlight.');
@@ -859,13 +1182,15 @@ export function buildReport(s: EngineState): InterviewReport {
       { id: 'intro', label: 'Intro', score: intro },
       { id: 'warmup', label: 'Fundamentals', score: warm },
       { id: 'coding', label: 'Coding', score: coding },
+      { id: 'design', label: 'System design', score: design },
       { id: 'behavioral', label: 'Leadership', score: beh },
       { id: 'questions', label: 'Your questions', score: qa },
     ],
     strengths,
-    gaps: gaps.slice(0, 8),
+    gaps: gaps.slice(0, 10),
     warmup: s.warm.results,
     coding: codingResult,
+    design: designResult,
     behavioral: s.beh.results,
     hintsUsed: s.warm.results.filter((r) => r.hinted).length + (codingResult?.hints ?? 0),
   };

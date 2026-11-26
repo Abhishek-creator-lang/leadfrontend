@@ -5,6 +5,7 @@ import {
   isSpeakableTitle,
   type BehavioralMaterial,
   type CodingMaterial,
+  type DesignMaterial,
   type InterviewMaterial,
   type QuizMaterial,
 } from './material';
@@ -26,12 +27,30 @@ export const LENGTHS: Record<
     warmup: number;
     /** Minutes for the coding round. */
     coding: number;
+    /** Minutes for the system design round (0 = no design round). */
+    design: number;
     behavioral: number;
     followups: number;
   }
 > = {
-  short: { label: 'Short', minutes: 30, warmup: 2, coding: 15, behavioral: 1, followups: 1 },
-  standard: { label: 'Standard', minutes: 50, warmup: 4, coding: 25, behavioral: 2, followups: 2 },
+  short: {
+    label: 'Short',
+    minutes: 30,
+    warmup: 2,
+    coding: 15,
+    design: 0,
+    behavioral: 1,
+    followups: 1,
+  },
+  standard: {
+    label: 'Full loop',
+    minutes: 65,
+    warmup: 3,
+    coding: 20,
+    design: 20,
+    behavioral: 2,
+    followups: 2,
+  },
 };
 
 /** Behavioral prompts that are not stories (meta questions handled by the script itself). */
@@ -89,7 +108,8 @@ export function selectQuestionIds(
 export function buildPlan(
   config: LiveInterviewConfig,
   materials: InterviewMaterial[],
-  coding: CodingMaterial | null = null
+  coding: CodingMaterial | null = null,
+  design: DesignMaterial | null = null
 ): InterviewPlan {
   const len = LENGTHS[config.length];
   return {
@@ -97,6 +117,7 @@ export function buildPlan(
     warmupCount: len.warmup,
     introFollowups: len.followups,
     coding,
+    design: len.design > 0 ? design : null,
     quiz: materials.filter((m): m is QuizMaterial => m.kind === 'quiz'),
     behavioral: materials
       .filter((m): m is BehavioralMaterial => m.kind === 'behavioral')

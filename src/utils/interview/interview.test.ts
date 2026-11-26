@@ -172,6 +172,7 @@ const PLAN: InterviewPlan = {
   ],
   behavioral: [story('conflict')],
   coding: null,
+  design: null,
 };
 
 const say = (s: EngineState, text: string | null) => respond(s, text);

@@ -2,17 +2,28 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { listen, speak, speechSupport, stopSpeaking, type Listener } from '@/lib/speech';
+import { aiDesignFollowUp } from '@/lib/aiFollowUp';
 import {
-  codingEvent,
+  designWouldProbe,
   respond,
+  roundEvent,
   startInterview,
-  type CodingEvent,
   type EngineState,
+  type RoundEvent,
   type InterviewPlan,
   type Turn,
 } from '@/utils/interview/engine';
 
-export type RoomStatus = 'idle' | 'speaking' | 'listening' | 'waiting' | 'done';
+export type RoomStatus = 'idle' | 'speaking' | 'listening' | 'waiting' | 'thinking' | 'done';
+
+export interface InterviewOptions {
+  /** Pause between lines when the interviewer's voice is off (tests pass 0). */
+  lineDelayMs?: number;
+  /** Notes the candidate wrote for a design step. */
+  getDesignNotes?: (stepId: string) => string;
+  /** Chrome's on-device AI is ready: use it for tailored design follow-ups. */
+  useAI?: boolean;
+}
 
 /** No speech at all for this long while it's the candidate's turn → the interviewer moves on. */
 const VOICE_SILENCE_MS = 25_000;
@@ -29,7 +40,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 export function useInterview(
   plan: InterviewPlan | null,
   mode: 'voice' | 'text',
-  lineDelayMs = TEXT_LINE_DELAY_MS
+  { lineDelayMs = TEXT_LINE_DELAY_MS, getDesignNotes, useAI = false }: InterviewOptions = {}
 ) {
   const [state, setState] = useState<EngineState | null>(null);
   const [status, setStatus] = useState<RoomStatus>('idle');
@@ -42,6 +53,8 @@ export function useInterview(
   const [micOn, setMicOn] = useState(false);
   /** Interviewer speaks out loud. */
   const [speakerOn, setSpeakerOn] = useState(false);
+  /** Answer being considered while the on-device AI writes a follow-up. */
+  const [pendingAnswer, setPendingAnswer] = useState('');
 
   const stateRef = useRef<EngineState | null>(null);
   const run = useRef(0); // bumps on every turn and on unmount: stale loops stop
@@ -52,6 +65,10 @@ export function useInterview(
   micRef.current = micOn;
   const speakerRef = useRef(speakerOn);
   speakerRef.current = speakerOn;
+  const notesRef = useRef(getDesignNotes);
+  notesRef.current = getDesignNotes;
+  const aiRef = useRef(useAI);
+  aiRef.current = useAI;
 
   // The room reads its settings after mount, so follow `mode` instead of using it only once.
   useEffect(() => {
@@ -106,7 +123,32 @@ export function useInterview(
       if (!s || s.stage === 'done') return;
       stopSpeaking();
       stopListening();
-      void playTurn(respond(s, text));
+      if (text === null || s.stage !== 'design') {
+        void playTurn(respond(s, text));
+        return;
+      }
+      // Design: grade the spoken answer together with the notes board, and let the on-device AI
+      // write the follow-up when the interviewer would probe anyway.
+      const design = s.plan.design!;
+      const step = design.steps[s.design.stepIndex];
+      const notes = (step && notesRef.current?.(step.id)) || '';
+      if (!step || !aiRef.current || !designWouldProbe(s, text, notes)) {
+        void playTurn(respond(s, text, { notes }));
+        return;
+      }
+      const id = ++run.current;
+      setStatus('thinking');
+      setPendingAnswer(text);
+      void aiDesignFollowUp({
+        problem: design.title,
+        step: step.label,
+        keyPoints: step.keyPoints,
+        answer: [...s.design.answers, text, notes].join(' '),
+      }).then((aiFollowUp) => {
+        if (run.current !== id) return;
+        setPendingAnswer('');
+        void playTurn(respond(s, text, { notes, aiFollowUp }));
+      });
     },
     [playTurn]
   );
@@ -138,20 +180,21 @@ export function useInterview(
         setStatus('waiting');
       },
     });
-    // While coding, silence is normal: never treat it as "no answer".
+    // While coding or working through a design step, silence is normal: never "no answer".
     const st = stateRef.current;
     if (st?.stage === 'coding' && st.coding.phase === 'coding') return;
+    if (st?.stage === 'design' && st.design.phase === 'steps') return;
     silenceTimer.current = window.setTimeout(() => {
       if (run.current === id && !heard) submit(null);
     }, VOICE_SILENCE_MS);
   }
 
-  /** Editor and clock events in the coding round (tests run, idle, time). */
+  /** Room events in the coding and design rounds (tests run, idle, time, done / next step). */
   const sendEvent = useCallback(
-    (ev: CodingEvent) => {
+    (ev: RoundEvent) => {
       const s = stateRef.current;
-      if (!s || s.stage !== 'coding') return;
-      const turn = codingEvent(s, ev);
+      if (!s || (s.stage !== 'coding' && s.stage !== 'design')) return;
+      const turn = roundEvent(s, ev);
       if (!turn.say.length) {
         // Nothing to say (e.g. a repeated warning): update quietly, keep listening.
         stateRef.current = turn.state;
@@ -206,6 +249,7 @@ export function useInterview(
     micError,
     micOn,
     speakerOn,
+    pendingAnswer,
     /** Switch between answering by voice and by typing (starts listening if it's your turn). */
     setMicOn: (on: boolean) => {
       setMicOn(on);

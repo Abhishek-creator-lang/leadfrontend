@@ -242,3 +242,136 @@ export function codingMaterial(
     followUps: (promptFollowUps.length ? promptFollowUps : solutionFollowUps).slice(0, 3),
   };
 }
+
+// ---- system design round ----
+
+export type DesignStepId = 'requirements' | 'architecture' | 'data' | 'api' | 'deepdive';
+
+export interface DesignStep {
+  id: DesignStepId;
+  label: string;
+  /** What the interviewer asks to open this step. */
+  ask: string;
+  /** Topics a strong answer touches (subsection headings and bold terms). */
+  keyPoints: string[];
+}
+
+export interface DesignMaterial {
+  kind: 'design';
+  id: string;
+  title: string;
+  /** Problem statement shown on screen (Markdown). */
+  prompt: string;
+  /** One sentence the interviewer says to introduce the problem. */
+  intro: string;
+  steps: DesignStep[];
+  /** Interviewer pushback from "Common follow-up questions": question and a short model answer. */
+  pushbacks: { q: string; a: string }[];
+  /** What a lead-level answer adds (for lead interviews). */
+  leadPoints: string[];
+}
+
+const STEP_INFO: { id: DesignStepId; match: RegExp; label: string; ask: string }[] = [
+  {
+    id: 'requirements',
+    match: /requirement/i,
+    label: 'Requirements',
+    ask: "Let's start with requirements. What would you want to clarify, and what's in and out of scope?",
+  },
+  {
+    id: 'architecture',
+    match: /architecture/i,
+    label: 'Architecture',
+    ask: 'Good. Walk me through the high-level architecture. What are the main pieces on the client, and how do they fit together?',
+  },
+  {
+    id: 'data',
+    match: /data model/i,
+    label: 'Data model',
+    ask: "Let's talk about data. How would you model the data and the state on the client?",
+  },
+  {
+    id: 'api',
+    match: /interface|api/i,
+    label: 'API',
+    ask: 'What does the interface look like? The API between the client and the server, and the main component props.',
+  },
+  {
+    id: 'deepdive',
+    match: /optimi|deep dive|trade-?off/i,
+    label: 'Deep dives',
+    ask: 'Now let us go deeper. How would you make this fast and robust? Think performance, network, accessibility, and anything else that matters here.',
+  },
+];
+
+/** `### Heading` titles inside a section, cleaned up for speech ("Pagination: cursor, not offset" → "Pagination"). */
+function subheadings(md: string): string[] {
+  return md
+    .split(/\r?\n/)
+    .filter((l) => /^###\s/.test(l))
+    .map((l) =>
+      plainText(l.replace(/^###\s+/, ''))
+        .split(/[:(]/)[0]
+        .trim()
+    )
+    .filter(
+      (h) =>
+        h &&
+        !/^(functional|non-functional|out of scope|clarifying|why |responsibilities|example)/i.test(
+          h
+        ) &&
+        h.split(/\s+/).length <= 6
+    );
+}
+
+/** `**Question?** Answer…` paragraphs → pushback questions with a one-sentence answer. */
+function pushbacks(md: string): { q: string; a: string }[] {
+  const out: { q: string; a: string }[] = [];
+  for (const m of md.matchAll(/\*\*([^*]+\?)\*\*\s*([\s\S]*?)(?=\n\s*\n|\n\*\*|$)/g)) {
+    const q = plainText(m[1]);
+    const a = firstSentence(plainText(m[2] ?? ''));
+    if (q.length <= 160 && a) out.push({ q, a });
+  }
+  return out;
+}
+
+export function designMaterial(
+  q: { id: string; title: string; format: string },
+  files: Record<string, string>
+): DesignMaterial | null {
+  if (q.format !== 'system-design') return null;
+  const promptMd = files['prompt.md'] ?? '';
+  const solutionMd = files['solution.md'] ?? '';
+  const numbered = solutionMd
+    .split(/\r?\n/)
+    .filter((l) => /^##\s+\d\.\s/.test(l))
+    .map((l) => l.replace(/^##\s+\d\.\s+/, ''));
+
+  const steps: DesignStep[] = [];
+  for (const info of STEP_INFO) {
+    const heading = numbered.find((h) => info.match.test(h));
+    if (!heading) continue;
+    const body = section(
+      solutionMd,
+      new RegExp(`^##\\s+\\d\\.\\s+${heading.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}`)
+    );
+    const keyPoints = [...new Set([...subheadings(body), ...boldTerms(body)])]
+      .filter((k) => k.length <= 40)
+      .slice(0, 10);
+    if (keyPoints.length) steps.push({ id: info.id, label: info.label, ask: info.ask, keyPoints });
+  }
+  if (steps.length < 3) return null;
+
+  const firstPara =
+    promptMd.split(/\n\s*\n/).find((p) => p.trim() && !/^(#|```|\||>)/.test(p.trim())) ?? '';
+  return {
+    kind: 'design',
+    id: q.id,
+    title: plainText(q.title),
+    prompt: withoutFollowUps(promptMd),
+    intro: clip(firstSentence(plainText(firstPara)), 240),
+    steps,
+    pushbacks: pushbacks(section(solutionMd, /common follow-?up/i)).slice(0, 6),
+    leadPoints: boldTerms(section(solutionMd, /lead-level/i)).slice(0, 6),
+  };
+}

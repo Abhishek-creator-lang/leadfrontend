@@ -135,6 +135,7 @@ const PLAN: InterviewPlan = {
     },
   ],
   coding: CODING,
+  design: null,
 };
 
 const INTRO =

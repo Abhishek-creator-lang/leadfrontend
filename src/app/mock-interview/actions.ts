@@ -6,8 +6,10 @@ import { getContent, getQuestionFiles } from '@/server/content/catalog';
 import {
   behavioralMaterial,
   codingMaterial,
+  designMaterial,
   quizMaterial,
   type CodingMaterial,
+  type DesignMaterial,
   type InterviewMaterial,
 } from '@/utils/interview/material';
 
@@ -62,13 +64,57 @@ export async function loadCodingQuestionAction(
   const rank = (d: Difficulty, importance: string) =>
     (levels.indexOf(d) === 0 ? 2 : levels.includes(d) ? 1 : 0) + (importance === 'high' ? 1 : 0);
   const candidates = content.questions
-    .filter((q) => q.format === 'javascript' && q.hasTests && q.hasStarter && levels.includes(q.difficulty))
-    .map((q) => ({ q, score: rank(q.difficulty, q.importance) + (skip.has(q.id) ? -3 : 0) + Math.random() }))
+    .filter(
+      (q) =>
+        q.format === 'javascript' && q.hasTests && q.hasStarter && levels.includes(q.difficulty)
+    )
+    .map((q) => ({
+      q,
+      score: rank(q.difficulty, q.importance) + (skip.has(q.id) ? -3 : 0) + Math.random(),
+    }))
     .sort((a, b) => b.score - a.score)
     .slice(0, 6);
 
   for (const { q } of candidates) {
     const m = codingMaterial(q, await getQuestionFiles(q.id));
+    if (m) return m;
+  }
+  return null;
+}
+
+const DESIGN_TYPES: Record<'senior' | 'lead', string[]> = {
+  senior: ['component', 'application'],
+  lead: ['application', 'lead'],
+};
+
+/**
+ * Picks the system design problem: application or lead-level designs for lead roles, components or
+ * applications for senior roles. Sends the prompt and interviewer notes, not the model answer.
+ */
+export async function loadDesignQuestionAction(
+  role: string,
+  exclude: string[] = []
+): Promise<DesignMaterial | null> {
+  const r = roleSchema.safeParse(role);
+  if (!r.success) return null;
+  const skip = new Set(excludeSchema.safeParse(exclude).data ?? []);
+  const { content } = await getContent();
+  const types = DESIGN_TYPES[r.data];
+  const candidates = content.questions
+    .filter((q) => q.format === 'system-design')
+    .map((q) => ({
+      q,
+      score:
+        (q.sdType && types.includes(q.sdType) ? 2 : 0) +
+        (q.importance === 'high' ? 1 : 0) +
+        (skip.has(q.id) ? -3 : 0) +
+        Math.random(),
+    }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 6);
+
+  for (const { q } of candidates) {
+    const m = designMaterial(q, await getQuestionFiles(q.id));
     if (m) return m;
   }
   return null;

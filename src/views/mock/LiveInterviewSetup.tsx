@@ -76,7 +76,8 @@ export function LiveInterviewSetup() {
           </Stack>
           <Typography variant="body2" color="text.secondary">
             {INTERVIEWER.role}. Talks you through a real interview: intro, fundamentals, a live
-            coding problem, leadership questions and your questions, then gives feedback.
+            coding problem, system design (in the full loop), leadership questions and your
+            questions, then gives feedback.
           </Typography>
         </Box>
       </Stack>

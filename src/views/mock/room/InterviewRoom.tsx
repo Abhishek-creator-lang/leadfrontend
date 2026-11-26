@@ -30,21 +30,24 @@ import VideocamOffRoundedIcon from '@mui/icons-material/VideocamOffRounded';
 import VolumeUpRoundedIcon from '@mui/icons-material/VolumeUpRounded';
 import VolumeOffRoundedIcon from '@mui/icons-material/VolumeOffRounded';
 import DoneAllRoundedIcon from '@mui/icons-material/DoneAllRounded';
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import {
   loadCodingQuestionAction,
+  loadDesignQuestionAction,
   loadInterviewMaterialAction,
 } from '@/app/mock-interview/actions';
 import { Markdown } from '@/components/Markdown';
 import { INTERVIEWER, ROLE_LABEL } from '@/content/interviewer/script';
 import { useContent } from '@/context/ContentContext';
 import { ThemeModeContext } from '@/context/ThemeModeContext';
+import { useBuiltInAI } from '@/hooks/useBuiltInAI';
 import { useNow } from '@/hooks/useNow';
 import { track } from '@/lib/analytics';
 import { speechSupport } from '@/lib/speech';
 import { PATHS } from '@/routes/paths';
 import { useAppSelector } from '@/store';
 import { buildReport, STAGES, type InterviewPlan, type Line } from '@/utils/interview/engine';
-import type { CodingMaterial } from '@/utils/interview/material';
+import type { CodingMaterial, DesignMaterial } from '@/utils/interview/material';
 import {
   buildPlan,
   LENGTHS,
@@ -94,6 +97,12 @@ export default function InterviewRoom({
   const [plan, setPlan] = useState<InterviewPlan | null>(null);
   const [loadError, setLoadError] = useState(false);
   const [joined, setJoined] = useState(false);
+  /** Design notes board: one text per design step. */
+  const [designNotes, setDesignNotes] = useState<Record<string, string>>({});
+  const notesRef = useRef(designNotes);
+  notesRef.current = designNotes;
+  // Tailored design follow-ups only when Chrome's model is already on the device (no surprise download).
+  const aiReady = useBuiltInAI() === 'available';
 
   useEffect(() => {
     const c = loadConfig() ?? DEFAULT_CONFIG;
@@ -105,12 +114,17 @@ export default function InterviewRoom({
     let cancelled = false;
     Promise.all([
       loadInterviewMaterialAction(selectQuestionIds(content.questions, config)),
-      // Prefer a coding problem the candidate hasn't solved yet.
+      // Prefer problems the candidate hasn't solved yet.
       loadCodingQuestionAction(config.role, Object.keys(completed).slice(0, 500)).catch(() => null),
+      LENGTHS[config.length].design
+        ? loadDesignQuestionAction(config.role, Object.keys(completed).slice(0, 500)).catch(
+            () => null
+          )
+        : Promise.resolve(null),
     ])
-      .then(([materials, coding]) => {
+      .then(([materials, coding, design]) => {
         if (cancelled) return;
-        const p = buildPlan(config, materials, coding);
+        const p = buildPlan(config, materials, coding, design);
         if (!p.quiz.length && !p.behavioral.length) setLoadError(true);
         else setPlan(p);
       })
@@ -122,7 +136,11 @@ export default function InterviewRoom({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config, content.questions]);
 
-  const room = useInterview(plan, config?.mode ?? 'text', lineDelayMs);
+  const room = useInterview(plan, config?.mode ?? 'text', {
+    lineDelayMs,
+    getDesignNotes: (stepId) => notesRef.current[stepId] ?? '',
+    useAI: aiReady,
+  });
 
   return (
     <Box
@@ -149,7 +167,12 @@ export default function InterviewRoom({
           }}
         />
       ) : (
-        <Live config={config} room={room} />
+        <Live
+          config={config}
+          room={room}
+          notes={designNotes}
+          onNotes={(id, text) => setDesignNotes((n) => ({ ...n, [id]: text }))}
+        />
       )}
     </Box>
   );
@@ -216,11 +239,16 @@ function Lobby({
 function Live({
   config,
   room,
+  notes,
+  onNotes,
 }: {
   config: LiveInterviewConfig;
   room: ReturnType<typeof useInterview>;
+  notes: Record<string, string>;
+  onNotes: (stepId: string, text: string) => void;
 }) {
-  const { state, status, shown, caption, interim, micError, micOn, speakerOn } = room;
+  const { state, status, shown, caption, interim, micError, micOn, speakerOn, pendingAnswer } =
+    room;
   const canSpeak = speechSupport().listen;
   const [startedAt] = useState(() => Date.now());
   const now = useNow(status !== 'done');
@@ -232,13 +260,24 @@ function Live({
 
   const codingMaterial = state?.stage === 'coding' ? state.plan.coding : null;
   const codingPhase = state?.stage === 'coding' ? state.coding.phase : null;
+  const designMaterial = state?.stage === 'design' ? state.plan.design : null;
+  const designPhase = state?.stage === 'design' ? state.design.phase : null;
+  const designStep = designMaterial && state ? designMaterial.steps[state.design.stepIndex] : null;
+  /** The timed round in progress: coding (while coding) or design (while working through steps). */
+  const round: 'coding' | 'design' | null =
+    codingPhase === 'coding' ? 'coding' : designPhase === 'steps' ? 'design' : null;
   const codingLimitMs = LENGTHS[config.length].coding * 60_000;
+  const roundLimitMs =
+    (round === 'design' ? LENGTHS[config.length].design : LENGTHS[config.length].coding) * 60_000;
+  const roundStart = useRef<{ stage: string; at: number } | null>(null);
   const codingStart = useRef<number | null>(null);
   const lastActivity = useRef(Date.now());
 
   useEffect(() => {
-    if (state?.stage === 'coding' && codingStart.current === null) {
-      codingStart.current = Date.now();
+    const stage = state?.stage;
+    if ((stage === 'coding' || stage === 'design') && roundStart.current?.stage !== stage) {
+      roundStart.current = { stage, at: Date.now() };
+      if (stage === 'coding') codingStart.current = Date.now();
       lastActivity.current = Date.now();
     }
   }, [state?.stage]);
@@ -249,14 +288,19 @@ function Live({
 
   // The interviewer keeps an eye on the clock and on whether you're stuck.
   useEffect(() => {
-    if (codingPhase !== 'coding' || codingStart.current === null || !state) return;
+    if (!round || !roundStart.current || !state) return;
     if (status !== 'listening' && status !== 'waiting') return; // never talk over him
-    const elapsed = now - codingStart.current;
-    if (elapsed >= codingLimitMs) {
+    const elapsed = now - roundStart.current.at;
+    const warned = round === 'coding' ? state.coding.warnedTime : state.design.warnedTime;
+    if (elapsed >= roundLimitMs) {
       room.sendEvent({ type: 'timeUp' });
-    } else if (elapsed >= codingLimitMs * 0.8 && !state.coding.warnedTime) {
-      room.sendEvent({ type: 'timeWarning', minutesLeft: (codingLimitMs - elapsed) / 60_000 });
-    } else if (now - lastActivity.current > IDLE_MS && state.coding.nudges < 2) {
+    } else if (elapsed >= roundLimitMs * 0.8 && !warned) {
+      room.sendEvent({ type: 'timeWarning', minutesLeft: (roundLimitMs - elapsed) / 60_000 });
+    } else if (
+      round === 'coding' &&
+      now - lastActivity.current > IDLE_MS &&
+      state.coding.nudges < 2
+    ) {
       lastActivity.current = now;
       room.sendEvent({ type: 'idle' });
     }
@@ -292,8 +336,13 @@ function Live({
   if (report && state) return <InterviewReportView report={report} transcript={state.transcript} />;
 
   const lines = state ? state.transcript.slice(0, shown) : [];
-  const stageIndex = STAGES.findIndex((s) => s.id === state?.stage);
+  // Only show the rounds this interview actually has.
+  const stages = STAGES.filter(
+    (s) => (s.id !== 'coding' || state?.plan.coding) && (s.id !== 'design' || state?.plan.design)
+  );
+  const stageIndex = stages.findIndex((s) => s.id === state?.stage);
   const canAnswer = status === 'listening' || status === 'waiting';
+  const sidePanel = Boolean(codingMaterial || designMaterial);
 
   const send = (e?: FormEvent) => {
     e?.preventDefault();
@@ -323,7 +372,7 @@ function Live({
           {ROLE_LABEL[config.role]} interview
         </Typography>
         <Stack direction="row" spacing={0.5} sx={{ flex: 1, overflow: 'hidden' }}>
-          {STAGES.map((s, i) => (
+          {stages.map((s, i) => (
             <Chip
               key={s.id}
               size="small"
@@ -334,11 +383,13 @@ function Live({
             />
           ))}
         </Stack>
-        {codingPhase && codingStart.current !== null ? (
+        {round && roundStart.current ? (
           <Chip
             size="small"
-            color={now - codingStart.current > codingLimitMs * 0.8 ? 'warning' : 'default'}
-            label={`Coding · ${formatClock(Math.round((codingLimitMs - (now - codingStart.current)) / 1000))} left`}
+            color={now - roundStart.current.at > roundLimitMs * 0.8 ? 'warning' : 'default'}
+            label={`${round === 'coding' ? 'Coding' : 'Design'} · ${formatClock(
+              Math.max(0, Math.round((roundLimitMs - (now - roundStart.current.at)) / 1000))
+            )} left`}
             sx={{ fontFamily: 'var(--font-mono)' }}
           />
         ) : (
@@ -373,7 +424,7 @@ function Live({
           flex: 1,
           minHeight: 0,
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: codingMaterial ? '260px 1fr' : '340px 1fr' },
+          gridTemplateColumns: { xs: '1fr', md: sidePanel ? '260px 1fr' : '340px 1fr' },
         }}
       >
         <Stack
@@ -388,9 +439,9 @@ function Live({
         >
           <Avatar
             sx={{
-              width: codingMaterial ? 72 : 120,
-              height: codingMaterial ? 72 : 120,
-              fontSize: codingMaterial ? 32 : 48,
+              width: sidePanel ? 72 : 120,
+              height: sidePanel ? 72 : 120,
+              fontSize: sidePanel ? 32 : 48,
               bgcolor: 'primary.main',
               animation: status === 'speaking' ? `${pulse} 1.4s infinite` : 'none',
             }}
@@ -407,28 +458,30 @@ function Live({
             size="small"
             color={status === 'listening' ? 'error' : 'default'}
             label={
-              status === 'speaking'
-                ? 'Speaking…'
-                : status === 'listening'
-                  ? 'Listening to you…'
-                  : canAnswer
-                    ? 'Your turn'
-                    : '…'
+              status === 'thinking'
+                ? 'Thinking…'
+                : status === 'speaking'
+                  ? 'Speaking…'
+                  : status === 'listening'
+                    ? 'Listening to you…'
+                    : canAnswer
+                      ? 'Your turn'
+                      : '…'
             }
           />
           <Typography
             aria-live="polite"
             sx={{
-              fontSize: codingMaterial ? 15 : 18,
+              fontSize: sidePanel ? 15 : 18,
               textAlign: 'center',
-              minHeight: codingMaterial ? 60 : 100,
+              minHeight: sidePanel ? 60 : 100,
               color: 'text.primary',
             }}
           >
             {status === 'speaking' ? caption : ''}
           </Typography>
-          {codingMaterial ? (
-            <MiniTranscript lines={lines} interim={interim} />
+          {sidePanel ? (
+            <MiniTranscript lines={lines} interim={interim || pendingAnswer} />
           ) : (
             <Box sx={{ flex: 1 }} />
           )}
@@ -446,7 +499,14 @@ function Live({
           </Typography>
         </Stack>
 
-        {codingMaterial ? (
+        {designMaterial && state ? (
+          <DesignStage
+            material={designMaterial}
+            stepIndex={state.design.stepIndex}
+            notes={notes}
+            onNotes={onNotes}
+          />
+        ) : codingMaterial ? (
           <CodingStage
             material={codingMaterial}
             dark={themeMode === 'dark'}
@@ -461,6 +521,7 @@ function Live({
                 <Bubble key={i} who={l.who} text={l.text} />
               ))}
               {interim && <Bubble who="candidate" text={interim} live />}
+              {pendingAnswer && <Bubble who="candidate" text={pendingAnswer} />}
             </Stack>
           </Box>
         )}
@@ -565,6 +626,18 @@ function Live({
                 <SendRoundedIcon />
               </IconButton>
             </Box>
+          )}
+          {designPhase === 'steps' && designStep && (
+            <Button
+              variant="outlined"
+              color="success"
+              endIcon={<ArrowForwardRoundedIcon />}
+              onClick={() => room.sendEvent({ type: 'done', notes: notes[designStep.id] ?? '' })}
+              disabled={status === 'speaking' || status === 'thinking'}
+              sx={{ flexShrink: 0 }}
+            >
+              Next step
+            </Button>
           )}
           {codingPhase === 'coding' && (
             <Button
@@ -743,7 +816,7 @@ function MiniTranscript({ lines, interim }: { lines: Line[]; interim: string }) 
             variant="body2"
             color={l.who === 'interviewer' ? 'text.primary' : 'text.secondary'}
           >
-            <b>{l.who === 'interviewer' ? INTERVIEWER.name : 'You'}:</b> {l.text}
+            <b>{l.who === 'interviewer' ? INTERVIEWER.name : 'You'}:</b> <span>{l.text}</span>
           </Typography>
         ))}
         {interim && (
@@ -753,6 +826,82 @@ function MiniTranscript({ lines, interim }: { lines: Line[]; interim: string }) 
         )}
         <div ref={end} />
       </Stack>
+    </Box>
+  );
+}
+
+/** Problem and step list on the left, a notes board per design step on the right. */
+function DesignStage({
+  material,
+  stepIndex,
+  notes,
+  onNotes,
+}: {
+  material: DesignMaterial;
+  stepIndex: number;
+  notes: Record<string, string>;
+  onNotes: (stepId: string, text: string) => void;
+}) {
+  const current = material.steps[Math.min(stepIndex, material.steps.length - 1)];
+  return (
+    <Box
+      sx={{
+        minHeight: 0,
+        display: 'grid',
+        gridTemplateColumns: { xs: '1fr', lg: 'minmax(260px, 2fr) 3fr' },
+        overflow: { xs: 'auto', lg: 'hidden' },
+      }}
+    >
+      <Box
+        sx={{
+          overflowY: 'auto',
+          p: 2.5,
+          borderRight: { lg: 1 },
+          borderColor: { lg: 'divider' },
+          maxHeight: { xs: '40vh', lg: 'none' },
+        }}
+      >
+        <Typography variant="h6" component="h2" gutterBottom>
+          {material.title}
+        </Typography>
+        <Stack direction="row" spacing={0.5} sx={{ mb: 2, flexWrap: 'wrap', rowGap: 0.5 }}>
+          {material.steps.map((st, i) => (
+            <Chip
+              key={st.id}
+              size="small"
+              label={`${i + 1}. ${st.label}`}
+              color={i === stepIndex ? 'primary' : 'default'}
+              variant={i <= stepIndex ? 'filled' : 'outlined'}
+            />
+          ))}
+        </Stack>
+        <Markdown>{material.prompt}</Markdown>
+      </Box>
+      <Box sx={{ overflowY: 'auto', p: 2.5 }}>
+        <Typography variant="subtitle1" fontWeight={700}>
+          Notes board
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+          Jot down your points as you talk. {INTERVIEWER.name} reads your notes for the current step
+          too. Press <b>Next step</b> when you are ready to move on.
+        </Typography>
+        <Stack spacing={2}>
+          {material.steps.map((st, i) => (
+            <TextField
+              key={st.id}
+              label={`${i + 1}. ${st.label}`}
+              value={notes[st.id] ?? ''}
+              onChange={(e) => onNotes(st.id, e.target.value)}
+              multiline
+              minRows={st.id === current.id ? 6 : 2}
+              fullWidth
+              focused={st.id === current.id ? true : undefined}
+              placeholder={st.id === current.id ? 'Your notes for this step…' : undefined}
+              inputProps={{ 'aria-label': `Notes: ${st.label}` }}
+            />
+          ))}
+        </Stack>
+      </Box>
     </Box>
   );
 }

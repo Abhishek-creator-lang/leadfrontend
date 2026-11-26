@@ -48,7 +48,8 @@ export function mentions(answer: string, keyPoint: string): boolean {
   const kw = words(keyPoint).filter((w) => w.length > 3);
   if (!kw.length) return false;
   const hits = kw.filter((w) => a.includes(squash(w.replace(/(ing|ed|es|s)$/, '')))).length;
-  return hits / kw.length >= 0.6;
+  // Half the meaningful words: "rendering strategy" is covered by talking about rendering.
+  return hits / kw.length >= 0.5;
 }
 
 export const coverage = (answer: string, keyPoints: string[]) => {
