@@ -7,7 +7,13 @@
  * free plan `track` is a harmless no-op on Vercel's side.
  */
 
-export type AnalyticsEvent = 'register' | 'question_completed' | 'plan_started' | 'share_clicked';
+export type AnalyticsEvent =
+  | 'register'
+  | 'question_completed'
+  | 'plan_started'
+  | 'share_clicked'
+  | 'mock_started'
+  | 'mock_completed';
 
 type EventData = Record<string, string | number | boolean | null>;
 
