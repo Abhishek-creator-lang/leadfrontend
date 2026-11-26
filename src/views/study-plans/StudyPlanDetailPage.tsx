@@ -7,6 +7,7 @@ import { QuestionList } from '@/components/QuestionList';
 import { CONTENT_MAX_WIDTH } from '@/constants/layout';
 import { useContent } from '@/context/ContentContext';
 import { Page, PageHeader } from '@/layout/Page';
+import { ShareButton } from '@/components/ShareButton';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { leavePlan, startPlan } from '@/store/progressSlice';
 import { countCompleted, planQuestionIds } from '@/utils/progress';
@@ -28,15 +29,18 @@ export default function StudyPlanDetailPage({ id }: { id: string }) {
         title={plan.title}
         subtitle={plan.subtitle}
         action={
-          started ? (
-            <Button color="inherit" onClick={() => dispatch(leavePlan(plan.id))}>
-              Leave plan
-            </Button>
-          ) : (
-            <Button variant="contained" onClick={() => dispatch(startPlan(plan.id))}>
-              Start plan
-            </Button>
-          )
+          <Stack direction="row" spacing={1} alignItems="center">
+            <ShareButton title={`${plan.title} study plan`} kind="study_plan" />
+            {started ? (
+              <Button color="inherit" onClick={() => dispatch(leavePlan(plan.id))}>
+                Leave plan
+              </Button>
+            ) : (
+              <Button variant="contained" onClick={() => dispatch(startPlan(plan.id))}>
+                Start plan
+              </Button>
+            )}
+          </Stack>
         }
       />
       <Card sx={{ p: 3, mb: 4 }}>

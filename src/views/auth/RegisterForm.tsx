@@ -1,6 +1,7 @@
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
+import { track } from '@/lib/analytics';
 import { Stack } from '@mui/material';
 import { registerAction } from '@/app/(auth)/actions';
 import {
@@ -15,6 +16,9 @@ import { PASSWORD_MIN_LENGTH } from '@/lib/validation/auth';
 
 export function RegisterForm() {
   const [state, action] = useActionState(registerAction, initialActionState);
+  useEffect(() => {
+    if (state.ok) track('register');
+  }, [state.ok]);
   if (state.ok) return <FormAlert state={state} />;
   return (
     <form action={action} noValidate>

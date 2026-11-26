@@ -9,6 +9,7 @@ import { ReportIssueLink } from '@/components/ReportIssueLink';
 import { CONTENT_MAX_WIDTH } from '@/constants/layout';
 import { useContent } from '@/context/ContentContext';
 import { Page, PageHeader } from '@/layout/Page';
+import { ShareButton } from '@/components/ShareButton';
 
 /** `md` is loaded on the server; `null` when the company file is missing. */
 export default function CompanyPage({ slug, md }: { slug: string; md: string | null }) {
@@ -17,7 +18,10 @@ export default function CompanyPage({ slug, md }: { slug: string; md: string | n
   if (!company) return <EmptyState title="Company not found" />;
   return (
     <Page maxWidth={CONTENT_MAX_WIDTH.reading}>
-      <PageHeader title={company.title} />
+      <PageHeader
+        title={company.title}
+        action={<ShareButton title={company.title} kind="company" />}
+      />
       <Alert severity="info" sx={{ mb: 3 }}>
         {APP_NAME} is not affiliated with {company.name}. This guide summarizes publicly shared
         candidate reports, which may be outdated or inaccurate. Follow your recruiter&apos;s

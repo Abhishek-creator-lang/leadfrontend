@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: PageProps<Params>): Promise<M
     description: questionDescription(q),
     path: questionPath(q),
     type: 'article',
+    ogImage: true,
   });
 }
 

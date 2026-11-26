@@ -12,6 +12,7 @@ import { isSupportActive } from '@/lib/validation/support';
 import { DARK_TOKENS, LIGHT_TOKENS } from '@/theme/tokens';
 import { Providers } from './providers';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { Analytics } from '@/components/Analytics';
 import { siteLd, siteUrl } from '@/lib/seo';
 
 /** Fonts: Manrope (headings), Inter (UI and body), JetBrains Mono (code). Stacks: src/theme/fonts.ts. */
@@ -100,6 +101,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         >
           <AppShell>{children}</AppShell>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );

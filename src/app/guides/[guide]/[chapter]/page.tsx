@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: PageProps<Params>): Promise<M
     description: c.description || g.description,
     path: guidePath(g.id, c.slug),
     type: 'article',
+    ogImage: true,
   });
 }
 

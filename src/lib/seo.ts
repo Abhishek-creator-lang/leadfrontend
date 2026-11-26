@@ -61,14 +61,18 @@ export function pageMetadata({
   path,
   type = 'website',
   noindex = false,
+  ogImage = false,
 }: {
   title: string;
   description: string;
   path: string;
   type?: 'website' | 'article';
   noindex?: boolean;
+  /** True when the route has its own `opengraph-image.tsx` (served at `<path>/opengraph-image`). */
+  ogImage?: boolean;
 }): Metadata {
   const desc = clip(description);
+  const image = ogImage ? { ...OG_IMAGE, url: `${path}/opengraph-image` } : OG_IMAGE;
   return {
     title,
     description: desc,
@@ -81,9 +85,9 @@ export function pageMetadata({
       description: desc,
       siteName: APP_NAME,
       locale: 'en_US',
-      images: [OG_IMAGE],
+      images: [image],
     },
-    twitter: { card: 'summary_large_image', title, description: desc, images: [OG_IMAGE.url] },
+    twitter: { card: 'summary_large_image', title, description: desc, images: [image.url] },
     ...(noindex ? { robots: NOINDEX } : {}),
   };
 }

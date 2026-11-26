@@ -17,6 +17,7 @@ import BookmarkRoundedIcon from '@mui/icons-material/BookmarkRounded';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
+import { ShareButton } from '@/components/ShareButton';
 import { useContent } from '@/context/ContentContext';
 import { FORMAT_INFO } from '@/content/formats';
 import type { QuestionMeta, QuestionSummary } from '@/content/types';
@@ -89,6 +90,7 @@ export function QuestionHeader({ q }: { q: QuestionMeta }) {
           {q.title}
         </Typography>
       </Breadcrumbs>
+      <ShareButton title={q.title.replace(/`/g, '')} kind="question" />
       <Tooltip title={bookmarked ? 'Remove bookmark' : 'Bookmark'}>
         <IconButton
           onClick={() => dispatch(toggleBookmark(q.id))}
