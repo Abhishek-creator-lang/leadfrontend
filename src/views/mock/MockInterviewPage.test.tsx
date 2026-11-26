@@ -67,7 +67,10 @@ beforeEach(() => {
     dispatchEvent: () => false,
   })) as unknown as typeof window.matchMedia;
 });
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  delete (globalThis as Record<string, unknown>).LanguageModel;
+});
 
 describe('MockInterviewPage', () => {
   it('runs a quick loop from setup to scorecard and saves it to history', async () => {
@@ -106,6 +109,44 @@ describe('MockInterviewPage', () => {
     await user.click(screen.getByRole('button', { name: 'New mock interview' }));
     const past = screen.getByText('Past mock interviews').parentElement!;
     expect(within(past).getByText('44%')).toBeTruthy();
+  });
+
+  it('hides AI feedback when the browser has no built-in AI', async () => {
+    const user = userEvent.setup();
+    renderPage();
+    await user.click(await screen.findByRole('button', { name: 'Start mock interview' }));
+    await user.click(screen.getByRole('button', { name: 'Start round and timer' }));
+    expect(screen.getByText('Grade yourself')).toBeTruthy();
+    expect(screen.queryByText('AI feedback')).toBeNull();
+  });
+
+  it('shows on-device AI feedback when Chrome supports it', async () => {
+    (globalThis as Record<string, unknown>).LanguageModel = {
+      availability: async () => 'available',
+      create: async () => ({
+        promptStreaming: () =>
+          new ReadableStream<string>({
+            start(c) {
+              c.enqueue('### Biggest gap\n\n');
+              c.enqueue('Talk about complexity.');
+              c.close();
+            },
+          }),
+        destroy: () => {},
+      }),
+    };
+    const user = userEvent.setup();
+    renderPage();
+    await user.click(await screen.findByRole('button', { name: 'Quick 45' }));
+    await user.click(screen.getByRole('button', { name: 'Start mock interview' }));
+    await user.click(screen.getByRole('button', { name: 'Start round and timer' }));
+
+    const box = await screen.findByLabelText('Your answer for AI feedback');
+    const button = screen.getByRole('button', { name: 'Get AI feedback' });
+    expect((button as HTMLButtonElement).disabled).toBe(true);
+    await user.type(box, 'I wrote a debounce with a timer id and cleared it on each call. O(1).');
+    await user.click(button);
+    expect(await screen.findByText('Talk about complexity.')).toBeTruthy();
   });
 
   it('restores an interview in progress after a reload', async () => {

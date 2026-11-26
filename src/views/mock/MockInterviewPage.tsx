@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
 import {
   Alert,
@@ -28,6 +29,7 @@ import { PAGE_TITLES } from '@/constants/navigation';
 import { useContent } from '@/context/ContentContext';
 import { useMockInterview } from '@/context/MockInterviewContext';
 import { FORMAT_INFO } from '@/content/formats';
+import { useBuiltInAI } from '@/hooks/useBuiltInAI';
 import { useNow } from '@/hooks/useNow';
 import { Page, PageHeader } from '@/layout/Page';
 import { questionPath } from '@/routes/paths';
@@ -45,6 +47,9 @@ import {
 } from '@/utils/mockInterview';
 
 const plain = (t: string) => t.replace(/`/g, '');
+
+/** Loaded only in browsers with Chrome's built-in AI, so other browsers never download it. */
+const AIFeedbackPanel = dynamic(() => import('@/components/ai/AIFeedbackPanel'), { ssr: false });
 
 function Setup() {
   const { content } = useContent();
@@ -159,6 +164,7 @@ function ActiveRound({ session }: { session: MockSession }) {
   const now = useNow(Boolean(round.startedAt));
   const left = secondsLeft(round, now);
   const rubric = RUBRICS[round.format];
+  const ai = useBuiltInAI();
 
   return (
     <>
@@ -238,6 +244,16 @@ function ActiveRound({ session }: { session: MockSession }) {
               />
             ))}
           </Stack>
+          {ai !== 'unavailable' && q && (
+            <AIFeedbackPanel
+              key={round.questionId}
+              availability={ai}
+              format={round.format}
+              title={q.title}
+              excerpt={q.excerpt}
+              rubric={rubric}
+            />
+          )}
           <Stack direction="row" spacing={2} alignItems="center" sx={{ mt: 2 }}>
             <Button variant="contained" onClick={finishRound}>
               {session.current === session.rounds.length - 1 ? 'Finish interview' : 'Next round'}
