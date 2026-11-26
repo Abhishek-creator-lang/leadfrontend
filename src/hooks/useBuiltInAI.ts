@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ComponentType } from 'react';
 import { getAvailability, type AIAvailability } from '@/lib/builtInAI';
+import type AIFeedbackPanelType from '@/components/ai/AIFeedbackPanel';
 
 /** Whether Chrome's on-device AI can be used here. 'unavailable' until checked (and on the server). */
 export function useBuiltInAI(): AIAvailability {
@@ -14,4 +15,29 @@ export function useBuiltInAI(): AIAvailability {
     };
   }, []);
   return availability;
+}
+
+type PanelComponent = typeof AIFeedbackPanelType;
+
+/**
+ * Availability plus the feedback panel component, loaded only once the browser supports built-in
+ * AI, so other browsers never download it.
+ */
+export function useBuiltInAIPanel(): {
+  availability: AIAvailability;
+  Panel: PanelComponent | null;
+} {
+  const availability = useBuiltInAI();
+  const [Panel, setPanel] = useState<PanelComponent | null>(null);
+  useEffect(() => {
+    if (availability === 'unavailable') return;
+    let cancelled = false;
+    import('@/components/ai/AIFeedbackPanel').then(
+      (m) => !cancelled && setPanel(() => m.default as ComponentType as PanelComponent)
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [availability]);
+  return { availability, Panel };
 }

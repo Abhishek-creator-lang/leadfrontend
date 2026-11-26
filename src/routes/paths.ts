@@ -10,6 +10,7 @@ export const PATHS = {
   guides: '/guides',
   companies: '/companies',
   mockInterview: '/mock-interview',
+  mockInterviewRoom: '/mock-interview/room',
   bookmarks: '/bookmarks',
   settings: '/settings',
   support: '/support',

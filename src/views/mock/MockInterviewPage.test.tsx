@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ContentProvider } from '@/context/ContentContext';
@@ -12,6 +12,12 @@ import { EMPTY_CONTENT } from '@/content/lookups';
 import type { ClientContentIndex, QuestionSummary } from '@/content/types';
 import { makeStore } from '@/store';
 import MockInterviewPage from './MockInterviewPage';
+
+vi.mock('next/navigation', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('next/navigation')>()),
+  useRouter: () => ({ push: vi.fn() }),
+  usePathname: () => '/mock-interview',
+}));
 
 vi.mock('next/link', () => ({
   default: ({ href, children, ...rest }: { href: string; children: ReactNode }) => (
@@ -53,6 +59,12 @@ function renderPage() {
     </ThemeModeProvider>
   );
 }
+
+// The AI panel pulls in the Markdown renderer (Mermaid, highlight.js): slow to transform the first
+// time, so load it once up front instead of inside a findBy timeout.
+beforeAll(async () => {
+  await import('@/components/ai/AIFeedbackPanel');
+}, 60_000);
 
 beforeEach(() => {
   localStorage.clear();

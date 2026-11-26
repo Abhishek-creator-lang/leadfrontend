@@ -20,6 +20,8 @@ This Privacy Policy explains how ${L.operatorName} ("**we**") collects and uses 
 | Contribution details | Only if you contribute | Payments go through your UPI app; we don't receive your card or bank details |
 | Technical logs (IP address, browser, time) | Every request, kept by our hosting provider | Security, abuse prevention and troubleshooting |
 
+If you answer a mock interview by voice, your browser's built-in speech recognition turns your speech into text (in Chrome this is processed by Google under its own terms). We don't record or store audio, and the transcript stays in your browser.
+
 Without an account, progress and preferences (such as the theme) are stored **only in your browser** (local storage) and never sent to us.
 
 ## 2. Legal basis

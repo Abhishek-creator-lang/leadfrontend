@@ -14,7 +14,9 @@ export type AnalyticsEvent =
   | 'share_clicked'
   | 'mock_started'
   | 'mock_completed'
-  | 'ai_feedback';
+  | 'ai_feedback'
+  | 'live_interview_started'
+  | 'live_interview_completed';
 
 type EventData = Record<string, string | number | boolean | null>;
 

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
 import {
   Alert,
@@ -29,9 +28,10 @@ import { PAGE_TITLES } from '@/constants/navigation';
 import { useContent } from '@/context/ContentContext';
 import { useMockInterview } from '@/context/MockInterviewContext';
 import { FORMAT_INFO } from '@/content/formats';
-import { useBuiltInAI } from '@/hooks/useBuiltInAI';
+import { useBuiltInAIPanel } from '@/hooks/useBuiltInAI';
 import { useNow } from '@/hooks/useNow';
 import { Page, PageHeader } from '@/layout/Page';
+import { LiveInterviewSetup } from './LiveInterviewSetup';
 import { questionPath } from '@/routes/paths';
 import { useAppSelector } from '@/store';
 import {
@@ -49,7 +49,7 @@ import {
 const plain = (t: string) => t.replace(/`/g, '');
 
 /** Loaded only in browsers with Chrome's built-in AI, so other browsers never download it. */
-const AIFeedbackPanel = dynamic(() => import('@/components/ai/AIFeedbackPanel'), { ssr: false });
+/** The AI panel is code-split: see useBuiltInAIPanel. */
 
 function Setup() {
   const { content } = useContent();
@@ -62,9 +62,11 @@ function Setup() {
 
   return (
     <>
+      <LiveInterviewSetup />
       <Card sx={{ p: 3, mb: 4 }}>
-        <Typography variant="h6" sx={{ mb: 2 }}>
-          Choose your loop
+        <Typography variant="h6">Quick self-check</Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+          Timed rounds you solve in the workspace and grade yourself against a checklist.
         </Typography>
         <ToggleButtonGroup
           exclusive
@@ -164,7 +166,7 @@ function ActiveRound({ session }: { session: MockSession }) {
   const now = useNow(Boolean(round.startedAt));
   const left = secondsLeft(round, now);
   const rubric = RUBRICS[round.format];
-  const ai = useBuiltInAI();
+  const { availability: ai, Panel: AIFeedbackPanel } = useBuiltInAIPanel();
 
   return (
     <>
@@ -244,7 +246,7 @@ function ActiveRound({ session }: { session: MockSession }) {
               />
             ))}
           </Stack>
-          {ai !== 'unavailable' && q && (
+          {ai !== 'unavailable' && AIFeedbackPanel && q && (
             <AIFeedbackPanel
               key={round.questionId}
               availability={ai}

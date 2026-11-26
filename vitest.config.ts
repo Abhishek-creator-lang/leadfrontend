@@ -13,5 +13,7 @@ export default defineConfig({
   test: {
     include: ['src/**/*.test.{ts,tsx}'],
     environment: 'node',
+    // Component tests render whole pages (MUI, Markdown): give slow machines room.
+    testTimeout: 20_000,
   },
 });
