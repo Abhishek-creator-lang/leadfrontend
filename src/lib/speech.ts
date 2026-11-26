@@ -78,23 +78,50 @@ export function pickVoice(): Promise<SpeechSynthesisVoice | null> {
   return voicePromise;
 }
 
-/** Speaks one line. Resolves when it ends (or is cancelled). */
+/**
+ * Chrome can garbage-collect an utterance that nothing references, and then `onend` never fires.
+ * Keeping the current one here prevents that.
+ */
+let current: SpeechSynthesisUtterance | null = null;
+let cancelCurrent: (() => void) | null = null;
+
+/** Rough speaking time, used as a safety net if the browser never reports the end of a line. */
+const estimateMs = (text: string, rate: number) => (text.length * 75) / rate + 2500;
+
+/** Speaks one line. Resolves when it ends, is cancelled, fails, or takes far longer than expected. */
 export async function speak(text: string, opts: { rate?: number } = {}): Promise<void> {
   if (!speechSupport().speak) return;
   const voice = await pickVoice();
+  const rate = opts.rate ?? 1;
   return new Promise((resolve) => {
+    let settled = false;
+    const done = () => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timer);
+      if (current === u) current = null;
+      cancelCurrent = null;
+      resolve();
+    };
     const u = new SpeechSynthesisUtterance(text);
     if (voice) u.voice = voice;
     u.lang = voice?.lang ?? 'en-US';
-    u.rate = opts.rate ?? 1;
-    u.onend = () => resolve();
-    u.onerror = () => resolve();
+    u.rate = rate;
+    u.onend = done;
+    u.onerror = done;
+    current = u;
+    cancelCurrent = done;
+    const timer = window.setTimeout(done, estimateMs(text, rate));
+    // A synthesizer left paused (e.g. after a tab switch) stays silent until resumed.
+    if (speechSynthesis.paused) speechSynthesis.resume();
     speechSynthesis.speak(u);
   });
 }
 
 export function stopSpeaking() {
-  if (speechSupport().speak) speechSynthesis.cancel();
+  if (!speechSupport().speak) return;
+  speechSynthesis.cancel();
+  cancelCurrent?.(); // some browsers fire no event on cancel
 }
 
 // ---- listening ----

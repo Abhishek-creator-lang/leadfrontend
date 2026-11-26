@@ -153,3 +153,107 @@ describe('InterviewRoom (typing mode)', () => {
     expect(saved[0].report.score).toBeGreaterThan(0);
   }, 30_000);
 });
+
+// ---- voice: regression for "I can't hear Aarav and can't find how to speak" ----
+
+class FakeUtterance {
+  voice: unknown = null;
+  lang = '';
+  rate = 1;
+  onend: (() => void) | null = null;
+  onerror: (() => void) | null = null;
+  constructor(public text: string) {}
+}
+
+class FakeRecognition {
+  static last: FakeRecognition | null = null;
+  lang = '';
+  continuous = false;
+  interimResults = false;
+  onresult: ((e: unknown) => void) | null = null;
+  onerror: ((e: unknown) => void) | null = null;
+  onend: (() => void) | null = null;
+  constructor() {
+    FakeRecognition.last = this;
+  }
+  start() {}
+  stop() {}
+  abort() {}
+  say(text: string) {
+    this.onresult?.({ resultIndex: 0, results: [{ isFinal: true, 0: { transcript: text } }] });
+  }
+}
+
+describe('InterviewRoom (voice)', () => {
+  const spoken: string[] = [];
+  const w = window as unknown as Record<string, unknown>;
+
+  beforeEach(() => {
+    spoken.length = 0;
+    w.SpeechSynthesisUtterance = FakeUtterance;
+    w.speechSynthesis = {
+      paused: false,
+      speak: (u: FakeUtterance) => {
+        spoken.push(u.text);
+        setTimeout(() => u.onend?.(), 0);
+      },
+      cancel: () => {},
+      resume: () => {},
+      getVoices: () => [{ name: 'Google UK English Male', lang: 'en-GB' }],
+      addEventListener: () => {},
+    };
+    w.webkitSpeechRecognition = FakeRecognition;
+  });
+  afterEach(() => {
+    delete w.speechSynthesis;
+    delete w.SpeechSynthesisUtterance;
+    delete w.webkitSpeechRecognition;
+  });
+
+  const renderRoom = () =>
+    render(
+      <ThemeModeProvider>
+        <ContentProvider content={CONTENT}>
+          <InterviewRoom lineDelayMs={0} />
+        </ContentProvider>
+      </ThemeModeProvider>
+    );
+
+  it('speaks out loud and listens when voice was chosen in the lobby', async () => {
+    sessionStorage.setItem(
+      STORAGE_KEYS.liveInterviewConfig,
+      JSON.stringify({ role: 'lead', length: 'short', mode: 'voice' })
+    );
+    const user = userEvent.setup();
+    renderRoom();
+    await user.click(await screen.findByRole('button', { name: 'Join interview' }));
+
+    await vi.waitFor(() => expect(spoken[0]).toMatch(/^Hi, I'm Aarav/));
+    // Microphone turns on by itself when it's your turn.
+    expect(await screen.findByRole('button', { name: 'Listening… speak now' })).toBeTruthy();
+
+    FakeRecognition.last!.say('yes sounds good');
+    await user.click(await screen.findByRole('button', { name: "I'm done answering" }));
+    await vi.waitFor(() => expect(spoken.at(-1)).toMatch(/Tell me a bit about yourself/));
+  });
+
+  it('still speaks when you answer by typing, and offers a speak button', async () => {
+    const user = userEvent.setup();
+    renderRoom(); // config from the outer beforeEach: typing
+    await user.click(await screen.findByRole('button', { name: 'Join interview' }));
+    await vi.waitFor(() => expect(spoken[0]).toMatch(/^Hi, I'm Aarav/));
+
+    const speakButton = await screen.findByRole('button', { name: 'Speak your answer' });
+    await vi.waitFor(() => expect((speakButton as HTMLButtonElement).disabled).toBe(false));
+    await user.click(speakButton);
+    expect(await screen.findByRole('button', { name: 'Listening… speak now' })).toBeTruthy();
+  });
+
+  it('can mute the interviewer', async () => {
+    const user = userEvent.setup();
+    renderRoom();
+    await user.click(await screen.findByRole('button', { name: 'Join interview' }));
+    await user.click(await screen.findByRole('button', { name: 'Mute Aarav' }));
+    expect(screen.getByRole('button', { name: 'Unmute Aarav' })).toBeTruthy();
+  });
+});

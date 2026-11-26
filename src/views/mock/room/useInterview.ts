@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { listen, speak, stopSpeaking, type Listener } from '@/lib/speech';
+import { listen, speak, speechSupport, stopSpeaking, type Listener } from '@/lib/speech';
 import {
   respond,
   startInterview,
@@ -14,14 +14,15 @@ export type RoomStatus = 'idle' | 'speaking' | 'listening' | 'waiting' | 'done';
 
 /** No speech at all for this long while it's the candidate's turn → the interviewer moves on. */
 const VOICE_SILENCE_MS = 25_000;
-/** Text mode: pause between interviewer lines so they read like speech. */
+/** Pause between lines when the interviewer's voice is off, so they read like speech. */
 const TEXT_LINE_DELAY_MS = 600;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 /**
- * Runs one live interview: speaks the interviewer's lines, then listens (voice) or waits for typing
- * (text), feeds answers to the dialogue engine and repeats until it's over.
+ * Runs one live interview: the interviewer speaks each line out loud (unless muted), then the
+ * candidate answers by voice (microphone) or by typing. Speaker and microphone are independent:
+ * someone typing still hears the interviewer.
  */
 export function useInterview(
   plan: InterviewPlan | null,
@@ -30,20 +31,32 @@ export function useInterview(
 ) {
   const [state, setState] = useState<EngineState | null>(null);
   const [status, setStatus] = useState<RoomStatus>('idle');
-  /** Interviewer lines revealed so far (lines appear as they are spoken). */
+  /** Transcript lines revealed so far (interviewer lines appear as they are spoken). */
   const [shown, setShown] = useState(0);
   const [caption, setCaption] = useState('');
   const [interim, setInterim] = useState('');
   const [micError, setMicError] = useState<string | null>(null);
-  const [voiceMode, setVoiceMode] = useState(mode === 'voice');
+  /** Answer by microphone. */
+  const [micOn, setMicOn] = useState(false);
+  /** Interviewer speaks out loud. */
+  const [speakerOn, setSpeakerOn] = useState(false);
 
   const stateRef = useRef<EngineState | null>(null);
   const run = useRef(0); // bumps on every turn and on unmount: stale loops stop
   const listener = useRef<Listener | null>(null);
   const silenceTimer = useRef<number | undefined>(undefined);
   const skipSpeech = useRef(false);
-  const voiceRef = useRef(voiceMode);
-  voiceRef.current = voiceMode;
+  const micRef = useRef(micOn);
+  micRef.current = micOn;
+  const speakerRef = useRef(speakerOn);
+  speakerRef.current = speakerOn;
+
+  // The room reads its settings after mount, so follow `mode` instead of using it only once.
+  useEffect(() => {
+    const s = speechSupport();
+    setSpeakerOn(s.speak);
+    setMicOn(mode === 'voice' && s.listen);
+  }, [mode]);
 
   const stopListening = () => {
     window.clearTimeout(silenceTimer.current);
@@ -70,7 +83,7 @@ export function useInterview(
       setCaption(line);
       setShown(firstNew + i + 1);
       if (skipSpeech.current) continue;
-      if (voiceRef.current) await speak(line);
+      if (speakerRef.current) await speak(line);
       else await sleep(lineDelayMs);
     }
     if (run.current !== id) return;
@@ -97,7 +110,7 @@ export function useInterview(
   );
 
   function startAnswer(id: number) {
-    if (!voiceRef.current) {
+    if (!micRef.current) {
       setStatus('waiting');
       return;
     }
@@ -114,13 +127,12 @@ export function useInterview(
         if (run.current !== id) return;
         listener.current = null;
         setInterim('');
-        if (t.trim()) submit(t);
-        else submit(null);
+        submit(t.trim() ? t : null);
       },
       onError: (code) => {
         if (run.current !== id) return;
         setMicError(code);
-        setVoiceMode(false); // fall back to typing
+        setMicOn(false); // fall back to typing
         setStatus('waiting');
       },
     });
@@ -168,11 +180,23 @@ export function useInterview(
     caption,
     interim,
     micError,
-    voiceMode,
-    setVoiceMode: (v: boolean) => {
-      setVoiceMode(v);
-      if (!v) stopListening();
-      if (v && stateRef.current?.awaiting && status === 'waiting') startAnswer(run.current);
+    micOn,
+    speakerOn,
+    /** Switch between answering by voice and by typing (starts listening if it's your turn). */
+    setMicOn: (on: boolean) => {
+      setMicOn(on);
+      micRef.current = on;
+      if (!on) {
+        stopListening();
+        if (status === 'listening') setStatus('waiting');
+      } else if (stateRef.current?.awaiting && status === 'waiting') {
+        startAnswer(run.current);
+      }
+    },
+    setSpeakerOn: (on: boolean) => {
+      setSpeakerOn(on);
+      speakerRef.current = on;
+      if (!on) stopSpeaking();
     },
     begin,
     submit,

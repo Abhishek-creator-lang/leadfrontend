@@ -26,6 +26,8 @@ import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import VideocamRoundedIcon from '@mui/icons-material/VideocamRounded';
 import VideocamOffRoundedIcon from '@mui/icons-material/VideocamOffRounded';
+import VolumeUpRoundedIcon from '@mui/icons-material/VolumeUpRounded';
+import VolumeOffRoundedIcon from '@mui/icons-material/VolumeOffRounded';
 import { loadInterviewMaterialAction } from '@/app/mock-interview/actions';
 import { INTERVIEWER, ROLE_LABEL } from '@/content/interviewer/script';
 import { useContent } from '@/context/ContentContext';
@@ -49,6 +51,12 @@ const pulse = keyframes`
   0% { box-shadow: 0 0 0 0 rgba(36,143,119,.55); }
   70% { box-shadow: 0 0 0 18px rgba(36,143,119,0); }
   100% { box-shadow: 0 0 0 0 rgba(36,143,119,0); }
+`;
+
+const micPulse = keyframes`
+  0% { box-shadow: 0 0 0 0 rgba(211,47,47,.5); }
+  70% { box-shadow: 0 0 0 14px rgba(211,47,47,0); }
+  100% { box-shadow: 0 0 0 0 rgba(211,47,47,0); }
 `;
 
 const DEFAULT_CONFIG: LiveInterviewConfig = { role: 'lead', length: 'short', mode: 'text' };
@@ -183,7 +191,8 @@ function Live({
   config: LiveInterviewConfig;
   room: ReturnType<typeof useInterview>;
 }) {
-  const { state, status, shown, caption, interim, micError, voiceMode } = room;
+  const { state, status, shown, caption, interim, micError, micOn, speakerOn } = room;
+  const canSpeak = speechSupport().listen;
   const [startedAt] = useState(() => Date.now());
   const now = useNow(status !== 'done');
   const [draft, setDraft] = useState('');
@@ -254,6 +263,17 @@ function Live({
         <Typography fontFamily="var(--font-mono)" color="text.secondary">
           {formatClock(Math.round((now - startedAt) / 1000))}
         </Typography>
+        {speechSupport().speak && (
+          <Tooltip title={speakerOn ? `Mute ${INTERVIEWER.name}` : `Unmute ${INTERVIEWER.name}`}>
+            <IconButton
+              onClick={() => room.setSpeakerOn(!speakerOn)}
+              aria-label={speakerOn ? `Mute ${INTERVIEWER.name}` : `Unmute ${INTERVIEWER.name}`}
+              aria-pressed={!speakerOn}
+            >
+              {speakerOn ? <VolumeUpRoundedIcon /> : <VolumeOffRoundedIcon />}
+            </IconButton>
+          </Tooltip>
+        )}
         <Button
           color="error"
           variant="outlined"
@@ -347,6 +367,17 @@ function Live({
 
       {/* Controls */}
       <Box sx={{ borderTop: 1, borderColor: 'divider', px: { xs: 1.5, md: 3 }, py: 1.5 }}>
+        {!canSpeak && (
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            component="p"
+            sx={{ textAlign: 'center', mb: 1 }}
+          >
+            Speaking your answers needs Chrome, Edge or Safari. In this browser you can type, and{' '}
+            {INTERVIEWER.name} still talks to you.
+          </Typography>
+        )}
         {micError && (
           <Alert severity="warning" sx={{ mb: 1 }}>
             {micError === 'not-allowed'
@@ -355,37 +386,67 @@ function Live({
           </Alert>
         )}
         <Stack direction="row" spacing={1} alignItems="center" sx={{ maxWidth: 1000, mx: 'auto' }}>
-          {speechSupport().listen && (
-            <Tooltip title={voiceMode ? 'Switch to typing' : 'Answer by voice'}>
-              <IconButton
-                onClick={() => room.setVoiceMode(!voiceMode)}
-                color={voiceMode ? 'primary' : 'default'}
-                aria-label={voiceMode ? 'Switch to typing' : 'Answer by voice'}
-              >
-                {voiceMode ? <MicRoundedIcon /> : <KeyboardRoundedIcon />}
-              </IconButton>
-            </Tooltip>
-          )}
           {status === 'speaking' ? (
             <Button onClick={room.interrupt} variant="outlined" sx={{ flex: 1 }}>
               Skip ahead
             </Button>
-          ) : voiceMode && status === 'listening' ? (
-            <Button
-              onClick={room.doneAnswering}
-              variant="contained"
-              startIcon={<CheckRoundedIcon />}
-              sx={{ flex: 1 }}
-            >
-              {interim ? "I'm done answering" : 'Listening… speak now'}
-            </Button>
+          ) : micOn && status === 'listening' ? (
+            <Stack direction="row" spacing={1} alignItems="center" sx={{ flex: 1 }}>
+              <Box
+                aria-hidden
+                sx={{
+                  width: 44,
+                  height: 44,
+                  borderRadius: '50%',
+                  bgcolor: 'error.main',
+                  color: 'common.white',
+                  display: 'grid',
+                  placeItems: 'center',
+                  flexShrink: 0,
+                  animation: `${micPulse} 1.4s infinite`,
+                }}
+              >
+                <MicRoundedIcon />
+              </Box>
+              <Button
+                onClick={room.doneAnswering}
+                variant="contained"
+                startIcon={<CheckRoundedIcon />}
+                sx={{ flex: 1 }}
+              >
+                {interim ? "I'm done answering" : 'Listening… speak now'}
+              </Button>
+              <Button
+                color="inherit"
+                startIcon={<KeyboardRoundedIcon />}
+                onClick={() => room.setMicOn(false)}
+              >
+                Type instead
+              </Button>
+            </Stack>
           ) : (
-            <Box component="form" onSubmit={send} sx={{ flex: 1, display: 'flex', gap: 1 }}>
+            <Box
+              component="form"
+              onSubmit={send}
+              sx={{ flex: 1, display: 'flex', gap: 1, alignItems: 'center' }}
+            >
+              {canSpeak && (
+                <Button
+                  variant="contained"
+                  color="error"
+                  startIcon={<MicRoundedIcon />}
+                  onClick={() => room.setMicOn(true)}
+                  disabled={!canAnswer}
+                  sx={{ flexShrink: 0 }}
+                >
+                  Speak your answer
+                </Button>
+              )}
               <TextField
                 value={draft}
                 onChange={(e) => setDraft(e.target.value)}
                 onKeyDown={onKey}
-                placeholder={canAnswer ? 'Type your answer…' : 'Wait for the interviewer…'}
+                placeholder={canAnswer ? 'Or type your answer…' : 'Wait for the interviewer…'}
                 disabled={!canAnswer}
                 multiline
                 maxRows={4}
