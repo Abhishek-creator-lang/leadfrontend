@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import { gradeAnswer, intentOf, mentions, storySignals } from './classify';
 import {
   buildReport,
+  endEarly,
   respond,
+  stageScore,
   startInterview,
   type EngineState,
   type InterviewPlan,
@@ -177,6 +179,27 @@ const PLAN: InterviewPlan = {
 
 const say = (s: EngineState, text: string | null) => respond(s, text);
 
+const INTRO =
+  'I lead a team of six engineers building the checkout flow for a large ecommerce site used by millions of people';
+
+/** Lead plan, no intro follow-ups: the first fundamentals question is med1 (three key points). */
+const PLAN3: InterviewPlan = {
+  ...PLAN,
+  introFollowups: 0,
+  quiz: [
+    quiz('easy1', 'easy', ['hoisting', 'scope']),
+    quiz('med1', 'medium', ['closure', 'lexical scope', 'garbage collection']),
+    quiz('hard1', 'hard', ['event loop', 'microtask']),
+  ],
+};
+
+function toWarmup(plan: InterviewPlan = PLAN3): EngineState {
+  let t = say(startInterview(plan).state, 'ok');
+  t = say(t.state, INTRO);
+  expect(t.state.stage).toBe('warmup');
+  return t.state;
+}
+
 describe('engine', () => {
   it('opens with an introduction and the agenda, then asks for your intro', () => {
     let t = startInterview(PLAN);
@@ -214,18 +237,16 @@ describe('engine', () => {
     expect(t.say.at(-1)).toBe('Question hard1?');
   });
 
-  it('gives a hint on a partial answer, explains when you do not know, and moves on', () => {
+  it('probes a partial answer without a hint, and explains when you do not know', () => {
     let t = say(startInterview({ ...PLAN, introFollowups: 0 }).state, 'ok');
-    t = say(
-      t.state,
-      'I lead a team of six engineers building the checkout flow for a large ecommerce site used by millions of people'
-    );
+    t = say(t.state, INTRO);
     expect(t.say.at(-1)).toBe('Question med1?');
     t = say(t.state, 'something about functions I think');
-    expect(t.say.at(-1)).toMatch(/hint: think about closure/);
+    expect(t.say.join(' ')).not.toMatch(/hint/i);
+    expect(t.state.expect).toBe('anythingElse');
     t = say(t.state, "I don't know");
     expect(t.say).toContain('The short version: Summary of med1.');
-    expect(t.state.warm.results[0]).toMatchObject({ grade: 'dontKnow', hinted: true, score: 0 });
+    expect(t.state.warm.results[0]).toMatchObject({ grade: 'dontKnow', hinted: false, score: 0 });
   });
 
   it('repeats the last question on request', () => {
@@ -272,5 +293,176 @@ describe('engine', () => {
     expect(t.say).toEqual(['Take your time. Whenever you are ready.']);
     t = say(t.state, null);
     expect(t.state.stage).toBe('warmup');
+  });
+});
+
+describe('engine: hints only on request, and "no" means no', () => {
+  it('keeps a partial answer when you decline to add more, and never hints', () => {
+    let t = say(toWarmup(), 'a closure is a function that remembers stuff');
+    expect(t.state.expect).toBe('anythingElse');
+    t = say(t.state, 'no, move on');
+    expect(t.say.join(' ')).not.toMatch(/hint/i);
+    expect(t.state.warm.results[0]).toMatchObject({
+      grade: 'partial',
+      hinted: false,
+      score: 60,
+      hit: ['closure'],
+    });
+  });
+
+  it.each(['no thanks', "no that's all", 'nope'])(
+    '"%s" after the probe keeps the grade',
+    (reply) => {
+      let t = say(toWarmup(), 'a closure is a function that remembers stuff');
+      t = say(t.state, reply);
+      expect(t.state.warm.results[0].grade).toBe('partial');
+    }
+  );
+
+  it('keeps a partial answer through silence after the probe', () => {
+    let t = say(toWarmup(), 'a closure is a function that remembers stuff');
+    t = say(t.state, null);
+    expect(t.state.warm.results[0]).toMatchObject({ grade: 'partial', score: 60 });
+  });
+
+  it('treats "no hint please" as a no, not a hint request', () => {
+    expect(intentOf('no hint please')).toBe('decline');
+    expect(intentOf("I don't need a hint")).toBe('decline');
+    expect(intentOf('no hints, just move on')).toBe('skip');
+    let t = say(toWarmup(), 'a closure is a function that remembers stuff');
+    t = say(t.state, 'no hint please');
+    expect(t.say.join(' ')).not.toMatch(/hint:/i);
+    expect(t.state.warm.results[0]).toMatchObject({ grade: 'partial', hinted: false });
+  });
+
+  it('gives a hint when asked, and counts it', () => {
+    let t = say(toWarmup(), 'hint please');
+    expect(t.say).toEqual(["Here's a hint: think about closure."]);
+    t = say(t.state, 'a closure keeps the lexical scope of the outer function alive');
+    expect(t.say.at(-1)).toBe('And where does garbage collection come into it?');
+    t = say(t.state, "that's all");
+    expect(t.state.warm.results[0]).toMatchObject({
+      grade: 'good',
+      hinted: true,
+      hints: 1,
+      score: 90,
+    });
+  });
+
+  it('answers "how should I answer this?" without grading it', () => {
+    const t = say(toWarmup(), 'how should I answer this');
+    expect(t.say[0]).toMatch(/what it is, why it matters/i);
+    expect(t.say.at(-1)).toBe('Question med1?');
+    expect(t.state.warm.results).toHaveLength(0);
+    expect(t.state.warm.current?.answers).toEqual([]);
+  });
+
+  it('reads "not sure, but maybe…" with a key point as an answer', () => {
+    const t = say(toWarmup(), 'not sure, maybe a closure');
+    expect(t.state.warm.current?.answers).toEqual(['not sure, maybe a closure']);
+  });
+
+  it('treats "not sure what you mean" as a request to clarify, then rephrases', () => {
+    expect(intentOf("I'm not sure what you mean")).toBe('clarify');
+    let t = say(toWarmup(), "I'm not sure what you mean");
+    expect(t.say[0]).toMatch(/Explain it the way you would/);
+    t = say(t.state, 'what do you mean');
+    expect(t.say[0]).toMatch(/Let me put it another way/);
+  });
+
+  it('marks a negated key point as contradicted', () => {
+    let t = say(toWarmup(), 'it does not use a closure, it copies the lexical scope');
+    t = say(t.state, 'no');
+    expect(t.state.warm.results[0].contradicted).toEqual(['closure']);
+  });
+});
+
+describe('engine: behavioral and questions', () => {
+  const plan = { ...PLAN, warmupCount: 0, introFollowups: 0 };
+  const toStory = () => {
+    const t = say(say(startInterview(plan).state, 'ok').state, INTRO);
+    expect(t.state.stage).toBe('behavioral');
+    return t.state;
+  };
+
+  it('offers a way in when you have no example, then moves on with a clear note', () => {
+    let t = say(toStory(), "I don't have an example for that");
+    expect(t.say[0]).toMatch(/similar situation works too/);
+    t = say(t.state, 'no');
+    expect(t.state.stage).toBe('questions');
+    expect(t.state.beh.results[0]).toMatchObject({ noStory: true, score: 0 });
+    expect(t.state.beh.results[0].notes[0].text).toMatch(/No example/);
+  });
+
+  it('does not score a one-word story', () => {
+    let t = say(toStory(), 'fine');
+    t = say(t.state, 'ok');
+    t = say(t.state, 'nothing');
+    expect(t.state.beh.results[0].score).toBe(0);
+  });
+
+  it('says "go ahead" to a plain yes at the questions stage', () => {
+    let t = say(toStory(), 'skip');
+    expect(t.state.stage).toBe('questions');
+    t = say(t.state, 'yes');
+    expect(t.say).toEqual(['Sure, go ahead.']);
+    expect(t.state.qa.count).toBe(0);
+    t = say(t.state, 'how big is the team');
+    expect(t.state.qa.count).toBe(1);
+  });
+});
+
+describe('report', () => {
+  it('ending early gives an incomplete report over the whole plan', () => {
+    const t = say(
+      toWarmup(),
+      'a closure keeps the lexical scope alive and is garbage collected later'
+    );
+    const ended = endEarly(t.state);
+    expect(ended.stage).toBe('done');
+    expect(ended.transcript).toHaveLength(t.state.transcript.length);
+    const r = buildReport(ended);
+    expect(r.completed).toBe(false);
+    expect(r.verdict.label).toBe('Incomplete');
+    expect(r.endedDuring).toBe('Fundamentals');
+    const status = Object.fromEntries(r.stages.map((x) => [x.id, x.status]));
+    expect(status).toMatchObject({
+      intro: 'completed',
+      warmup: 'partial',
+      behavioral: 'notReached',
+      questions: 'notReached',
+    });
+    // One of two fundamentals answered (well): 50 for the round.
+    expect(r.stages.find((x) => x.id === 'warmup')!.score).toBe(50);
+    expect(r.completedScore).not.toBeNull();
+    expect(r.score).toBeLessThan(r.completedScore!);
+    expect(r.gaps.some((g) => g.startsWith('Not reached: leadership'))).toBe(true);
+  });
+
+  it('counts a skipped intro as 0 instead of leaving it out', () => {
+    let t = say(startInterview(PLAN3).state, 'ok');
+    t = say(t.state, 'skip');
+    expect(t.state.stage).toBe('warmup');
+    const r = buildReport(endEarly(t.state));
+    expect(r.stages.find((x) => x.id === 'intro')).toMatchObject({ status: 'skipped', score: 0 });
+  });
+
+  it('adds every breakdown up to its round score, and counts hints from all rounds', () => {
+    let t = say(toWarmup({ ...PLAN3, warmupCount: 1 }), 'hint');
+    t = say(t.state, 'a closure keeps the lexical scope of the outer function');
+    t = say(t.state, 'no');
+    expect(t.state.stage).toBe('behavioral');
+    t = say(t.state, 'hint');
+    t = say(
+      t.state,
+      'I wrote the RFC for our checkout rewrite, I got buy in from two teams and it reduced build time by 30 percent. Looking back I would involve design earlier because they had good ideas.'
+    );
+    while (t.state.stage !== 'done') t = say(t.state, 'no');
+    const r = buildReport(t.state);
+    expect(r.completed).toBe(true);
+    for (const st of r.stages.filter((x) => x.breakdown.length))
+      expect(st.score).toBe(stageScore(st.breakdown));
+    expect(r.hintsByRound).toMatchObject({ warmup: 1, behavioral: 1 });
+    expect(r.hintsUsed).toBe(2);
   });
 });

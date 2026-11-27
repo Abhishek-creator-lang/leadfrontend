@@ -46,7 +46,13 @@ import { track } from '@/lib/analytics';
 import { speechSupport } from '@/lib/speech';
 import { PATHS } from '@/routes/paths';
 import { useAppSelector } from '@/store';
-import { buildReport, STAGES, type InterviewPlan, type Line } from '@/utils/interview/engine';
+import {
+  buildReport,
+  endEarly,
+  STAGES,
+  type InterviewPlan,
+  type Line,
+} from '@/utils/interview/engine';
 import type { CodingMaterial, DesignMaterial } from '@/utils/interview/material';
 import {
   buildPlan,
@@ -317,23 +323,73 @@ function Live({
     lastActivity.current = Date.now();
   };
 
+  const durationSec = () => Math.round((Date.now() - startedAt) / 1000);
   const report = useMemo(
-    () => (status === 'done' && state ? buildReport(state) : null),
+    () => (status === 'done' && state ? buildReport(state, { durationSec: durationSec() }) : null),
+    // Duration is taken when the report is built.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [status, state]
   );
+  const recordId = startedAt.toString(36);
 
   useEffect(() => {
-    if (!report || saved.current) return;
+    if (!report || !state || saved.current) return;
     saved.current = true;
-    saveRecord({ id: startedAt.toString(36), at: startedAt, config, report });
-    track('live_interview_completed', { role: config.role, score: report.score });
-  }, [report, config, startedAt]);
+    saveRecord({ id: recordId, at: startedAt, config, report, transcript: state.transcript });
+    track('live_interview_completed', {
+      role: config.role,
+      score: report.score,
+      completed: report.completed,
+    });
+  }, [report, state, config, startedAt, recordId]);
+
+  // Closing or reloading the tab mid-interview: warn, and keep what was done as an incomplete report.
+  useEffect(() => {
+    if (status === 'done') return;
+    const inProgress = () => {
+      const s = room.getState();
+      return Boolean(s && s.stage !== 'done' && s.transcript.some((l) => l.who === 'candidate'));
+    };
+    const onBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (!inProgress()) return;
+      e.preventDefault();
+      e.returnValue = '';
+    };
+    const onPageHide = () => {
+      const s = room.getState();
+      if (!s || !inProgress() || saved.current) return;
+      saved.current = true;
+      const ended = endEarly(s);
+      saveRecord({
+        id: recordId,
+        at: startedAt,
+        config,
+        report: buildReport(ended, { durationSec: durationSec() }),
+        transcript: ended.transcript,
+      });
+    };
+    window.addEventListener('beforeunload', onBeforeUnload);
+    window.addEventListener('pagehide', onPageHide);
+    return () => {
+      window.removeEventListener('beforeunload', onBeforeUnload);
+      window.removeEventListener('pagehide', onPageHide);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status, config, startedAt, recordId]);
 
   useEffect(() => {
     scroller.current?.scrollTo({ top: scroller.current.scrollHeight, behavior: 'smooth' });
   }, [shown, interim]);
 
-  if (report && state) return <InterviewReportView report={report} transcript={state.transcript} />;
+  if (report && state)
+    return (
+      <InterviewReportView
+        report={report}
+        transcript={state.transcript}
+        at={startedAt}
+        config={config}
+      />
+    );
 
   const lines = state ? state.transcript.slice(0, shown) : [];
   // Only show the rounds this interview actually has.

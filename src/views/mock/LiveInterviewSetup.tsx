@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import NextLink from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
   Alert,
@@ -9,6 +10,7 @@ import {
   Button,
   Card,
   Chip,
+  Link,
   Stack,
   ToggleButton,
   ToggleButtonGroup,
@@ -194,16 +196,27 @@ export function LiveInterviewSetup() {
 
       {history.length > 0 && (
         <Box sx={{ mt: 3 }}>
-          <Typography variant="subtitle2" sx={{ mb: 1 }}>
-            Your past live interviews
-          </Typography>
+          <Stack direction="row" alignItems="baseline" sx={{ mb: 1 }}>
+            <Typography variant="subtitle2" sx={{ flex: 1 }}>
+              Your past live interviews
+            </Typography>
+            <Link component={NextLink} href={PATHS.mockInterviewReports} variant="body2">
+              See all reports
+            </Link>
+          </Stack>
           <Stack spacing={0.5}>
-            {history.map((h) => (
+            {history.slice(0, 5).map((h) => (
               <Stack key={h.id} direction="row" spacing={1} alignItems="center">
-                <Typography variant="body2" sx={{ flex: 1 }}>
-                  {h.config.role === 'lead' ? 'Lead' : 'Senior'} · {LENGTHS[h.config.length].label}{' '}
-                  · {new Date(h.at).toLocaleDateString()}
-                </Typography>
+                <Link
+                  component={NextLink}
+                  href={`${PATHS.mockInterviewReports}?id=${encodeURIComponent(h.id)}`}
+                  variant="body2"
+                  sx={{ flex: 1 }}
+                >
+                  {h.config.role === 'lead' ? 'Lead' : 'Senior'} ·{' '}
+                  {LENGTHS[h.config.length]?.label ?? h.config.length} ·{' '}
+                  {new Date(h.at).toLocaleDateString()}
+                </Link>
                 <Typography variant="body2" fontWeight={700}>
                   {h.report.score}%
                 </Typography>

@@ -236,6 +236,30 @@ describe('engine design round', () => {
     expect(t.state.design.result!.steps).toHaveLength(5);
   });
 
+  it('counts design hints and takes them off the score', () => {
+    let t = respond(toDesign(), 'can I get a hint');
+    expect(t.say[0]).toMatch(/^Here's a hint: think about browse the feed/);
+    t = respond(t.state, 'users browse the feed with infinite scroll and can compose new posts');
+    let s = t.state;
+    for (let i = 0; i < 4; i++) s = roundEvent(s, { type: 'done' }).state;
+    s = respond(s, 'dedupe by post id when merging pages').state;
+    s = respond(s, 'keep the query cache in memory and scroll to the anchor post on return').state;
+    s = respond(s, 'define contracts across teams').state;
+    const r = buildReport(s);
+    expect(r.design!.hints).toBe(1);
+    expect(r.design!.breakdown.at(-1)).toEqual({ label: 'Hints used (1)', points: -5, max: 0 });
+    expect(r.hintsByRound.design).toBe(1);
+  });
+
+  it('judges pushback by the approach, not just the length', () => {
+    let s = toDesign('senior');
+    for (let i = 0; i < 5; i++) s = roundEvent(s, { type: 'done' }).state;
+    const short = respond(s, 'dedupe by post id when merging pages');
+    expect(short.state.design.result!.pushbacks[0].good).toBe(true);
+    const vague = respond(s, 'I would think about it carefully and discuss it with the team first');
+    expect(vague.state.design.result!.pushbacks[0].good).toBe(false);
+  });
+
   it('waits quietly through silence while you think or write notes', () => {
     const t = respond(toDesign(), null);
     expect(t.say).toEqual([]);

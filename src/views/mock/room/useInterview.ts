@@ -3,8 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { listen, speak, speechSupport, stopSpeaking, type Listener } from '@/lib/speech';
 import { aiDesignFollowUp } from '@/lib/aiFollowUp';
+import { aiGradeAnswer } from '@/lib/aiGrade';
 import {
   designWouldProbe,
+  endEarly,
   respond,
   roundEvent,
   startInterview,
@@ -12,6 +14,7 @@ import {
   type RoundEvent,
   type InterviewPlan,
   type Turn,
+  warmupAnswerToCheck,
 } from '@/utils/interview/engine';
 
 export type RoomStatus = 'idle' | 'speaking' | 'listening' | 'waiting' | 'thinking' | 'done';
@@ -21,7 +24,7 @@ export interface InterviewOptions {
   lineDelayMs?: number;
   /** Notes the candidate wrote for a design step. */
   getDesignNotes?: (stepId: string) => string;
-  /** Chrome's on-device AI is ready: use it for tailored design follow-ups. */
+  /** Chrome's on-device AI is ready: use it for design follow-ups and to double-check answers. */
   useAI?: boolean;
 }
 
@@ -123,6 +126,19 @@ export function useInterview(
       if (!s || s.stage === 'done') return;
       stopSpeaking();
       stopListening();
+      // Fundamentals: let the on-device AI double-check the answer (paraphrases, wrong facts).
+      const check = text !== null && aiRef.current ? warmupAnswerToCheck(s, text) : null;
+      if (check && text !== null) {
+        const id = ++run.current;
+        setStatus('thinking');
+        setPendingAnswer(text);
+        void aiGradeAnswer(check).then((aiJudgement) => {
+          if (run.current !== id) return;
+          setPendingAnswer('');
+          void playTurn(respond(s, text, { aiJudgement }));
+        });
+        return;
+      }
       if (text === null || s.stage !== 'design') {
         void playTurn(respond(s, text));
         return;
@@ -223,10 +239,18 @@ export function useInterview(
     stopSpeaking();
   };
 
+  /** The candidate ends the interview: close what is open with the credit earned so far. */
   const end = useCallback(() => {
     run.current++;
     stopSpeaking();
     stopListening();
+    setPendingAnswer('');
+    const s = stateRef.current;
+    if (s && s.stage !== 'done') {
+      const ended = endEarly(s);
+      stateRef.current = ended;
+      setState(ended);
+    }
     setStatus('done');
   }, []);
 
@@ -266,6 +290,8 @@ export function useInterview(
       speakerRef.current = on;
       if (!on) stopSpeaking();
     },
+    /** Latest engine state, for saving when the page is closed. */
+    getState: () => stateRef.current,
     begin,
     submit,
     sendEvent,

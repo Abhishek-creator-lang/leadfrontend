@@ -11,6 +11,7 @@ export const PATHS = {
   companies: '/companies',
   mockInterview: '/mock-interview',
   mockInterviewRoom: '/mock-interview/room',
+  mockInterviewReports: '/mock-interview/reports',
   bookmarks: '/bookmarks',
   settings: '/settings',
   support: '/support',

@@ -163,13 +163,44 @@ describe('InterviewRoom (typing mode)', () => {
 
     expect(await screen.findByText('Interview feedback', {}, { timeout: 3000 })).toBeTruthy();
     expect(screen.getByText('What went well')).toBeTruthy();
-    expect(screen.getByRole('link', { name: 'The hard thing' }).getAttribute('href')).toBe(
+    // Per-question detail: open the question to see the answer, key points and the short answer.
+    await user.click(screen.getByRole('button', { name: /^The hard thing/ }));
+    expect(await screen.findByText('The hard thing is about closures.')).toBeTruthy();
+    expect(screen.getByRole('link', { name: 'Practise this question' }).getAttribute('href')).toBe(
       '/questions/quiz/hard'
     );
 
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEYS.liveInterview)!);
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEYS.liveInterviewReports)!);
     expect(saved).toHaveLength(1);
     expect(saved[0].report.score).toBeGreaterThan(0);
+    expect(saved[0].report.completed).toBe(true);
+    expect(saved[0].transcript.length).toBeGreaterThan(5);
+  }, 30_000);
+
+  it('ending early saves an incomplete report', async () => {
+    const user = userEvent.setup();
+    render(
+      <Provider store={makeStore()}>
+        <ThemeModeProvider>
+          <ContentProvider content={CONTENT}>
+            <InterviewRoom lineDelayMs={0} />
+          </ContentProvider>
+        </ThemeModeProvider>
+      </Provider>
+    );
+    await user.click(await screen.findByRole('button', { name: 'Join interview' }));
+    const box = await screen.findByRole('textbox', { name: 'Your answer' });
+    await vi.waitFor(() => expect((box as HTMLTextAreaElement).disabled).toBe(false));
+    await user.click(box);
+    await user.paste('Sounds good');
+    await user.keyboard('{Enter}');
+    expect(await screen.findByText(/Tell me a bit about yourself/)).toBeTruthy();
+    await user.click(screen.getByRole('button', { name: /End/ }));
+
+    expect(await screen.findByText('Incomplete')).toBeTruthy();
+    expect(screen.getAllByText('Not reached').length).toBeGreaterThan(0);
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEYS.liveInterviewReports)!);
+    expect(saved[0].report).toMatchObject({ completed: false, endedDuring: 'Your intro' });
   }, 30_000);
 });
 

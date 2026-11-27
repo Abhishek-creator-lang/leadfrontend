@@ -250,6 +250,52 @@ describe('engine coding stage', () => {
     );
   });
 
+  it('offers a hint after a few failing runs, and respects a no', () => {
+    let s = respond(toCoding(), 'ready').state;
+    for (let i = 0; i < 3; i++)
+      s = codingEvent(s, { type: 'tests', passed: 1, total: 4, elapsedRatio: 0.3 }).state;
+    expect(s.transcript.at(-1)!.text).toBe('Would you like a hint?');
+    const no = respond(s, 'no thanks');
+    expect(no.say).toEqual(['Sure, take your time.']);
+    expect(no.state.coding.hintIndex).toBe(0);
+    const yes = respond(s, 'yes please');
+    expect(yes.say[0]).toBe("Here's a hint: at is a thin wrapper around a property read.");
+    expect(yes.state.coding.hintIndex).toBe(1);
+  });
+
+  it('"keep going" goes back to coding; "walk you through it" starts the follow-ups', () => {
+    let s = respond(toCoding(), 'ready').state;
+    s = codingEvent(s, { type: 'tests', passed: 1, total: 4, elapsedRatio: 0.5 }).state;
+    s = respond(s, "I'm done").state;
+    expect(s.expect).toBe('keepGoingOrWalkthrough');
+    const keep = respond(s, 'let me keep going');
+    expect(keep.state.coding.phase).toBe('coding');
+    expect(keep.say).toEqual(["Sure, keep going. Say you're done when you want to wrap up."]);
+    const walk = respond(s, "I'll walk you through what I have");
+    expect(walk.state.coding.phase).toBe('followups');
+    expect(walk.say.at(-1)).toBe('Walk me through your approach, and what you would do next.');
+  });
+
+  it('says "go ahead" to a plain yes before coding, and does not count it as thinking aloud', () => {
+    let t = respond(toCoding(), 'yes');
+    expect(t.say).toEqual(['Sure, go ahead.']);
+    expect(t.state.coding.phase).toBe('clarify');
+    t = respond(t.state, 'can the input be empty?');
+    expect(t.state.coding.clarifications).toBe(1);
+    t = respond(t.state, 'ok');
+    expect(t.state.coding.phase).toBe('coding');
+    t = respond(t.state, 'hmm ok');
+    expect(t.state.coding.thinkAloud).toBe(0);
+  });
+
+  it('scores a skipped round as 0 with a clear breakdown', () => {
+    const t = respond(toCoding(), 'skip');
+    expect(t.state.stage).toBe('behavioral');
+    const r = buildReport(t.state);
+    expect(r.coding).toMatchObject({ skipped: true, score: 0 });
+    expect(r.stages.find((x) => x.id === 'coding')).toMatchObject({ status: 'skipped', score: 0 });
+  });
+
   it('keeps waiting through silence while you code', () => {
     const s = respond(toCoding(), 'ready').state;
     const t = respond(s, null);

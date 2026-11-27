@@ -83,6 +83,15 @@ export const probeMissing = (term: string) => `And where does ${term} come into 
 export const hintFor = (term: string) => `Here's a hint: think about ${term}.`;
 export const explain = (summary: string) => `The short version: ${summary}`;
 export const WARMUP_CLARIFY = "Explain it the way you would to a teammate who hasn't used it. What it is and why it matters.";
+export const warmupRephrase = (title: string) =>
+  `Let me put it another way. The topic is: ${title}. What is it, and when does it matter in practice?`;
+/** Neutral follow-up on a partial answer: invites more without giving anything away. */
+export const PROBE_DEEPER = [
+  'Can you go a bit deeper? Anything else that matters here?',
+  'Anything you would add to that?',
+  'Can you say a bit more about how it works?',
+];
+export const FINISH_PARTIAL = 'Okay, thanks.';
 
 export const BEHAVIORAL_START = "Thanks. Let's switch gears and talk about how you work with people.";
 export const BEHAVIORAL_NEXT = "Okay, one more like that.";
@@ -95,6 +104,8 @@ export const BEHAVIORAL_PROBES = {
 export const BEHAVIORAL_HINT =
   'A simple structure helps: the situation, your task, the actions you took, and the result.';
 export const BEHAVIORAL_CLARIFY = 'Any real example from your work is fine. Walk me through what happened.';
+export const BEHAVIORAL_NO_STORY =
+  "That's okay. A similar situation works too, even from a side project or outside work. Do you want to try one, or shall we move on?";
 export const ACK_STORY = ['Got it, thanks.', 'Okay, that helps.', 'Thanks for walking me through that.'];
 
 export const QA_ASK = "That's all from my side. We have a few minutes. What questions do you have for me?";
@@ -146,6 +157,32 @@ export const CLOSING = [
 
 export const ENCOURAGE_SILENCE = 'Take your time. Whenever you are ready.';
 export const REPEAT_PREFIX = 'Sure.';
+export const GO_AHEAD = 'Sure, go ahead.';
+export const HINT_DECLINED = 'Sure, take your time.';
+export const NO_STORY_YET = 'No problem, take a moment.';
+
+/** "How should I answer this?": the shape of a good answer in each part of the interview. */
+export const HOW_TO_ANSWER: Record<
+  'intro' | 'warmup' | 'coding' | 'design' | 'behavioral' | 'questions',
+  string
+> = {
+  intro:
+    'About a minute is perfect: your current role and scope, one thing you are proud of, and what you want next.',
+  warmup:
+    'Say what it is, why it matters, and give one quick example. Thirty seconds to a minute is plenty.',
+  coding:
+    'Tell me your approach first, then code it. Talk through your thinking, and run the tests when you want feedback.',
+  design:
+    'State your assumptions first, then walk me through your choices and their trade-offs. Notes on the board count too.',
+  behavioral:
+    'Use a real example: the situation, what you were responsible for, what you did, and the result. Say "I" for your part.',
+  questions:
+    'Anything you would like to know: the team, the work, how we make decisions, or what happens next.',
+};
+/** "Just tell me the answer" during the coding or design round: a hint instead. */
+export const NO_SOLUTION = "I can't give you the full answer, but here's something to help.";
+export const BEHAVIORAL_NO_RIGHT_ANSWER =
+  "There's no single right answer here. I'm interested in a real situation and what you did.";
 
 // ---- coding round ----
 
@@ -158,6 +195,7 @@ export const codingIntro = (title: string, intro: string) => [
 export const CLARIFY_ANSWER = (req: string) => `Good question. ${req}`;
 export const CLARIFY_OPEN = "That's up to you. Make a reasonable assumption and tell me what it is.";
 export const CLARIFY_MORE = 'Anything else, or are you ready to start?';
+export const CODING_KEEP_GOING = "Sure, keep going. Say you're done when you want to wrap up.";
 export const CODING_GO =
   "Sounds good. Go ahead, and talk me through your thinking as you code. Run the tests whenever you're ready.";
 export const CODING_GO_NO_QUESTIONS =
@@ -168,7 +206,7 @@ export const CODING_NO_MORE_HINTS = "I've given you all my hints. Try writing it
 export const CODING_NUDGE = "How's it going? Can you talk me through your approach so far?";
 export const CODING_FAILING = (failing: number) =>
   `I see ${failing === 1 ? 'one test' : `${failing} tests`} failing. Take your time.`;
-export const CODING_OFFER_HINT = 'If you want a hint, just ask.';
+export const CODING_OFFER_HINT = 'Would you like a hint?';
 export const CODING_TIME_WARNING = (minutes: number) =>
   `Just a heads-up: we have about ${minutes} ${minutes === 1 ? 'minute' : 'minutes'} left for this one.`;
 export const CODING_TIME_UP = "Let's pause the coding here, in the interest of time.";
@@ -198,7 +236,7 @@ export const designProbe = (topic: string) =>
   `What about ${topic.charAt(0).toLowerCase()}${topic.slice(1)}? How would you handle that here?`;
 export const designNudge = (a: string, b?: string) =>
   `Some things I'd also look for here: ${b ? `${a} and ${b}` : a}.`;
-export const designHint = (topic: string) => `Think about ${topic.charAt(0).toLowerCase()}${topic.slice(1)}.`;
+export const designHint = (topic: string) => `Here's a hint: think about ${topic.charAt(0).toLowerCase()}${topic.slice(1)}.`;
 export const DESIGN_CLARIFY =
   "Make reasonable assumptions and state them out loud. That's part of the exercise.";
 export const DESIGN_PUSHBACK_START = "Let me push on a few things, like I would in a real interview.";
