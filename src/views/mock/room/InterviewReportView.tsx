@@ -12,6 +12,7 @@ import {
   Card,
   Chip,
   LinearProgress,
+  Skeleton,
   Link,
   Stack,
   Tooltip,
@@ -21,6 +22,7 @@ import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import ReplayRoundedIcon from '@mui/icons-material/ReplayRounded';
 import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
 import ListAltRoundedIcon from '@mui/icons-material/ListAltRounded';
+import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 import { ShareButton } from '@/components/ShareButton';
 import { INTERVIEWER, ROLE_LABEL } from '@/content/interviewer/script';
 import { PATHS } from '@/routes/paths';
@@ -68,6 +70,8 @@ export function InterviewReportView({
   legacy = false,
   readOnly = false,
   onDelete,
+  summary = null,
+  onWriteSummary,
 }: {
   report: InterviewReport;
   transcript?: Line[];
@@ -78,6 +82,10 @@ export function InterviewReportView({
   /** Viewing a saved report (no share button). */
   readOnly?: boolean;
   onDelete?: () => void;
+  /** Summary written by Chrome's on-device AI: '' while it is being written, null for none. */
+  summary?: string | null;
+  /** Offer to write a summary now (saved reports, when the on-device AI is available). */
+  onWriteSummary?: () => void;
 }) {
   const [allGaps, setAllGaps] = useState(false);
   const meta = [
@@ -111,6 +119,37 @@ export function InterviewReportView({
               sx={{ fontWeight: 700 }}
             />
           </Box>
+
+          {summary !== null && (
+            <Box
+              aria-live="polite"
+              sx={{ mt: 2, p: 1.5, borderRadius: 1, bgcolor: 'action.hover', textAlign: 'left' }}
+            >
+              {summary ? (
+                <Typography variant="body2">{summary}</Typography>
+              ) : (
+                <>
+                  <Skeleton width="95%" />
+                  <Skeleton width="80%" />
+                </>
+              )}
+              <Stack direction="row" spacing={0.5} alignItems="center" sx={{ mt: 0.5 }}>
+                <AutoAwesomeRoundedIcon sx={{ fontSize: 14 }} color="action" />
+                <Typography variant="caption" color="text.secondary">
+                  {summary
+                    ? 'Written on your device by Chrome’s AI. It can be wrong.'
+                    : 'Writing a summary on your device…'}
+                </Typography>
+              </Stack>
+            </Box>
+          )}
+          {summary === null && onWriteSummary && (
+            <Box sx={{ textAlign: 'center', mt: 1 }}>
+              <Button size="small" startIcon={<AutoAwesomeRoundedIcon />} onClick={onWriteSummary}>
+                Write a summary
+              </Button>
+            </Box>
+          )}
 
           {!report.completed && (
             <Alert severity="warning" sx={{ mt: 2 }}>

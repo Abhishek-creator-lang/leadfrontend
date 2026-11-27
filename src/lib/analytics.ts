@@ -13,7 +13,9 @@ export type AnalyticsEvent =
   | 'plan_started'
   | 'share_clicked'
   | 'live_interview_started'
-  | 'live_interview_completed';
+  | 'live_interview_completed'
+  | 'ai_enabled'
+  | 'ai_download_failed';
 
 type EventData = Record<string, string | number | boolean | null>;
 

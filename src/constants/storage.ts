@@ -6,4 +6,6 @@ export const STORAGE_KEYS = {
   liveInterview: 'lead-frontend:liveInterview:v1',
   liveInterviewReports: 'lead-frontend:liveInterview:v2',
   liveInterviewConfig: 'lead-frontend:liveInterviewConfig',
+  /** Whether the live interview may use Chrome's on-device AI (the user's switch). */
+  aiPrefs: 'lead-frontend:aiPrefs:v1',
 } as const;

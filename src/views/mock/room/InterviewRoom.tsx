@@ -61,7 +61,8 @@ import {
   type LiveInterviewConfig,
 } from '@/utils/interview/plan';
 import { formatClock } from '@/utils/interview/format';
-import { loadConfig, saveRecord } from './liveStore';
+import { aiReportSummary } from '@/lib/aiReportSummary';
+import { loadConfig, saveRecord, type LiveInterviewRecord } from './liveStore';
 import { InterviewReportView } from './InterviewReportView';
 import { useInterview } from './useInterview';
 
@@ -145,7 +146,7 @@ export default function InterviewRoom({
   const room = useInterview(plan, config?.mode ?? 'text', {
     lineDelayMs,
     getDesignNotes: (stepId) => notesRef.current[stepId] ?? '',
-    useAI: aiReady,
+    useAI: aiReady && config?.ai !== false,
   });
 
   return (
@@ -175,6 +176,7 @@ export default function InterviewRoom({
       ) : (
         <Live
           config={config}
+          aiOn={aiReady && config.ai !== false}
           room={room}
           notes={designNotes}
           onNotes={(id, text) => setDesignNotes((n) => ({ ...n, [id]: text }))}
@@ -244,11 +246,14 @@ function Lobby({
 
 function Live({
   config,
+  aiOn,
   room,
   notes,
   onNotes,
 }: {
   config: LiveInterviewConfig;
+  /** Chrome's on-device AI is ready and switched on. */
+  aiOn: boolean;
   room: ReturnType<typeof useInterview>;
   notes: Record<string, string>;
   onNotes: (stepId: string, text: string) => void;
@@ -332,16 +337,32 @@ function Live({
   );
   const recordId = startedAt.toString(36);
 
+  /** The on-device AI's written summary: null while not asked, '' while it is being written. */
+  const [summary, setSummary] = useState<string | null>(null);
+
   useEffect(() => {
     if (!report || !state || saved.current) return;
     saved.current = true;
-    saveRecord({ id: recordId, at: startedAt, config, report, transcript: state.transcript });
+    const record: LiveInterviewRecord = {
+      id: recordId,
+      at: startedAt,
+      config,
+      report,
+      transcript: state.transcript,
+    };
+    saveRecord(record);
     track('live_interview_completed', {
       role: config.role,
       score: report.score,
       completed: report.completed,
     });
-  }, [report, state, config, startedAt, recordId]);
+    if (!aiOn) return;
+    setSummary('');
+    void aiReportSummary(report).then((text) => {
+      setSummary(text ?? null);
+      if (text) saveRecord({ ...record, summary: { text, by: 'chrome' } });
+    });
+  }, [report, state, config, startedAt, recordId, aiOn]);
 
   // Closing or reloading the tab mid-interview: warn, and keep what was done as an incomplete report.
   useEffect(() => {
@@ -388,6 +409,7 @@ function Live({
         transcript={state.transcript}
         at={startedAt}
         config={config}
+        summary={summary}
       />
     );
 

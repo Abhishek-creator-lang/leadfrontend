@@ -239,6 +239,8 @@ export interface AnswerExtras {
   aiFollowUp?: string;
   /** Chrome's built-in AI's opinion of a fundamentals answer (all answers so far). */
   aiJudgement?: AIJudgement;
+  /** An answer to the candidate's question written by Chrome's built-in AI. */
+  aiAnswer?: string;
 }
 
 export interface StorySignals {
@@ -507,16 +509,16 @@ export function respond(prev: EngineState, input: string | null, extras: AnswerE
       ask(s, say, S.INTRO_ASK);
       break;
     case 'intro':
-      onIntro(s, say, text);
+      onIntro(s, say, text, extras.aiFollowUp);
       break;
     case 'warmup':
       onWarmup(s, say, text, intent);
       break;
     case 'behavioral':
-      onBehavioral(s, say, text, intent);
+      onBehavioral(s, say, text, intent, extras.aiFollowUp);
       break;
     case 'questions':
-      onQuestions(s, say, text, intent === 'dontKnow' || intent === 'decline');
+      onQuestions(s, say, text, intent === 'dontKnow' || intent === 'decline', extras.aiAnswer);
       break;
   }
   return { state: s, say };
@@ -689,7 +691,26 @@ function skipStage(s: EngineState, say: string[]) {
 
 // ---- intro ----
 
-function onIntro(s: EngineState, say: string[], text: string) {
+/** The scripted intro follow-up the interviewer would ask after these answers, if any. */
+function introFollowUp(s: EngineState, answers: string[]) {
+  const all = answers.join(' ');
+  if (wordCount(all) < 20 && !s.intro.askedMore) return null;
+  if (s.intro.followups.length >= s.plan.introFollowups) return null;
+  const isFirst = s.intro.followups.length === 0;
+  return (
+    S.INTRO_FOLLOWUPS.find(
+      (x) => !s.intro.followups.includes(x.id) && (isFirst || x.id !== 'proud') && x.when.test(all)
+    ) ?? null
+  );
+}
+
+/** Would the interviewer ask an intro follow-up after this answer? (Lets the room ask the AI only then.) */
+export function introWouldFollowUp(st: EngineState, text: string): boolean {
+  if (st.stage !== 'intro' || st.expect || intentOf(text) !== 'answer') return false;
+  return introFollowUp(st, [...st.intro.answers, text]) !== null;
+}
+
+function onIntro(s: EngineState, say: string[], text: string, aiFollowUp?: string) {
   s.intro.answers.push(text);
   const all = s.intro.answers.join(' ');
   if (wordCount(all) < 20 && !s.intro.askedMore) {
@@ -697,16 +718,11 @@ function onIntro(s: EngineState, say: string[], text: string) {
     ask(s, say, S.INTRO_MORE);
     return;
   }
-  if (s.intro.followups.length < s.plan.introFollowups) {
-    const isFirst = s.intro.followups.length === 0;
-    const f = S.INTRO_FOLLOWUPS.find(
-      (x) => !s.intro.followups.includes(x.id) && (isFirst || x.id !== 'proud') && x.when.test(all)
-    );
-    if (f) {
-      s.intro.followups.push(f.id);
-      ask(s, say, pick(s, ['Interesting.', 'Got it.', 'Okay, nice.']), f.ask);
-      return;
-    }
+  const f = introFollowUp(s, s.intro.answers);
+  if (f) {
+    s.intro.followups.push(f.id);
+    ask(s, say, pick(s, ['Interesting.', 'Got it.', 'Okay, nice.']), aiFollowUp?.trim() || f.ask);
+    return;
   }
   startWarmup(s, say);
 }
@@ -1520,7 +1536,38 @@ function startBehavioral(s: EngineState, say: string[]) {
   ask(s, say, S.BEHAVIORAL_START, s.plan.behavioral[0].ask);
 }
 
-function onBehavioral(s: EngineState, say: string[], text: string, intent: Intent) {
+/** The behavioral probe the interviewer would use after these answers, if any. */
+function storyProbe(s: EngineState, answers: string[]): ProbeGoal | null {
+  if (s.beh.probes.length >= 2) return null;
+  const sig = storySignals(answers.join(' '));
+  const want = (id: ProbeGoal, cond: boolean) => cond && !s.beh.probes.includes(id);
+  return (
+    (want('more', sig.words < 40) && 'more') ||
+    (want('ownership', sig.hidesBehindWe) && 'ownership') ||
+    (want('result', !sig.hasResult) && 'result') ||
+    (want('reflect', !sig.reflects) && 'reflect') ||
+    null
+  );
+}
+
+export type ProbeGoal = keyof typeof S.BEHAVIORAL_PROBES;
+
+/**
+ * What the interviewer would probe for after this part of a story ("ownership", "result"…), or null
+ * when it would move on. The room asks the on-device AI for a question with that goal.
+ */
+export function behavioralProbeGoal(st: EngineState, text: string): ProbeGoal | null {
+  if (st.stage !== 'behavioral' || st.expect || intentOf(text) !== 'answer') return null;
+  return storyProbe(st, [...st.beh.answers, text]);
+}
+
+function onBehavioral(
+  s: EngineState,
+  say: string[],
+  text: string,
+  intent: Intent,
+  aiFollowUp?: string
+) {
   // "I don't have an example": offer a way in before moving on.
   if ((intent === 'dontKnow' || intent === 'decline') && !s.beh.answers.length) {
     askExpect(s, say, 'noStory', S.BEHAVIORAL_NO_STORY);
@@ -1535,18 +1582,15 @@ function onBehavioral(s: EngineState, say: string[], text: string, intent: Inten
     return;
   }
   s.beh.answers.push(text);
-  const sig = storySignals(s.beh.answers.join(' '));
-  const want = (id: keyof typeof S.BEHAVIORAL_PROBES, cond: boolean) =>
-    cond && !s.beh.probes.includes(id);
-  const probe =
-    (want('more', sig.words < 40) && 'more') ||
-    (want('ownership', sig.hidesBehindWe) && 'ownership') ||
-    (want('result', !sig.hasResult) && 'result') ||
-    (want('reflect', !sig.reflects) && 'reflect') ||
-    null;
-  if (probe && s.beh.probes.length < 2) {
+  const probe = storyProbe(s, s.beh.answers);
+  if (probe) {
     s.beh.probes.push(probe);
-    ask(s, say, pick(s, ['Okay.', 'Right.', 'I see.']), S.BEHAVIORAL_PROBES[probe]);
+    ask(
+      s,
+      say,
+      pick(s, ['Okay.', 'Right.', 'I see.']),
+      aiFollowUp?.trim() || S.BEHAVIORAL_PROBES[probe]
+    );
     return;
   }
   finishStory(s, say, [pick(s, S.ACK_STORY)]);
@@ -1630,14 +1674,28 @@ function startQuestions(s: EngineState, say: string[]) {
 const NO_QUESTIONS =
   /^(no|nope|nothing|none|i'?m good|i am good|that'?s (all|it)|no questions?|not really|all good|i think that'?s it)\b/i;
 
-function onQuestions(s: EngineState, say: string[], text: string, none: boolean) {
+/** Is this a real question the interviewer would answer? (Lets the room ask the on-device AI.) */
+export function questionsWouldAnswer(st: EngineState, text: string): boolean {
+  if (st.stage !== 'questions') return false;
+  const intent = intentOf(text);
+  if (['dontKnow', 'decline', 'affirm', 'repeat', 'howTo', 'skip'].includes(intent)) return false;
+  return !NO_QUESTIONS.test(text.trim());
+}
+
+function onQuestions(
+  s: EngineState,
+  say: string[],
+  text: string,
+  none: boolean,
+  aiAnswer?: string
+) {
   if (none || NO_QUESTIONS.test(text.trim())) {
     if (s.qa.count === 0) tell(s, say, S.QA_NONE);
     close(s, say);
     return;
   }
   s.qa.count++;
-  const answer = S.QA_ANSWERS.find((a) => a.when.test(text))!.answer;
+  const answer = aiAnswer?.trim() || S.QA_ANSWERS.find((a) => a.when.test(text))!.answer;
   if (s.qa.count >= 2) {
     tell(s, say, answer);
     close(s, say);

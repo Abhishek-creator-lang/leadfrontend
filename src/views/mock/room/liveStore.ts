@@ -13,6 +13,8 @@ export interface LiveInterviewRecord {
   transcript?: Line[];
   /** Saved by an older version: only the score, verdict and round scores are reliable. */
   legacy?: boolean;
+  /** A short summary written by Chrome's on-device AI from the report. */
+  summary?: { text: string; by: 'chrome' };
 }
 
 export const HISTORY_LIMIT = 30;
