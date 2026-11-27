@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: PageProps<Params>): Promise<M
     title: `${p.title}: ${p.weeks}-Week Frontend Interview Study Plan`,
     description: sentences(p.subtitle, p.description),
     path: studyPlanPath(p.id),
+    ogImage: true,
   });
 }
 

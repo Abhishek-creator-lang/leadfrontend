@@ -1,6 +1,7 @@
 'use client';
 
 import NextLink from 'next/link';
+import { ShareButton } from '@/components/ShareButton';
 import { Box, Button, List, ListItemButton, ListItemText, Stack, Typography } from '@mui/material';
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
@@ -87,9 +88,12 @@ export default function GuideChapterPage({
             <Typography variant="overline" color="text.secondary">
               {guide.title} · Chapter {idx + 1} of {guide.chapters.length}
             </Typography>
-            <Typography variant="h4" component="h1" sx={{ mb: 3 }}>
-              {current.title}
-            </Typography>
+            <Stack direction="row" alignItems="flex-start" spacing={1} sx={{ mb: 3 }}>
+              <Typography variant="h4" component="h1" sx={{ flex: 1 }}>
+                {current.title}
+              </Typography>
+              <ShareButton title={current.title} kind="guide" />
+            </Stack>
             <Markdown>{md}</Markdown>
             <SourceNote source={current.source} />
             <ReportIssueLink />

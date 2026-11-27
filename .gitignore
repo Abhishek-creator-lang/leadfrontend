@@ -9,3 +9,6 @@ scripts/.handbook-manifest.json
 .verify-full.log
 .env
 .env*.local
+# Any other env file holding real credentials (e.g. .env.pr). .env.example is the only one to commit.
+.env.*
+!.env.example

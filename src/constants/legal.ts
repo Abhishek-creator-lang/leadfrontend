@@ -8,10 +8,10 @@ export const LEGAL = {
   /** Takedown, privacy, grievance and general legal contact. */
   contactEmail: 'contact@leadfrontend.in',
   country: 'India',
-  effectiveDate: '23 November 2026',
+  effectiveDate: '26 November 2026',
   /** Service providers that process data on our behalf. */
   processors: [
-    'Vercel Inc. (website hosting)',
+    'Vercel Inc. (website hosting and anonymous usage statistics)',
     'Neon Inc. (database hosting)',
     'Resend Inc. (account emails)',
   ],

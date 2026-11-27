@@ -30,6 +30,7 @@ import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import CenterFocusStrongRoundedIcon from '@mui/icons-material/CenterFocusStrongRounded';
 import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 import BusinessRoundedIcon from '@mui/icons-material/BusinessRounded';
+import TimerRoundedIcon from '@mui/icons-material/TimerRounded';
 import BookmarkRoundedIcon from '@mui/icons-material/BookmarkRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
@@ -72,6 +73,7 @@ const NAV_ICONS: Partial<Record<NavKey, ReactNode>> = {
   studyPlans: <CalendarMonthRoundedIcon />,
   focusAreas: <CenterFocusStrongRoundedIcon />,
   guides: <MenuBookRoundedIcon />,
+  mockInterview: <TimerRoundedIcon />,
   companies: <BusinessRoundedIcon />,
   bookmarks: <BookmarkRoundedIcon />,
   settings: <SettingsRoundedIcon />,

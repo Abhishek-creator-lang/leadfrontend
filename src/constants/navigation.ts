@@ -8,6 +8,7 @@ export const PAGE_TITLES = {
   focusAreas: 'Focus areas',
   guides: 'Guides & playbooks',
   companies: 'Company guides',
+  mockInterview: 'Mock interview',
   bookmarks: 'Bookmarks',
   settings: 'Settings',
 } as const;
@@ -28,6 +29,7 @@ export const MAIN_NAV: NavItem[] = [
   { id: 'studyPlans', to: PATHS.studyPlans, label: PAGE_TITLES.studyPlans },
   { id: 'focusAreas', to: PATHS.focusAreas, label: PAGE_TITLES.focusAreas },
   { id: 'guides', to: PATHS.guides, label: PAGE_TITLES.guides },
+  { id: 'mockInterview', to: PATHS.mockInterview, label: PAGE_TITLES.mockInterview },
   { id: 'companies', to: PATHS.companies, label: PAGE_TITLES.companies },
   { id: 'bookmarks', to: PATHS.bookmarks, label: PAGE_TITLES.bookmarks },
 ];

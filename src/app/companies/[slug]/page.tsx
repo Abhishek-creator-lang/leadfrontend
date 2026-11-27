@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: PageProps<Params>): Promise<M
     description: description(c.name, await getCompanyBody(slug)),
     path: companyPath(c.slug),
     type: 'article',
+    ogImage: true,
   });
 }
 

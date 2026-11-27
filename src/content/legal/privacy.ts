@@ -6,7 +6,7 @@ const L = LEGAL;
 export const PRIVACY_MD = `
 This Privacy Policy explains how ${L.operatorName} ("**we**") collects and uses personal data when you use ${APP_NAME} (the "**Site**"). We follow India's Digital Personal Data Protection Act, 2023 and the Information Technology Act, 2000 and its rules.
 
-**In short:** browsing needs no account. If you create one, we keep only what is needed to run it. We show no ads, use no analytics or tracking tools, and never sell your data.
+**In short:** browsing needs no account. If you create one, we keep only what is needed to run it. We show no ads, use no cookies for tracking, and never sell your data. We count visits with privacy-friendly analytics that never identifies you.
 
 ## 1. Data we collect
 
@@ -15,9 +15,12 @@ This Privacy Policy explains how ${L.operatorName} ("**we**") collects and uses 
 | Name, email address | When you create an account or are invited | To identify your account and send account emails (verification, password reset) |
 | Password | When you set one | Stored only as a salted one-way hash; we can't read it |
 | Session cookie (\`lf_session\`) | When you sign in | Keeps you signed in. It is an essential cookie; there are no advertising or analytics cookies |
+| Anonymous usage statistics (page visited, referrer, country, device type, and events such as "question completed") | Every visit | To learn which pages and features help people, using Vercel Web Analytics. It sets no cookies, stores nothing in your browser and does not identify you or link visits across days |
 | Progress, bookmarks, notes, activity dates | While you use the Site signed in | To save your progress across devices |
 | Contribution details | Only if you contribute | Payments go through your UPI app; we don't receive your card or bank details |
 | Technical logs (IP address, browser, time) | Every request, kept by our hosting provider | Security, abuse prevention and troubleshooting |
+
+If you answer a mock interview by voice, your browser's built-in speech recognition turns your speech into text (in Chrome this is processed by Google under its own terms). We don't record or store audio, and the transcript stays in your browser.
 
 Without an account, progress and preferences (such as the theme) are stored **only in your browser** (local storage) and never sent to us.
 

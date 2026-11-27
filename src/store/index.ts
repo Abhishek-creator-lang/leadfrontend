@@ -1,7 +1,25 @@
 import { configureStore, type Middleware } from '@reduxjs/toolkit';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { STORAGE_KEYS } from '@/constants/storage';
-import progressReducer, { initialProgress, ProgressState } from './progressSlice';
+import { track } from '@/lib/analytics';
+import progressReducer, {
+  initialProgress,
+  ProgressState,
+  startPlan,
+  toggleComplete,
+} from './progressSlice';
+
+/** Sends anonymous product events (question completed, plan started) after the state changes. */
+const analyticsMiddleware: Middleware<object, { progress: ProgressState }> =
+  (api) => (next) => (action) => {
+    const result = next(action);
+    if (toggleComplete.match(action) && api.getState().progress.completed[action.payload]) {
+      track('question_completed', { format: action.payload.split('/')[0] });
+    } else if (startPlan.match(action)) {
+      track('plan_started', { plan: action.payload });
+    }
+    return result;
+  };
 
 /** Reads guest progress from localStorage. Browser-only: call after mount, never during SSR. */
 export function loadProgress(): ProgressState {
@@ -48,7 +66,10 @@ export const makeStore = ({
   configureStore({
     reducer: { progress: progressReducer },
     preloadedState: preloaded ? { progress: preloaded } : undefined,
-    middleware: (getDefault) => getDefault().prepend(...middleware),
+    middleware: (getDefault) =>
+      getDefault()
+        .prepend(...middleware)
+        .concat(analyticsMiddleware),
   });
 
 export type AppStore = ReturnType<typeof makeStore>;

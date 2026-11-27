@@ -41,6 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry(PATHS.focusAreas),
     entry(PATHS.guides),
     entry(PATHS.companies),
+    entry(PATHS.mockInterview),
     entry(PATHS.support),
     ...[PATHS.terms, PATHS.privacy, PATHS.disclaimer, PATHS.copyright, PATHS.licenses].map((p) =>
       entry(p)
