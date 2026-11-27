@@ -150,6 +150,16 @@ export const QA_ANSWERS: { when: RegExp; answer: string }[] = [
   },
 ];
 
+/**
+ * Everything the interviewer may say about the (fictional) team. The keyword answers above and the
+ * on-device AI's answers both stick to these facts, so the two never contradict each other.
+ */
+export const COMPANY_FACTS: string[] = [
+  ...QA_ANSWERS.slice(0, -1).map((a) => a.answer),
+  'Salary, level and benefits are discussed with the recruiter, not in this interview.',
+  'The interviewer cannot say whether the candidate passed; feedback comes right after the interview.',
+];
+
 export const CLOSING = [
   'Thanks, I really enjoyed this conversation.',
   "That's the end of the interview. Your feedback is ready on the next screen.",

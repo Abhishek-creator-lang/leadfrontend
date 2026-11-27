@@ -7,6 +7,10 @@ import type { Grade } from './classify';
  * `aiOnly` marks answers that keywords cannot judge (wrong facts that use the right words, or
  * correct paraphrases with no shared terms). They are left out of the keyword score and are what
  * the optional on-device AI check is for.
+ *
+ * The paraphrase set at the end was used to test a small in-browser embedding model as a "meaning
+ * check" (all-MiniLM-L6-v2 and bge-small). Neither beat keywords (78% agreement either way): they
+ * rate topic similarity, not correctness, so wrong and partial answers scored as high as these.
  */
 export interface GradingFixture {
   keyPoints: string[];
@@ -292,5 +296,86 @@ export const GRADING_FIXTURES: GradingFixture[] = [
     kind: 'trap',
     expected: 'weak',
     answer: 'we shake things up in the build and export a lot of modules',
+  },
+  // ---- correct paraphrases keywords miss (need the on-device AI) ----
+  {
+    keyPoints: EVENT_LOOP,
+    kind: 'paraphrase',
+    expected: 'good',
+    aiOnly: true,
+    answer:
+      'JavaScript has one thread that runs functions one at a time. When that work is finished it first runs every pending promise callback, and only then takes the next timer or network callback.',
+  },
+  {
+    keyPoints: CLOSURE,
+    kind: 'paraphrase',
+    expected: 'good',
+    aiOnly: true,
+    answer:
+      'a function created inside another function keeps a reference to the variables around it, so it can still read and change them after the parent has finished running',
+  },
+  {
+    keyPoints: DEBOUNCE,
+    kind: 'paraphrase',
+    expected: 'good',
+    aiOnly: true,
+    answer:
+      'one waits until the user has stopped typing for a moment and then fires once, the other fires regularly, say every 200 milliseconds, while the user keeps scrolling',
+  },
+  {
+    keyPoints: CSP,
+    kind: 'paraphrase',
+    expected: 'partial',
+    aiOnly: true,
+    answer:
+      'the server sends a response header that tells the browser which domains it may load scripts from, so injected scripts from attackers do not run',
+  },
+  {
+    keyPoints: VDOM,
+    kind: 'paraphrase',
+    expected: 'partial',
+    aiOnly: true,
+    answer:
+      'React builds a lightweight copy of the page in memory, compares it with the previous copy and only touches the real page where something changed',
+  },
+  {
+    keyPoints: DELEGATION,
+    kind: 'paraphrase',
+    expected: 'good',
+    aiOnly: true,
+    answer:
+      'put a single click handler on the list container, because clicks travel up from the item, then look at which element was actually clicked to decide what to do',
+  },
+  {
+    keyPoints: CORS,
+    kind: 'paraphrase',
+    expected: 'partial',
+    aiOnly: true,
+    answer:
+      'before a cross domain request with custom headers the browser sends a check request first and only continues if the server says that origin is allowed',
+  },
+  {
+    keyPoints: EFFECT,
+    kind: 'paraphrase',
+    expected: 'good',
+    aiOnly: true,
+    answer:
+      'the hook runs after the component renders, you list the values it depends on so it only runs again when they change, and you return a function that tears down subscriptions',
+  },
+  {
+    keyPoints: MEMO,
+    kind: 'paraphrase',
+    expected: 'good',
+    aiOnly: true,
+    answer:
+      'store what a function returned for a given input so the next call with the same input skips the work, which is only safe when the function has no side effects',
+  },
+  {
+    keyPoints: TREE,
+    kind: 'paraphrase',
+    expected: 'good',
+    aiOnly: true,
+    answer:
+      'the bundler looks at which imported functions are actually used and drops the rest from the final file, which works because import and export statements are static',
   },
 ];

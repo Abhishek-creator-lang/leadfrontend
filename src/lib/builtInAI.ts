@@ -97,6 +97,56 @@ export async function promptStream(
   }
 }
 
+/**
+ * One prompt with a time limit. Undefined when the model is missing, fails or is too slow: callers
+ * fall back to their scripted behaviour.
+ */
+export async function promptWithTimeout(
+  system: string,
+  input: string,
+  timeoutMs: number
+): Promise<string | undefined> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  try {
+    return await Promise.race([
+      promptStream(system, input, () => {}),
+      new Promise<undefined>((resolve) => {
+        timer = setTimeout(() => resolve(undefined), timeoutMs);
+      }),
+    ]);
+  } catch {
+    return undefined;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * Downloads Chrome's on-device model (once per browser) by opening and closing a session.
+ * `onProgress` gets 0–1. Must be called from a click: Chrome requires a user action before it
+ * starts the download. Resolves true when the model is ready.
+ */
+export async function prepareChromeModel(onProgress: (fraction: number) => void): Promise<boolean> {
+  try {
+    const lm = modern();
+    const session: PromptSession = lm
+      ? await lm.create({
+          ...LANG,
+          monitor(m: EventTarget) {
+            m.addEventListener('downloadprogress', (e) =>
+              onProgress((e as unknown as { loaded: number }).loaded)
+            );
+          },
+        })
+      : await legacy()!.create({});
+    session.destroy();
+    onProgress(1);
+    return (await getAvailability()) === 'available';
+  } catch {
+    return false;
+  }
+}
+
 async function* readAll(stream: ReadableStream<string>) {
   const reader = stream.getReader();
   try {

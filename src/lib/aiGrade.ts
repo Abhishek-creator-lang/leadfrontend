@@ -1,4 +1,4 @@
-import { promptStream } from '@/lib/builtInAI';
+import { promptWithTimeout } from '@/lib/builtInAI';
 import type { AIJudgement } from '@/utils/interview/classify';
 
 /**
@@ -45,13 +45,6 @@ export async function aiGradeAnswer(
     `Key points: ${JSON.stringify(input.keyPoints)}`,
     `Candidate's answer: """${input.answer.slice(0, 2000)}"""`,
   ].join('\n');
-  try {
-    const result = await Promise.race([
-      promptStream(SYSTEM, prompt, () => {}),
-      new Promise<string>((_, reject) => setTimeout(() => reject(new Error('timeout')), timeoutMs)),
-    ]);
-    return parseJudgement(result);
-  } catch {
-    return undefined;
-  }
+  const raw = await promptWithTimeout(SYSTEM, prompt, timeoutMs);
+  return raw === undefined ? undefined : parseJudgement(raw);
 }

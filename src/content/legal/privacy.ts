@@ -22,6 +22,8 @@ This Privacy Policy explains how ${L.operatorName} ("**we**") collects and uses 
 
 If you answer a mock interview by voice, your browser's built-in speech recognition turns your speech into text (in Chrome this is processed by Google under its own terms). We don't record or store audio, and the transcript stays in your browser.
 
+If you turn on the optional on-device AI in Chrome, the follow-up questions, answer checks and report summary are produced by Chrome's built-in model on your device. Your answers are processed in your browser and never sent to us. Chrome downloads its model from Google once, under Google's terms.
+
 Without an account, progress and preferences (such as the theme) are stored **only in your browser** (local storage) and never sent to us.
 
 ## 2. Legal basis

@@ -17,6 +17,8 @@ export interface LiveInterviewConfig {
   length: InterviewLength;
   /** Speak and listen, or type. */
   mode: 'voice' | 'text';
+  /** Use Chrome's on-device AI when it is available (default true). */
+  ai?: boolean;
 }
 
 export const LENGTHS: Record<

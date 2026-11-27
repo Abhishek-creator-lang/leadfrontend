@@ -503,7 +503,7 @@ describe('InterviewRoom (system design round)', () => {
 
     expect(await screen.findByText('Tell me about a conflict.')).toBeTruthy();
     expect(screen.queryByText('Notes board')).toBeNull();
-  });
+  }, 30_000);
 
   it('asks a follow-up written by Chrome’s on-device AI when it is available', async () => {
     (globalThis as Record<string, unknown>).LanguageModel = {
@@ -529,5 +529,144 @@ describe('InterviewRoom (system design round)', () => {
         { timeout: 4000 }
       )
     ).toBeTruthy();
+  }, 30_000);
+});
+
+// ---- Chrome's on-device AI across the interview ----
+
+/** A fake Chrome model that answers by the job its system prompt describes. */
+function fakeChromeAI(create = vi.fn()) {
+  const reply = (system: string) =>
+    /summary at the top/.test(system)
+      ? 'Your strongest area was the fundamentals, where you explained closures clearly. Next, practise ending your stories with a concrete result. Keep going, you are close.'
+      : /end of a job interview/.test(system)
+        ? 'We are a small team of eight engineers, and most of our work is in React and TypeScript.'
+        : /grade one answer/.test(system)
+          ? '{"covered":["closure","lexical scope"],"incorrect":[],"verdict":"correct"}'
+          : /starting a job interview/.test(system)
+            ? 'What made the checkout ownership hard at your company?'
+            : 'What did you personally say to the two engineers?';
+  (globalThis as Record<string, unknown>).LanguageModel = {
+    availability: async () => 'available',
+    create: async (opts: { initialPrompts?: { content: string }[] }) => {
+      create(opts);
+      const text = reply(opts.initialPrompts?.[0]?.content ?? '');
+      return {
+        promptStreaming: () =>
+          new ReadableStream<string>({
+            start(c) {
+              c.enqueue(text);
+              c.close();
+            },
+          }),
+        destroy: () => {},
+      };
+    },
+  };
+  return create;
+}
+
+describe('InterviewRoom (on-device AI)', () => {
+  afterEach(() => {
+    delete (globalThis as Record<string, unknown>).LanguageModel;
   });
+
+  const renderRoom = () =>
+    render(
+      <Provider store={makeStore()}>
+        <ThemeModeProvider>
+          <ContentProvider content={CONTENT}>
+            <InterviewRoom lineDelayMs={0} />
+          </ContentProvider>
+        </ThemeModeProvider>
+      </Provider>
+    );
+
+  it('asks tailored follow-ups, answers your questions and writes a summary', async () => {
+    fakeChromeAI();
+    const user = userEvent.setup();
+    renderRoom();
+    const answer = async (text: string) => {
+      const box = await screen.findByRole('textbox', { name: 'Your answer' });
+      await vi.waitFor(() => expect((box as HTMLTextAreaElement).disabled).toBe(false), {
+        timeout: 4000,
+      });
+      await user.click(box);
+      await user.paste(text);
+      await user.keyboard('{Enter}');
+    };
+
+    await user.click(await screen.findByRole('button', { name: 'Join interview' }));
+    await answer('Sounds good');
+    await answer(
+      'I lead a team of six frontend engineers at an ecommerce company, we own checkout and I spend my time on architecture and reviews'
+    );
+    expect(
+      await screen.findByText('What made the checkout ownership hard at your company?')
+    ).toBeTruthy();
+    await answer('Three teams wanted different things and we had no shared roadmap at all');
+
+    expect(await screen.findByText('What is the medium thing?')).toBeTruthy();
+    // A paraphrase keywords miss: the on-device AI confirms it (raised one level, to partial),
+    // so Aarav invites more instead of moving on.
+    await answer('It keeps the outer variables around after the function returns');
+    expect(
+      await screen.findByText(/go a bit deeper|Anything you would add|say a bit more/)
+    ).toBeTruthy();
+    await answer("no, that's all");
+    expect(await screen.findByText(/What is the (easy|hard) thing\?/)).toBeTruthy();
+    await answer("I don't know");
+
+    expect(await screen.findByText('Tell me about a conflict.')).toBeTruthy();
+    await answer('Two engineers disagreed about state management and I set up a meeting.');
+    expect(
+      await screen.findByText('What did you personally say to the two engineers?')
+    ).toBeTruthy();
+    await answer(
+      'I asked each of them to write down the trade-offs, I proposed a one week spike, it reduced bugs by 30 percent and I learned to step in sooner.'
+    );
+
+    expect(await screen.findByText(/What questions do you have for me\?/)).toBeTruthy();
+    await answer('How big is the team?');
+    expect(
+      await screen.findByText(
+        'We are a small team of eight engineers, and most of our work is in React and TypeScript.'
+      )
+    ).toBeTruthy();
+    await answer("No, that's all");
+
+    expect(await screen.findByText('Interview feedback', {}, { timeout: 4000 })).toBeTruthy();
+    expect(
+      await screen.findByText(/Your strongest area was the fundamentals/, {}, { timeout: 4000 })
+    ).toBeTruthy();
+    // The paraphrased fundamentals answer was confirmed by the on-device AI.
+    expect(screen.getByText(/double-checked by Chrome’s on-device AI/)).toBeTruthy();
+    await vi.waitFor(() => {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEYS.liveInterviewReports)!);
+      expect(saved[0].summary.text).toMatch(/Your strongest area/);
+    });
+  }, 60_000);
+
+  it('makes no AI calls when the candidate switched the on-device AI off', async () => {
+    const create = fakeChromeAI();
+    sessionStorage.setItem(
+      STORAGE_KEYS.liveInterviewConfig,
+      JSON.stringify({ role: 'lead', length: 'short', mode: 'text', ai: false })
+    );
+    const user = userEvent.setup();
+    renderRoom();
+    await user.click(await screen.findByRole('button', { name: 'Join interview' }));
+    const box = await screen.findByRole('textbox', { name: 'Your answer' });
+    for (const text of [
+      'Sounds good',
+      'I lead a team of six frontend engineers at an ecommerce company, we own checkout and I spend my time on architecture and reviews',
+    ]) {
+      await vi.waitFor(() => expect((box as HTMLTextAreaElement).disabled).toBe(false));
+      await user.click(box);
+      await user.paste(text);
+      await user.keyboard('{Enter}');
+    }
+    expect(await screen.findByText(/You mentioned leading/)).toBeTruthy();
+    expect(create).not.toHaveBeenCalled();
+  }, 30_000);
 });

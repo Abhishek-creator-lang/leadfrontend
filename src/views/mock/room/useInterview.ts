@@ -2,10 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { listen, speak, speechSupport, stopSpeaking, type Listener } from '@/lib/speech';
-import { aiDesignFollowUp } from '@/lib/aiFollowUp';
-import { aiGradeAnswer } from '@/lib/aiGrade';
 import {
-  designWouldProbe,
   endEarly,
   respond,
   roundEvent,
@@ -14,8 +11,8 @@ import {
   type RoundEvent,
   type InterviewPlan,
   type Turn,
-  warmupAnswerToCheck,
 } from '@/utils/interview/engine';
+import { aiAssist } from './aiAssist';
 
 export type RoomStatus = 'idle' | 'speaking' | 'listening' | 'waiting' | 'thinking' | 'done';
 
@@ -24,7 +21,10 @@ export interface InterviewOptions {
   lineDelayMs?: number;
   /** Notes the candidate wrote for a design step. */
   getDesignNotes?: (stepId: string) => string;
-  /** Chrome's on-device AI is ready: use it for design follow-ups and to double-check answers. */
+  /**
+   * Chrome's on-device AI is ready and switched on: use it for follow-ups, answers to the
+   * candidate's questions and to double-check fundamentals answers.
+   */
   useAI?: boolean;
 }
 
@@ -126,44 +126,22 @@ export function useInterview(
       if (!s || s.stage === 'done') return;
       stopSpeaking();
       stopListening();
-      // Fundamentals: let the on-device AI double-check the answer (paraphrases, wrong facts).
-      const check = text !== null && aiRef.current ? warmupAnswerToCheck(s, text) : null;
-      if (check && text !== null) {
-        const id = ++run.current;
-        setStatus('thinking');
-        setPendingAnswer(text);
-        void aiGradeAnswer(check).then((aiJudgement) => {
-          if (run.current !== id) return;
-          setPendingAnswer('');
-          void playTurn(respond(s, text, { aiJudgement }));
-        });
-        return;
-      }
-      if (text === null || s.stage !== 'design') {
-        void playTurn(respond(s, text));
-        return;
-      }
-      // Design: grade the spoken answer together with the notes board, and let the on-device AI
-      // write the follow-up when the interviewer would probe anyway.
-      const design = s.plan.design!;
-      const step = design.steps[s.design.stepIndex];
+      // Design answers are graded together with the notes board.
+      const step = s.stage === 'design' ? s.plan.design!.steps[s.design.stepIndex] : undefined;
       const notes = (step && notesRef.current?.(step.id)) || '';
-      if (!step || !aiRef.current || !designWouldProbe(s, text, notes)) {
-        void playTurn(respond(s, text, { notes }));
+      const base = s.stage === 'design' ? { notes } : {};
+      const job = text !== null && aiRef.current ? aiAssist(s, text, notes) : null;
+      if (!job || text === null) {
+        void playTurn(respond(s, text, base));
         return;
       }
       const id = ++run.current;
       setStatus('thinking');
       setPendingAnswer(text);
-      void aiDesignFollowUp({
-        problem: design.title,
-        step: step.label,
-        keyPoints: step.keyPoints,
-        answer: [...s.design.answers, text, notes].join(' '),
-      }).then((aiFollowUp) => {
+      void job.then((extras) => {
         if (run.current !== id) return;
         setPendingAnswer('');
-        void playTurn(respond(s, text, { notes, aiFollowUp }));
+        void playTurn(respond(s, text, { ...base, ...extras }));
       });
     },
     [playTurn]

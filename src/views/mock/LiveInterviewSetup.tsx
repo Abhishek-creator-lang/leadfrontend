@@ -10,8 +10,11 @@ import {
   Button,
   Card,
   Chip,
+  FormControlLabel,
+  LinearProgress,
   Link,
   Stack,
+  Switch,
   ToggleButton,
   ToggleButtonGroup,
   Typography,
@@ -19,7 +22,12 @@ import {
 import MicRoundedIcon from '@mui/icons-material/MicRounded';
 import VolumeUpRoundedIcon from '@mui/icons-material/VolumeUpRounded';
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
+import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 import { INTERVIEWER, type InterviewRole } from '@/content/interviewer/script';
+import { useBuiltInAIState } from '@/hooks/useBuiltInAI';
+import { loadAIEnabled, saveAIEnabled } from '@/lib/aiPrefs';
+import { track } from '@/lib/analytics';
+import { prepareChromeModel } from '@/lib/builtInAI';
 import { listen, speak, speechSupport, type Listener } from '@/lib/speech';
 import { PATHS } from '@/routes/paths';
 import { LENGTHS, type InterviewLength } from '@/utils/interview/plan';
@@ -36,12 +44,15 @@ export function LiveInterviewSetup() {
   const [heard, setHeard] = useState('');
   const [history, setHistory] = useState<LiveInterviewRecord[]>([]);
   const listener = useRef<Listener | null>(null);
+  const ai = useBuiltInAIState();
+  const [aiEnabled, setAIEnabled] = useState(true);
 
   useEffect(() => {
     const s = speechSupport();
     setSupport(s);
     if (s.listen) setMode('voice');
     setHistory(loadHistory());
+    setAIEnabled(loadAIEnabled());
     return () => listener.current?.cancel();
   }, []);
 
@@ -61,7 +72,7 @@ export function LiveInterviewSetup() {
 
   const start = () => {
     listener.current?.cancel();
-    saveConfig({ role, length, mode });
+    saveConfig({ role, length, mode, ai: aiEnabled });
     router.push(PATHS.mockInterviewRoom);
   };
 
@@ -190,6 +201,16 @@ export function LiveInterviewSetup() {
         </Typography>
       )}
 
+      <SmarterInterviewer
+        availability={ai.availability}
+        enabled={aiEnabled}
+        onEnabled={(on) => {
+          setAIEnabled(on);
+          saveAIEnabled(on);
+        }}
+        onDownloaded={ai.refresh}
+      />
+
       <Button variant="contained" size="large" startIcon={<PlayArrowRoundedIcon />} onClick={start}>
         Start live interview
       </Button>
@@ -227,5 +248,92 @@ export function LiveInterviewSetup() {
         </Box>
       )}
     </Card>
+  );
+}
+
+/**
+ * Chrome's on-device AI for the interview: a switch when the model is on this device, a one-time
+ * download button when Chrome can fetch it, and nothing in other browsers.
+ */
+function SmarterInterviewer({
+  availability,
+  enabled,
+  onEnabled,
+  onDownloaded,
+}: {
+  availability: 'available' | 'downloadable' | 'unavailable';
+  enabled: boolean;
+  onEnabled: (on: boolean) => void;
+  onDownloaded: () => Promise<void>;
+}) {
+  const [progress, setProgress] = useState<number | null>(null);
+  const [failed, setFailed] = useState(false);
+
+  if (availability === 'unavailable') return null;
+
+  if (availability === 'available')
+    return (
+      <Box sx={{ mb: 2 }}>
+        <FormControlLabel
+          control={<Switch checked={enabled} onChange={(e) => onEnabled(e.target.checked)} />}
+          label={
+            <Stack direction="row" spacing={0.75} alignItems="center">
+              <AutoAwesomeRoundedIcon fontSize="small" color="primary" />
+              <span>Use on-device AI</span>
+            </Stack>
+          }
+        />
+        <Typography variant="caption" color="text.secondary" component="p">
+          Follow-up questions about what you actually said, natural answers to your questions, a
+          second check of your answers and a written summary. Runs in Chrome on your device: your
+          answers never leave this browser.
+        </Typography>
+      </Box>
+    );
+
+  const enable = async () => {
+    setFailed(false);
+    setProgress(0);
+    const ok = await prepareChromeModel(setProgress);
+    setProgress(null);
+    if (ok) {
+      track('ai_enabled', { by: 'chrome' });
+      onEnabled(true);
+      await onDownloaded();
+    } else {
+      track('ai_download_failed', { by: 'chrome' });
+      setFailed(true);
+    }
+  };
+
+  return (
+    <Box sx={{ mb: 2 }}>
+      <Button
+        variant="outlined"
+        startIcon={<AutoAwesomeRoundedIcon />}
+        onClick={() => void enable()}
+        disabled={progress !== null}
+      >
+        Enable smarter interviewer
+      </Button>
+      <Typography variant="caption" color="text.secondary" component="p" sx={{ mt: 0.5 }}>
+        Chrome downloads its on-device AI once (a few GB). Free and private: your answers never
+        leave this browser.
+      </Typography>
+      {progress !== null && (
+        <Box sx={{ mt: 1 }}>
+          <Typography variant="body2" color="text.secondary">
+            Downloading Chrome&apos;s on-device AI… {Math.round(progress * 100)}%
+          </Typography>
+          <LinearProgress variant="determinate" value={progress * 100} />
+        </Box>
+      )}
+      {failed && (
+        <Alert severity="info" sx={{ mt: 1 }}>
+          Chrome couldn&apos;t set up its on-device AI right now. The interview works fine without
+          it.
+        </Alert>
+      )}
+    </Box>
   );
 }

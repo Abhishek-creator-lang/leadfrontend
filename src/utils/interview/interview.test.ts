@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { gradeAnswer, intentOf, mentions, storySignals } from './classify';
 import {
+  behavioralProbeGoal,
   buildReport,
   endEarly,
+  introWouldFollowUp,
+  questionsWouldAnswer,
   respond,
   stageScore,
   startInterview,
@@ -408,6 +411,48 @@ describe('engine: behavioral and questions', () => {
     expect(t.say).toEqual(['Sure, go ahead.']);
     expect(t.state.qa.count).toBe(0);
     t = say(t.state, 'how big is the team');
+    expect(t.state.qa.count).toBe(1);
+  });
+});
+
+describe('engine: on-device AI hooks', () => {
+  const toIntro = () => say(startInterview(PLAN).state, 'ok').state;
+
+  it('uses an AI intro follow-up only where the script would ask one', () => {
+    const s = toIntro();
+    expect(introWouldFollowUp(s, 'I am a frontend engineer')).toBe(false); // too short: "tell me more"
+    expect(introWouldFollowUp(s, 'can you repeat that')).toBe(false);
+    expect(introWouldFollowUp(s, INTRO)).toBe(true);
+    const t = respond(s, INTRO, { aiFollowUp: 'What does checkout ownership mean for your team?' });
+    expect(t.say.at(-1)).toBe('What does checkout ownership mean for your team?');
+    expect(t.state.intro.followups).toEqual(['lead']);
+    // Without AI text, the scripted follow-up.
+    expect(respond(s, INTRO).say.at(-1)).toMatch(/You mentioned leading/);
+  });
+
+  it('tells the room what a behavioral probe is for, and scores stories the same way', () => {
+    const plan = { ...PLAN, warmupCount: 0, introFollowups: 0 };
+    const s = say(say(startInterview(plan).state, 'ok').state, INTRO).state;
+    expect(s.stage).toBe('behavioral');
+    const short = 'We disagreed about the architecture and we talked it through.';
+    expect(behavioralProbeGoal(s, short)).toBe('more');
+    expect(behavioralProbeGoal(s, 'hint please')).toBeNull();
+    expect(behavioralProbeGoal(s, 'no')).toBeNull();
+    const withAI = respond(s, short, { aiFollowUp: 'What exactly was the disagreement about?' });
+    expect(withAI.say.at(-1)).toBe('What exactly was the disagreement about?');
+    const scripted = respond(s, short);
+    expect(withAI.state.beh.probes).toEqual(scripted.state.beh.probes);
+  });
+
+  it('uses an AI answer to a real question, never to "no" or a bare "yes"', () => {
+    const plan = { ...PLAN, warmupCount: 0, introFollowups: 0, behavioral: [] };
+    const s = say(say(startInterview(plan).state, 'ok').state, INTRO).state;
+    expect(s.stage).toBe('questions');
+    expect(questionsWouldAnswer(s, 'How big is the team?')).toBe(true);
+    for (const reply of ['no', "no that's all", 'yes', 'can you repeat that'])
+      expect(questionsWouldAnswer(s, reply)).toBe(false);
+    const t = respond(s, 'How big is the team?', { aiAnswer: 'About eight engineers.' });
+    expect(t.say[0]).toBe('About eight engineers.');
     expect(t.state.qa.count).toBe(1);
   });
 });

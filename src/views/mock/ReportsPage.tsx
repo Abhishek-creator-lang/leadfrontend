@@ -10,7 +10,9 @@ import { CONTENT_MAX_WIDTH } from '@/constants/layout';
 import { Page, PageHeader } from '@/layout/Page';
 import { PATHS } from '@/routes/paths';
 import { LENGTHS } from '@/utils/interview/plan';
-import { deleteRecord, loadHistory, type LiveInterviewRecord } from './room/liveStore';
+import { useBuiltInAI } from '@/hooks/useBuiltInAI';
+import { aiReportSummary } from '@/lib/aiReportSummary';
+import { deleteRecord, loadHistory, saveRecord, type LiveInterviewRecord } from './room/liveStore';
 import { formatDuration, InterviewReportView } from './room/InterviewReportView';
 
 const reportHref = (id: string) => `${PATHS.mockInterviewReports}?id=${encodeURIComponent(id)}`;
@@ -21,6 +23,9 @@ export default function ReportsPage() {
   const router = useRouter();
   const id = params.get('id');
   const [history, setHistory] = useState<LiveInterviewRecord[] | null>(null);
+  const aiReady = useBuiltInAI() === 'available';
+  /** Id of the report whose summary is being written. */
+  const [writing, setWriting] = useState<string | null>(null);
 
   useEffect(() => setHistory(loadHistory()), []);
 
@@ -31,6 +36,14 @@ export default function ReportsPage() {
     deleteRecord(rid);
     setHistory(loadHistory());
     if (id) router.push(PATHS.mockInterviewReports);
+  };
+
+  const writeSummary = async (rec: LiveInterviewRecord) => {
+    setWriting(rec.id);
+    const text = await aiReportSummary(rec.report);
+    if (text) saveRecord({ ...rec, summary: { text, by: 'chrome' } });
+    setHistory(loadHistory());
+    setWriting(null);
   };
 
   if (id) {
@@ -56,6 +69,8 @@ export default function ReportsPage() {
         legacy={rec.legacy}
         readOnly
         onDelete={() => remove(rec.id)}
+        summary={writing === rec.id ? '' : (rec.summary?.text ?? null)}
+        onWriteSummary={aiReady && !rec.legacy ? () => void writeSummary(rec) : undefined}
       />
     );
   }
